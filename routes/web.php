@@ -25,3 +25,6 @@ Route::get('/dashboard/detaildata', function () {
     return view('detaildataentry');
 });
 
+Route::get('/dashboard/detaildataBU', function () {
+    return view('detaildataentryBU');
+});

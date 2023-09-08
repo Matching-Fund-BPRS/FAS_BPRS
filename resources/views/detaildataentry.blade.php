@@ -7,10 +7,10 @@
 
 <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
     <li class="mr-2">
-        <a href="#" aria-current="page" class="inline-block p-4 text-green-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-green-500">Perorangan</a>
+        <a href="#" aria-current="page" class=" active inline-block p-4 text-green-600 bg-gray-100 rounded-t-lg dark:bg-gray-800 dark:text-green-500">Perorangan</a>
     </li>
     <li class="mr-2">
-        <a href="#" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Badan Usaha</a>
+        <a href="/dashboard/detaildataBU" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Badan Usaha</a>
     </li>
 </ul>
 
@@ -92,21 +92,36 @@
                 </div>
             </div>
                 
-            <div>
-                <label for="sifatpemb" class="block mb-2 text-xs font-medium text-gray-900">Sifat Pembiayaan</label>
-                <input type="text" id="sifatpemb" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+            <div class= "min-w-xl">
+                <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat Pembiayaan</label>
+                <select id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="US">Murabahah</option>
+                <option value="CA">Musyarakah</option>
+                <option value="FR">Mudarabah</option>
+                <option value="FR">Ijaroh</option>
+                <option value="FR">Rahn</option>
+                <option value="FR">Qord</option>
+                </select>
             </div>
         </div>
         
         <div class="space-y-4 relative w-full">
-            <div>
-                <label for="jenisperm" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
-                <input type="text" id="jenisperm" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+            <div class= "">
+                <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
+                <select id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="US">Baru</option>
+                <option value="CA">Tambahan</option>
+                <option value="FR">Tambahan dan Perpanjangan</option>
+                </select>
             </div>
-        
-            <div>
-                <label for="tujuanpeng" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
-                <input type="text" id="tujuanpeng" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+
+            <div class= "">
+                <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
+                <select id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="US">Modal Kerja</option>
+                <option value="CA">Investasi</option>
+                <option value="FR">Konsultasi</option>
+                </select>
             </div>
         
             <div>
@@ -406,4 +421,7 @@
 
 </section>
 
+<div class=" pt-6">
+    <button type="button" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+</div>
 @endsection
