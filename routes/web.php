@@ -36,3 +36,11 @@ Route::get('/dashboard/detailnota', function () {
 Route::get('/dashboard/fasilitasexisting', function () {
     return view('fasilitasexisting');
 });
+
+Route::get('/dashboard/ankual', function () {
+    return view('ankual');
+});
+
+Route::get('/dashboard/ankuan', function () {
+    return view('ankuan');
+});
