@@ -28,3 +28,11 @@ Route::get('/dashboard/detaildata', function () {
 Route::get('/dashboard/detaildataBU', function () {
     return view('detaildataentryBU');
 });
+
+Route::get('/dashboard/detailnota', function () {
+    return view('dashboardnota');
+});
+
+Route::get('/dashboard/fasilitasexisting', function () {
+    return view('fasilitasexisting');
+});

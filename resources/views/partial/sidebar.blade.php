@@ -54,7 +54,7 @@
                     <span class="mx-2 text-sm font-medium">Detail Data Entry</span>
                 </a>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detailnota">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
