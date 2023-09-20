@@ -20,6 +20,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);
 
+Route::post('/dashboard/detaildata/tambah-nasabah', [NasabahController::class, 'tambah_nasabah'])->name("tambah_nasabah");
+
 Route::get('/dashboard/detaildata', function () {
     return view('detaildataentry');
 });
