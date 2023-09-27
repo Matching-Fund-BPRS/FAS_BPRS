@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NasabahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,9 @@ Route::get('/', function () {
     return view('dashboard');
 });
 
-Route::get('/dashboard/danolisa', function () {
-    return view('danolisa');
-});
+Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);
+
+Route::post('/dashboard/detaildata/tambah-nasabah', [NasabahController::class, 'tambah_nasabah'])->name("tambah_nasabah");
 
 Route::get('/dashboard/detaildata', function () {
     return view('detaildataentry');
