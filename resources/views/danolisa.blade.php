@@ -46,9 +46,7 @@
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
                                     User ID
                                 </th>
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                    Action
-                                </th> 
+    
                             </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-20">
@@ -102,14 +100,6 @@
                                 <td class="px-4 py-4 whitespace-nowrap">
                                     <p class="text-sm font-normal text-center text-gray-600">{{ $nasabah->ID_NASABAH }}</p>
                                 </td>  
-
-                                <td class="px-4 py-4 text-sm whitespace-nowrap">
-                                    <button class="px-1 py-1 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100">
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 12.75a.75.75 0 110-1.5.75.75 0 010 1.5zM12 18.75a.75.75 0 110-1.5.75.75 0 010 1.5z" />
-                                        </svg>
-                                    </button>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -121,7 +111,7 @@
     </div>
 
     <br>
-    <div>
+    <div class="flex justify-center">
         {{ $all_nasabah->links() }}
     </div>
 </section>
