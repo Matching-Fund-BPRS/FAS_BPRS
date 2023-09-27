@@ -45,3 +45,6 @@ Route::get('/dashboard/ankual', function () {
 Route::get('/dashboard/ankuan', function () {
     return view('ankuan');
 });
+Route::get('/dashboard/infokeuangan', function () {
+    return view('infokeuangan');
+});

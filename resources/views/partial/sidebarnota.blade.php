@@ -55,7 +55,7 @@
                     <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
                 </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/infokeuangan">
                     <span class="mx-2 text-sm font-normal">Info Keuangan</span>
                 </a>
 
