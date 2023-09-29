@@ -13,7 +13,7 @@
             <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
                 <div class="overflow-hidden border border-gray-200 md:rounded-lg">
 
-                    <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
+                    <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal">
                         <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">

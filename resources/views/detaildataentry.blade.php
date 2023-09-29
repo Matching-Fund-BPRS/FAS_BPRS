@@ -232,7 +232,7 @@
                 <div class="flex space-x-2 justify-between max-w-md">
                     <div class= "min-w-xl">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Tempat Tinggal</label>
-                        <select name="status_tempat_tinggal" id="countries" class=" min-w-[300px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        <select name="status_tempat_tinggal" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         <option value="US">Rumah Dinas</option>
                         <option value="CA">Milik Sendiri</option>
                         <option value="FR">Kontrak</option>
@@ -250,9 +250,9 @@
                 </div>
             
                 <div class="flex space-x-2 justify-between max-w-md">
-                    <div class= "min-w-xl">
+                    <div class= "">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tingkat Pendidikan</label>
-                        <select name="tingkat_pendidikan" id="countries" class=" min-w-[300px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        <select name="tingkat_pendidikan" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         <option value="US">S1 / Sederajat</option>
                         <option value="CA">SMA / Sederajat</option>
                         <option value="FR">SMP / Sederajat</option>

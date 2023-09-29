@@ -1,7 +1,5 @@
-<aside class="md:block top-0 sticky hidden min-h-screen px-5 py-8 bg-white border-r">
-    <div>
-        
-    </div>
+{{-- SIDEBAR DESKTOP START --}}
+<aside id="default-sidebar" class="md:block hidden top-0 z-40 sticky min-h-screen px-5 py-8 bg-white border-r transition-transform -translate-x-full sm:translate-x-0">
     <div class="flex justify-center">
         <a href="/">
             <img src="{{ asset('img/logo.png') }}" alt="" class="w-auto h-20">
@@ -135,3 +133,4 @@
         </nav>
     </div>
 </aside>
+{{-- SIDEBAR DESKTOP END --}}
