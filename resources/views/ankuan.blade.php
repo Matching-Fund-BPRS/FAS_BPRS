@@ -75,35 +75,53 @@
                                     </th>
         
                                     <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                        Safe.....
+                                        Save Margin
                                     </th>
         
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-20">
-        
-        
+                                @foreach($data_tabel_agunan_asuransi as $data)
                                 <tr>
+                                    @if($data->JENIS != null)
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                            <p class="text-sm font-bold text-center text-gray-600">22</p>
+                                            <p class="text-sm font-bold text-center text-gray-600">{{ $data->JENIS }}</p>
                                     </td>
+                                    @else
+                                    <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-bold text-center text-gray-600">-</p>
+                                    </td>
+                                    @endif
+
+                                    @if($data->BUKTI_MILIK != null)
                                     <td class="px-4 py-4 whitespace-normal">
-                                            <p class="text-sm font-normal text-center text-gray-600">Jeremy de Coro al Tente Subagyo Maulana Ishaq</p>
+                                            <p class="text-sm font-normal text-center text-gray-600">{{ $data->BUKTI_MILIK }}</p>
                                     </td>
+                                    @else
+                                    <td class="px-4 py-4 whitespace-normal">
+                                        <p class="text-sm font-normal text-center text-gray-600">-</p>
+                                    </td>
+                                    @endif
+
+                                    @if($data->KET != null)
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                            <p class="text-sm font-normal text-center text-gray-600">Mandiri</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ $data->KET }}</p>
+                                    </td>
+                                    @else
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">-</p>
+                                    </td>
+                                    @endif
+        
+                                    <td class="px-4 py-4 whitespace-nowrap">
+                                            <p class="text-sm font-normal text-center text-gray-600">{{ $data->NILAI }}</p>
                                     </td>
         
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                            <p class="text-sm font-normal text-center text-gray-600">Konsumsi</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ $data->SAVE_MARGIN }}</p>
                                     </td>
-        
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">6.000.000</p>
-                                    </td>
-        
                                 </tr>
-        
+                                @endforeach
                             </tbody>
                         </table>
         
@@ -112,7 +130,9 @@
             </div>
         </div>
     </div>
-    
+    <div class="flex justify-center">
+        {{ $data_tabel_agunan_asuransi->links() }}
+    </div>
 </section>
 
 <section class="space-y-4 my-4">

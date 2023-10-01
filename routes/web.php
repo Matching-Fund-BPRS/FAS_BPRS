@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NasabahController;
+use App\Http\Controllers\FasExistController;
+use App\Http\Controllers\AnKuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,17 +36,19 @@ Route::get('/dashboard/detailnota', function () {
     return view('dashboardnota');
 });
 
-Route::get('/dashboard/fasilitasexisting', function () {
-    return view('fasilitasexisting');
-});
+// fasilitas existing page
+Route::get('/dashboard/fasilitasexisting', [FasExistController::class, 'fasIndex']);
+Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
+
 
 Route::get('/dashboard/ankual', function () {
     return view('ankual');
 });
 
-Route::get('/dashboard/ankuan', function () {
-    return view('ankuan');
-});
+//analisis kuantitatif page
+Route::get('/dashboard/ankuan', [AnKuanController::class, 'anKuanIndex']);
+
+
 Route::get('/dashboard/infokeuangan', function () {
     return view('infokeuangan');
 });

@@ -229,49 +229,48 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-20">
-
-
+                        @foreach($data_fasilitas_existing as $data)
                         <tr>
                             <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                    <p class="text-sm font-bold text-center text-gray-600">22</p>
+                                    <p class="text-sm font-bold text-center text-gray-600">{{ $data->ID }}</p>
                             </td>
                             <td class="px-4 py-4 whitespace-normal">
-                                    <p class="text-sm font-normal text-center text-gray-600">Jeremy de Coro al Tente Subagyo Maulana Ishaq</p>
+                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->KET }}</p>
                             </td>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600">Mandiri</p>
-                            </td>
-
-                            <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600">Konsumsi</p>
+                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->BANK }}</p>
                             </td>
 
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">6.000.000</p>
+                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->JENIS_KREDIT }}</p>
+                            </td>
+
+                            <td class="px-4 py-4 whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->PLAFOND }}</p>
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">6.234.550</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->BAKI_DEBET }}</p>
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">2/9/2023</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ date('d-m-Y', strtotime($data->TGL_JATUH_TEMPO)) }}</p>
                             </td>  
 
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">1</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->KOL }}</p>
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">0</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->TUNGGAKAN }}</p>
                             </td> 
 
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->LAMA_TUNGGAKAN }}</p>
                             </td> 
 
                         </tr>
-
+                        @endforeach
                     </tbody>
                 </table>
 
@@ -279,5 +278,8 @@
         </div>
     </div>
 </div>
-
+<br>
+<div class="flex justify-center">
+    {{ $data_fasilitas_existing->links() }}
+</div>
 @endsection
