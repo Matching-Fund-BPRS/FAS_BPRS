@@ -52,3 +52,7 @@ Route::get('/dashboard/ankuan', [AnKuanController::class, 'anKuanIndex']);
 Route::get('/dashboard/infokeuangan', function () {
     return view('infokeuangan');
 });
+
+Route::get('/dashboard/limitkredit', function () {
+    return view('limitkredit');
+});
