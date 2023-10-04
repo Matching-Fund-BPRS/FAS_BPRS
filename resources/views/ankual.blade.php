@@ -4,6 +4,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
 
+<form>
 <section id="permohonan" class="my-4">
     <p class="block py-4 text-base font-semibold text-gray-900">
         A. Aspek Legalitas
@@ -185,7 +186,6 @@
             </div>
         </div>
     </div>
-    
 </section>
 
 <div>
@@ -193,4 +193,9 @@
     <textarea id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."></textarea>        
 </div>
 
+
+<div class=" pt-6">
+    <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+</div>
+<form>
 @endsection
