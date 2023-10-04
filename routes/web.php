@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\FasExistController;
 use App\Http\Controllers\AnKuanController;
+use App\Http\Controllers\AngsuranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,9 +62,8 @@ Route::get('/dashboard/rugilaba', function () {
     return view('rugilaba');
 });
 
-Route::get('/dashboard/daftarangsuran', function () {
-    return view('daftarangsuran');
-});
+//Daftar angsuran page
+Route::get('/dashboard/daftarangsuran', [AngsuranController::class, 'index']);
 
 
 Route::get('/dashboard/rekomendasi', function () {

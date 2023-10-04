@@ -13,7 +13,7 @@
                 Plafond 
             </td>
             <td>
-                :   Rp. xxx.xxx.xxx
+                :   Rp{{ $plafond }}
             </td>
         </tr>
 
@@ -22,7 +22,7 @@
                 Jangka Waktu
             </td>
             <td>
-                :   x Bulan
+                :   {{ $jangkaWaktu }} Bulan
             </td>
         </tr>
 
@@ -31,7 +31,7 @@
                 Margin 
             </td>
             <td>
-                :   % Per Bulan
+                : {{ $margin }}  % Per Bulan
             </td>
         </tr>
     </table>
@@ -46,8 +46,13 @@
                 <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal">
                     <thead class="bg-gray-50">
                         <tr>
+
                             <th scope="col" class="px-2 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
-                                Nomor
+                                ID Nasabah
+                            </th>
+
+                            <th scope="col" class="px-2 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
+                                Nomor Angsuran
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
@@ -59,7 +64,7 @@
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
-                                Angsuran Margin
+                                Angsuran Bunga
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
@@ -69,66 +74,31 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-20">
-
+                        @foreach($data_angsuran as $data)
                         <tr>
                             <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">1</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ID_NASABAH }}</p>
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->NO_ANGSURAN }}</p>
+                            </td>
+                            <td class="px-4 py-1 whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->POKOK_PINJAMAN }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ANGS_POKOK }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ANGS_BUNGA }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
                             </td>
                         </tr>
-
+                        @endforeach
+                       
                         <tr>
-                            <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">2</p>
-                            </td>
-                            <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">3</p>
-                            </td>
-                            <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
-                            </td>
-                            <td class="px-4 py-1 whitespace-nowrap">
+                            <td colspan="2" class="px-4 py-1 whitespace-nowrap">
                                 <p class="text-sm font-bold text-center text-gray-600">Total</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
