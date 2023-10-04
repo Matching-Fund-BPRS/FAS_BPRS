@@ -9,6 +9,8 @@
         BPRS Baktimakmur Indah    
     </p>
 
+    {{-- TODO --}}
+    {{-- Panggil data user yang sedang login berdasarkan session --}}
     <div class="mt-2 bg-gradient-to-tl from-emerald-400 via-green-200 to-lime-100 rounded-md p-2 drop-shadow-lg">
         <p class="text-left text-xs font-bold">
             User ID : <span class="font-normal">Mandiri</span>

@@ -8,7 +8,7 @@ use App\Models\TBisid;
 
 class FasExistController extends Controller
 {
-    public function fasIndex(){
+    public function fasIndex(){ 
         return view('fasilitasexisting',[
             'data_fasilitas_existing' => TFa::paginate(10)
         ]);
