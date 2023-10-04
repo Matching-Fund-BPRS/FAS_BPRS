@@ -56,3 +56,18 @@ Route::get('/dashboard/infokeuangan', function () {
 Route::get('/dashboard/limitkredit', function () {
     return view('limitkredit');
 });
+
+Route::get('/dashboard/rugilaba', function () {
+    return view('rugilaba');
+});
+
+Route::get('/dashboard/daftarangsuran', function () {
+    return view('daftarangsuran');
+});
+
+
+Route::get('/dashboard/rekomendasi', function () {
+    return view('rekomendasi');
+});
+
+
