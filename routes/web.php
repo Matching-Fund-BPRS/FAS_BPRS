@@ -70,4 +70,7 @@ Route::get('/dashboard/rekomendasi', function () {
     return view('rekomendasi');
 });
 
+Route::get('/dashboard/neraca', function () {
+    return view('neraca');
+});
 
