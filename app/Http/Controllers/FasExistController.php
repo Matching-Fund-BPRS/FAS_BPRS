@@ -20,6 +20,7 @@ class FasExistController extends Controller
     public function tambah_bisid(Request $request){
         dd($request);
         // TBisid::insert([
+        //     'ID_NASABAH' => $request->id_nasabah,
         //     'SEKTOR_EKONOMI_BI' =>$request->sektor_ekonomi_bi ,
         //     'PENGGUNAAN_BI' => $request->penggunaan_bi,
         //     'GOL_DEB_BI' => $request->golongan_debitur_bi,

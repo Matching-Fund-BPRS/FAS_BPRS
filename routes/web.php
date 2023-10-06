@@ -50,7 +50,7 @@ Route::post('/dashboard/ankual/tambah-ankual', [AnKualController::class, 'addAnk
 
 //analisis kuantitatif page
 Route::get('/dashboard/ankuan', [AnKuanController::class, 'anKuanIndex']);
-
+Route::post('/dashboard/ankuan/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
 
 Route::get('/dashboard/infokeuangan', function () {
     return view('infokeuangan');
