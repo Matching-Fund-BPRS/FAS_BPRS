@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\FasExistController;
 use App\Http\Controllers\AnKuanController;
+use App\Http\Controllers\AnKualController;
 use App\Http\Controllers\AngsuranController;
 
 /*
@@ -41,10 +42,11 @@ Route::get('/dashboard/detailnota', function () {
 Route::get('/dashboard/fasilitasexisting', [FasExistController::class, 'fasIndex']);
 Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
 
-
+//analisisa kualitatif page
 Route::get('/dashboard/ankual', function () {
     return view('ankual');
 });
+Route::post('/dashboard/ankual/tambah-ankual', [AnKualController::class, 'addAnkual'])->name('tambah_ankual');
 
 //analisis kuantitatif page
 Route::get('/dashboard/ankuan', [AnKuanController::class, 'anKuanIndex']);
