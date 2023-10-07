@@ -6,6 +6,7 @@ use App\Http\Controllers\FasExistController;
 use App\Http\Controllers\AnKuanController;
 use App\Http\Controllers\AnKualController;
 use App\Http\Controllers\AngsuranController;
+use App\Http\Controllers\InfoKeuanganController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,9 +53,11 @@ Route::post('/dashboard/ankual/tambah-ankual', [AnKualController::class, 'addAnk
 Route::get('/dashboard/ankuan', [AnKuanController::class, 'anKuanIndex']);
 Route::post('/dashboard/ankuan/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
 
+//info keuangan page
 Route::get('/dashboard/infokeuangan', function () {
     return view('infokeuangan');
 });
+Route::post('/dashboard/infokeuangan/tambah', [InfoKeuanganController::class, 'addInfoKeuangan'])->name('tambah_info_keuangan');
 
 Route::get('/dashboard/limitkredit', function () {
     return view('limitkredit');
@@ -66,7 +69,6 @@ Route::get('/dashboard/rugilaba', function () {
 
 //Daftar angsuran page
 Route::get('/dashboard/daftarangsuran', [AngsuranController::class, 'index']);
-
 
 Route::get('/dashboard/rekomendasi', function () {
     return view('rekomendasi');
