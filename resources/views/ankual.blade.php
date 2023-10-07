@@ -40,7 +40,7 @@
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
-                <input name="legalitas pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="legalitas_pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
                 <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Terbit</label>

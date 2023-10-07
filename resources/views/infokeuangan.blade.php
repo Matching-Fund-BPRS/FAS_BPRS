@@ -118,7 +118,11 @@
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>
             <input type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
         </div>
+        <div class=" pt-6">
+            <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+        </div>
     </section>
+    
 </div>
 
 @endsection
