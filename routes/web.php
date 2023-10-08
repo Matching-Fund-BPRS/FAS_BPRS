@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\AuthenticateController;
+
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\FasExistController;
 use App\Http\Controllers\AnKuanController;
@@ -25,7 +28,7 @@ use App\Http\Controllers\RekomendasiController;
 
 Route::get('/', function () {
     return view('dashboard');
-});
+})->name('home');
 
 Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);
 
@@ -83,3 +86,15 @@ Route::get('/dashboard/neraca', function () {
     return view('neraca');
 });
 
+
+// authentication
+Route::get('/login', function(){
+    return view('login');
+})->name('login_page');
+Route::post("/login/authenticate", [AuthenticateController::class, 'authenticate'])->name('login');
+Route::post("/logout", [AuthenticateController::class, 'logout'])->name('logout');
+
+Route::get('/register', function(){
+    return view('register');
+})->name('register_page');
+Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
