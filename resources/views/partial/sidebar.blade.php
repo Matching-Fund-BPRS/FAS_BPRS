@@ -16,10 +16,16 @@
             User ID : <span class="font-normal">Mandiri</span>
         </p>
         <p class="text-left text-xs font-bold">
-            Nama : <span class="font-normal">{{ auth()->user()->name }}</span>
+            Nama :
+            @auth
+            <span class="font-normal">{{ auth()->user()->name }}</span>
+            @endauth
         </p>
         <p class="text-left text-xs font-bold">
-            Level : <span class="font-normal">{{ auth()->user()->level }}</span>
+            Level : 
+            @auth
+            <span class="font-normal">{{ auth()->user()->level }}</span>
+            @endauth
         </p>
     </div>
 
