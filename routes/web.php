@@ -7,6 +7,10 @@ use App\Http\Controllers\AnKuanController;
 use App\Http\Controllers\AnKualController;
 use App\Http\Controllers\AngsuranController;
 use App\Http\Controllers\InfoKeuanganController;
+use App\Http\Controllers\LimitKreditController;
+use App\Http\Controllers\RugiLabaController;
+use App\Http\Controllers\RekomendasiController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -59,20 +63,21 @@ Route::get('/dashboard/infokeuangan', function () {
 });
 Route::post('/dashboard/infokeuangan/tambah', [InfoKeuanganController::class, 'addInfoKeuangan'])->name('tambah_info_keuangan');
 
-Route::get('/dashboard/limitkredit', function () {
-    return view('limitkredit');
-});
+//limit kredit page
+Route::get('/dashboard/limitkredit', [LimitKreditController::class, 'index']);
+Route::post('/dashboard/limitkredit/tambah', [LimitKreditController::class, 'addLimitKredit'])->name('tambah_limit_kredit');
 
-Route::get('/dashboard/rugilaba', function () {
-    return view('rugilaba');
-});
+//rugi laba page
+Route::get('/dashboard/rugilaba', [RugiLabaController::class, 'index']);
 
 //Daftar angsuran page
 Route::get('/dashboard/daftarangsuran', [AngsuranController::class, 'index']);
 
+//rekomendasi page
 Route::get('/dashboard/rekomendasi', function () {
     return view('rekomendasi');
 });
+Route::post('/dashboard/rekomendasi/tambah', [RekomendasiController::class, 'addRekomendasi'])->name('tambah_rekomendasi');
 
 Route::get('/dashboard/neraca', function () {
     return view('neraca');

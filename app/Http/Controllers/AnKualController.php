@@ -39,7 +39,7 @@ class AnKualController extends Controller
             'PEM_USAHA' => $request->prospek_usaha,
             'PEM_REPUTASI' => $request->reputasi_pelanggan,
             'PEM_PELANGGAN' => $request->jumlah_pelanggan,
-// di aspek manajemen tambahin Ketergantungan
+// di aspek pemasaran tambahin Ketergantungan
             // 'PEM_KETERGANTUNGAN' => $request->,
             'PEM_KEBUTUHAN' => $request->kebutuhan_masyarakat,
 
