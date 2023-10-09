@@ -98,3 +98,7 @@ Route::get('/register', function(){
     return view('register');
 })->name('register_page');
 Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
+
+Route::get('/dashboard/user', function () {
+    return view('usermanagement');
+});
