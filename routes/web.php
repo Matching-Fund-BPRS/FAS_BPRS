@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\FasExistController;
@@ -99,6 +100,6 @@ Route::get('/register', function(){
 })->name('register_page');
 Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
 
-Route::get('/dashboard/user', function () {
-    return view('usermanagement');
-});
+//user management page
+Route::get('/dashboard/user', [UserController::class, 'index']);
+Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');

@@ -88,7 +88,7 @@
             <div class="space-y-2">
                 <label class="px-3 text-xs text-gray-500 uppercase">pengaturan</label>
 
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/user">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
