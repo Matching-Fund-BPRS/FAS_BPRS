@@ -12,9 +12,28 @@ class NasabahController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
+    public function searchNasabah(Request $request){
+        if($request != null){
+            $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
+
+            return view('dashboardnota',[
+                'nasabah' => $nasabah
+            ]);
+        }
+        else{
+            return view('dashboardnota');
+        }   
+    }
+
     public function index(){
         return view('danolisa',[
             'all_nasabah' => TNasabah::paginate(25)
+        ]);
+    }
+
+    public function data_nasabah($id){
+        return view('detaildataentry', [
+            'nasabah' => TNasabah::where('ID_NASABAH', $id)->first()
         ]);
     }
 

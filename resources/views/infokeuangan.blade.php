@@ -1,7 +1,6 @@
 @extends ('partial.mainnota')
 
 @section('container')
-
 <form method="post" action="{{ Route('tambah_info_keuangan') }}">
     @csrf
     <div class="md:grid md:grid-cols-3 md:space-x-8">

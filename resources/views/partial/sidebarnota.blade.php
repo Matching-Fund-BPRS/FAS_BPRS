@@ -10,14 +10,17 @@
     <p class="my-2 text-center font-bold">
         BPRS Baktimakmur Indah    
     </p>
-
+    
     <div class="mt-3">
         <nav class="-mx-3 space-y-3 relative">
-            
-            <form class="flex flex-row max-w-fit px-3">   
+            <form method="get" action="{{ route('search-id') }}" class="flex flex-row max-w-fit px-3">   
                 <label for="simple-search" class="sr-only">Search</label>
                 <div class=" min-w-min">
-                    <input type="text" id="simple-search" class="bg-gray-50 max-w-[160px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cari Nota" required>
+                    @if($nasabah!= null)
+                        <input type="text" name="id" value="{{ $nasabah->ID_NASABAH }}" id="simple-search" class="bg-gray-50 max-w-[160px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="" required>
+                    @else
+                        <input type="text" name="id" id="simple-search" class="bg-gray-50 max-w-[160px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cari Nota" required>
+                    @endif
                 </div>
                 <button type="submit" class="p-2 ml-2 text-sm font-medium text-white bg-green-700 rounded-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -29,55 +32,107 @@
 
             <div class="mx-3 text-xs space-y-1 ">
                 <p class=" font-semibold">
-                    Null Name
+                    @if($nasabah!=null)
+                    {{ $nasabah->NAMA }}
+                    @else
+                    Nama Nasabah
+                    @endif
                 </p>
                 <p class=" border-b pb-2">
-                    Null Address
+                    @if($nasabah!=null)
+                    {{ $nasabah->ALAMAT_USAHA }}
+                    @else
+                    Alamat Nasabah
+                    @endif
                 </p>
             </div>
 
 
             <div class="space-y-1">
-                
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/danolisa">
-                    <span class="mx-2 text-sm font-normal">Detail Data Entry</span>
-                </a>
+                @if($nasabah != null)
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata/{{ $nasabah->ID_NASABAH  }}">
+                        <span class="mx-2 text-sm font-normal">Detail Data Entry</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/fasilitasexisting">
-                    <span class="mx-2 text-sm font-normal">Fasilitas Existing</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/fasilitasexisting/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Fasilitas Existing</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual">
-                    <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
-                </a>
+                                    
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual//{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankuan">
-                    <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankuan/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/infokeuangan">
-                    <span class="mx-2 text-sm font-normal">Info Keuangan</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/infokeuangan/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Info Keuangan</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/limitkredit">
-                    <span class="mx-2 text-sm font-normal">Perhitungan Limit Kredit</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/limitkredit/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Perhitungan Limit Kredit</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/rugilaba  ">
-                    <span class="mx-2 text-sm font-normal">Rugi Laba</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/rugilaba/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Rugi Laba</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/neraca">
-                    <span class="mx-2 text-sm font-normal">Neraca</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/neraca/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Neraca</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/rekomendasi">
-                    <span class="mx-2 text-sm font-normal">Rekomendasi</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/rekomendasi/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Rekomendasi</span>
+                    </a>
 
-                <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/daftarangsuran">
-                    <span class="mx-2 text-sm font-normal">Daftar Angunan</span>
-                </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/daftarangsuran/{{ $nasabah->ID_NASABAH }}">
+                        <span class="mx-2 text-sm font-normal">Daftar Angunan</span>
+                    </a>
+
+                @else
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata/">
+                        <span class="mx-2 text-sm font-normal">Detail Data Entry</span>
+                    </a>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Fasilitas Existing</span>
+                    </a>
+
+                                    
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
+                    </a>
+
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
+                    </a>
+
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Info Keuangan</span>
+                    </a>
+
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Perhitungan Limit Kredit</span>
+                    </a>
+
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Rugi Laba</span>
+                    </a>
+
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Neraca</span>
+                    </a>
+
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Rekomendasi</span>
+                    </a>
+
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Daftar Angunan</span>
+                    </a>
+                @endif
+
 
             </div>
 

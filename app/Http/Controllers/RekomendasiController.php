@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TRekomendasi;
+use App\Models\TNasabah;
 
 class RekomendasiController extends Controller
 {
@@ -14,6 +15,14 @@ class RekomendasiController extends Controller
         dd($request);
         TRekomendasi::insert([
 
+        ]);
+    }
+    
+    public function index($id){
+        $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        return view('rekomendasi',[
+            'nasabah' => $nasabah,
+            'rekomendasi_nasabah' => TRekomendasi::where('ID_NASABAH', $id)->first()
         ]);
     }
 }

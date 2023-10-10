@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TFa;
 use App\Models\TBisid;
+use App\Models\TNasabah;
+
 
 class FasExistController extends Controller
 {
 
     // TODO
         // ini filter berdasarkan nota(?)
-    public function fasIndex(){ 
+    public function fasIndex($id){ 
+        $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         return view('fasilitasexisting',[
-            'data_fasilitas_existing' => TFa::paginate(10)
+            'data_fasilitas_existing' => TFa::where('ID_NASABAH', $id)->paginate(5),
+            'nasabah' => $nasabah
         ]);
     }
 

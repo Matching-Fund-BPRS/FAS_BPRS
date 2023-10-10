@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TAngsuran;
+use App\Models\TNasabah;
 
 class AngsuranController extends Controller
 {
-    public function index(){
+    public function index($id){
 
         //TODO
         //ambil data angsuran berdasarkan nomor nasabah/nota
-        $data_angsuran = TAngsuran::paginate(10);
+        $data_angsuran = TAngsuran::where('ID_NASABAH', $id)->paginate(5);
 
         //TODO
         //Siapin rumus untuk perhitungan plafond, margin, dan jangka waktu
@@ -24,8 +25,9 @@ class AngsuranController extends Controller
         $total = 0;
 
 
-
+        $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         return view('daftarangsuran', [
+            'nasabah' => $nasabah,
             'plafond' => $plafond,
             'margin' => $margin,
             'jangkaWaktu' => $jangkaWaktu,

@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TLimitkredit;
+use App\Models\TNasabah;
 
 class LimitKreditController extends Controller
 {
-    public function index(){
+    public function index($id){
+        $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         return view('limitkredit', [
-            
+            'nasabah' => $nasabah,
+            'limit_kredit_nasabah' => TLimitKredit::where('ID_NASABAH', $id)->first()
         ]);
     }
 
