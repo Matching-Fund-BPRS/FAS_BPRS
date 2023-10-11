@@ -46,11 +46,6 @@
                 <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal">
                     <thead class="bg-gray-50">
                         <tr>
-
-                            <th scope="col" class="px-2 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
-                                ID Nasabah
-                            </th>
-
                             <th scope="col" class="px-2 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
                                 Nomor Angsuran
                             </th>
@@ -76,9 +71,6 @@
                     <tbody class="bg-white divide-y divide-gray-20">
                         @foreach($data_angsuran as $data)
                         <tr>
-                            <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ID_NASABAH }}</p>
-                            </td>
                             <td class="px-4 py-1 whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600">{{ $data->NO_ANGSURAN }}</p>
                             </td>

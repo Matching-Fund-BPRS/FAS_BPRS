@@ -51,7 +51,7 @@
             <div class="space-y-1">
                 @if($nasabah != null)
                     <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata/{{ $nasabah->ID_NASABAH  }}">
-                        <span class="mx-2 text-sm font-normal">Detail Data Entry</span>
+                        <span class="mx-2 text-sm font-normal">Detail Data</span>
                     </a>
 
                     <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/fasilitasexisting/{{ $nasabah->ID_NASABAH }}">
@@ -92,43 +92,42 @@
                     </a>
 
                 @else
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata/">
-                        <span class="mx-2 text-sm font-normal">Detail Data Entry</span>
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata">
+                        <span class="mx-2 text-sm font-normal">Detail Data</span>
                     </a>
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Fasilitas Existing</span>
                     </a>
-
-                                    
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+    
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
                     </a>
 
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
                     </a>
 
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Info Keuangan</span>
                     </a>
 
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Perhitungan Limit Kredit</span>
                     </a>
 
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white"onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Rugi Laba</span>
                     </a>
 
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white"onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Neraca</span>
                     </a>
 
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Rekomendasi</span>
                     </a>
 
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Daftar Angunan</span>
                     </a>
                 @endif

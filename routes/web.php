@@ -33,45 +33,66 @@ Route::get('/', function () {
 
 Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);
 
+
+//////////////////////////////////////////////////////////////////////////////
+// DATA ENTRY PAGE
 Route::post('/dashboard/detaildata/tambah-nasabah', [NasabahController::class, 'tambah_nasabah'])->name("tambah_nasabah");
+Route::post('/dashboard/detaildata/{id}/edit', [NasabahController::class, 'edit_data_nasabah'])->name("edit_data_nasabah");
 
 Route::get('/dashboard/detaildata', function () {
-    return view('detaildataentry');
+    return view('detaildataentry',[
+        'nasabah' => null
+    ]);
 });
-
 Route::get('/dashboard/detaildata/{id}', [NasabahController::class, 'data_nasabah']);
-
 Route::get('/dashboard/detaildataBU', function () {
-    return view('detaildataentryBU');
+    return view('detaildataentryBU', [
+        'nasabah' => null
+    ]);
 });
+Route::get('/dashboard/detaildataBU/{id}', [NasabahController::class, 'data_usaha_nasabah']);
+
 
 Route::get('/dashboard/detailnota', [NasabahController::class, 'searchNasabah'])->name("search-id");
 
+
+//////////////////////////////////////////////////////////////////////////////
 // fasilitas existing page
 Route::get('/dashboard/fasilitasexisting/{id}', [FasExistController::class, 'fasIndex']);
 Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisisa kualitatif page
 Route::get('/dashboard/ankual', function () {
     return view('ankual');
 });
 Route::post('/dashboard/ankual/tambah-ankual', [AnKualController::class, 'addAnkual'])->name('tambah_ankual');
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisis kuantitatif page
 Route::get('/dashboard/ankuan', [AnKuanController::class, 'anKuanIndex']);
 Route::post('/dashboard/ankuan/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //info keuangan page
 Route::get('/dashboard/infokeuangan/{id}', [InfoKeuanganController::class, 'index']);
 Route::post('/dashboard/infokeuangan/tambah', [InfoKeuanganController::class, 'addInfoKeuangan'])->name('tambah_info_keuangan');
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //limit kredit page
 Route::get('/dashboard/limitkredit/{id}', [LimitKreditController::class, 'index']);
 Route::post('/dashboard/limitkredit/tambah', [LimitKreditController::class, 'addLimitKredit'])->name('tambah_limit_kredit');
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //rugi laba page
 Route::get('/dashboard/rugilaba/{id}', [RugiLabaController::class, 'index']);
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //rekomendasi page
 Route::get('/dashboard/rekomendasi/{id}', [RekomendasiController::class, 'index']);
 Route::post('/dashboard/rekomendasi/tambah', [RekomendasiController::class, 'addRekomendasi'])->name('tambah_rekomendasi');
@@ -81,23 +102,25 @@ Route::get('/dashboard/neraca', function () {
 });
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Daftar angsuran page
 Route::get('/dashboard/daftarangsuran/{id}', [AngsuranController::class, 'index']);
 
 
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 // authentication
 Route::get('/login', function(){
     return view('login');
 })->name('login_page');
 Route::post("/login/authenticate", [AuthenticateController::class, 'authenticate'])->name('login');
 Route::post("/logout", [AuthenticateController::class, 'logout'])->name('logout');
-
 Route::get('/register', function(){
     return view('register');
 })->name('register_page');
 Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
 
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
 //user management page
 Route::get('/dashboard/user', [UserController::class, 'index']);
 Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
