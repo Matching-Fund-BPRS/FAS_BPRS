@@ -34,8 +34,7 @@ class AnKuanController extends Controller
     }
 
     public function editAgunan(Request $request, $id){
-        TAgunan::where('ID_NASABAH', $id)->update([
-            'ID_NASABAH' => $request->id,
+        TKuantitatif::where('ID_NASABAH', $id)->update([
             'KEPEMILIKAN' => $request->kepemilikan,
             'NILAI_AGUNAN' => $request->nilai_agunan,
             'PENGIKATAN' => $request->pengikatan,
@@ -43,14 +42,24 @@ class AnKuanController extends Controller
             'PENGUASAAN' => $request->penguasaan,
             'ASURANSI' => $request->asuransi 
         ]);
+
+        return redirect()->back()->with('success-edit', 'Data berhasil diupdate!');
     }
 
     public function addResiko(Request $request){
-        dd($request);
-        // TResiko::insert([
-        //     'ID_NASABAH' => $request->id_nasabah,
-        //     'RESIKO' => $request->resiko,
-        //     'MITIGASI_RESIKO' => $request->mitigasi_resiko
-        // ]);
+        TResiko::insert([
+            'ID_NASABAH' => $request->id,
+            'RESIKO' => $request->resiko,
+            'MITIGASI_RESIKO' => $request->mitigasi_resiko
+        ]);
+        return redirect()->back()->with('success-add-risk', 'Data resiko berhasil disimpan!');
+    }
+
+    public function editResiko(Request $request, $id){
+        TResiko::where('ID_NASABAH', $id)->update([
+            'RESIKO' => $request->resiko,
+            'MITIGASI_RESIKO' => $request->mitigasi_resiko
+        ]);
+        return redirect()->back()->with('success-edit-risk', 'Data resiko berhasil diperbarui!');
     }
 }

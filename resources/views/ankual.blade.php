@@ -7,6 +7,7 @@
 @if($ankual_nasabah == null)
 <form method="post" action="{{ Route('tambah_ankual') }}">
     @csrf
+    <input name="id_nasabah" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <section id="permohonan" class="my-4">
         <p class="block py-4 text-base font-semibold text-gray-900">
             A. Aspek Legalitas
@@ -232,11 +233,11 @@
         <div class="flex space-x-4 border-b p-3">
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Legalitas Pendirian Usaha</label>
-                <input value={{ $ankual_nasabah->LEG_PENDIRIAN }} name="legalitas_pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_PENDIRIAN }}" name="legalitas_pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
-                <input value={{ $ankual_nasabah->LEG_PENDIFIAN_NO }} name="legalitas_pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_PENDIFIAN_NO }}" name="legalitas_pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
                 <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Terbit</label>
@@ -254,11 +255,11 @@
         <div class="flex space-x-4 border-b p-3">
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Legalitas Usaha (Izin-Izin)</label>
-                <input value={{ $ankual_nasabah->LEG_USAHA }} name="legalitas_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_USAHA }}" name="legalitas_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
-                <input value={{ $ankual_nasabah->LEG_USAHA_NO }} name="legalitas_usaha_nomor" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_USAHA_NO }}" name="legalitas_usaha_nomor" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
                 <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Masa Laku</label>
@@ -276,11 +277,11 @@
         <div class="flex space-x-4 border-b p-3">
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Legalitas Lain</label>
-                <input value={{ $ankual_nasabah->LEG_LAIN1 }} name="legalitas_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_LAIN1 }}" name="legalitas_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
-                <input value={{ $ankual_nasabah->LEG_LAIN1_NO }} name="legalitas_lain_nomor" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_LAIN1_NO }}" name="legalitas_lain_nomor" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
                 <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Terbit</label>

@@ -61,11 +61,10 @@ Route::get('/dashboard/detailnota', [NasabahController::class, 'searchNasabah'])
 Route::get('/dashboard/fasilitasexisting/{id}', [FasExistController::class, 'fasIndex']);
 Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
 
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisisa kualitatif page
 Route::get('/dashboard/ankual/{id}', [AnKualController::class, 'index']);
-Route::post('/dashboard/ankual/{id}/tambah-ankual', [AnKualController::class, 'addAnkual'])->name('tambah_ankual');
+Route::post('/dashboard/ankual/tambah-ankual', [AnKualController::class, 'addAnkual'])->name('tambah_ankual');
 Route::post('/dashboard/ankual/{id}/edit', [AnKualController::class, 'editAnkual']);
 
 
@@ -75,7 +74,7 @@ Route::get('/dashboard/ankuan/{id}', [AnKuanController::class, 'anKuanIndex']);
 Route::post('/dashboard/ankuan/tambah-agunan', [AnKuanController::class, 'addAgunan'])->name('tambah_agunan');
 Route::post('/dashboard/ankuan/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
 Route::post('/dashboard/ankuan/{id}/edit-agunan', [AnKuanController::class, 'editAgunan']);
-Route::post('/dashboard/ankuan/{id}/edit-resiko', [AnKuanController::class, 'addResiko']);
+Route::post('/dashboard/ankuan/{id}/edit-resiko', [AnKuanController::class, 'editResiko']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -186,7 +186,7 @@
         </div>
     </section>
 </form>
-
+<input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
 <div class="flex flex-col mt-6">
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
@@ -195,14 +195,6 @@
                 <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                Nomor Nota
-                            </th>
-
-                            <th scope="col" class="px-4 py-3.5 w-72 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                Nama
-                            </th>
-
                             <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
                                 Bank
                             </th>
@@ -239,12 +231,6 @@
                     <tbody class="bg-white divide-y divide-gray-20">
                         @foreach($data_fasilitas_existing as $data)
                         <tr>
-                            <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                    <p class="text-sm font-bold text-center text-gray-600">{{ $data->ID }}</p>
-                            </td>
-                            <td class="px-4 py-4 whitespace-normal">
-                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->KET }}</p>
-                            </td>
                             <td class="px-4 py-4 whitespace-nowrap">
                                     <p class="text-sm font-normal text-center text-gray-600">{{ $data->BANK }}</p>
                             </td>

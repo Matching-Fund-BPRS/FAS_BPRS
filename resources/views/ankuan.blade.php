@@ -4,6 +4,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
 
+@if(session('success-edit'))
+    <script>
+        alert('Data berhasil diperbarui!')
+    </script>
+@endif
+
+
 <section id="permohonan" class="my-4">
     <p class="block py-4 text-base font-semibold text-gray-900">
         A. Aspek Agunan dan Asuransi
@@ -178,9 +185,16 @@
     </div>
 </section>
 
+@if(session('success-add-risk'))
+<script>
+    alert('Data resiko berhasil disimpan!')
+</script>
+@endif
+
 @if($resiko_nasabah == null)
 <form method="post" action="{{ Route('tambah_resiko') }}">
     @csrf
+    <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <section class="space-y-4 my-4">
         <p class="block py-4 text-base font-semibold text-gray-900">
             Analisa Resiko
@@ -192,11 +206,6 @@
         <div>
             <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">2. Mitigasi Resiko</label>
             <textarea name="mitigasi_resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Mitigasi Resiko..."></textarea>        
-        </div>
-
-        <div>
-            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">Catatan Usulan</label>
-            <textarea name="catatan_usulan" id="ketpeng" rows="4" class=" block p-2.5 w-full h-10 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Usulan..."></textarea>        
         </div>
         <div class=" pt-6">
             <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
@@ -218,15 +227,18 @@
             <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">2. Mitigasi Resiko</label>
             <textarea name="mitigasi_resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Mitigasi Resiko...">{{ $resiko_nasabah->MITIGASI_RESIKO }}</textarea>        
         </div>
-
-        <div>
-            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">Catatan Usulan</label>
-            <textarea name="catatan_usulan" id="ketpeng" rows="4" class=" block p-2.5 w-full h-10 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Usulan..."></textarea>        
-        </div>
         <div class=" pt-6">
             <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
         </div>  
     </section>
 </form>
+
+@if(session('success-edit-risk'))
+<script>
+    alert('Data resiko berhasil diperbarui!')
+</script>
+@endif
+
+
 @endif
 @endsection
