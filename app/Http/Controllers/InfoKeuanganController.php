@@ -12,6 +12,12 @@ class InfoKeuanganController extends Controller
         dd($request);
     }
 
+    public function editInfoKeuangan(Request $request, $id){
+        TKeuangan::where('ID_NASABAH', $id)->update([
+
+        ]);
+    }
+
     public function index($id){
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         return view('infokeuangan',[

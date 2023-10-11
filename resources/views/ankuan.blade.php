@@ -8,41 +8,83 @@
     <p class="block py-4 text-base font-semibold text-gray-900">
         A. Aspek Agunan dan Asuransi
     </p>
-
-    <div class="md:flex md:flex-row mb-4 md:justify-between">
-        <div class="space-y-4 w-full">
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Kepemilikan</label>
-                <input name="kepemilikan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+    @if($ankuan_nasabah == null)
+    <form method="post" action="{{ route('tambah_agunan') }}"> 
+        @csrf
+        <div class="md:flex md:flex-row mb-4 md:justify-between">
+            <div class="space-y-4 w-full">
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Kepemilikan</label>
+                    <input name="kepemilikan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nilai Agunan</label>
+                    <input name="nilai_agunan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Pengikatan</label>
+                    <input name="pengikatan"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
             </div>
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nilai Agunan</label>
-                <input name="nilai_agunan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+        
+            <div class="space-y-4 w-full">
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Marketability</label>
+                    <input name="marketability"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Penguasaan</label>
+                    <input name="penguasaan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Asuransi</label>
+                    <input name="asuransi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
             </div>
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Pengikatan</label>
-                <input name="pengikatan"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            <div class=" pt-6">
+                <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
             </div>
         </div>
-    
-        <div class="space-y-4 w-full">
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Marketability</label>
-                <input name="marketability"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+    </form>
+    @else
+    <form method="post" action="/dashboard/ankuan/{{ $nasabah->ID_NASABAH }}/edit-agunan">
+        @csrf
+        <div class="md:flex md:flex-row mb-4 md:justify-between">
+            <div class="space-y-4 w-full">
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Kepemilikan</label>
+                    <input value="{{ $ankuan_nasabah->KEPEMILIKAN }}" name="kepemilikan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nilai Agunan</label>
+                    <input value="{{ $ankuan_nasabah->NILAI_AGUNAN }}" name="nilai_agunan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Pengikatan</label>
+                    <input value="{{ $ankuan_nasabah->PENGIKATAN }}"name="pengikatan"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
             </div>
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Penguasaan</label>
-                <input name="penguasaan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+        
+            <div class="space-y-4 w-full">
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Marketability</label>
+                    <input value="{{ $ankuan_nasabah->MARKETABILITY }}" name="marketability"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Penguasaan</label>
+                    <input value="{{ $ankuan_nasabah->PENGUASAAN }}" name="penguasaan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
+                <div>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Asuransi</label>
+                    <input value="{{ $ankuan_nasabah->ASURANSI }}" name="asuransi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                </div>
             </div>
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Asuransi</label>
-                <input name="asuransi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            <div class=" pt-6">
+                <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan Perubahan</button>
             </div>
         </div>
-        <div class=" pt-6">
-            <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
-        </div>
-    </div>
+    </form>
+    @endif
     
 </section>
 
@@ -136,6 +178,7 @@
     </div>
 </section>
 
+@if($resiko_nasabah == null)
 <form method="post" action="{{ Route('tambah_resiko') }}">
     @csrf
     <section class="space-y-4 my-4">
@@ -160,4 +203,30 @@
         </div>  
     </section>
 </form>
+@else
+<form method="post" action="/dashboard/ankuan/{{ $nasabah->ID_NASABAH }}/edit-resiko">
+    @csrf
+    <section class="space-y-4 my-4">
+        <p class="block py-4 text-base font-semibold text-gray-900">
+            Analisa Resiko
+        </p>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">1. Resiko</label>
+            <textarea name="resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Resiko..."> {{ $resiko_nasabah->RESIKO }}</textarea>        
+        </div>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">2. Mitigasi Resiko</label>
+            <textarea name="mitigasi_resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Mitigasi Resiko...">{{ $resiko_nasabah->MITIGASI_RESIKO }}</textarea>        
+        </div>
+
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">Catatan Usulan</label>
+            <textarea name="catatan_usulan" id="ketpeng" rows="4" class=" block p-2.5 w-full h-10 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Usulan..."></textarea>        
+        </div>
+        <div class=" pt-6">
+            <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+        </div>  
+    </section>
+</form>
+@endif
 @endsection

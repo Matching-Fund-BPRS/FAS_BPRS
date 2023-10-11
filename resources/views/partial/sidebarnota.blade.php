@@ -59,7 +59,7 @@
                     </a>
 
                                     
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual//{{ $nasabah->ID_NASABAH }}">
+                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual/{{ $nasabah->ID_NASABAH }}">
                         <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
                     </a>
 

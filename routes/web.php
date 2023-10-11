@@ -64,27 +64,32 @@ Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::cl
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisisa kualitatif page
-Route::get('/dashboard/ankual', function () {
-    return view('ankual');
-});
-Route::post('/dashboard/ankual/tambah-ankual', [AnKualController::class, 'addAnkual'])->name('tambah_ankual');
+Route::get('/dashboard/ankual/{id}', [AnKualController::class, 'index']);
+Route::post('/dashboard/ankual/{id}/tambah-ankual', [AnKualController::class, 'addAnkual'])->name('tambah_ankual');
+Route::post('/dashboard/ankual/{id}/edit', [AnKualController::class, 'editAnkual']);
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisis kuantitatif page
-Route::get('/dashboard/ankuan', [AnKuanController::class, 'anKuanIndex']);
+Route::get('/dashboard/ankuan/{id}', [AnKuanController::class, 'anKuanIndex']);
+Route::post('/dashboard/ankuan/tambah-agunan', [AnKuanController::class, 'addAgunan'])->name('tambah_agunan');
 Route::post('/dashboard/ankuan/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
+Route::post('/dashboard/ankuan/{id}/edit-agunan', [AnKuanController::class, 'editAgunan']);
+Route::post('/dashboard/ankuan/{id}/edit-resiko', [AnKuanController::class, 'addResiko']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //info keuangan page
 Route::get('/dashboard/infokeuangan/{id}', [InfoKeuanganController::class, 'index']);
 Route::post('/dashboard/infokeuangan/tambah', [InfoKeuanganController::class, 'addInfoKeuangan'])->name('tambah_info_keuangan');
+Route::post('/dashboard/infokeuangan/{id}/edit', [InfoKeuanganController::class, 'editInfoKeuangan']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //limit kredit page
 Route::get('/dashboard/limitkredit/{id}', [LimitKreditController::class, 'index']);
 Route::post('/dashboard/limitkredit/tambah', [LimitKreditController::class, 'addLimitKredit'])->name('tambah_limit_kredit');
+Route::post('/dashboard/limitkredit/{id}/edit', [LimitKreditController::class, 'editLimitKredit']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -96,9 +101,13 @@ Route::get('/dashboard/rugilaba/{id}', [RugiLabaController::class, 'index']);
 //rekomendasi page
 Route::get('/dashboard/rekomendasi/{id}', [RekomendasiController::class, 'index']);
 Route::post('/dashboard/rekomendasi/tambah', [RekomendasiController::class, 'addRekomendasi'])->name('tambah_rekomendasi');
+Route::post('/dashboard/rekomendasi/{id}/edit', [RekomendasiController::class, 'editRekomendasi']);
+
 
 Route::get('/dashboard/neraca', function () {
-    return view('neraca');
+    return view('neraca',[
+        'nasabah' => null
+    ]);
 });
 
 
