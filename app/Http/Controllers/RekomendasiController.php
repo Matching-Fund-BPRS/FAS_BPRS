@@ -34,7 +34,7 @@ class RekomendasiController extends Controller
             'BASIL_DEB' => $request->bagi_hasil_mudharib,
         ]);
         
-        return redirect()->back();
+        return redirect()->back()->with('success-add', 'message');;
     }
 
     public function editRekomendasi(Request $request, $id){
@@ -60,7 +60,7 @@ class RekomendasiController extends Controller
             'BASIL_DEB' => $request->bagi_hasil_mudharib,
         ]);
         
-        return redirect()->back();
+        return redirect()->back()->with('success-edit', 'message');;
     }
     
     public function index($id){

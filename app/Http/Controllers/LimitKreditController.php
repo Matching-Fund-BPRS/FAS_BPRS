@@ -34,7 +34,7 @@ class LimitKreditController extends Controller
             'BIAYA_LAIN' => $request->biaya_lain,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success-add', 'message');
     }
 
     public function editLimitKredit(Request $request, $id){
@@ -53,6 +53,6 @@ class LimitKreditController extends Controller
             'BIAYA_LAIN' => $request->biaya_lain,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success-edit', 'message');
     }
 }

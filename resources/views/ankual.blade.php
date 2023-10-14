@@ -2,12 +2,6 @@
 
 @section('container')
 
-@if(session('success-edit'))
-    <script>
-        alert('Data berhasil diperbarui!')
-    </script>
-@endif
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
 @if($ankual_nasabah == null)
 <form method="post" action="{{ Route('tambah_ankual') }}">
@@ -400,6 +394,16 @@
         <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan Perubahan</button>
     </div>
 <form>
-
 @endif
+
+@if(session('success-edit'))
+    <script>
+        alert('Data berhasil diperbarui!')
+    </script>
+@elseif(session('success-add'))
+<script>
+    alert('Data berhasil ditambahkan!')
+</script>
+@endif
+
 @endsection

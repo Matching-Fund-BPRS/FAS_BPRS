@@ -69,7 +69,7 @@ class AnKualController extends Controller
             // 'SITU' => ,
             // 'SITU_TGL'=> ,
         ]);        
-        return redirect()->back();
+        return redirect()->back()->with('success-add', 'message');
     }
 
     public function editAnkual(Request $request, $id){
@@ -121,6 +121,6 @@ class AnKualController extends Controller
             // 'SITU' => ,
             // 'SITU_TGL'=> ,
         ]);
-        return redirect()->back()->with('success-edit', 'Data berhasil diupdate!');
+        return redirect()->back()->with('success-edit', 'message');
     }
 }

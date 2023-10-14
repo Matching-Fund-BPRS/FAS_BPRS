@@ -847,9 +847,17 @@
 </form>
 @endif
 
-@if (session('message'))
+@if (session('success-add'))
     <script>
-        alert("Data berhasil disimpan!")
+        alert("Data berhasil ditambah!")
     </script>
 @endif
+
+@if (session('success-edit'))
+    <script>
+        alert("Data berhasil diedit!")
+    </script>
+@endif
+
+
 @endsection

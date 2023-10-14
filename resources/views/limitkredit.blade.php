@@ -308,4 +308,17 @@
     </div>
 </form>
 @endif
+
+@if(session('success-edit'))
+    <script>
+        alert("Data berhasil diperbarui!")    
+    </script>
+@endif
+
+@if(session('success-add'))
+    <script>
+        alert("Data berhasil ditambahkan!")    
+    </script>
+@endif
+
 @endsection

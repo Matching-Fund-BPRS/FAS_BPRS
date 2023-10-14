@@ -4,13 +4,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
 
-@if(session('success-edit'))
-    <script>
-        alert('Data berhasil diperbarui!')
-    </script>
-@endif
-
-
 <section id="permohonan" class="my-4">
     <p class="block py-4 text-base font-semibold text-gray-900">
         A. Aspek Agunan dan Asuransi
@@ -234,12 +227,19 @@
     </section>
 </form>
 
-@if(session('success-edit-risk'))
+
+@endif
+
+@if(session('success-edit-risk') || session('success-edit-agunan'))
 <script>
-    alert('Data resiko berhasil diperbarui!')
+    alert('Data berhasil diperbarui!')
 </script>
 @endif
 
-
+@if(session('success-add') || session('success-add-risk'))
+    <script>
+        alert('Data berhasil ditambahkan!')
+    </script>
 @endif
+
 @endsection

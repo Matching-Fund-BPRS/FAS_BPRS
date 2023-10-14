@@ -33,7 +33,7 @@ class InfoKeuanganController extends Controller
             'PENDAPATAN_LAIN'=> $request->pendapatan_lain,
             'BIAYA_LAIN' => $request->biaya_angsuran_lain,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success-add', 'message');
     }
 
     public function editInfoKeuangan(Request $request, $id){
@@ -60,7 +60,7 @@ class InfoKeuanganController extends Controller
             'PENDAPATAN_LAIN'=> $request->pendapatan_lain,
             'BIAYA_LAIN' => $request->biaya_angsuran_lain,
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success-edit', 'message');
     }
 
     public function index($id){

@@ -36,7 +36,9 @@ class FasExistController extends Controller
             'PENGGUNAAN_SID' => $request->penggunaan_sid,
             'PEMBIAYAAN_SID' => $request->pembiayaan_sid, 
         ]);
-        return redirect()->back();
+        return redirect()
+                ->back()
+                ->with('success-add', 'message');
     }
 
     public function edit_bisid(Request $request, $id){  
@@ -54,6 +56,6 @@ class FasExistController extends Controller
             'PENGGUNAAN_SID' => $request->penggunaan_sid,
             'PEMBIAYAAN_SID' => $request->pembiayaan_sid, 
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success-edit', 'message');
     }
 }

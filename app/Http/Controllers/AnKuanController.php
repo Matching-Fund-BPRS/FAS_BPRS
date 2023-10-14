@@ -32,7 +32,7 @@ class AnKuanController extends Controller
             'ASURANSI' => $request->asuransi 
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success-add', 'message');
     }
 
     public function editAgunan(Request $request, $id){
@@ -45,7 +45,7 @@ class AnKuanController extends Controller
             'ASURANSI' => $request->asuransi 
         ]);
 
-        return redirect()->back()->with('success-edit', 'Data berhasil diupdate!');
+        return redirect()->back()->with('success-edit-agunan', 'message');
     }
 
     public function addResiko(Request $request){
@@ -54,7 +54,7 @@ class AnKuanController extends Controller
             'RESIKO' => $request->resiko,
             'MITIGASI_RESIKO' => $request->mitigasi_resiko
         ]);
-        return redirect()->back()->with('success-add-risk', 'Data resiko berhasil disimpan!');
+        return redirect()->back()->with('success-add-risk', 'message');
     }
 
     public function editResiko(Request $request, $id){
@@ -62,6 +62,6 @@ class AnKuanController extends Controller
             'RESIKO' => $request->resiko,
             'MITIGASI_RESIKO' => $request->mitigasi_resiko
         ]);
-        return redirect()->back()->with('success-edit-risk', 'Data resiko berhasil diperbarui!');
+        return redirect()->back()->with('success-edit-risk', 'message');
     }
 }

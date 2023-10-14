@@ -100,8 +100,8 @@ class NasabahController extends BaseController
         ]);
 
         return redirect()
-                ->route('/dashboard/dashboard/detailnota?id='.$request->id_user)
-                ->with('message', 'Data nasabah berhasil disimpan!');
+                ->back()
+                ->with('success-add', 'message');
     }
 
     public function edit_data_nasabah(Request $request, $id){
@@ -152,6 +152,6 @@ class NasabahController extends BaseController
 
         return redirect()
             ->back()
-            ->with('message', 'Data nasabah berhasil diedit!');
+            ->with('success-edit', 'Data nasabah berhasil diedit!');
     }
 }

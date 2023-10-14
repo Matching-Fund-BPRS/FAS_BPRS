@@ -459,6 +459,18 @@
     </div>
 </div>
 <br>
+
+@if(session('success-add'))
+<script>
+    alert('Data berhasil ditambahkan!')
+</script>
+@elseif(session('success-edit'))
+<script>
+    alert('Data berhasil diperbarui!')
+</script>
+@endif
+
+
 <div class="flex justify-center">
     {{ $data_fasilitas_existing->links() }}
 </div>
