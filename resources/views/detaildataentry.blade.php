@@ -59,7 +59,7 @@
         <div class="grid grid-cols-1 items-center w-full">
             <div>
                 <label for="userid" name="user_id"class="block mb-2 text-xs font-medium text-gray-900">User ID</label>
-                <input name="id_user" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" disabled placeholder="" required> 
+                <input name="id_user" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required> 
             </div>
         </div>
 
@@ -91,7 +91,7 @@
                     <div class="">
                         <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
                         <div class="flex flex-row">
-                            <input disabled value=1  type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <input name="margin"  type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                             <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                                 % per Bulan
                             </p>
@@ -432,7 +432,7 @@
     </div>
 </form>
 @else
-<form method="POST" action="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}/edit }}">
+<form method="POST" action="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}/edit">
     @csrf
     <section id="start" class="md:flex md:flex-row mb-4 md:justify-between">
         <div class="my-4 space-y-4 relative w-full">
@@ -630,7 +630,7 @@
                 
                 <div>
                     <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Sesuai KTP</label>
-                    <textarea value="{{ $nasabah->TGL_BERLAKU_KTP }}" name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."> {{ $nasabah->ALAMAT }}</textarea>        
+                    <textarea value="{{ $nasabah->ALAMAT }}" name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."> {{ $nasabah->ALAMAT }}</textarea>        
                 </div>        
             </div>
         

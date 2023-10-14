@@ -60,6 +60,8 @@ Route::get('/dashboard/detailnota', [NasabahController::class, 'searchNasabah'])
 // fasilitas existing page
 Route::get('/dashboard/fasilitasexisting/{id}', [FasExistController::class, 'fasIndex']);
 Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
+Route::post('/dashboard/fasilitasexisting/{id}/edit', [FasExistController::class, 'edit_bisid']);
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisisa kualitatif page

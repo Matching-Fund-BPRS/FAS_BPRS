@@ -40,7 +40,7 @@
                 </p>
                 <p class=" border-b pb-2 grid grid-cols-1 max-w-[200px]">
                     @if($nasabah!=null)
-                    {{ $nasabah->ALAMAT_USAHA }}
+                    {{ $nasabah->ALAMAT }}
                     @else
                     Alamat Nasabah
                     @endif

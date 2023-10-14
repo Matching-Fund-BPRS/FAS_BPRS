@@ -13,16 +13,25 @@ class NasabahController extends BaseController
     use AuthorizesRequests, ValidatesRequests;
 
     public function searchNasabah(Request $request){
-        if($request != null){
+        if($request->has('id')){
             $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
-
+            if($nasabah == null){
+                return view('dashboardnota',[
+                    'nasabah' => $nasabah,
+                    'state' => "not-found"
+                ]);
+            }else{
+                return view('dashboardnota',[
+                    'nasabah' => $nasabah,
+                    'state' => "success"
+                ]);
+            }
+        }else{
             return view('dashboardnota',[
-                'nasabah' => $nasabah
+                'nasabah' => null,
+                'state' => "empty"
             ]);
         }
-        else{
-            return view('dashboardnota');
-        }   
     }
 
     public function index(){
@@ -44,107 +53,105 @@ class NasabahController extends BaseController
     }
 
     public function tambah_nasabah(Request $request){
-        // dd($request);
+        TNasabah::insert([
+            'ID_NASABAH' => $request->id_user,
+            'ID_CABANG'  => 005, 
+            'NO_SURVEY' => null, //sementara di nullin 
+            'CIF' => $request->cif,
+            // 'TGL_PERMOHONAN' => $request->tgl_permohonan,
+            // 'TGL_ANALISA' => $request->tgl_analisa,
+            'LIMIT_KREDIT' => $request->limit_kredit,
+            'BUNGA' => $request->margin, 
+            'JANGKA_WAKTU' => $request->jangka_waktu,
+            'SIFAT' => 1,
+            'JENIS_PERMOHONAN' => 1,
+            'TUJUAN' => 1,
+            'KET_TUJUAN' => $request->keterangan_tujuan,
+            'BIDANG_USAHA' => $request->bidang_usaha,
+            'SUB_USAHA' => $request->sektor_usaha,
+            // 'TGL_MULAI_USAHA' => $request->tgl_mulai_usaha,
+            'JUMLAH_KARY' => $request->jumlah_karyawan,
+            'NAMA' => $request->nama_debitur,
+            'NAMA_BADAN_USAHA' => $request->nama_badan_usaha,
+            'ALAMAT_USAHA' => $request->alamat_usaha,
+            'STATUS_PERKAWINAN' => 1,
+            'TEMPAT_LAHIR' => $request->tempat_lahir,
+            // 'TGL_LAHIR' => $request->tgl_lahir,
+            'GENDER' => $request->gender,
+            'NO_KTP'=>$request->no_ktp,
+            // 'TGL_BERLAKU_KTP' => $request->tgl_berlaku_ktp,
+            'ALAMAT' => $request->alamat,
+            'NO_TELP' => $request->nomor_telepon,
+            'NO_KANTOR' => $request->nomor_telepon_kantor,
+            'STATUS_TEMPAT_TINGGAL' => 1,
+            'LAMA_TINGGAL' => $request->lama_tinggal,
+            'TINGKAT_PENDIDIKAN' => 1,
+            'JUMLAH_TANGGUNGAN' => $request->jumlah_tanggungan,
+            'NAMA_PASANGAN' => $request->nama_pasangan,
+            'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
+            // 'TGL_LAHIR_PASANGAN' => $request->tanggal_lahir_pasangan,
+            'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
+            'PROFESI_PASANGAN' =>$request->profesi_pasangan,
+            'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
+            'NAMA_EC' => $request->nama_kontak_darurat,
+            'HUB_EC' =>$request->hubungan_keluarga,
+            'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
+            'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
+        ]);
 
-        // TNasabah::insert([
-        //     'ID_CABANG', // id cabang ini generated?
-        //     'NO_SURVEY', //ini id? generated?
-        //     'CIF' => $request->cif,
-        //     'TGL_PERMOHONAN' => $request->tgl_permohonan,
-        //     'TGL_ANALISA' => $request->tgl_analisa,
-        //     'LIMIT_KREDIT' => $request->limit_kredit,
-        //     'BUNGA', // margin?
-        //     'JANGKA_WAKTU' => $request->jangka_waktu,
-        //     'SIFAT' => $request->sifat,
-        //     'JENIS_PERMOHONAN' => $request->jenis_permohonan,
-        //     'TUJUAN' => $request->tujuan,
-        //     'KET_TUJUAN' => $request->keterangan_tujuan,
-        //     'BIDANG_USAHA' => $request->bidang_usaha,
-        //     'SUB_USAHA' => $request->sektor_usaha,
-        //     'TGL_MULAL_USAHA' => $request->tgl_mulai_usaha,
-        //     'JUMLAH_KARY' => $request->jumlah_karyawan,
-        //     'NAMA' => $request->nama_debitur,
-        //     'NAMA_BADAN_USAHA' => $request->nama_badan_usaha,
-        //     'ALAMAT_USAHA' => $request->alamat_usaha,
-        //     'STATUS_PERKAWINAN' => $request->status_perkawinan,
-        //     'TEMPAT_LAHIR' => $request->tempat_lahir,
-        //     'TGL_LAHIR' => $request->tgl_lahir,
-        //     'GENDER' => $request->gender,
-        //     'NO_KTP'=>$request->no_ktp,
-        //     'TGL _BERLAKU_KTP' => $request->tgl_berlaku_ktp,
-        //     'ALAMAT' => $request->alamat,
-        //     'NO_TELP' => $request->nomor_telepon,
-        //     'NO_KANTOR' => $request->nomor_telepon_kantor,
-        //     'STATUS_TEMPAT_TINGGAL' => $request->status_tempat_tinggal,
-        //     'LAMA_TINGGAL' => $request->lama_tinggal,
-        //     'TINGKAT_PENDIDIKAN' => $request->tingkat_pendidikan,
-        //     'JUMLAH_TANGGUNGAN' => $request->jumlah_tanggungan,
-        //     'NAMA_PASANGAN' => $request->nama_pasangan,
-        //     'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
-        //     'TGL_LAHIR_PASANGAN' => $request->tanggal_lahir_pasangan,
-        //     'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
-        //     'PROFESI_PASANGAN' =>$request->profesi_pasangan,
-        //     'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
-        //     'NAMA_EC' => $request->nama_kontak_darurat,
-        //     'HUB_EC' =>$request->hubungan_keluarga,
-        //     'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
-        //     'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
-        //     'USER ID' // ini generated?
-        // ]);
-
-        return redirect()->back()->with('message', 'Data nasabah berhasil disimpan!');
+        return redirect()
+                ->route('/dashboard/dashboard/detailnota?id='.$request->id_user)
+                ->with('message', 'Data nasabah berhasil disimpan!');
     }
 
-    public function edit_data_nasabah(Request $request){
-        // dd($request);
+    public function edit_data_nasabah(Request $request, $id){
+        TNasabah::where('ID_NASABAH' , $id)->update([
+            'ID_CABANG'  => 005, 
+            'NO_SURVEY' => null, //sementara di nullin 
+            'CIF' => $request->cif,
+            // 'TGL_PERMOHONAN' => $request->tgl_permohonan,
+            // 'TGL_ANALISA' => $request->tgl_analisa,
+            'LIMIT_KREDIT' => $request->limit_kredit,
+            'BUNGA' => $request->margin, 
+            'JANGKA_WAKTU' => $request->jangka_waktu,
+            'SIFAT' => 1,
+            'JENIS_PERMOHONAN' => 1,
+            'TUJUAN' => 1,
+            'KET_TUJUAN' => $request->keterangan_tujuan,
+            'BIDANG_USAHA' => $request->bidang_usaha,
+            'SUB_USAHA' => $request->sektor_usaha,
+            // 'TGL_MULAI_USAHA' => $request->tgl_mulai_usaha,
+            'JUMLAH_KARY' => $request->jumlah_karyawan,
+            'NAMA' => $request->nama_debitur,
+            'NAMA_BADAN_USAHA' => $request->nama_badan_usaha,
+            'ALAMAT_USAHA' => $request->alamat_usaha,
+            'STATUS_PERKAWINAN' => 1,
+            'TEMPAT_LAHIR' => $request->tempat_lahir,
+            // 'TGL_LAHIR' => $request->tgl_lahir,
+            'GENDER' => $request->gender,
+            'NO_KTP'=>$request->no_ktp,
+            // 'TGL_BERLAKU_KTP' => $request->tgl_berlaku_ktp,
+            'ALAMAT' => $request->alamat_ktp,
+            'NO_TELP' => $request->nomor_telepon,
+            'NO_KANTOR' => $request->nomor_telepon_kantor,
+            'STATUS_TEMPAT_TINGGAL' => 1,
+            'LAMA_TINGGAL' => $request->lama_tinggal,
+            'TINGKAT_PENDIDIKAN' => 1,
+            'JUMLAH_TANGGUNGAN' => $request->jumlah_tanggungan,
+            'NAMA_PASANGAN' => $request->nama_pasangan,
+            'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
+            // 'TGL_LAHIR_PASANGAN' => $request->tanggal_lahir_pasangan,
+            'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
+            'PROFESI_PASANGAN' =>$request->profesi_pasangan,
+            'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
+            'NAMA_EC' => $request->nama_kontak_darurat,
+            'HUB_EC' =>$request->hubungan_keluarga,
+            'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
+            'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
+        ]);
 
-        // TNasabah::insert([
-        //     'ID_CABANG', // id cabang ini generated?
-        //     'NO_SURVEY', //ini id? generated?
-        //     'CIF' => $request->cif,
-        //     'TGL_PERMOHONAN' => $request->tgl_permohonan,
-        //     'TGL_ANALISA' => $request->tgl_analisa,
-        //     'LIMIT_KREDIT' => $request->limit_kredit,
-        //     'BUNGA', // margin?
-        //     'JANGKA_WAKTU' => $request->jangka_waktu,
-        //     'SIFAT' => $request->sifat,
-        //     'JENIS_PERMOHONAN' => $request->jenis_permohonan,
-        //     'TUJUAN' => $request->tujuan,
-        //     'KET_TUJUAN' => $request->keterangan_tujuan,
-        //     'BIDANG_USAHA' => $request->bidang_usaha,
-        //     'SUB_USAHA' => $request->sektor_usaha,
-        //     'TGL_MULAL_USAHA' => $request->tgl_mulai_usaha,
-        //     'JUMLAH_KARY' => $request->jumlah_karyawan,
-        //     'NAMA' => $request->nama_debitur,
-        //     'NAMA_BADAN_USAHA' => $request->nama_badan_usaha,
-        //     'ALAMAT_USAHA' => $request->alamat_usaha,
-        //     'STATUS_TEMPAT_USAHA' => $request->status_usaha,
-        //     'STATUS_PERKAWINAN' => $request->status_perkawinan,
-        //     'TEMPAT_LAHIR' => $request->tempat_lahir,
-        //     'TGL_LAHIR' => $request->tgl_lahir,
-        //     'GENDER' => $request->gender,
-        //     'NO_KTP'=>$request->no_ktp,
-        //     'TGL _BERLAKU_KTP' => $request->tgl_berlaku_ktp,
-        //     'ALAMAT' => $request->alamat,
-        //     'NO_TELP' => $request->nomor_telepon,
-        //     'NO_KANTOR' => $request->nomor_telepon_kantor,
-        //     'STATUS_TEMPAT_TINGGAL' => $request->status_tempat_tinggal,
-        //     'LAMA_TINGGAL' => $request->lama_tinggal,
-        //     'TINGKAT_PENDIDIKAN' => $request->tingkat_pendidikan,
-        //     'JUMLAH_TANGGUNGAN' => $request->jumlah_tanggungan,
-        //     'NAMA_PASANGAN' => $request->nama_pasangan,
-        //     'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
-        //     'TGL_LAHIR_PASANGAN' => $request->tanggal_lahir_pasangan,
-        //     'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
-        //     'PROFESI_PASANGAN' =>$request->profesi_pasangan,
-        //     'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
-        //     'NAMA_EC' => $request->nama_kontak_darurat,
-        //     'HUB_EC' =>$request->hubungan_keluarga,
-        //     'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
-        //     'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
-        //     'USER ID' // ini generated?
-        // ]);
-
-        return redirect()->back()->with('message', 'Data nasabah berhasil Diedit!');
+        return redirect()
+            ->back()
+            ->with('message', 'Data nasabah berhasil diedit!');
     }
 }
