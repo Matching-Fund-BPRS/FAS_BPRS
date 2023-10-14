@@ -9,13 +9,58 @@ use App\Models\TNasabah;
 class InfoKeuanganController extends Controller
 {
     public function addInfoKeuangan(Request $request){
-        dd($request);
+        TKeuangan::insert([
+            'ID_NASABAH' => $request->id,
+            'OMZET'=> $request->omset,
+            'BIAYA_GAJI'=> $request->biaya_gaji,
+            'BIAYA_BB'=> $request->biaya_bahan_baku,
+            'BIAYA_STOK'=> $request->biaya_stok,
+            'BIAYA_PRODUKSI'=> $request->biaya_produksi,
+            'BIAYA_TRANSPORT'=> $request->biaya_transportasi,
+            'BIAYA_USAHA_LAIN'=> $request->biaya_usaha_lain,
+            'BIAYA_RT_LISTRIK'=> $request->biaya_rt_listrik,
+            'BIAYA_RT_TRANSPORT'=> $request->biaya_rt_transportasi,
+            'BIAYA_RT_SEKOLAH'=> $request->biaya_rt_sekolah,
+            'BIAYA_RT_MAKAN'=> $request->biaya_rt_makan,
+            'BIAYA_RT_PEMELIHARAAN'=> $request->biaya_rt_pemeliharaan,
+            'BIAYA_PENUNJANG_USAHA'=> $request->biaya_rt_penunjang_usaha,
+            'BIAYA_RT_LAIN'=> $request->biaya_rt_lain,
+            'ANGS_BANK_UMUM'=> $request->angs_bank_umum,
+            'ANGS_BPR'=> $request->angs_bpr,
+            'ANGS_LEASING'=> $request->angs_leasing,
+            'ANGS_KOPERASI'=> $request->angs_koperasi,
+            'ANGS_LAIN'=> $request->angs_lain,
+            'PENDAPATAN_LAIN'=> $request->pendapatan_lain,
+            'BIAYA_LAIN' => $request->biaya_angsuran_lain,
+        ]);
+        return redirect()->back();
     }
 
     public function editInfoKeuangan(Request $request, $id){
         TKeuangan::where('ID_NASABAH', $id)->update([
-
+            'OMZET'=> $request->omset,
+            'BIAYA_GAJI'=> $request->biaya_gaji,
+            'BIAYA_BB'=> $request->biaya_bahan_baku,
+            'BIAYA_STOK'=> $request->biaya_stok,
+            'BIAYA_PRODUKSI'=> $request->biaya_produksi,
+            'BIAYA_TRANSPORT'=> $request->biaya_transportasi,
+            'BIAYA_USAHA_LAIN'=> $request->biaya_usaha_lain,
+            'BIAYA_RT_LISTRIK'=> $request->biaya_rt_listrik,
+            'BIAYA_RT_TRANSPORT'=> $request->biaya_rt_transportasi,
+            'BIAYA_RT_SEKOLAH'=> $request->biaya_rt_sekolah,
+            'BIAYA_RT_MAKAN'=> $request->biaya_rt_makan,
+            'BIAYA_RT_PEMELIHARAAN'=> $request->biaya_rt_pemeliharaan,
+            'BIAYA_PENUNJANG_USAHA'=> $request->biaya_rt_penunjang_usaha,
+            'BIAYA_RT_LAIN'=> $request->biaya_rt_lain,
+            'ANGS_BANK_UMUM'=> $request->angs_bank_umum,
+            'ANGS_BPR'=> $request->angs_bpr,
+            'ANGS_LEASING'=> $request->angs_leasing,
+            'ANGS_KOPERASI'=> $request->angs_koperasi,
+            'ANGS_LAIN'=> $request->angs_lain,
+            'PENDAPATAN_LAIN'=> $request->pendapatan_lain,
+            'BIAYA_LAIN' => $request->biaya_angsuran_lain,
         ]);
+        return redirect()->back();
     }
 
     public function index($id){

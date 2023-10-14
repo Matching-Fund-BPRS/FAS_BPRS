@@ -22,7 +22,7 @@ class AnKuanController extends Controller
     }
 
     public function addAgunan(Request $request){
-        TAgunan::insert([
+        TKuantitatif::insert([
             'ID_NASABAH' => $request->id,
             'KEPEMILIKAN' => $request->kepemilikan,
             'NILAI_AGUNAN' => $request->nilai_agunan,
@@ -31,6 +31,8 @@ class AnKuanController extends Controller
             'PENGUASAAN' => $request->penguasaan,
             'ASURANSI' => $request->asuransi 
         ]);
+
+        return redirect()->back();
     }
 
     public function editAgunan(Request $request, $id){

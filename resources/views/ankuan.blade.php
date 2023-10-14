@@ -18,6 +18,7 @@
     @if($ankuan_nasabah == null)
     <form method="post" action="{{ route('tambah_agunan') }}"> 
         @csrf
+        <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
         <div class="md:flex md:flex-row mb-4 md:justify-between">
             <div class="space-y-4 w-full">
                 <div>

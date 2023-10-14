@@ -5,8 +5,8 @@
 @if($rekomendasi_nasabah == null)
 <form method="post" action="{{ Route('tambah_rekomendasi') }}">
     @csrf
+    <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <div class=" my-4 space-y-4">
-
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Plafond</label>
             <input name="plafond"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>

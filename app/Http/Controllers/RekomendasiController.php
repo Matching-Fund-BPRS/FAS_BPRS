@@ -11,17 +11,56 @@ class RekomendasiController extends Controller
     //TODO
     //Tangkap data dari view
     public function addRekomendasi(Request $request){
-        dd($request);
         TRekomendasi::insert([
-
+            'ID_NASABAH' => $request->id,
+            'LIMIT_KREDIT' => $request->plafond,
+            'SIFAT_KREDIT' => 1, //konvert dari string
+            'JENIS_PERMOHONAN'  => 1, //konvert dari string
+            'TUJUAN' => 1, // konvert dari string
+            'JANGKA_WAKTU'  => $request->jangka_waktu,
+            'BUNGA' => $request->margin,
+            'ANGSURAN' => $request->angsuran_bulan,
+            'JAMINAN' => null,
+            'KETENTUAN' => null ,
+            'PROVISI' => $request->provisi,
+            'ADMINISTRASI' => $request->administrasi,
+            'LAINNYA' => $request->biaya_lainnya,
+            'BAYAR_POKOK' => $request->bayar_pokok,
+            'MATERAI' => $request->biaya_materai,
+            'NOTARIS' => $request->biaya_notaris,
+            'ASURANSI' => $request->biaya_asuransi,
+            'MODAL' => 0,
+            'BASIL_BANK' => $request->bagi_hasil_bank,
+            'BASIL_DEB' => $request->bagi_hasil_mudharib,
         ]);
+        
+        return redirect()->back();
     }
 
     public function editRekomendasi(Request $request, $id){
-        dd($request);
         TRekomendasi::where('ID_NASABAH', $id)->update([
-
+            'LIMIT_KREDIT' => $request->plafond,
+            'SIFAT_KREDIT' => 1,
+            'JENIS_PERMOHONAN'  => 1,
+            'TUJUAN' => $request->tujuan_penggunaan,
+            'JANGKA_WAKTU'  => $request->jangka_waktu,
+            'BUNGA' => $request->margin,
+            'ANGSURAN' => $request->angsuran_bulan,
+            'JAMINAN' => null,
+            'KETENTUAN' => null ,
+            'PROVISI' => $request->provisi,
+            'ADMINISTRASI' => $request->administrasi,
+            'LAINNYA' => $request->biaya_lainnya,
+            'BAYAR_POKOK' => $request->bayar_pokok,
+            'MATERAI' => $request->biaya_materai,
+            'NOTARIS' => $request->biaya_notaris,
+            'ASURANSI' => $request->biaya_asuransi,
+            'MODAL' => 0,
+            'BASIL_BANK' => $request->bagi_hasil_bank,
+            'BASIL_DEB' => $request->bagi_hasil_mudharib,
         ]);
+        
+        return redirect()->back();
     }
     
     public function index($id){

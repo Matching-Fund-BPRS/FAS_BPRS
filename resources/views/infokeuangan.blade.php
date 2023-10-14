@@ -5,6 +5,7 @@
 @if($info_keuangan_nasabah == null)
 <form method="post" action="{{ Route('tambah_info_keuangan') }}">
     @csrf
+    <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <div class="md:grid md:grid-cols-3 md:space-x-8">
         <section class="my-4 space-y-4">
             <p class="block py-4 text-base font-semibold text-gray-900">
@@ -26,6 +27,10 @@
                 <input name="biaya_bahan_baku" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Stok</label>
+                <input name="biaya_stok" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Produksi Barang</label>
                 <input name="biaya_produksi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
@@ -39,11 +44,11 @@
             </div>
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
-                <input name="total_biaya" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="total_biaya" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900">Laba (Rugi) Usaha</label>
-                <input name="laba_rugi_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="laba_rugi_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
         </section>
         
@@ -72,12 +77,12 @@
                 <input name="biaya_rt_pemeliharaan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>
-                <input name="biaya_rt_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Penunjang Usaha</label>
+                <input name="biaya_rt_penunjang_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
-                <input name="total_biaya_rt" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>
+                <input name="biaya_rt_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <p class="block text-base font-semibold text-gray-900">
                 Pendapatan dan Biaya Lain-Lain
@@ -85,6 +90,10 @@
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Pendapatan Lain-Lain</label>
                 <input name="pendapatan_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
+                <input name="total_biaya_rt" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
             
         </section>
@@ -114,12 +123,12 @@
                 <input name="angs_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total</label>
-                <input name="total_angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
-            </div>
-            <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>
                 <input name="biaya_angsuran_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total</label>
+                <input name="total_angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
             <div class=" pt-6">
                 <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
@@ -151,6 +160,10 @@
                 <input value="{{ $info_keuangan_nasabah->BIAYA_BB }}" name="biaya_bahan_baku" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Stok</label>
+                <input value="{{ $info_keuangan_nasabah->BIAYA_STOK }}" name="biaya_stok" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Produksi Barang</label>
                 <input value="{{ $info_keuangan_nasabah->BIAYA_PRODUKSI }}" name="biaya_produksi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
@@ -164,11 +177,11 @@
             </div>
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
-                <input name="total_biaya" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="total_biaya" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900">Laba (Rugi) Usaha</label>
-                <input name="laba_rugi_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="laba_rugi_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
         </section>
         
@@ -197,12 +210,12 @@
                 <input value="{{ $info_keuangan_nasabah->BIAYA_RT_PEMELIHARAAN }}" name="biaya_rt_pemeliharaan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>
-                <input value="{{ $info_keuangan_nasabah->BIAYA_RT_LAIN }}"name="biaya_rt_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Penunjang Usaha</label>
+                <input value="{{ $info_keuangan_nasabah->BIAYA_PENUNJANG_USAHA }}" name="biaya_rt_penunjang_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
-                <input name="total_biaya_rt" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>
+                <input value="{{ $info_keuangan_nasabah->BIAYA_RT_LAIN }}"name="biaya_rt_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <p class="block text-base font-semibold text-gray-900">
                 Pendapatan dan Biaya Lain-Lain
@@ -210,6 +223,10 @@
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Pendapatan Lain-Lain</label>
                 <input value="{{ $info_keuangan_nasabah->PENDAPATAN_LAIN }}" name="pendapatan_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
+                <input name="total_biaya_rt" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
             
         </section>
@@ -239,12 +256,12 @@
                 <input value="{{ $info_keuangan_nasabah->ANGS_LAIN }}" name="angs_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total</label>
-                <input name="total_angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
-            </div>
-            <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>
                 <input value="{{ $info_keuangan_nasabah->BIAYA_LAIN }}" name="biaya_angsuran_lain" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total</label>
+                <input name="total_angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
             </div>
             <div class=" pt-6">
                 <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan Perubahan</button>

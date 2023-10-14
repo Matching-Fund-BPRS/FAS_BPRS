@@ -13,53 +13,46 @@ class LimitKreditController extends Controller
         return view('limitkredit', [
             'nasabah' => $nasabah,
             'limit_kredit_nasabah' => TLimitKredit::where('ID_NASABAH', $id)->first(),
-            'keputusan' => null
+            'keputusan' => '-'
         ]);
     }
 
     public function addLimitKredit(Request $request){
-        dd($request);
-        // TLimitKredit::insert([
-            // 'ID_NASABAH' => ,
-            // 'LIMIT_KREDIT' => ,
-            // 'JANGKA_WAKTU' => ,
-            // 'OMSET' => , 
-            // 'HPP' => ,
-            // 'BIAYA_HIDUP' => ,
-            // 'ANGS_BANK_LAIN' => ,
-            // 'BUNGA KREDIT' => ,
-            // 'ANGSURAN' => ,
-            // 'PEND_LAIN' => ,
-            // 'RPC' =>
-            // 'JENIS' => ,
-            // 'BIAYA_LAIN' => ,
-        // ]);
+        TLimitKredit::insert([
+            'ID_NASABAH' => $request->id ,
+            'LIMIT_KREDIT' => $request->limit_kredit,
+            'JANGKA_WAKTU' => $request->jangka_waktu,
+            'OMSET' => $request->omset, 
+            'HPP' => $request->hpp,
+            'BIAYA_HIDUP' => null, //gatau drmn
+            'ANGS_BANK_LAIN' => $request->angsuran_bank_lain,
+            'BUNGA_KREDIT' => null, //gatau darimana
+            'ANGSURAN' => $request->angsuran,
+            'PEND_LAIN' => $request->pendapatan_lain,
+            'RPC' => $request->rpc, 
+            'JENIS' => 1, //konvert dari string ke angka sesuai nilainya
+            'BIAYA_LAIN' => $request->biaya_lain,
+        ]);
 
-        // return view('limitkredit', [
-
-        // ]);
+        return redirect()->back();
     }
 
     public function editLimitKredit(Request $request, $id){
-        dd($request);
-        // TLimitKredit::where('ID_NASABAH', $id)->update([
-            // 'ID_NASABAH' => ,
-            // 'LIMIT_KREDIT' => ,
-            // 'JANGKA_WAKTU' => ,
-            // 'OMSET' => , 
-            // 'HPP' => ,
-            // 'BIAYA_HIDUP' => ,
-            // 'ANGS_BANK_LAIN' => ,
-            // 'BUNGA KREDIT' => ,
-            // 'ANGSURAN' => ,
-            // 'PEND_LAIN' => ,
-            // 'RPC' =>
-            // 'JENIS' => ,
-            // 'BIAYA_LAIN' => ,
-        // ]);
+        TLimitKredit::where('ID_NASABAH', $id)->update([
+            'LIMIT_KREDIT' => $request->limit_kredit,
+            'JANGKA_WAKTU' => $request->jangka_waktu,
+            'OMSET' => $request->omset, 
+            'HPP' => $request->hpp,
+            'BIAYA_HIDUP' => null, //gatau drmn
+            'ANGS_BANK_LAIN' => $request->angsuran_bank_lain,
+            'BUNGA_KREDIT' => null, //gatau darimana
+            'ANGSURAN' => $request->angsuran,
+            'PEND_LAIN' => $request->pendapatan_lain,
+            'RPC' => $request->rpc, 
+            'JENIS' => 1, //konvert dari string ke angka sesuai nilainya
+            'BIAYA_LAIN' => $request->biaya_lain,
+        ]);
 
-        // return view('limitkredit', [
-
-        // ]);
+        return redirect()->back();
     }
 }

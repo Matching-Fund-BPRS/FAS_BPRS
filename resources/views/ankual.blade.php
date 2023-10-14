@@ -2,12 +2,17 @@
 
 @section('container')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
+@if(session('success-edit'))
+    <script>
+        alert('Data berhasil diperbarui!')
+    </script>
+@endif
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
 @if($ankual_nasabah == null)
 <form method="post" action="{{ Route('tambah_ankual') }}">
     @csrf
-    <input name="id_nasabah" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
+    <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <section id="permohonan" class="my-4">
         <p class="block py-4 text-base font-semibold text-gray-900">
             A. Aspek Legalitas
@@ -16,7 +21,7 @@
         <div class="flex space-x-4 border-b p-3">
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Legalitas Pemohon</label>
-                <input name="legalitas_pemohonan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="legalitas_pemohon" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
@@ -42,7 +47,7 @@
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
-                <input name="legalitas_pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="legalitas_pendirian_usaha_no" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
                 <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Terbit</label>
@@ -211,7 +216,7 @@
         <div class="flex space-x-4 border-b p-3">
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Legalitas Pemohon</label>
-                <input value="{{ $ankual_nasabah->LEG_PEMOHON }}" name="legalitas_pemohonan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_PEMOHON }}" name="legalitas_pemohon" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
@@ -237,7 +242,7 @@
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor</label>
-                <input value="{{ $ankual_nasabah->LEG_PENDIFIAN_NO }}" name="legalitas_pendirian_usaha" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $ankual_nasabah->LEG_PENDIRIAN_NO }}" name="legalitas_pendirian_usaha_no" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
                 <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Terbit</label>
@@ -364,7 +369,7 @@
                 </div>
                 <div>
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Reputasi dengan Supplier</label>
-                    <input value="{{ $ankual_nasabah->TEH_REPUTASI }}" name="reputasi_supplier" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input value="{{ $ankual_nasabah->TES_REPUTASI }}" name="reputasi_supplier" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
             </div>
         

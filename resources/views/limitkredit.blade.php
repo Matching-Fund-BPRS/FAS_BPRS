@@ -5,6 +5,7 @@
 @if($limit_kredit_nasabah == null)
 <form method="post" action="{{ Route('tambah_limit_kredit') }}">
     @csrf
+    <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <div class="">
         <div>
             <section id="permohonan_nasabah" class=" my-4 space-y-4">
@@ -13,7 +14,7 @@
                 </p>
                 <div>
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Limit Pembiayaan</label>
-                    <input type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="limit_kredit" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
             
                 <div class="">
@@ -165,7 +166,7 @@
                 </p>
                 <div>
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Limit Pembiayaan</label>
-                    <input value="{{ $limit_kredit_nasabah->LIMIT_KREDIT }}" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="limit_kredit" value="{{ $limit_kredit_nasabah->LIMIT_KREDIT }}" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
             
                 <div class="">
@@ -301,7 +302,7 @@
                 </div>
 
                 <p id="keputusan" class="block py-4 text-base font-semibold text-gray-900">
-                    Keputusan : <span class=" text-blue-700">APPROVED</span>
+                    Keputusan : <span class=" text-blue-700"> {{ $keputusan }}</span>
                 </p>
             </div>
     </div>
