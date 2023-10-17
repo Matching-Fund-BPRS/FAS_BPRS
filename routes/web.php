@@ -134,3 +134,4 @@ Route::post('/register', [AuthenticateController::class, 'register'])->name('reg
 //user management page
 Route::get('/dashboard/user', [UserController::class, 'index']);
 Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
+Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');

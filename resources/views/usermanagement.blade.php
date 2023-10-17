@@ -53,8 +53,13 @@
                             </td>
                             <td class="align-center py-2 font-medium whitespace-nowrap">
                                 <div class="flex space-x-1 ">
-                                    <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Reset Password</button>
-                                    <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete User</button>
+                                    {{-- <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:focus:ring-yellow-900">Reset Password</button> --}}
+                                    <form method="post" action="{{ route('delete-user') }}">
+                                        @method('delete')
+                                        @csrf
+                                        <input name="id" value="{{ $user->id }}" type="hidden">
+                                        <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete User</button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

@@ -23,4 +23,10 @@ class UserController extends Controller
 
         return redirect()->route('/dashboard/user')->with('message', 'Berhasil menambahkan!');
     }
+
+    public function deleteUser(Request $request){
+        User::where('id' , $request->id)->delete();
+        
+        return redirect()->back();
+    }
 }
