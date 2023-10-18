@@ -19,9 +19,10 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => bcrypt($request->password),
             'level' => $request->level,
+            'isActive' => true,
         ]);
 
-        return redirect()->route('/dashboard/user')->with('message', 'Berhasil menambahkan!');
+        return redirect()->back()->with('message', 'Berhasil menambahkan!');
     }
 
     public function deleteUser(Request $request){

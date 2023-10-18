@@ -26,6 +26,9 @@
                                 Create Date
                             </th>
                             <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
+                                Status
+                            </th>
+                            <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
                                 Action
                             </th>
                         </tr>
@@ -39,17 +42,22 @@
                             <td class="px-4 py-1 whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600">{{ $user->email }}</p>
                             </td>
+                            <td class="px-12 py-4 font-medium whitespace-nowrap">
                             @if($user->level == 0)
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600">Operator</p>
-                            </td>
                             @elseif($user->level == 1)
-                            <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600">Supervisor</p>
-                            </td>
                             @endif
+                            </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600">{{ $user->created_at }}</p>
+                            </td>
+                            <td class="px-12 py-4 font-medium whitespace-nowrap">
+                            @if($user->isActive)
+                                <p class="text-sm font-normal text-center text-gray-600">Active</p>
+                            @else()
+                                <p class="text-sm font-normal text-center text-gray-600">Non-Active</p>
+                            @endif
                             </td>
                             <td class="align-center py-2 font-medium whitespace-nowrap">
                                 <div class="flex space-x-1 ">
@@ -144,7 +152,7 @@
 
 @if(session('message'))
     <script>
-        alert('message')
+        alert('Berhasil menambahkan user!')
     </script>
 @endif
 
