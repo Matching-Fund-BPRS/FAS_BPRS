@@ -10,6 +10,10 @@ class LimitKreditController extends Controller
 {
     public function index($id){
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+
+        if($nasabah != null){
+            $angsuran = $nasabah->LIMIT_KREDIT * $nasabah->MARGIN;
+        }
         return view('limitkredit', [
             'nasabah' => $nasabah,
             'limit_kredit_nasabah' => TLimitKredit::where('ID_NASABAH', $id)->first(),
@@ -18,6 +22,8 @@ class LimitKreditController extends Controller
     }
 
     public function addLimitKredit(Request $request){
+        $angsuran = $request->margin * $request->limit_kredit;
+        $rpc = $request->angsuran / $request->lamabersih;
         TLimitKredit::insert([
             'ID_NASABAH' => $request->id ,
             'LIMIT_KREDIT' => $request->limit_kredit,
@@ -29,7 +35,7 @@ class LimitKreditController extends Controller
             'BUNGA_KREDIT' => null, //gatau darimana
             'ANGSURAN' => $request->angsuran,
             'PEND_LAIN' => $request->pendapatan_lain,
-            'RPC' => $request->rpc, 
+            'RPC' => $rpc, 
             'JENIS' => 1, //konvert dari string ke angka sesuai nilainya
             'BIAYA_LAIN' => $request->biaya_lain,
         ]);

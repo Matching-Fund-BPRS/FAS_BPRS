@@ -137,12 +137,12 @@
                 
                 <div>
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran</label>
-                    <input name="angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disbabled required>
                 </div>
                 
                 <div>
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">RPC</label>
-                    <input name="rpc" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="rpc" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
                 </div>
             
                 <div class=" pt-6">
@@ -289,12 +289,12 @@
                 
                 <div>
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran</label>
-                    <input value="{{ $limit_kredit_nasabah->ANGSURAN }}" name="angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input value="{{ $limit_kredit_nasabah->ANGSURAN }}" name="angsuran" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
                 </div>
                 
                 <div>
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">RPC</label>
-                    <input value="{{ $limit_kredit_nasabah->RPC }}"name="rpc" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input value="{{ $limit_kredit_nasabah->RPC }}"name="rpc" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" disabled required>
                 </div>
             
                 <div class=" pt-6">
