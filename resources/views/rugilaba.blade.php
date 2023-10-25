@@ -6,7 +6,7 @@
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
         <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
             <div class="overflow-hidden border border-gray-200 md:rounded-lg">
-
+                <form method="post" action="" id="laba_rugi_form">
                 <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal">
                     <thead class="bg-gray-50">
                         <tr>
@@ -35,7 +35,7 @@
                     <tbody class="bg-white divide-y divide-gray-20">
                         <tr>
                             <td class="px-4 py-1 font-medium whitespace-nowrap">
-                                    <p class="text-sm font-bold text-center text-gray-600"></p>
+                                    <i class="text-sm font-bold text-center text-gray-600"></i>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                     <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -60,7 +60,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Penjualan Bersih</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="penjualan_bersih" id="penjualan_bersih" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input type="number">
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -75,7 +75,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Harga Pokok Penjualan</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="hpp" id="hpp" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -90,7 +90,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Laba Kotor (1-2)</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="laba_kotor" id="laba_kotor" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -105,7 +105,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Biaya Ops dan Non Ops</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="total_biaya_ops_nonops" id="total_biaya_ops_nonops" class="text-sm font-normal text-center text-gray-600 border-none p-0"></p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -120,7 +120,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Laba Kotor Operasional</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="laba_kotor_ops" id="laba_kotor_ops" class="text-sm font-normal text-center text-gray-600 border-none p-0"></p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -135,7 +135,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Angsuran Bank Lain</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="angsuran_bank_lain" id="angsuran_bank_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -150,7 +150,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Laba Bersih Operasional</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="laba_bersih_operasional" id="laba_bersih_operasional" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -165,7 +165,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Pendapatan Lainnya</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="pendapatan_lain" id="pendapatan_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -180,7 +180,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Biaya Lainnya</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="biaya_lain" id="biaya_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -195,7 +195,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">EBIT</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="ebit" id="ebit" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -210,7 +210,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Biaya Margin</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="biaya_margin" id="biaya_margin" class="text-sm font-normal text-center text-gray-600 border-none p-0"></p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -225,7 +225,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Biaya Pajak</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="biaya_pajak" id="biaya_pajak" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -240,7 +240,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">EAIT</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                                <input type="number" name="eait" id="eait" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -250,9 +250,11 @@
                     </tbody>
                 </table>
 
+
+                </form>
             </div>
         </div>
     </div>
 </div>
-
+<script src="{{ asset('js/labarugi.js') }}"></script>
 @endsection
