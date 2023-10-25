@@ -149,6 +149,9 @@
         </div>
     </div>
 </div>
+<div class="flex justify-center">
+    {{ $user_data->links() }}
+</div>
 
 @if(session('message'))
     <script>
