@@ -14,6 +14,11 @@ use App\Http\Controllers\InfoKeuanganController;
 use App\Http\Controllers\LimitKreditController;
 use App\Http\Controllers\RugiLabaController;
 use App\Http\Controllers\RekomendasiController;
+use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\CapacityController;
+use App\Http\Controllers\CollateralController;
+use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\CapitalController;
 
 
 /*
@@ -30,36 +35,6 @@ use App\Http\Controllers\RekomendasiController;
 Route::get('/', function () {
     return view('dashboard');
 })->name('home');
-
-Route::get('/dashboard/5capacity', function () {
-    return view('5capacity', [
-        'nasabah' => null
-    ]);
-})->name('5capacity');
-
-Route::get('/dashboard/5collateral', function () {
-    return view('5collateral', [
-        'nasabah' => null
-    ]);
-})->name('5collateral');
-
-Route::get('/dashboard/5condition', function () {
-    return view('5condition', [
-        'nasabah' => null
-    ]);
-})->name('5condition');
-
-Route::get('/dashboard/5capital', function () {
-    return view('5capital', [
-        'nasabah' => null
-    ]);
-})->name('5capital');
-
-Route::get('/dashboard/5character', function () {
-    return view('5character', [
-        'nasabah' => null
-    ]);
-})->name('5character');
 
 Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);
 
@@ -122,6 +97,42 @@ Route::get('/dashboard/limitkredit/{id}', [LimitKreditController::class, 'index'
 Route::post('/dashboard/limitkredit/tambah', [LimitKreditController::class, 'addLimitKredit'])->name('tambah_limit_kredit');
 Route::post('/dashboard/limitkredit/{id}/edit', [LimitKreditController::class, 'editLimitKredit']);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Route::get('/dashboard/5capacity', function () {
+    return view('5capacity', [
+        'nasabah' => null
+    ]);
+})->name('5capacity');
+Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, 'submitCapacity'])->name('postCapacity');
+
+Route::get('/dashboard/5collateral', function () {
+    return view('5collateral', [
+        'nasabah' => null
+    ]);
+})->name('5collateral');
+Route::post('/dashboard/5collateral/submitCollateral', [CollateralController::class, 'submitCollateral'])->name('postCollateral');
+
+Route::get('/dashboard/5condition', function () {
+    return view('5condition', [
+        'nasabah' => null
+    ]);
+})->name('5condition');
+Route::post('/dashboard/5condition/submitCondition', [ConditionController::class, 'submitCondition'])->name('postCondition');
+
+Route::get('/dashboard/5capital', function () {
+    return view('5capital', [
+        'nasabah' => null
+    ]);
+})->name('5capital');
+Route::post('/dashboard/5capital/submitCapital', [CapitalController::class, 'submitCapital'])->name('postCapital');
+
+Route::get('/dashboard/5character', function () {
+    return view('5character', [
+        'nasabah' => null
+    ]);
+})->name('5character');
+Route::post('/dashboard/5character/submitCharacter', [CharacterController::class, 'submitCharacter'])->name('postCharacter');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //rugi laba page
@@ -140,7 +151,6 @@ Route::get('/dashboard/neraca', function () {
         'nasabah' => null
     ]);
 });
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Daftar angsuran page
