@@ -13,7 +13,7 @@
       </button>
       <div class="hidden w-full md:block md:w-auto" id="navbar-defaultnota">
 
-        <div class="mt-4 bg-gradient-to-tl from-emerald-400 via-green-200 to-lime-100 rounded-md p-2 drop-shadow-lg">
+        {{-- <div class="mt-4 bg-gradient-to-tl from-emerald-400 via-green-200 to-lime-100 rounded-md p-2 drop-shadow-lg">
             <p class="text-left text-xs font-bold">
                 User ID : <span class="font-normal">Mandiri</span>
             </p>
@@ -23,12 +23,12 @@
             <p class="text-left text-xs font-bold">
                 Level : <span class="font-normal">Supervisor</span>
             </p>
-        </div>
+        </div> --}}
 
         <div class="mt-3">
             <nav class="-mx-3 space-y-3 relative">
                 <div class="flex justify-center pt-2">
-                <form class="flex flex-row max-w-fit px-3 justify-center">   
+                <form class="flex flex-row max-w-fit px-3 justify-center m-0">   
                     <label for="simple-search" class="sr-only">Search</label>
                     <div class=" min-w-min">
                         <input type="text" id="simple-search" class="bg-gray-50 max-w-[200px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cari Nota" required>
@@ -42,7 +42,7 @@
                 </form>
                 </div>
     
-                <div class="mx-3 text-xs space-y-1 text-center">
+                <div class="mx-3 text-xs text-center">
                     <p class=" font-semibold">
                         Null Name
                     </p>
@@ -62,13 +62,37 @@
                         <span class="mx-2 text-sm font-normal">Fasilitas Existing</span>
                     </a>
     
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual">
+                    {{-- <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual">
                         <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
                     </a>
     
                     <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankuan">
                         <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
+                    </a> --}}
+
+                    <a  type="button" class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                        <span class="mx-2 text-sm font-normal">Analisa 5C</span>
                     </a>
+
+                    <div id="drop-5c" class="w-full space-y-1"> 
+                        <div class="grid">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capacity">
+                                <span class="mx-2 ml-6 text-sm font-normal">Capacity</span>
+                            </a>
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5collateral">
+                                <span class="mx-2 ml-6 text-sm font-normal">Collateral</span>
+                            </a>
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5condition">
+                                <span class="mx-2 ml-6 text-sm font-normal">Condition</span>
+                            </a>
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capital">
+                                <span class="mx-2 ml-6 text-sm font-normal">Capital</span>     
+                            </a>
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5character">
+                                <span class="mx-2 ml-6 text-sm font-normal">Character</span>  
+                            </a>
+                        </div>
+                    </div>
     
                     <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/infokeuangan">
                         <span class="mx-2 text-sm font-normal">Info Keuangan</span>

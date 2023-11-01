@@ -31,6 +31,36 @@ Route::get('/', function () {
     return view('dashboard');
 })->name('home');
 
+Route::get('/dashboard/5capacity', function () {
+    return view('5capacity', [
+        'nasabah' => null
+    ]);
+})->name('5capacity');
+
+Route::get('/dashboard/5collateral', function () {
+    return view('5collateral', [
+        'nasabah' => null
+    ]);
+})->name('5collateral');
+
+Route::get('/dashboard/5condition', function () {
+    return view('5condition', [
+        'nasabah' => null
+    ]);
+})->name('5condition');
+
+Route::get('/dashboard/5capital', function () {
+    return view('5capital', [
+        'nasabah' => null
+    ]);
+})->name('5capital');
+
+Route::get('/dashboard/5character', function () {
+    return view('5character', [
+        'nasabah' => null
+    ]);
+})->name('5character');
+
 Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);
 
 
