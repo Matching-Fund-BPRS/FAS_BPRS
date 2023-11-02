@@ -59,13 +59,13 @@
                     </a>
 
                                     
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual/{{ $nasabah->ID_NASABAH }}">
+                    {{-- <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankual/{{ $nasabah->ID_NASABAH }}">
                         <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
                     </a>
 
                     <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/ankuan/{{ $nasabah->ID_NASABAH }}">
                         <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
-                    </a>
+                    </a> --}}
 
                     <a data-collapse-toggle="drop-5c" type="button" class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
                         <span class="mx-2 text-sm font-normal">Analisa 5C</span>
@@ -123,13 +123,13 @@
                         <span class="mx-2 text-sm font-normal">Fasilitas Existing</span>
                     </a>
     
-                    <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
+                    {{-- <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Analisa Kualitatif</span>
                     </a>
 
                     <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                         <span class="mx-2 text-sm font-normal">Analisa Kuantitatif</span>
-                    </a>
+                    </a> --}}
 
                     <a data-collapse-toggle="drop-5c" type="button" class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
                         <span class="mx-2 text-sm font-normal">Analisa 5C</span>
