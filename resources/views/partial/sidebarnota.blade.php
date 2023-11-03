@@ -73,19 +73,19 @@
 
                     <div id="drop-5c" class="hidden w-full space-y-1"> 
                         <div class="grid">
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capacity">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capacity/{{ $nasabah->ID_NASABAH }}">
                                 <span class="mx-2 ml-6 text-sm font-normal">Capacity</span>
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5collateral">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5collateral/{{ $nasabah->ID_NASABAH }}">
                                 <span class="mx-2 ml-6 text-sm font-normal">Collateral</span>
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5condition">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5condition/{{ $nasabah->ID_NASABAH }}">
                                 <span class="mx-2 ml-6 text-sm font-normal">Condition</span>
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capital">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capital/{{ $nasabah->ID_NASABAH }}">
                                 <span class="mx-2 ml-6 text-sm font-normal">Capital</span>     
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5character">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5character/{{ $nasabah->ID_NASABAH }}">
                                 <span class="mx-2 ml-6 text-sm font-normal">Character</span>  
                             </a>
                         </div>
@@ -137,19 +137,19 @@
 
                     <div id="drop-5c" class="hidden w-full space-y-1"> 
                         <div class="grid">
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capacity">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                                 <span class="mx-2 ml-6 text-sm font-normal">Capacity</span>
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5collateral">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                                 <span class="mx-2 ml-6 text-sm font-normal">Collateral</span>
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5condition">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                                 <span class="mx-2 ml-6 text-sm font-normal">Condition</span>
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5capital">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                                 <span class="mx-2 ml-6 text-sm font-normal">Capital</span>     
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5character">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                                 <span class="mx-2 ml-6 text-sm font-normal">Character</span>  
                             </a>
                         </div>

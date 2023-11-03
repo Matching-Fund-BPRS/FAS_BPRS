@@ -25,7 +25,7 @@ class CollateralController extends Controller
         $output = null;
         $result = "-";
         $nasabah = null;
-        return view('/dashboard/5character',[
+        return view('collateral',[
             'result' => $result,
             'nasabah' => $nasabah
 
