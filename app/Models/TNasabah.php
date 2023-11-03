@@ -7,11 +7,13 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class TNasabah
  * 
+ * @property string $ID_NASABAH
  * @property string|null $ID_CABANG
  * @property string|null $NO_SURVEY
  * @property string|null $CIF
@@ -73,13 +75,40 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $ISI_PENDIRIAN
  * @property string|null $ISI_ANGGARAN
  * @property string|null $ISI_PENGURUS
- * @property string|null $ID_NASABAH
+ * 
+ * @property Collection|TAgunan[] $t_agunans
+ * @property Collection|TAgunanDetail[] $t_agunan_details
+ * @property Collection|TAngsuran[] $t_angsurans
+ * @property TBisid $t_bisid
+ * @property TBmpd $t_bmpd
+ * @property TCapacity $t_capacity
+ * @property TCapital $t_capital
+ * @property TCashflowKontraktor $t_cashflow_kontraktor
+ * @property TCatatan $t_catatan
+ * @property TCharacter $t_character
+ * @property TCollateral $t_collateral
+ * @property TCondition $t_condition
+ * @property Collection|TDaftarProyek[] $t_daftar_proyeks
+ * @property Collection|TFa[] $t_fas
+ * @property TKeuangan $t_keuangan
+ * @property TKonstruksi $t_konstruksi
+ * @property TKualitatif $t_kualitatif
+ * @property TKuantitatif $t_kuantitatif
+ * @property TLimitkredit $t_limitkredit
+ * @property TNeraca $t_neraca
+ * @property TPegawai $t_pegawai
+ * @property Collection|TPenguru[] $t_pengurus
+ * @property TRekomendasi $t_rekomendasi
+ * @property TResiko $t_resiko
+ * @property TRugilaba $t_rugilaba
+ * @property TTambahan $t_tambahan
  *
  * @package App\Models
  */
 class TNasabah extends Model
 {
 	protected $table = 't_nasabah';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -162,7 +191,136 @@ class TNasabah extends Model
 		'KONDISI_PENGURUS',
 		'ISI_PENDIRIAN',
 		'ISI_ANGGARAN',
-		'ISI_PENGURUS',
-		'ID_NASABAH'
+		'ISI_PENGURUS'
 	];
+
+	public function t_agunans()
+	{
+		return $this->hasMany(TAgunan::class, 'ID_NASABAH');
+	}
+
+	public function t_agunan_details()
+	{
+		return $this->hasMany(TAgunanDetail::class, 'ID_NASABAH');
+	}
+
+	public function t_angsurans()
+	{
+		return $this->hasMany(TAngsuran::class, 'ID_NASABAH');
+	}
+
+	public function t_bisid()
+	{
+		return $this->hasOne(TBisid::class, 'ID_NASABAH');
+	}
+
+	public function t_bmpd()
+	{
+		return $this->hasOne(TBmpd::class, 'ID_NASABAH');
+	}
+
+	public function t_capacity()
+	{
+		return $this->hasOne(TCapacity::class, 'ID_NASABAH');
+	}
+
+	public function t_capital()
+	{
+		return $this->hasOne(TCapital::class, 'ID_NASABAH');
+	}
+
+	public function t_cashflow_kontraktor()
+	{
+		return $this->hasOne(TCashflowKontraktor::class, 'ID_NASABAH');
+	}
+
+	public function t_catatan()
+	{
+		return $this->hasOne(TCatatan::class, 'ID_NASABAH');
+	}
+
+	public function t_character()
+	{
+		return $this->hasOne(TCharacter::class, 'ID_NASABAH');
+	}
+
+	public function t_collateral()
+	{
+		return $this->hasOne(TCollateral::class, 'ID_NASABAH');
+	}
+
+	public function t_condition()
+	{
+		return $this->hasOne(TCondition::class, 'ID_NASABAH');
+	}
+
+	public function t_daftar_proyeks()
+	{
+		return $this->hasMany(TDaftarProyek::class, 'ID_NASABAH');
+	}
+
+	public function t_fas()
+	{
+		return $this->hasMany(TFa::class, 'ID_NASABAH');
+	}
+
+	public function t_keuangan()
+	{
+		return $this->hasOne(TKeuangan::class, 'ID_NASABAH');
+	}
+
+	public function t_konstruksi()
+	{
+		return $this->hasOne(TKonstruksi::class, 'ID_NASABAH');
+	}
+
+	public function t_kualitatif()
+	{
+		return $this->hasOne(TKualitatif::class, 'ID_NASABAH');
+	}
+
+	public function t_kuantitatif()
+	{
+		return $this->hasOne(TKuantitatif::class, 'ID_NASABAH');
+	}
+
+	public function t_limitkredit()
+	{
+		return $this->hasOne(TLimitkredit::class, 'ID_NASABAH');
+	}
+
+	public function t_neraca()
+	{
+		return $this->hasOne(TNeraca::class, 'ID_NASABAH');
+	}
+
+	public function t_pegawai()
+	{
+		return $this->hasOne(TPegawai::class, 'ID_NASABAH');
+	}
+
+	public function t_pengurus()
+	{
+		return $this->hasMany(TPenguru::class, 'ID_NASABAH');
+	}
+
+	public function t_rekomendasi()
+	{
+		return $this->hasOne(TRekomendasi::class, 'ID_NASABAH');
+	}
+
+	public function t_resiko()
+	{
+		return $this->hasOne(TResiko::class, 'ID_NASABAH');
+	}
+
+	public function t_rugilaba()
+	{
+		return $this->hasOne(TRugilaba::class, 'ID_NASABAH');
+	}
+
+	public function t_tambahan()
+	{
+		return $this->hasOne(TTambahan::class, 'ID_NASABAH');
+	}
 }

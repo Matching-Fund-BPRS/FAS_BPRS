@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TFa
  * 
- * @property int|null $ID
  * @property string|null $ID_NASABAH
  * @property string|null $KODE
  * @property string|null $BANK
@@ -24,17 +23,19 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $TUNGGAKAN
  * @property string|null $LAMA_TUNGGAKAN
  * @property string|null $KET
+ * @property int $ID
+ * 
+ * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
 class TFa extends Model
 {
 	protected $table = 't_fas';
-	public $incrementing = false;
+	protected $primaryKey = 'ID';
 	public $timestamps = false;
 
 	protected $casts = [
-		'ID' => 'int',
 		'PLAFOND' => 'float',
 		'BAKI_DEBET' => 'float',
 		'TGL_JATUH_TEMPO' => 'datetime',
@@ -42,7 +43,6 @@ class TFa extends Model
 	];
 
 	protected $fillable = [
-		'ID',
 		'ID_NASABAH',
 		'KODE',
 		'BANK',
@@ -55,4 +55,9 @@ class TFa extends Model
 		'LAMA_TUNGGAKAN',
 		'KET'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

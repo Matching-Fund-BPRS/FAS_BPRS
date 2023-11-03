@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TRugilaba
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property int|null $PERIODE
  * @property Carbon|null $TGL_PERIODE
  * @property float|null $PENJUALAN_BERSIH
@@ -31,12 +31,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $SET_ASSET
  * @property float|null $SET_BIAYA
  * @property float|null $SET_HPP
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TRugilaba extends Model
 {
 	protected $table = 't_rugilaba';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -62,7 +65,6 @@ class TRugilaba extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'PERIODE',
 		'TGL_PERIODE',
 		'PENJUALAN_BERSIH',
@@ -82,4 +84,9 @@ class TRugilaba extends Model
 		'SET_BIAYA',
 		'SET_HPP'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

@@ -11,19 +11,26 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TCatatan
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property string|null $CATATAN
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TCatatan extends Model
 {
 	protected $table = 't_catatan';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'CATATAN'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

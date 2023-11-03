@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TKualitatif
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property int|null $LEG_PENDIRIAN
  * @property string|null $LEG_PENDIRIAN_NO
  * @property int|null $LEG_USAHA
@@ -53,12 +53,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $SITU_TGL
  * @property string|null $IJIN_HO
  * @property Carbon|null $HO_TGL
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TKualitatif extends Model
 {
 	protected $table = 't_kualitatif';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -96,7 +99,6 @@ class TKualitatif extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'LEG_PENDIRIAN',
 		'LEG_PENDIRIAN_NO',
 		'LEG_USAHA',
@@ -138,4 +140,9 @@ class TKualitatif extends Model
 		'IJIN_HO',
 		'HO_TGL'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

@@ -11,18 +11,21 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TAngsuran
  * 
+ * @property int $ID
  * @property string|null $ID_NASABAH
  * @property int|null $NO_ANGSURAN
  * @property float|null $POKOK_PINJAMAN
  * @property float|null $ANGS_POKOK
  * @property float|null $ANGS_BUNGA
+ * 
+ * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
 class TAngsuran extends Model
 {
 	protected $table = 't_angsuran';
-	public $incrementing = false;
+	protected $primaryKey = 'ID';
 	public $timestamps = false;
 
 	protected $casts = [
@@ -39,4 +42,9 @@ class TAngsuran extends Model
 		'ANGS_POKOK',
 		'ANGS_BUNGA'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

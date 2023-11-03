@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TPegawai
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property string|null $NAMA_PERUSAHAAN
  * @property string|null $ALAMAT
  * @property string|null $JENIS_PEKERJAAN
@@ -28,17 +28,19 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $NAMA_BENDAHARA
  * @property string|null $NO_TELP_BENDAHARA
  * @property string|null $PENYALURAN_GAJI
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TPegawai extends Model
 {
 	protected $table = 't_pegawai';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'NAMA_PERUSAHAAN',
 		'ALAMAT',
 		'JENIS_PEKERJAAN',
@@ -56,4 +58,9 @@ class TPegawai extends Model
 		'NO_TELP_BENDAHARA',
 		'PENYALURAN_GAJI'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

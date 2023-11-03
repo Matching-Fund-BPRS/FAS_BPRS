@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TBmpd
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property float|null $MODAL_INTI_CAB
  * @property float|null $MODAL_INTI_PUSAT
  * @property float|null $MODAL_PELENGKAP_CAB
@@ -24,12 +24,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $BMPD_TERKAIT_PUSAT
  * @property float|null $PLAFOND_CAB
  * @property float|null $PLAFOND_PUSAT
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TBmpd extends Model
 {
 	protected $table = 't_bmpd';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -49,7 +52,6 @@ class TBmpd extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'MODAL_INTI_CAB',
 		'MODAL_INTI_PUSAT',
 		'MODAL_PELENGKAP_CAB',
@@ -63,4 +65,9 @@ class TBmpd extends Model
 		'PLAFOND_CAB',
 		'PLAFOND_PUSAT'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

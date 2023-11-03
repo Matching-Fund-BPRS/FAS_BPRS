@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TKeuangan
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property float|null $OMZET
  * @property float|null $BIAYA_GAJI
  * @property float|null $BIAYA_BB
@@ -33,12 +33,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $ANGS_LAIN
  * @property float|null $PENDAPATAN_LAIN
  * @property float|null $BIAYA_LAIN
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TKeuangan extends Model
 {
 	protected $table = 't_keuangan';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -67,7 +70,6 @@ class TKeuangan extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'OMZET',
 		'BIAYA_GAJI',
 		'BIAYA_BB',
@@ -90,4 +92,9 @@ class TKeuangan extends Model
 		'PENDAPATAN_LAIN',
 		'BIAYA_LAIN'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TAgunanDetail
  * 
- * @property int|null $ID
+ * @property int $ID
  * @property string|null $ID_NASABAH
  * @property Carbon|null $TGL_PEMERIKAAN
  * @property string|null $PENILAI
@@ -85,12 +85,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $UMUR_EFEKTIF
  * @property int|null $PENYUSUTAN_PERTAHUN
  * @property string|null $INFORMAN_3
+ * 
+ * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
 class TAgunanDetail extends Model
 {
 	protected $table = 't_agunan_detail';
+	protected $primaryKey = 'ID';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -116,7 +119,6 @@ class TAgunanDetail extends Model
 	];
 
 	protected $fillable = [
-		'ID',
 		'ID_NASABAH',
 		'TGL_PEMERIKAAN',
 		'PENILAI',
@@ -190,4 +192,9 @@ class TAgunanDetail extends Model
 		'PENYUSUTAN_PERTAHUN',
 		'INFORMAN_3'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

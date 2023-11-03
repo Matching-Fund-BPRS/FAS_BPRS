@@ -15,10 +15,6 @@ class UserController extends Controller
 
     
     public function addUser(Request $request){
-        $this->validate($request, [
-            'password' => 'required',
-            'password_confirmation' => 'required_with:password|same:password|min:6'
-        ]);
 
         User::create([
             'name' => $request->name,

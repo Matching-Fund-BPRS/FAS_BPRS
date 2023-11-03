@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TLimitkredit
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property float|null $LIMIT_KREDIT
  * @property int|null $JANGKA_WAKTU
  * @property float|null $OMSET
@@ -24,12 +24,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $RPC
  * @property string|null $JENIS
  * @property float|null $BIAYA_LAIN
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TLimitkredit extends Model
 {
 	protected $table = 't_limitkredit';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -48,7 +51,6 @@ class TLimitkredit extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'LIMIT_KREDIT',
 		'JANGKA_WAKTU',
 		'OMSET',
@@ -62,4 +64,9 @@ class TLimitkredit extends Model
 		'JENIS',
 		'BIAYA_LAIN'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

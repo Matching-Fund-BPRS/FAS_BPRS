@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class LogError
  * 
- * @property int|null $ID
+ * @property int $ID
  * @property Carbon|null $TANGGAL
  * @property string|null $USER_ID
  * @property string|null $KETERANGAN
@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
 class LogError extends Model
 {
 	protected $table = 'log_error';
+	protected $primaryKey = 'ID';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -31,7 +32,6 @@ class LogError extends Model
 	];
 
 	protected $fillable = [
-		'ID',
 		'TANGGAL',
 		'USER_ID',
 		'KETERANGAN'

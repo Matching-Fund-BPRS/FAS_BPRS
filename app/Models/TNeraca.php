@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TNeraca
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property int|null $PERIODE
  * @property Carbon|null $TANGGAL_PERIODE
  * @property float|null $KAS
@@ -33,12 +33,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $SET_ASSET
  * @property float|null $EBIT
  * @property float|null $OIS
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TNeraca extends Model
 {
 	protected $table = 't_neraca';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -66,7 +69,6 @@ class TNeraca extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'PERIODE',
 		'TANGGAL_PERIODE',
 		'KAS',
@@ -88,4 +90,9 @@ class TNeraca extends Model
 		'EBIT',
 		'OIS'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

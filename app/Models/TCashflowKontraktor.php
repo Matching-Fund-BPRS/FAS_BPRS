@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TCashflowKontraktor
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property float|null $TERMIN_1
  * @property float|null $TERMIN_2
  * @property float|null $TERMIN_3
@@ -27,12 +27,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $BUNGA_PINJ_BANK
  * @property float|null $ANGS_POKOK_BANK
  * @property float|null $NILAI_PROYEK
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TCashflowKontraktor extends Model
 {
 	protected $table = 't_cashflow_kontraktor';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -55,7 +58,6 @@ class TCashflowKontraktor extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'TERMIN_1',
 		'TERMIN_2',
 		'TERMIN_3',
@@ -72,4 +74,9 @@ class TCashflowKontraktor extends Model
 		'ANGS_POKOK_BANK',
 		'NILAI_PROYEK'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

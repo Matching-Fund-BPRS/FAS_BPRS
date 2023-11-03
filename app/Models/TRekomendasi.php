@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TRekomendasi
  * 
- * @property string|null $ID_NASABAH
+ * @property string $ID_NASABAH
  * @property float|null $LIMIT_KREDIT
  * @property string|null $SIFAT_KREDIT
  * @property string|null $JENIS_PERMOHONAN
@@ -31,12 +31,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $MODAL
  * @property float|null $BASIL_BANK
  * @property float|null $BASIL_DEB
+ * 
+ * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
 class TRekomendasi extends Model
 {
 	protected $table = 't_rekomendasi';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -58,7 +61,6 @@ class TRekomendasi extends Model
 	];
 
 	protected $fillable = [
-		'ID_NASABAH',
 		'LIMIT_KREDIT',
 		'SIFAT_KREDIT',
 		'JENIS_PERMOHONAN',
@@ -79,4 +81,9 @@ class TRekomendasi extends Model
 		'BASIL_BANK',
 		'BASIL_DEB'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

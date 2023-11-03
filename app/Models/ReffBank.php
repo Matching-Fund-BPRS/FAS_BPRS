@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class ReffBank
  * 
- * @property string|null $KODE
+ * @property string $KODE
  * @property string|null $BANK
  *
  * @package App\Models
@@ -19,11 +19,11 @@ use Illuminate\Database\Eloquent\Model;
 class ReffBank extends Model
 {
 	protected $table = 'reff_bank';
+	protected $primaryKey = 'KODE';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $fillable = [
-		'KODE',
 		'BANK'
 	];
 }

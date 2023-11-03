@@ -20,6 +20,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $ESTIMASI_HPP
  * @property float|null $ANGSURAN_BANK
  * @property float|null $ESTIMASI_BUNGA
+ * 
+ * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -51,4 +53,9 @@ class TKonstruksi extends Model
 		'ANGSURAN_BANK',
 		'ESTIMASI_BUNGA'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }

@@ -9,43 +9,46 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class TKuantitatif
+ * Class TCollateral
  * 
- * @property string $ID_NASABAH
- * @property int|null $KEPEMILIKAN
- * @property int|null $NILAI_AGUNAN
+ * @property int|null $LEG_USAHA
  * @property int|null $PENGIKATAN
  * @property int|null $MARKETABILITY
+ * @property int|null $KEPEMILIKAN
  * @property int|null $PENGUASAAN
- * @property int|null $ASURANSI
+ * @property int|null $CA_NILAI_AGUNAN
+ * @property int|null $PA_DOKUMEN
+ * @property string $ID_NASABAH
  * 
  * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
-class TKuantitatif extends Model
+class TCollateral extends Model
 {
-	protected $table = 't_kuantitatif';
+	protected $table = 't_collateral';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'KEPEMILIKAN' => 'int',
-		'NILAI_AGUNAN' => 'int',
+		'LEG_USAHA' => 'int',
 		'PENGIKATAN' => 'int',
 		'MARKETABILITY' => 'int',
+		'KEPEMILIKAN' => 'int',
 		'PENGUASAAN' => 'int',
-		'ASURANSI' => 'int'
+		'CA_NILAI_AGUNAN' => 'int',
+		'PA_DOKUMEN' => 'int'
 	];
 
 	protected $fillable = [
-		'KEPEMILIKAN',
-		'NILAI_AGUNAN',
+		'LEG_USAHA',
 		'PENGIKATAN',
 		'MARKETABILITY',
+		'KEPEMILIKAN',
 		'PENGUASAAN',
-		'ASURANSI'
+		'CA_NILAI_AGUNAN',
+		'PA_DOKUMEN'
 	];
 
 	public function t_nasabah()

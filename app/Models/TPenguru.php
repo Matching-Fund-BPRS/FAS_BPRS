@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class TPenguru
  * 
- * @property int|null $ID
  * @property string|null $ID_NASABAH
  * @property string|null $NAMA
  * @property string|null $JABATAN
@@ -20,23 +19,24 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $TGL_LAHIR
  * @property string|null $NO_KTP
  * @property float|null $SAHAM
+ * @property int $ID
+ * 
+ * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
 class TPenguru extends Model
 {
 	protected $table = 't_pengurus';
-	public $incrementing = false;
+	protected $primaryKey = 'ID';
 	public $timestamps = false;
 
 	protected $casts = [
-		'ID' => 'int',
 		'TGL_LAHIR' => 'datetime',
 		'SAHAM' => 'float'
 	];
 
 	protected $fillable = [
-		'ID',
 		'ID_NASABAH',
 		'NAMA',
 		'JABATAN',
@@ -45,4 +45,9 @@ class TPenguru extends Model
 		'NO_KTP',
 		'SAHAM'
 	];
+
+	public function t_nasabah()
+	{
+		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
+	}
 }
