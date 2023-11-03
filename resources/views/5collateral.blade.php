@@ -104,4 +104,238 @@
     </section>
 </form>
 
+<section class="my-4">
+    <div class="py-4 flex justify-between items-center">
+        <p class="text-base font-semibold text-gray-900">
+            Tabel Agunan dan Asuransi
+        </p>
+        <div class="">
+            <button type="submit" data-modal-target="defaultModal" data-modal-toggle="defaultModal" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Tambah Agunan</button>
+        </div>  
+    </div>
+
+        <div class="w-full">
+            <div class="inline-block w-full max-w-screen-xl py-2 align-middle">
+                <div class="overflow-hidden border border-gray-200 md:rounded-lg w-full">
+    
+                    <table class="w-full divide-y divide-gray-20 table-auto overflow-auto whitespace-normal">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Jenis
+                                </th>
+    
+                                <th scope="col" class="px-4 py-3.5 w-80 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Bukti Milik
+                                </th>
+    
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Keterangan
+                                </th>
+    
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Nilai
+                                </th>
+    
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Save Margin
+                                </th>
+    
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-20">
+                            
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-bold text-center text-gray-600">-</p>
+                                </td>
+                                
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-center text-gray-600">-</p>
+                                </td>
+                                
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-center text-gray-600">-</p>
+                                </td>
+                                
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">-</p>
+                                </td>
+                                
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                    <p class="text-sm font-normal text-center text-gray-600">-</p>
+                                </td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                </div>
+            </div>
+        </div>
+    <div class="flex justify-center">
+        
+    </div>
+</section>
+
+<form method="post" action="{{ Route('tambah_resiko') }}">
+    @csrf
+    <input name="id" value="" type="hidden">
+    <section class="space-y-4 my-4">
+        <p class="block py-4 text-base font-semibold text-gray-900">
+            Analisa Resiko
+        </p>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">1. Resiko</label>
+            <textarea name="resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Resiko..."></textarea>        
+        </div>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">2. Mitigasi Resiko</label>
+            <textarea name="mitigasi_resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Mitigasi Resiko..."></textarea>        
+        </div>
+        <div class=" pt-6">
+            <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+        </div>  
+    </section>
+</form>
+
+
+<div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-sm md:max-w-xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between p-4 border-b border-gray-200 rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-bold text-gray-700 dark:text-white">
+                    Add Agunan
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form method="post" action="{{ Route('tambah_user') }}">
+                @csrf
+                <div class="p-4 space-y-4">
+                    <div class= "min-w-full">
+                        <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Jenis</label>
+                        <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1">Lorem ipsum sit dolor amet</option>
+                            <option value="2">Lorem ipsum sit dolor amet</option>
+                            <option value="3">Lorem ipsum sit dolor amet</option>
+                        </select>
+                    </div>
+
+                    <div class= "min-w-full">
+                        <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Bukti Milik</label>
+                        <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1">Lorem ipsum sit dolor amet</option>
+                            <option value="2">Lorem ipsum sit dolor amet</option>
+                            <option value="3">Lorem ipsum sit dolor amet</option>
+                        </select>
+                    </div>
+                    <div class="grid grid-cols-2 space-x-4">
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">No. BPKB</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+    
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">No. Polisi</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 space-x-4">
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">No. Mesin</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+            
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">No. Rangka</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 space-x-4">
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Warna</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+                        
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Atas Nama</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Alamat</label>
+                            <textarea name="resiko" id="ketpeng" rows="4" class=" w-full block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Alamat..."></textarea> 
+                        </div>
+                    </div>
+
+                    <div class=" flex justify-center">
+                        <div class="">
+                            <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900 text-center">Tanggal Berlaku</label>
+                            <div class="relative max-w-[220px]" id="tglperm">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                    </svg>
+                                </div>
+                                <input name="tgl_permohonan" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="grid grid-cols-2 space-x-4">
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nilai Harga Pasar</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+    
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Safety Margin</label>
+                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+                    </div>
+
+                    <div class= "min-w-full">
+                        <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Jenis Pengikatan</label>
+                        <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1">Lorem ipsum sit dolor amet</option>
+                            <option value="2">Lorem ipsum sit dolor amet</option>
+                            <option value="3">Lorem ipsum sit dolor amet</option>
+                        </select>
+                    </div>
+    
+                                        
+                    <div class= "min-w-full">
+                        <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Asuransi</label>
+                        <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1">Lorem ipsum sit dolor amet</option>
+                            <option value="2">Lorem ipsum sit dolor amet</option>
+                            <option value="3">Lorem ipsum sit dolor amet</option>
+                        </select>
+                    </div>
+
+                </div>
+                                    
+
+            
+        
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+                    <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 @endsection
