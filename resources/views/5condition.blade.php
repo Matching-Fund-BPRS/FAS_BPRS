@@ -8,7 +8,8 @@
         <p class="block py-4 text-base font-semibold text-gray-900">
             Aspek Condition
         </p>
-
+        
+            <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
             <div class= "min-w-xl">
                 <label for="cu_pasokan" class="block mb-2 text-xs font-medium text-gray-900">Pengadaan barang Baku</label>
                 <select name="cu_pasokan" id="cu_pasokan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
