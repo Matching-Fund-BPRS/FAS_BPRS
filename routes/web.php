@@ -100,7 +100,7 @@ Route::post('/dashboard/limitkredit/{id}/edit', [LimitKreditController::class, '
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/dashboard/5capacity/{id}', [CapacityController::class, 'index'])->name('5capacity');
-Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'index'])->name('updateCapacity');
+// Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'index'])->name('updateCapacity');
 Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, 'submitCapacity'])->name('postCapacity');
 
 Route::get('/dashboard/5collateral/{id}', [CollateralController::class, 'index'])->name('5collateral');
@@ -111,6 +111,7 @@ Route::post('/dashboard/5condition/{id}/edit', [ConditionController::class, 'upd
 Route::post('/dashboard/5condition/submitCondition', [ConditionController::class, 'submitCondition'])->name('postCondition');
 
 Route::get('/dashboard/5capital/{id}', [CapitalController::class, 'index'])->name('5capital');
+Route::post('/dashboard/5capital/{id}/edit', [CapitalController::class, 'update'])->name('updateCapital');
 Route::post('/dashboard/5capital/submitCapital', [CapitalController::class, 'submitCapital'])->name('postCapital');
 
 Route::get('/dashboard/5character/{id}', [CharacterController::class, 'index'])->name('5character');
