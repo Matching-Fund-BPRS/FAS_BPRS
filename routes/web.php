@@ -104,6 +104,7 @@ Route::get('/dashboard/5capacity/{id}', [CapacityController::class, 'index'])->n
 Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, 'submitCapacity'])->name('postCapacity');
 
 Route::get('/dashboard/5collateral/{id}', [CollateralController::class, 'index'])->name('5collateral');
+Route::post('/dashboard/5collateral/{id}/edit', [CollateralController::class, 'update']);
 Route::post('/dashboard/5collateral/submitCollateral', [CollateralController::class, 'submitCollateral'])->name('postCollateral');
 
 Route::get('/dashboard/5condition/{id}', [ConditionController::class, 'index'])->name('5condition');
