@@ -1,7 +1,6 @@
 
 let limitKreditForm = document.getElementById('limit_kredit_form');
-
-limitKreditForm.addEventListener('change', function (){
+function limitKreditFunction(){
   let limitKreditValue = parseFloat(document.getElementById('limit_kredit').value)||0;
   let jangkaWaktuValue = parseFloat(document.getElementById('jangka_waktu').value)||0;
   let omsetValue = parseFloat(document.getElementById('omset').value)||0;
@@ -30,4 +29,6 @@ limitKreditForm.addEventListener('change', function (){
   document.getElementById('rpc').value = rpcValue;
   document.getElementById('biaya_margin').value = biayaMarginValue;
   document.getElementById('angsuran').value = angsuranValue;
-})
+}
+limitKreditFunction();
+limitKreditForm.addEventListener('change', limitKreditFunction)

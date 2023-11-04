@@ -1,6 +1,5 @@
 let labaRugiForm = document.getElementById('laba_rugi_form')
-
-labaRugiForm.addEventListener('change', function (){
+function labaRugiCount(){
   let omsetValue = parseFloat(document.getElementById('penjualan_bersih').value)||0;
   let hppValue = parseFloat(document.getElementById('hpp').value)||0;
 
@@ -26,4 +25,6 @@ labaRugiForm.addEventListener('change', function (){
   document.getElementById('ebit').value = ebitValue;
   document.getElementById('eait').value = eaitValue;
   
-})
+}
+labaRugiCount()
+labaRugiForm.addEventListener('change', labaRugiCount)

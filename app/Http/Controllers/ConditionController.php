@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TCondition;
 use App\Models\TNasabah;
+use Illuminate\Support\Facades\Http;
 
 class ConditionController extends Controller
 {
@@ -17,7 +18,8 @@ class ConditionController extends Controller
         return view('5condition',[
             'result' => "-",
             'condition_nasabah' => $condition_nasabah,
-            'nasabah' => $nasabah
+            'nasabah' => $nasabah,
+            'output' => null
         ]);
     }
 
@@ -32,14 +34,25 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $output = null;
+        $response = Http::post('model:5000/condition', [
+            'cu_pasokan' => intval($request->cu_pasokan),
+            'cu_konsumen' => intval($request->cu_konsumen),
+            'pem_ketergantungan' => intval($request->pem_ketergantungan),
+            'pem_kebutuhan' => intval($request->pem_kebutuhan),
+            'cu_kecakapan' => intval($request->cu_kecakapan),
+            'cu_eksternal' => intval($request->cu_eksternal),
+        ]);
+
+        $output = $response->json()['data']['percentage'];
         $result = "Berhasil memperbarui data!";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
+
         return view('5condition',[
             'result' => $result,
             'nasabah' => $nasabah,
             'condition_nasabah' => $condition_nasabah,
+            'output' => $output
         ])->with('message-edit', $result);
     }
 
@@ -57,7 +70,16 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $output = null;
+        $response = Http::post('model:5000/condition', [
+            'cu_pasokan' => intval($request->cu_pasokan),
+            'cu_konsumen' => intval($request->cu_konsumen),
+            'pem_ketergantungan' => intval($request->pem_ketergantungan),
+            'pem_kebutuhan' => intval($request->pem_kebutuhan),
+            'cu_kecakapan' => intval($request->cu_kecakapan),
+            'cu_eksternal' => intval($request->cu_eksternal),
+        ]);
+
+        $output = $response->json()['data']['percentage'];
         $result = "-";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $request->id)->first();
@@ -65,7 +87,8 @@ class ConditionController extends Controller
         return view('5condition',[
             'result' => $result,
             'nasabah' => $nasabah,
-            'condition_nasabah' => $condition_nasabah
+            'condition_nasabah' => $condition_nasabah,
+            'output' => $output
         ])->with('message-add', $result);
     }
 }

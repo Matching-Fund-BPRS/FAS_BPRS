@@ -42,7 +42,8 @@
                                     <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap flex">
-                                    <input type="date" name="periode" class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto">
+                                    <input type="date" name="periode" class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto"
+                                    value="{{ $rugi_laba_nasabah->TGL_PERIODE ?? '' }}" required>
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap">
                                     <p class="text-sm font-semibold text-center text-gray-600">06/08/2016</p>
@@ -61,7 +62,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Penjualan Bersih</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="penjualan_bersih" id="penjualan_bersih" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input type="number">
+                                <input type="number" name="penjualan_bersih" id="penjualan_bersih" class="text-sm font-normal text-center text-gray-600 border-none p-0" 
+                                value="{{ $rugi_laba_nasabah->PENJUALAN_BERSIH ?? 0 }}"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -76,7 +78,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Harga Pokok Penjualan</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="hpp" id="hpp" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="hpp" id="hpp" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                value="{{ $rugi_laba_nasabah->HPP ?? 0 }}"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -91,7 +94,8 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Laba Kotor (1-2)</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="laba_kotor" id="laba_kotor" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="laba_kotor" id="laba_kotor" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                readonly></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -106,7 +110,8 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Biaya Ops dan Non Ops</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="total_biaya_ops_nonops" id="total_biaya_ops_nonops" class="text-sm font-normal text-center text-gray-600 border-none p-0"></p>
+                                <input type="number" name="total_biaya_ops_nonops" id="total_biaya_ops_nonops" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                value="{{ $rugi_laba_nasabah->BIAYA_HIDUP ?? 0 }}"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -121,7 +126,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Laba Kotor Operasional</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="laba_kotor_ops" id="laba_kotor_ops" class="text-sm font-normal text-center text-gray-600 border-none p-0"></p>
+                                <input type="number" name="laba_kotor_ops" id="laba_kotor_ops" class="text-sm font-normal text-center text-gray-600 border-none p-0" readonly></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -136,7 +141,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Angsuran Bank Lain</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="angsuran_bank_lain" id="angsuran_bank_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="angsuran_bank_lain" id="angsuran_bank_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                value="{{ $rugi_laba_nasabah->PENYUSUTAN ?? 0 }}"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -151,7 +157,8 @@
                                 <p class="text-sm font-bold text-center text-gray-600">Laba Bersih Operasional</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="laba_bersih_operasional" id="laba_bersih_operasional" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="laba_bersih_operasional" id="laba_bersih_operasional" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                readonly></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -166,7 +173,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Pendapatan Lainnya</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="pendapatan_lain" id="pendapatan_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="pendapatan_lain" id="pendapatan_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                value="{{ $rugi_laba_nasabah->PENDAPATAN_LAIN ?? 0 }}"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -181,7 +189,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Biaya Lainnya</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="biaya_lain" id="biaya_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="biaya_lain" id="biaya_lain" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                value="{{ $rugi_laba_nasabah->BIAYA_LAIN ?? 0 }}"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -196,7 +205,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">EBIT</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="ebit" id="ebit" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="ebit" id="ebit" class="text-sm font-normal text-center text-gray-600 border-none p-0" readonly></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -211,7 +220,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Biaya Margin</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="biaya_margin" id="biaya_margin" class="text-sm font-normal text-center text-gray-600 border-none p-0"></p>
+                                <input type="number" name="biaya_margin" id="biaya_margin" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                value="{{ $rugi_laba_nasabah->BIAYA_BUNGA ?? 0 }}"></input></p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -226,7 +236,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Biaya Pajak</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="biaya_pajak" id="biaya_pajak" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="biaya_pajak" id="biaya_pajak" class="text-sm font-normal text-center text-gray-600 border-none p-0"
+                                value="{{ $rugi_laba_nasabah->BIAYA_PAJAK ?? 0 }}"></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
@@ -241,7 +252,7 @@
                                 <p class="text-sm font-bold text-center text-gray-600">EAIT</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <input type="number" name="eait" id="eait" class="text-sm font-normal text-center text-gray-600 border-none p-0"></input>
+                                <input type="number" name="eait" id="eait" class="text-sm font-normal text-center text-gray-600 border-none p-0" readonly></input>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
