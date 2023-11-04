@@ -13,7 +13,7 @@ class CapitalController extends Controller
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
 
-        return view('5capacity',[
+        return view('5capital',[
             'result' => "-",
             'capital_nasabah' => $capital_nasabah,
             'nasabah' => $nasabah
@@ -21,17 +21,52 @@ class CapitalController extends Controller
     }
 
     public function submitCapital(Request $request){
-        dd($request);
         // ambil data dari request terus jadiin JSON terus post ke API
         // ambil response dari API terus masukin di variabel
 
+
+        TCapital::insert([
+            'CM_DAR' => $request->cm_dar,
+            'CM_DER' => $request->cm_der,
+            'CM_LDER' => $request->cm_lder,
+            'PK_ASET' => $request->pk_asset,
+            'PK_INCOME_SALES' => $request->pk_income_sales,
+            'RPC' => $request->rpc,
+            'PK_EBIT' => $request->pk_ebit,
+            'ID_NASABAH' => $request->id
+        ]);
+
+        $output = null;
+        $result = "Berhasil menambahkan data!";
+        $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
+        $capital_nasabah = TCapital::where('ID_NASABAH',$request->id)->first();
+        return view('5capital',[
+            'capital_nasabah' => $capital_nasabah,
+            'result' => $result,
+            'nasabah' => $nasabah
+        ])->with('message-add', $result);
+    }
+
+    public function update(Request $request, $id){
+        TCapital::where('ID_NASABAH', $id)->update([
+            'CM_DAR' => $request->cm_dar,
+            'CM_DER' => $request->cm_der,
+            'CM_LDER' => $request->cm_lder,
+            'PK_ASET' => $request->pk_asset,
+            'PK_INCOME_SALES' => $request->pk_income_sales,
+            'RPC' => $request->rpc,
+            'PK_EBIT' => $request->pk_ebit,
+        ]);
+
         $output = null;
         $result = "-";
-        $nasabah = null;
-        return view('/dashboard/5character',[
+        $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
+        return view('5capital',[
+            'capital_nasabah' => $capital_nasabah,
             'result' => $result,
             'nasabah' => $nasabah
 
-        ])->with('message', $result);
+        ])->with('message', "Berhasil memperbarui data!");
     }
 }
