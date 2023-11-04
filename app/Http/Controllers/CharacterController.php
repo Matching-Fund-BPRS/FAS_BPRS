@@ -11,7 +11,7 @@ class CharacterController extends Controller
     public function index($id){
         $character_nasabah =TCharacter::where('ID_NASABAH', $id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
-        return view('/dashboard/5character',[
+        return view('5character',[
             'result' => "-",
             'nasabah' => $nasabah
         ]);
@@ -30,7 +30,7 @@ class CharacterController extends Controller
         $output = null;
         $result = "-";
         $nasabah = null;
-        return view('/dashboard/5character',[
+        return view('5character',[
             'result' => $result,
             'nasabah' => $nasabah
 

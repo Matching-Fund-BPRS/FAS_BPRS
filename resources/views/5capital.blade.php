@@ -1,7 +1,7 @@
 @extends ('partial.mainnota')
 
 @section('container')
-
+@dd($capital_nasabah)
 <form method="post" action="{{ route('postCapital') }}">
     @csrf
     <section id="capital" class="my-4 max-w-xl space-y-4">

@@ -126,7 +126,6 @@ class InfoKeuanganController extends Controller
     public function index($id){
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $info_keuangan_nasabah = TKeuangan::where('ID_NASABAH', $id)->first();
-        dump($info_keuangan_nasabah);
         return view('infokeuangan', compact('info_keuangan_nasabah', 'nasabah'));
 
     }

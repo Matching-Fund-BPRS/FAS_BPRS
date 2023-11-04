@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TNasabah;
+use App\Models\TCapital;
 
 class CapitalController extends Controller
 {
     public function index($id){
         // request data 5c nasabah ke API dengan paramter $id
+        $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
 
-
-        $nasabah = null;
-        return view('/dashboard/5character',[
+        return view('5capacity',[
             'result' => "-",
+            'capital_nasabah' => $capital_nasabah,
             'nasabah' => $nasabah
         ]);
     }

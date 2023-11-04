@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TCollateral;
+use App\Models\TNasabah;
 
 class CollateralController extends Controller
 {
     public function index($id){
         // request data 5c nasabah ke API dengan paramter $id
 
-
-        $nasabah = null;
-        return view('/dashboard/5character',[
+        $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        return view('5collateral',[
             'result' => "-",
             'nasabah' => $nasabah
         ]);
@@ -25,7 +26,7 @@ class CollateralController extends Controller
         $output = null;
         $result = "-";
         $nasabah = null;
-        return view('collateral',[
+        return view('5collateral',[
             'result' => $result,
             'nasabah' => $nasabah
 
