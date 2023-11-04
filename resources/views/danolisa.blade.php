@@ -51,7 +51,7 @@
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-20">
                             @foreach($all_nasabah as $nasabah)
-                            <tr onclick="window.location='/dashboard/detailnota?id={{ $nasabah->ID_NASABAH }}';">
+                            <tr onclick="window.location='/dashboard/detailnota?id={{ $nasabah->ID_NASABAH }}';" class="hover:bg-gray-100 cursor-pointer">
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-bold text-center text-gray-600">{{ $nasabah->NO_SURVEY }}</p>
                                 </td>

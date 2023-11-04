@@ -1,6 +1,5 @@
 let infoKeuanganForm = document.getElementById('info_keuangan_form');
-
-infoKeuanganForm.addEventListener('change', function () {
+function calculate() {
   let omset = parseFloat(document.getElementById('omset').value) || 0;
   let biayaGajiValue = parseFloat(document.getElementById('biaya_gaji').value) || 0;
   let biayaBahanValue = parseFloat(document.getElementById('biaya_bahan_baku').value) || 0;
@@ -29,4 +28,6 @@ infoKeuanganForm.addEventListener('change', function () {
   document.getElementById('total_biaya_rt').value = totalBiayaRtValue;
   document.getElementById('total_angsuran').value = totalAngsuranValue;
   document.getElementById('laba_rugi').value = labaRugiValue;
-});
+}
+calculate();
+infoKeuanganForm.addEventListener('change', calculate);
