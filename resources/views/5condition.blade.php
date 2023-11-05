@@ -158,14 +158,10 @@
 </form>
 @endif
 
-@if(session('message-edit'))
-<script>
-    alert('Berhasil memperbarui data!')
-</script>
-@elseif(session('message-add'))
-<script>
-    alert('Berhasil menambahkan data!')
-</script>
+@if($result_message != null)
+    <script>
+        alert("{{ $result_message }}")
+    </script>
 @endif
 
 @endsection

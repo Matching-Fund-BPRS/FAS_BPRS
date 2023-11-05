@@ -15,11 +15,13 @@ class ConditionController extends Controller
 
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
+        $result = null;
+        $output = null;
         return view('5condition',[
-            'result' => "-",
+            'result_message' => $result,
             'condition_nasabah' => $condition_nasabah,
             'nasabah' => $nasabah,
-            'output' => null
+            'output' => $output
         ]);
     }
 
@@ -49,7 +51,7 @@ class ConditionController extends Controller
         $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
 
         return view('5condition',[
-            'result' => $result,
+            'result_message' => $result,
             'nasabah' => $nasabah,
             'condition_nasabah' => $condition_nasabah,
             'output' => $output
@@ -80,12 +82,12 @@ class ConditionController extends Controller
         ]);
 
         $output = $response->json()['data']['percentage'];
-        $result = "-";
+        $result = "Berhasil menambahkan data!";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $request->id)->first();
 
         return view('5condition',[
-            'result' => $result,
+            'result_message' => $result,
             'nasabah' => $nasabah,
             'condition_nasabah' => $condition_nasabah,
             'output' => $output

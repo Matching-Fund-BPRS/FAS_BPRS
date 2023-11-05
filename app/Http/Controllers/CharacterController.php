@@ -11,10 +11,12 @@ class CharacterController extends Controller
     public function index($id){
         $character_nasabah =TCharacter::where('ID_NASABAH', $id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        $result = null;
         return view('5character',[
             'result' => "-",
             'nasabah' => $nasabah,
-            'character_nasabah' => $character_nasabah
+            'character_nasabah' => $character_nasabah,
+            'result_message' => $result,
         ]);
     }
 
@@ -36,14 +38,15 @@ class CharacterController extends Controller
         
         // ambil response dari API terus masukin di variabel
         $output = null;
-        $result = "-";
+        $result = "Berhasil menambahkan data!";
         $character_nasabah =TCharacter::where('ID_NASABAH', $request->id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         return view('5character',[
-            'result' => $result,
+            'output' => $output,
             'nasabah' => $nasabah,
-            'character_nasabah' => $character_nasabah
-        ])->with('message', $result);
+            'character_nasabah' => $character_nasabah,
+            'result_message' => $result,
+        ]);
     }
 
     public function update(Request $request, $id){
@@ -60,13 +63,15 @@ class CharacterController extends Controller
         ]);
 
         $output = null;
-        $result = "-";
+        $result = "Berhasil memperbarui data!";
         $character_nasabah =TCharacter::where('ID_NASABAH', $request->id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         return view('5character',[
             'result' => $result,
+            'output' => $output,
             'nasabah' => $nasabah,
-            'character_nasabah' => $character_nasabah
-        ])->with('message', $result);
+            'character_nasabah' => $character_nasabah,
+            'result_message' => $result,
+        ]);
     }
 }

@@ -102,10 +102,10 @@ Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, '
 Route::get('/dashboard/5collateral/{id}', [CollateralController::class, 'index'])->name('5collateral');
 Route::post('/dashboard/5collateral/{id}/edit', [CollateralController::class, 'update']);
 Route::post('/dashboard/5collateral/submitCollateral', [CollateralController::class, 'submitCollateral'])->name('postCollateral');
-Route::post('/dashboard/5collateral/tambah-agunan', [AnKuanController::class, 'addAgunan'])->name('tambah_agunan');
-Route::post('/dashboard/5collateral/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
-Route::post('/dashboard/5collateral/{id}/edit-agunan', [AnKuanController::class, 'editAgunan']);
-Route::post('/dashboard/5collateral/{id}/edit-resiko', [AnKuanController::class, 'editResiko']);
+Route::post('/dashboard/5collateral/tambah-agunan', [CollateralController::class, 'addAgunan'])->name('tambah_agunan');
+Route::post('/dashboard/5collateral/tambah-resiko', [CollateralController::class, 'addResiko'])->name('tambah_resiko');
+Route::post('/dashboard/5collateral/{id}/edit-agunan', [CollateralController::class, 'editAgunan']);
+Route::post('/dashboard/5collateral/{id}/edit-resiko', [CollateralController::class, 'editResiko']);
 
 //condition
 Route::get('/dashboard/5condition/{id}', [ConditionController::class, 'index'])->name('5condition');

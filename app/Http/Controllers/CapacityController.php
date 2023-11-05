@@ -12,12 +12,14 @@ class CapacityController extends Controller
 
     public function index($id){
         // request data 5c nasabah ke API dengan paramter $id
+        $result = null;
         $capacity_nasabah = TCapacity::where('ID_NASABAH', $id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         return view('5capacity',[
             'capacity_nasabah' => $capacity_nasabah,
             'result' => "-",
-            'nasabah' => $nasabah
+            'nasabah' => $nasabah,
+            'result_message' => $result
         ]);
     }
 
@@ -37,16 +39,16 @@ class CapacityController extends Controller
 
 
         $output = null;
-        $result = "-";
+        $result = "Berhasil menambahkan data!";
 
         $capacity_nasabah = TCapacity::where('ID_NASABAH', $request->id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         return view('5capacity',[
             'capacity_nasabah' => $capacity_nasabah,
-            'result' => $result,
             'nasabah' => $nasabah,
-            'output' => $output
-        ])->with('message', $result);
+            'output' => $output,
+            'result_message' => $result
+        ]);
     }
 
     public function update(Request $request, $id){
@@ -59,7 +61,10 @@ class CapacityController extends Controller
         ]);
 
         $output = null;
-        $result = "-";
+        //ini bikin conditional berdasarkan response dari API
+        //kalo berhasil edit, result == berhasil
+        //kalo gagal, result == gagal
+        $result = "Berhasil memperbarui data";
 
         $capacity_nasabah = TCapacity::where('ID_NASABAH', $request->id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
@@ -67,7 +72,8 @@ class CapacityController extends Controller
             'capacity_nasabah' => $capacity_nasabah,
             'result' => $result,
             'nasabah' => $nasabah,
-            'output' => $output
-        ])->with('message', $result);
+            'output' => $output,
+            'result_message' =>  $result
+        ]);
     }
 }

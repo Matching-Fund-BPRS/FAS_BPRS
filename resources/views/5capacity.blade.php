@@ -135,4 +135,9 @@
     </section>
 </form>
 @endif
+@if($result_message != null)
+    <script>
+        alert("{{ $result_message }}")
+    </script>
+@endif
 @endsection

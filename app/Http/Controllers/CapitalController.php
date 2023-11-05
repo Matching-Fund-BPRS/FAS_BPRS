@@ -12,11 +12,12 @@ class CapitalController extends Controller
         // request data 5c nasabah ke API dengan paramter $id
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
-
+        $result = null;
         return view('5capital',[
             'result' => "-",
             'capital_nasabah' => $capital_nasabah,
-            'nasabah' => $nasabah
+            'nasabah' => $nasabah,
+            'result_message' => $result
         ]);
     }
 
@@ -43,8 +44,10 @@ class CapitalController extends Controller
         return view('5capital',[
             'capital_nasabah' => $capital_nasabah,
             'result' => $result,
-            'nasabah' => $nasabah
-        ])->with('message-add', $result);
+            'output' => $output,
+            'nasabah' => $nasabah,
+            'result_message' => $result
+        ]);
     }
 
     public function update(Request $request, $id){
@@ -59,14 +62,14 @@ class CapitalController extends Controller
         ]);
 
         $output = null;
-        $result = "-";
+        $result = "Berhasil memperbarui data!";
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
         return view('5capital',[
             'capital_nasabah' => $capital_nasabah,
-            'result' => $result,
-            'nasabah' => $nasabah
-
-        ])->with('message', "Berhasil memperbarui data!");
+            'output' => $output,
+            'nasabah' => $nasabah,
+            'result_message' => $result
+        ]);
     }
 }

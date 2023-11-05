@@ -98,7 +98,7 @@
             <div class="flex justify-between items-center">
                 <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan </button>
                 <p class="text-base">
-                    Hasil : <span class="text-blue-700 font-bold">{{ $result }}</span>
+                    Hasil : <span class="text-blue-700 font-bold">{{ $output }}</span>
                 </p>
             </div>
     </section>
@@ -178,7 +178,7 @@
             <div class="flex justify-between items-center">
                 <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan Perubahan</button>
                 <p class="text-base">
-                    Hasil : <span class="text-blue-700 font-bold">{{ $result }}</span>
+                    Hasil : <span class="text-blue-700 font-bold">{{ $output }}</span>
                 </p>
             </div>
     </section>
@@ -440,4 +440,9 @@
     </div>
 </div>
 
+@if($result_message != null)
+    <script>
+        alert("{{ $result_message }}")
+    </script>
+@endif
 @endsection
