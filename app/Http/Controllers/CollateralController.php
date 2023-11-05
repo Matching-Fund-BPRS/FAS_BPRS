@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TCollateral;
 use App\Models\TNasabah;
+use App\Models\TAgunan;
+use App\Models\TResiko;
 
 class CollateralController extends Controller
 {
@@ -13,10 +15,12 @@ class CollateralController extends Controller
 
         $collateral_nasabah = TCollateral::where('ID_NASABAH', $id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        $resiko_nasabah = TResiko::where('ID_NASABAH', $id)->first();
         return view('5collateral',[
             'result' => "-",
             'collateral_nasabah' => $collateral_nasabah,
-            'nasabah' => $nasabah
+            'nasabah' => $nasabah,
+            'resiko_nasabah' => $resiko_nasabah
         ]);
     }
 
@@ -70,5 +74,22 @@ class CollateralController extends Controller
             'nasabah' => $nasabah
 
         ])->with('message', $result);
+    }
+
+    public function addResiko(Request $request){
+        TResiko::insert([
+            'ID_NASABAH' => $request->id,
+            'RESIKO' => $request->resiko,
+            'MITIGASI_RESIKO' => $request->mitigasi_resiko
+        ]);
+        return redirect()->back()->with('success-add-risk', 'message');
+    }
+
+    public function editResiko(Request $request, $id){
+        TResiko::where('ID_NASABAH', $id)->update([
+            'RESIKO' => $request->resiko,
+            'MITIGASI_RESIKO' => $request->mitigasi_resiko
+        ]);
+        return redirect()->back()->with('success-edit-risk', 'message');
     }
 }

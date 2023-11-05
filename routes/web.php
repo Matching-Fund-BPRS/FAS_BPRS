@@ -56,8 +56,6 @@ Route::get('/dashboard/detaildataBU', function () {
     ]);
 });
 Route::get('/dashboard/detaildataBU/{id}', [NasabahController::class, 'data_usaha_nasabah']);
-
-
 Route::get('/dashboard/detailnota', [NasabahController::class, 'searchNasabah'])->name("search-id");
 
 
@@ -78,10 +76,6 @@ Route::post('/dashboard/ankual/{id}/edit', [AnKualController::class, 'editAnkual
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisis kuantitatif page
 Route::get('/dashboard/ankuan/{id}', [AnKuanController::class, 'anKuanIndex']);
-Route::post('/dashboard/ankuan/tambah-agunan', [AnKuanController::class, 'addAgunan'])->name('tambah_agunan');
-Route::post('/dashboard/ankuan/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
-Route::post('/dashboard/ankuan/{id}/edit-agunan', [AnKuanController::class, 'editAgunan']);
-Route::post('/dashboard/ankuan/{id}/edit-resiko', [AnKuanController::class, 'editResiko']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,6 +102,10 @@ Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, '
 Route::get('/dashboard/5collateral/{id}', [CollateralController::class, 'index'])->name('5collateral');
 Route::post('/dashboard/5collateral/{id}/edit', [CollateralController::class, 'update']);
 Route::post('/dashboard/5collateral/submitCollateral', [CollateralController::class, 'submitCollateral'])->name('postCollateral');
+Route::post('/dashboard/5collateral/tambah-agunan', [AnKuanController::class, 'addAgunan'])->name('tambah_agunan');
+Route::post('/dashboard/5collateral/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
+Route::post('/dashboard/5collateral/{id}/edit-agunan', [AnKuanController::class, 'editAgunan']);
+Route::post('/dashboard/5collateral/{id}/edit-resiko', [AnKuanController::class, 'editResiko']);
 
 //condition
 Route::get('/dashboard/5condition/{id}', [ConditionController::class, 'index'])->name('5condition');
