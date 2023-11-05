@@ -21,7 +21,6 @@ class CharacterController extends Controller
     }
 
     public function submitCharacter(Request $request){
-        dd($request);
         // ambil data dari request terus jadiin JSON terus post ke API
         TCharacter::insert([
             'MAN_KEMAUAN' => $request->man_kemauan,

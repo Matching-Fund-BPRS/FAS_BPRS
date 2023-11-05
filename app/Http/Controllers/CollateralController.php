@@ -39,12 +39,12 @@ class CollateralController extends Controller
             'MARKETABILITY' => $request->marketability,
             'KEPEMILIKAN' => $request->kepemilikan,
             'PENGUASAAN' => $request->penguasaan,
-            'ID_NASABAH' => $request->id_nasabah,
+            'ID_NASABAH' => $request->id,
         ]);
 
         $output = null;
         $result = "Berhasil menambahkan data!";
-        $nasabah = TCollateral::where('ID_NASABAH', $request->id);
+        $nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
         $resiko_nasabah = TResiko::where('ID_NASABAH', $request->id)->first();
         $collateral_nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
         return view('5collateral',[
@@ -84,12 +84,24 @@ class CollateralController extends Controller
     }
 
     public function addResiko(Request $request){
+        $result = "Berhasil menambahkan data resiko!!";
         TResiko::insert([
             'ID_NASABAH' => $request->id,
             'RESIKO' => $request->resiko,
             'MITIGASI_RESIKO' => $request->mitigasi_resiko
         ]);
-        return redirect()->back()->with('success-add-risk', 'message');
+        $output = null;
+        $result = "Berhasil menambahkan data resiko!";
+        $nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
+        $resiko_nasabah = TResiko::where('ID_NASABAH', $request->id)->first();
+        $collateral_nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
+        return view('5collateral',[
+            'output' => $output,
+            'collateral_nasabah' => $collateral_nasabah,
+            'nasabah' => $nasabah,
+            'result_message' => $result,
+            'resiko_nasabah' => $resiko_nasabah,
+        ]);
     }
 
     public function editResiko(Request $request, $id){

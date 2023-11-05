@@ -24,7 +24,6 @@ class CapacityController extends Controller
     }
 
     public function submitCapacity(Request $request){
-        dd($request);
         // ambil data dari request terus jadiin JSON terus post ke API
         // ambil response dari API terus masukin di variabel
 

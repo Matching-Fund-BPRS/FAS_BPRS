@@ -10,11 +10,12 @@ class CapitalController extends Controller
 {
     public function index($id){
         // request data 5c nasabah ke API dengan paramter $id
+        $output = null;
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
         $result = null;
         return view('5capital',[
-            'result' => "-",
+            'output' => $output,
             'capital_nasabah' => $capital_nasabah,
             'nasabah' => $nasabah,
             'result_message' => $result
