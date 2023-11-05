@@ -99,23 +99,29 @@ Route::post('/dashboard/limitkredit/{id}/edit', [LimitKreditController::class, '
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//capacity
 Route::get('/dashboard/5capacity/{id}', [CapacityController::class, 'index'])->name('5capacity');
-// Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'index'])->name('updateCapacity');
+Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'update']);
 Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, 'submitCapacity'])->name('postCapacity');
 
+//collateral
 Route::get('/dashboard/5collateral/{id}', [CollateralController::class, 'index'])->name('5collateral');
 Route::post('/dashboard/5collateral/{id}/edit', [CollateralController::class, 'update']);
 Route::post('/dashboard/5collateral/submitCollateral', [CollateralController::class, 'submitCollateral'])->name('postCollateral');
 
+//condition
 Route::get('/dashboard/5condition/{id}', [ConditionController::class, 'index'])->name('5condition');
 Route::post('/dashboard/5condition/{id}/edit', [ConditionController::class, 'update'])->name('updateCondition');
 Route::post('/dashboard/5condition/submitCondition', [ConditionController::class, 'submitCondition'])->name('postCondition');
 
+//capital
 Route::get('/dashboard/5capital/{id}', [CapitalController::class, 'index'])->name('5capital');
 Route::post('/dashboard/5capital/{id}/edit', [CapitalController::class, 'update'])->name('updateCapital');
 Route::post('/dashboard/5capital/submitCapital', [CapitalController::class, 'submitCapital'])->name('postCapital');
 
+//character
 Route::get('/dashboard/5character/{id}', [CharacterController::class, 'index'])->name('5character');
+Route::post('/dashboard/5character/{id}/edit', [CharacterController::class, 'update']);
 Route::post('/dashboard/5character/submitCharacter', [CharacterController::class, 'submitCharacter'])->name('postCharacter');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
