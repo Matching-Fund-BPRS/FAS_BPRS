@@ -56,8 +56,6 @@ Route::get('/dashboard/detaildataBU', function () {
     ]);
 });
 Route::get('/dashboard/detaildataBU/{id}', [NasabahController::class, 'data_usaha_nasabah']);
-
-
 Route::get('/dashboard/detailnota', [NasabahController::class, 'searchNasabah'])->name("search-id");
 
 
@@ -78,10 +76,6 @@ Route::post('/dashboard/ankual/{id}/edit', [AnKualController::class, 'editAnkual
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //analisis kuantitatif page
 Route::get('/dashboard/ankuan/{id}', [AnKuanController::class, 'anKuanIndex']);
-Route::post('/dashboard/ankuan/tambah-agunan', [AnKuanController::class, 'addAgunan'])->name('tambah_agunan');
-Route::post('/dashboard/ankuan/tambah-resiko', [AnKuanController::class, 'addResiko'])->name('tambah_resiko');
-Route::post('/dashboard/ankuan/{id}/edit-agunan', [AnKuanController::class, 'editAgunan']);
-Route::post('/dashboard/ankuan/{id}/edit-resiko', [AnKuanController::class, 'editResiko']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,23 +93,33 @@ Route::post('/dashboard/limitkredit/{id}/edit', [LimitKreditController::class, '
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+//capacity
 Route::get('/dashboard/5capacity/{id}', [CapacityController::class, 'index'])->name('5capacity');
-// Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'index'])->name('updateCapacity');
+Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'update']);
 Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, 'submitCapacity'])->name('postCapacity');
 
+//collateral
 Route::get('/dashboard/5collateral/{id}', [CollateralController::class, 'index'])->name('5collateral');
 Route::post('/dashboard/5collateral/{id}/edit', [CollateralController::class, 'update']);
 Route::post('/dashboard/5collateral/submitCollateral', [CollateralController::class, 'submitCollateral'])->name('postCollateral');
+Route::post('/dashboard/5collateral/tambah-agunan', [CollateralController::class, 'addAgunan'])->name('tambah_agunan');
+Route::post('/dashboard/5collateral/tambah-resiko', [CollateralController::class, 'addResiko'])->name('tambah_resiko');
+Route::post('/dashboard/5collateral/{id}/edit-agunan', [CollateralController::class, 'editAgunan']);
+Route::post('/dashboard/5collateral/{id}/edit-resiko', [CollateralController::class, 'editResiko']);
 
+//condition
 Route::get('/dashboard/5condition/{id}', [ConditionController::class, 'index'])->name('5condition');
 Route::post('/dashboard/5condition/{id}/edit', [ConditionController::class, 'update'])->name('updateCondition');
 Route::post('/dashboard/5condition/submitCondition', [ConditionController::class, 'submitCondition'])->name('postCondition');
 
+//capital
 Route::get('/dashboard/5capital/{id}', [CapitalController::class, 'index'])->name('5capital');
 Route::post('/dashboard/5capital/{id}/edit', [CapitalController::class, 'update'])->name('updateCapital');
 Route::post('/dashboard/5capital/submitCapital', [CapitalController::class, 'submitCapital'])->name('postCapital');
 
+//character
 Route::get('/dashboard/5character/{id}', [CharacterController::class, 'index'])->name('5character');
+Route::post('/dashboard/5character/{id}/edit', [CharacterController::class, 'update']);
 Route::post('/dashboard/5character/submitCharacter', [CharacterController::class, 'submitCharacter'])->name('postCharacter');
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -159,3 +163,13 @@ Route::post('/register', [AuthenticateController::class, 'register'])->name('reg
 Route::get('/dashboard/user', [UserController::class, 'index']);
 Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
 Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
+
+
+///////  SYARIAH
+
+Route::get('/dashboard/5syariah', function () {
+    return view('5syariah',[
+        'nasabah' => null
+    ]);
+});
+

@@ -9,7 +9,7 @@
         <p class="block py-4 text-base font-semibold text-gray-900">
             Aspek Collateral
         </p>
-
+        <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
             <div class= "min-w-xl">
                 <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Nilai Agunan</label>
                 <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
@@ -96,7 +96,7 @@
             </div>
 
             <div class="flex justify-between items-center">
-                <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+                <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan </button>
                 <p class="text-base">
                     Hasil : <span class="text-blue-700 font-bold">{{ number_format(($output * 100), 2) . '%' }}</span>
                 </p>
@@ -113,180 +113,65 @@
             <div class= "min-w-xl">
                 <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Nilai Agunan</label>
                 <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($collateral_nasabah->CA_NILAI_AGUNAN == 1)
-                    <option value="1" selected> Lebih kecil dari plafond</option>
-                    <option value="2">Nilai Agunan sama dengan plafond</option>
-                    <option value="3">Lebih besar dari plafond</option>
-                    @elseif($collateral_nasabah->CA_NILAI_AGUNAN == 2)
-                    <option value="1"> Lebih kecil dari plafond</option>
-                    <option value="2" selected>Nilai Agunan sama dengan plafond</option>
-                    <option value="3">Lebih besar dari plafond</option>
-                    @elseif($collateral_nasabah->CA_NILAI_AGUNAN == 3)
-                    <option value="1"> Lebih kecil dari plafond</option>
-                    <option value="2">Nilai Agunan sama dengan plafond</option>
-                    <option value="3" selected>Lebih besar dari plafond</option>
-                    @else
-                    <option value="1"> Lebih kecil dari plafond</option>
-                    <option value="2">Nilai Agunan sama dengan plafond</option>
-                    <option value="3">Lebih besar dari plafond</option>
-                    @endif
+                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 1) selected @endif value="1">Lebih kecil dari plafond</option>
+                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 2) selected @endif value="2">Nilai Agunan sama dengan plafond</option>
+                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 3) selected @endif value="3">Lebih besar dari plafond</option>
                 </select>
             </div>
 
             <div class= "min-w-xl">
                 <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Dokumen dan Pengikatan</label>
                 <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($collateral_nasabah->PA_DOKUMEN == 1)
-                    <option value="1" selected>Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                    @elseif($collateral_nasabah->PA_DOKUMEN == 2)
-                    <option value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2" selected>Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                    @elseif($collateral_nasabah->PA_DOKUMEN == 3)
-                    <option value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3" selected>Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                    @elseif($collateral_nasabah->PA_DOKUMEN == 4)
-                    <option value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4" selected>Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                    @elseif($collateral_nasabah->PA_DOKUMEN == 5)
-                    <option value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5" selected>Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                    @else
-                    <option value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                    @endif
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 1) selected @endif value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 2) selected @endif value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 3) selected @endif value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 4) selected @endif value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 5) selected @endif value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
                 </select>
             </div>
             <div class= "min-w-xl">
                 <label for="leg_usaha" class="block mb-2 text-xs font-medium text-gray-900">Legalitas Usaha (Izin-Izin)</label>
                 <select name="leg_usaha" id="leg_usaha" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($collateral_nasabah->LEG_USAHA == 1)
-                    <option value="1" selected>Tidak ada</option>
-                    <option value="2">Surat Keterangan Usaha</option>
-                    <option value="3">SIUP</option>
-                    @elseif($collateral_nasabah->LEG_USAHA == 2)
-                    <option value="1">Tidak ada</option>
-                    <option value="2" selected>Surat Keterangan Usaha</option>
-                    <option value="3">SIUP</option>
-                    @elseif($collateral_nasabah->LEG_USAHA == 3)
-                    <option value="1">Tidak ada</option>
-                    <option value="2">Surat Keterangan Usaha</option>
-                    <option value="3" selected>SIUP</option>
-                    @else
-                    <option value="1">Tidak ada</option>
-                    <option value="2">Surat Keterangan Usaha</option>
-                    <option value="3">SIUP</option>
-                    @endif
+                    <option @if($collateral_nasabah->LEG_USAHA == 1) selected @endif value="1" selected>Tidak ada</option>
+                    <option @if($collateral_nasabah->LEG_USAHA == 2) selected @endif value="2">Surat Keterangan Usaha</option>
+                    <option @if($collateral_nasabah->LEG_USAHA == 3) selected @endif value="3">SIUP</option>
                 </select>
             </div>
         
             <div class= "min-w-xl">
                 <label for="pengikatan" class="block mb-2 text-xs font-medium text-gray-900">Pengikatan</label>
                 <select name="pengikatan" id="pengikatan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($collateral_nasabah->PENGIKATAN == 1)
-                    <option value="1" selected> Tidak diikat sama sekali </option>
-                    <option value="2">Diikat dibawah tangan</option>
-                    <option value="3">Diikat notarial</option>
-                    @elseif($collateral_nasabah->PENGIKATAN == 2)
-                    <option value="1"> Tidak diikat sama sekali </option>
-                    <option value="2" selected>Diikat dibawah tangan</option>
-                    <option value="3">Diikat notarial</option>
-                    @elseif($collateral_nasabah->PENGIKATAN == 3)
-                    <option value="1"> Tidak diikat sama sekali </option>
-                    <option value="2">Diikat dibawah tangan</option>
-                    <option value="3" selected>Diikat notarial</option>
-                    @else
-                    <option value="1"> Tidak diikat sama sekali </option>
-                    <option value="2">Diikat dibawah tangan</option>
-                    <option value="3">Diikat notarial</option>
-                    @endif
+                    <option @if($collateral_nasabah->PENGIKATAN == 1) selected @endif value="1"> Tidak diikat sama sekali </option>
+                    <option @if($collateral_nasabah->PENGIKATAN == 2) selected @endif value="2">Diikat dibawah tangan</option>
+                    <option @if($collateral_nasabah->PENGIKATAN == 3) selected @endif value="3">Diikat notarial</option>
+                
                 </select>
             </div>
 
             <div class= "min-w-xl">
                 <label for="marketability" class="block mb-2 text-xs font-medium text-gray-900">Marketability</label>
                 <select name="marketability" id="marketability" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($collateral_nasabah->MARKETABILITY == 1)
-                    <option value="1" selected> Cukup Marketable</option>
-                    <option value="2">Marketable</option>
-                    <option value="3">Sangat Marketable</option>
-                    @elseif($collateral_nasabah->MARKETABILITY == 2)
-                    <option value="1"> Cukup Marketable</option>
-                    <option value="2" selected>Marketable</option>
-                    <option value="3">Sangat Marketable</option>
-                    @elseif($collateral_nasabah->MARKETABILITY == 3)
-                    <option value="1"> Cukup Marketable</option>
-                    <option value="2">Marketable</option>
-                    <option value="3" selected>Sangat Marketable</option>
-                    @else
-                    <option value="1"> Cukup Marketable</option>
-                    <option value="2">Marketable</option>
-                    <option value="3">Sangat Marketable</option>
-                    @endif
+                    <option value="1" @if($collateral_nasabah->MARKETABILITY == 1) selected @endif> Cukup Marketable</option>
+                    <option value="2" @if($collateral_nasabah->MARKETABILITY == 2) selected @endif>Marketable</option>
+                    <option value="3" @if($collateral_nasabah->MARKETABILITY == 3) selected @endif>Sangat Marketable</option>
                 </select>
             </div>
 
             <div class= "min-w-xl">
                 <label for="kepemilikan" class="block mb-2 text-xs font-medium text-gray-900">Kepemilikan</label>
                 <select name="kepemilikan" id="kepemilikan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($collateral_nasabah->KEPEMILIKAN == 1)
-                    <option value="1" selected>Pihak satu derajat</option>
-                    <option value="2">Pihak ketiga</option>
-                    <option value="3">Milik sendiri</option>
-                    @elseif($collateral_nasabah->KEPEMILIKAN == 2)
-                    <option value="1">Pihak satu derajat</option>
-                    <option value="2" selected>Pihak ketiga</option>
-                    <option value="3">Milik sendiri</option>
-                    @elseif($collateral_nasabah->KEPEMILIKAN == 3)
-                    <option value="1">Pihak satu derajat</option>
-                    <option value="2">Pihak ketiga</option>
-                    <option value="3" selected>Milik sendiri</option>
-                    @else
-                    <option value="1">Pihak satu derajat</option>
-                    <option value="2">Pihak ketiga</option>
-                    <option value="3">Milik sendiri</option>
-                    @endif
+                    <option value="1" @if($collateral_nasabah->KEPEMILIKAN == 1) selected @endif>Pihak satu derajat</option>
+                    <option value="2" @if($collateral_nasabah->KEPEMILIKAN == 2) selected @endif>Pihak ketiga</option>
+                    <option value="3" @if($collateral_nasabah->KEPEMILIKAN == 3) selected @endif>Milik sendiri</option>
                 </select>
             </div>
 
             <div class= "min-w-xl">
                 <label for="penguasaan" class="block mb-2 text-xs font-medium text-gray-900">Penguasaan</label>
                 <select name="penguasaan" id="penguasaan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($collateral_nasabah->PENGUASAAN == 1)
-                    <option value="1" selected>Tidak Ditempati</option>
-                    <option value="2">Disewakan</option>
-                    <option value="3">Ditempati sendiri</option>
-                    @elseif($collateral_nasabah->PENGUASAAN == 2)
-                    <option value="1">Tidak Ditempati</option>
-                    <option value="2" selected>Disewakan</option>
-                    <option value="3">Ditempati sendiri</option>
-                    @elseif($collateral_nasabah->PENGUASAAN == 3)
-                    <option value="1">Tidak Ditempati</option>
-                    <option value="2">Disewakan</option>
-                    <option value="3" selected>Ditempati sendiri</option>
-                    @else
-                    <option value="1">Tidak Ditempati</option>
-                    <option value="2">Disewakan</option>
-                    <option value="3">Ditempati sendiri</option>
-                    @endif
+                    <option value="1" @if($collateral_nasabah->PENGUASAAN == 1) selected @endif>Tidak Ditempati</option>
+                    <option value="2" @if($collateral_nasabah->PENGUASAAN == 2) selected @endif>Disewakan</option>
+                    <option value="3" @if($collateral_nasabah->PENGUASAAN == 3) selected @endif>Ditempati sendiri</option>
                 </select>
             </div>
 
@@ -300,6 +185,7 @@
 </form>
 @endif
 
+{{-- Tabel Agunan dan Asuransi --}}
 <section class="my-4">
     <div class="py-4 flex justify-between items-center">
         <p class="text-base font-semibold text-gray-900">
@@ -371,13 +257,16 @@
     </div>
 </section>
 
+
+{{-- Analisa Resiko --}}
+@if($resiko_nasabah == null)
 <form method="post" action="{{ Route('tambah_resiko') }}">
     @csrf
-    <input name="id" value="" type="hidden">
     <section class="space-y-4 my-4">
         <p class="block py-4 text-base font-semibold text-gray-900">
             Analisa Resiko
         </p>
+        <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
         <div>
             <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">1. Resiko</label>
             <textarea name="resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Resiko..."></textarea>        
@@ -391,7 +280,27 @@
         </div>  
     </section>
 </form>
-
+@else
+<form method="post" action="/dashboard/5collateral/{{ $nasabah->ID_NASABAH }}/edit-resiko">
+    @csrf
+    <section class="space-y-4 my-4">
+        <p class="block py-4 text-base font-semibold text-gray-900">
+            Analisa Resiko
+        </p>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">1. Resiko</label>
+            <textarea name="resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Resiko..."> {{ $resiko_nasabah->RESIKO }}</textarea>        
+        </div>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">2. Mitigasi Resiko</label>
+            <textarea name="mitigasi_resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Mitigasi Resiko...">{{ $resiko_nasabah->MITIGASI_RESIKO }}</textarea>        
+        </div>
+        <div class=" pt-6">
+            <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+        </div>  
+    </section>
+</form>
+@endif
 
 <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-sm md:max-w-xl max-h-full">
@@ -531,4 +440,9 @@
     </div>
 </div>
 
+@if($result_message != null)
+    <script>
+        alert("{{ $result_message }}")
+    </script>
+@endif
 @endsection

@@ -102,12 +102,12 @@
                 <div class= "min-w-xl">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat Pembiayaan</label>
                     <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Murabahah</option>
-                        <option value="CA">Musyarakah</option>
-                        <option value="FR">Mudarabah</option>
-                        <option value="FR">Ijaroh</option>
-                        <option value="FR">Rahn</option>
-                        <option value="FR">Qord</option>
+                        <option value="1">Murabahah</option>
+                        <option value="2">Musyarakah</option>
+                        <option value="3">Mudarabah</option>
+                        <option value="4">Ijaroh</option>
+                        <option value="5">Rahn</option>
+                        <option value="6">Qord</option>
                     </select>
                 </div>
             </div>
@@ -116,18 +116,18 @@
                 <div class= "">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
                     <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Baru</option>
-                        <option value="CA">Tambahan</option>
-                        <option value="FR">Tambahan dan Perpanjangan</option>
+                        <option value="1">Baru</option>
+                        <option value="2">Tambahan</option>
+                        <option value="3">Tambahan dan Perpanjangan</option>
                     </select>
                 </div>
 
                 <div class= "">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
                     <select name="tujuan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Modal Kerja</option>
-                        <option value="CA">Investasi</option>
-                        <option value="FR">Konsultasi</option>
+                        <option value="1">Modal Kerja</option>
+                        <option value="2">Investasi</option>
+                        <option value="3">Konsumsi</option>
                     </select>
                 </div>
             
@@ -154,9 +154,10 @@
                 <div>
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Pernikahan</label>
                     <select name="status_perkawinan" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Belum Menikah</option>
-                        <option value="CA">Menikah</option>
-                        <option value="FR">Janda/Duda</option>
+                        <option value="1">Belum Menikah</option>
+                        <option value="2">Menikah</option>
+                        <option value="3">Duda</option>
+                        <option value="4">Janda</option>
                     </select>
                 </div>
             
@@ -205,7 +206,7 @@
                                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                         </svg>
                                     </div>
-                                    <input  datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                    <input datepicker name="tgl_berlaku_ktp" datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                                 </div>
                             </div>        
                             <div class="flex my-auto items-center">
@@ -239,9 +240,11 @@
                     <div class= "min-w-xl">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Tempat Tinggal</label>
                         <select name="status_tempat_tinggal" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Rumah Dinas</option>
-                        <option value="CA">Milik Sendiri</option>
-                        <option value="FR">Kontrak</option>
+                            <option value="1">Milik Sendiri</option>
+                            <option value="2">Milik Keluarga/Ortu</option>
+                            <option value="3">Instansi</option>
+                            <option value="4">Kontrak</option>
+                            <option value="5">Kredit</option>
                         </select>
                     </div>
                     <div class="">
@@ -259,9 +262,13 @@
                     <div class= "">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tingkat Pendidikan</label>
                         <select name="tingkat_pendidikan" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">S1 / Sederajat</option>
-                        <option value="CA">SMA / Sederajat</option>
-                        <option value="FR">SMP / Sederajat</option>
+                            <option value="1">Sekolah Dasar</option>
+                            <option value="2">SMP</option>
+                            <option value="3">SMA</option>
+                            <option value="4">S1</option>
+                            <option value="5">S2</option>
+                            <option value="6">S3</option>
+                            <option value="7">Tidak Sekolah</option>
                         </select>
                     </div>
                     <div class="">
@@ -316,8 +323,17 @@
             
                 <div class=" flex max-w-md justify-between">
                     <div>
-                        <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Profesi Suami / Istri</label>
-                        <input name="profesi_pasangan" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                        <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Profesi Suami / Istri</label>  
+                        <select name="profesi_pasangan" type="text" id="nokan" class=" md:min-w-[250px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <option value="1">Ibu Rumah Tangga</option>
+                            <option value="2">Pegawai BUMN/BUMD</option>
+                            <option value="3">Pegawai Negeri Sipil</option>
+                            <option value="4">TNI/Polri</option>
+                            <option value="5">Pegawai Swasta</option>
+                            <option value="6">Profesional</option>
+                            <option value="7">Wiraswasta</option>
+                            <option value="8">Tidak Bekerja</option>
+                        </select>
                     </div>
             
                     <div>
@@ -340,7 +356,14 @@
             
                 <div>
                     <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Hubungan Keluarga</label>
-                    <input name="hubungan_keluarga" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <select name="hub_keluarga" type="text" id="nokan" class=" md:min-w-[250px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                        <option value="1">Anak Kandung</option>
+                        <option value="2">Orang Tua</option>
+                        <option value="3">Saudara Kandung</option>
+                        <option value="4">Saudara Tidak Sekandung</option>
+                        <option value="5">Rekan Kerja</option>
+                        <option value="6">Tetangga</option>
+                    </select>
                 </div>
             
                 <div>
@@ -370,12 +393,19 @@
         <div class="flex max-w-md justify-between space-x-2">
             <div>
                 <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Sektor Usaha</label>
-                <input name="sektor_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <select name="bidang_usaha" type="text" id="nokan" class=" md:min-w-[200px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <option value="1">Industri</option>
+                    <option value="2">Jasa</option>
+                    <option value="3">Kontraktor</option>
+                    <option value="4">Pegawai</option>
+                    <option value="5">Perdagangan</option>
+                    <option value="6">Pertanian</option>
+                </select>
             </div>
         
             <div>
                 <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Bidang Usaha</label>
-                <input name="bidang_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <input name="sub_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
             </div>
 
             <div class="">
@@ -396,7 +426,13 @@
         
         <div>
             <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Status Bidang Usaha</label>
-            <input name="status_bidang_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+            <select name="status_bidang_usaha" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <option value="1">Milik Sendiri</option>
+                <option value="2">Milik Keluarga/Ortu</option>
+                <option value="3">Instansi/Lembaga</option>
+                <option value="4">Kontrak</option>
+                <option value="5">Kredit</option>
+            </select>
         </div>
 
         <div class="flex justify-between max-w-md">
@@ -434,7 +470,7 @@
 @else
 <form method="POST" action="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}/edit">
     @csrf
-    <section id="start" class="md:flex md:flex-row mb-4 md:justify-between">
+    <section id="start" class="md:flex md:flex-row mb-4 space-x-4 md:justify-between">
         <div class="my-4 space-y-4 relative w-full">
             <div>
                 <label for="cif" class="block mb-2 text-xs font-medium text-gray-900">CIF Bank</label>
@@ -482,7 +518,7 @@
             I. Data Permohonan Pembiayaan
         </p>
 
-        <div class="md:flex md:flex-row space-y-4 md:space-y-0 mb-4 md:justify-between">
+        <div class="md:flex md:flex-row space-y-4 space-x-4 md:space-y-0 mb-4 md:justify-between">
             <div class="space-y-4 w-full">
                 <div>
                     <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Limit Kredit yang Dimohon</label>
@@ -514,12 +550,12 @@
                 <div class= "min-w-xl">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat Pembiayaan</label>
                     <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Murabahah</option>
-                        <option value="CA">Musyarakah</option>
-                        <option value="FR">Mudarabah</option>
-                        <option value="FR">Ijaroh</option>
-                        <option value="FR">Rahn</option>
-                        <option value="FR">Qord</option>
+                        <option value="1">Murabahah</option>
+                        <option value="2">Musyarakah</option>
+                        <option value="3">Mudarabah</option>
+                        <option value="4">Ijaroh</option>
+                        <option value="5">Rahn</option>
+                        <option value="6">Qord</option>
                     </select>
                 </div>
             </div>
@@ -528,18 +564,18 @@
                 <div class= "">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
                     <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Baru</option>
-                        <option value="CA">Tambahan</option>
-                        <option value="FR">Tambahan dan Perpanjangan</option>
+                        <option value="1">Baru</option>
+                        <option value="2">Tambahan</option>
+                        <option value="3">Tambahan dan Perpanjangan</option>
                     </select>
                 </div>
 
                 <div class= "">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
                     <select name="tujuan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Modal Kerja</option>
-                        <option value="CA">Investasi</option>
-                        <option value="FR">Konsultasi</option>
+                        <option value="1">Modal Kerja</option>
+                        <option value="2">Investasi</option>
+                        <option value="3">Konsumsi</option>
                     </select>
                 </div>
             
@@ -556,7 +592,7 @@
             II. Data Diri Nasabah
         </p>
 
-        <div class="md:flex md:flex-row mb-4 md:justify-between">
+        <div class="md:flex md:flex-row space-x-4 mb-4 md:justify-between">
             <div class="my-4 space-y-4 w-full">
                 <div>
                     <label for="jenisperm" class="block mb-2 text-xs font-medium text-gray-900">Nama Debitur</label>
@@ -566,9 +602,10 @@
                 <div>
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Pernikahan</label>
                     <select name="status_perkawinan" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Belum Menikah</option>
-                        <option value="CA">Menikah</option>
-                        <option value="FR">Janda/Duda</option>
+                        <option value="1">Belum Menikah</option>
+                        <option value="2">Menikah</option>
+                        <option value="3">Duda</option>
+                        <option value="4">Janda</option>
                     </select>
                 </div>
             
@@ -617,7 +654,7 @@
                                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                         </svg>
                                     </div>
-                                    <input  datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                    <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                                 </div>
                             </div>        
                             <div class="flex my-auto items-center">
@@ -651,9 +688,11 @@
                     <div class= "min-w-xl">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Tempat Tinggal</label>
                         <select name="status_tempat_tinggal" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">Rumah Dinas</option>
-                        <option value="CA">Milik Sendiri</option>
-                        <option value="FR">Kontrak</option>
+                            <option value="1">Milik Sendiri</option>
+                            <option value="2">Milik Keluarga/Ortu</option>
+                            <option value="3">Instansi</option>
+                            <option value="4">Kontrak</option>
+                            <option value="5">Kredit</option>
                         </select>
                     </div>
                     <div class="">
@@ -671,9 +710,13 @@
                     <div class= "">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tingkat Pendidikan</label>
                         <select name="tingkat_pendidikan" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="US">S1 / Sederajat</option>
-                        <option value="CA">SMA / Sederajat</option>
-                        <option value="FR">SMP / Sederajat</option>
+                            <option value="1">Sekolah Dasar</option>
+                            <option value="2">SMP</option>
+                            <option value="3">SMA</option>
+                            <option value="4">S1</option>
+                            <option value="5">S2</option>
+                            <option value="6">S3</option>
+                            <option value="7">Tidak Sekolah</option>
                         </select>
                     </div>
                     <div class="">
@@ -691,8 +734,9 @@
         
     </section>
 
-    <section id="3and4" class="md:flex md:flex-row mb-4 md:justify-between">
-        <div class="space-y-4 w-full">
+
+    <section id="3and4" class="md:flex md:flex-row mb-4 space-x-4 md:justify-between">
+        <div class="space-y-4 space-x-4 w-full">
             <section id="suami_istri" class="my-4 space-y-4">
                 <p class=" block py-4 text-base font-semibold text-gray-900">
                     III. Data Diri Suami / Istri
@@ -729,7 +773,16 @@
                 <div class=" flex max-w-md justify-between">
                     <div>
                         <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Profesi Suami / Istri</label>
-                        <input value="{{ $nasabah->PROFESI_PASANGAN }}" name="profesi_pasangan" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                        <select name="profesi_pasangan" type="text" id="nokan" class=" md:min-w-[250px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <option value="1">Ibu Rumah Tangga</option>
+                            <option value="2">Pegawai BUMN/BUMD</option>
+                            <option value="3">Pegawai Negeri Sipil</option>
+                            <option value="4">TNI/Polri</option>
+                            <option value="5">Pegawai Swasta</option>
+                            <option value="6">Profesional</option>
+                            <option value="7">Wiraswasta</option>
+                            <option value="8">Tidak Bekerja</option>
+                        </select>
                     </div>
             
                     <div>
@@ -752,9 +805,15 @@
             
                 <div>
                     <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Hubungan Keluarga</label>
-                    <input value="{{ $nasabah->HUB_EC }}" name="hubungan_keluarga" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <select name="hub_keluarga" type="text" id="nokan" class=" md:min-w-[250px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                        <option value="1">Anak Kandung</option>
+                        <option value="2">Orang Tua</option>
+                        <option value="3">Saudara Kandung</option>
+                        <option value="4">Saudara Tidak Sekandung</option>
+                        <option value="5">Rekan Kerja</option>
+                        <option value="6">Tetangga</option>
+                </select>
                 </div>
-            
                 <div>
                     <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Sesuai KTP</label>
                     <textarea name="alamat_ktp_kontak_darurat" id="alamatktp" rows="4" class=" max-w-xl block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">
@@ -766,9 +825,11 @@
                     <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon / HP</label>
                     <input value ="{{ $nasabah->NO_TELP_EC }}" name="nomor_telepon_kontak_darurat" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                 </div>
+                </div>
                 
             </section>
         </div>
+
     </section>
 
     <section id="bun" class="my-4 space-y-4">
@@ -784,12 +845,19 @@
         <div class="flex max-w-md justify-between space-x-2">
             <div>
                 <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Sektor Usaha</label>
-                <input value="{{ $nasabah->SUB_USAHA }}" name="sektor_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <select name="bidang_usaha" type="text" id="nokan" class=" md:min-w-[200px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <option value="1">Industri</option>
+                    <option value="2">Jasa</option>
+                    <option value="3">Kontraktor</option>
+                    <option value="4">Pegawai</option>
+                    <option value="5">Perdagangan</option>
+                    <option value="6">Pertanian</option>
+                </select>
             </div>
         
             <div>
                 <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Bidang Usaha</label>
-                <input value="{{ $nasabah->BIDANG_USAHA }}" name="bidang_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <input value="{{ $nasabah->BIDANG_USAHA }}" name="sub_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
             </div>
 
             <div class="">
@@ -810,7 +878,13 @@
         
         <div>
             <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Status Bidang Usaha</label>
-            <input value="{{ $nasabah->STATUS_TEMPAT_USAHA }}" name="status_bidang_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+            <select name="status_bidang_usaha" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 " required>
+                <option value="1">Milik Sendiri</option>
+                <option value="2">Milik Keluarga/Ortu</option>
+                <option value="3">Instansi/Lembaga</option>
+                <option value="4">Kontrak</option>
+                <option value="5">Kredit</option>
+            </select>
         </div>
 
         <div class="flex justify-between max-w-md">
@@ -838,13 +912,13 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <div class=" pt-6">
         <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan Perubahan</button>
     </div>
-</form>
+
+    </form>
 @endif
 
 @if (session('success-add'))

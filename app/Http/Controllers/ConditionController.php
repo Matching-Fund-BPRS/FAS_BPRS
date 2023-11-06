@@ -18,8 +18,9 @@ class ConditionController extends Controller
         $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
         $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
         $output = $Tscoring->CONDITION ?? 0;
+        $result = null;
         return view('5condition',[
-            'result' => "-",
+            'result_message' => $result,
             'condition_nasabah' => $condition_nasabah,
             'nasabah' => $nasabah,
             'output' => $output
@@ -37,7 +38,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('model:5000/condition', [
+        $response = Http::post('model:8000/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),
@@ -47,11 +48,11 @@ class ConditionController extends Controller
         ]);
 
         $output = $response->json()['data']['percentage'];
-        $Tscoring = TScoring::where('ID_NASABAH', $request->ID_NASABAH)->first();
+        $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
         if($Tscoring == null){
             $scoring = $output / 5;
             TScoring::insert([
-                'ID_NASABAH' => $request->ID_NASABAH,
+                'ID_NASABAH' => $id,
                 'CAPACITY' => 0,
                 'CAPITAL' => 0,
                 'CHARACTER' => 0,
@@ -63,7 +64,7 @@ class ConditionController extends Controller
             ]);
         } else {
             $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CAPITAL) / 5;
-            TScoring::where('ID_NASABAH', $request->ID_NASABAH)->update([
+            TScoring::where('ID_NASABAH', $id)->update([
                 'CONDITION' => $output,
                 'SCORING' => $scoring
             ]);
@@ -73,7 +74,7 @@ class ConditionController extends Controller
         $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
 
         return view('5condition',[
-            'result' => $result,
+            'result_message' => $result,
             'nasabah' => $nasabah,
             'condition_nasabah' => $condition_nasabah,
             'output' => $output
@@ -94,7 +95,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('model:5000/condition', [
+        $response = Http::post('model:8000/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),
@@ -104,11 +105,11 @@ class ConditionController extends Controller
         ]);
 
         $output = $response->json()['data']['percentage'];
-        $Tscoring = TScoring::where('ID_NASABAH', $request->ID_NASABAH)->first();
+        $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
             $scoring = $output / 5;
             TScoring::insert([
-                'ID_NASABAH' => $request->ID_NASABAH,
+                'ID_NASABAH' => $request->id,
                 'CAPACITY' => 0,
                 'CAPITAL' => 0,
                 'CHARACTER' => 0,
@@ -120,7 +121,7 @@ class ConditionController extends Controller
             ]);
         } else {
             $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CAPITAL) / 5;
-            TScoring::where('ID_NASABAH', $request->ID_NASABAH)->update([
+            TScoring::where('ID_NASABAH', $request->id)->update([
                 'CONDITION' => $output,
                 'SCORING' => $scoring
             ]);
@@ -130,7 +131,7 @@ class ConditionController extends Controller
         $condition_nasabah = TCondition::where('ID_NASABAH', $request->id)->first();
 
         return view('5condition',[
-            'result' => $result,
+            'result_message' => $result,
             'nasabah' => $nasabah,
             'condition_nasabah' => $condition_nasabah,
             'output' => $output
