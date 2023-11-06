@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TCondition;
 use App\Models\TNasabah;
+use App\Models\TScoring;
 use Illuminate\Support\Facades\Http;
 
 class ConditionController extends Controller
@@ -15,11 +16,13 @@ class ConditionController extends Controller
 
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
+        $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
+        $output = $Tscoring->CONDITION ?? 0;
         return view('5condition',[
             'result' => "-",
             'condition_nasabah' => $condition_nasabah,
             'nasabah' => $nasabah,
-            'output' => null
+            'output' => $output
         ]);
     }
 
@@ -44,6 +47,27 @@ class ConditionController extends Controller
         ]);
 
         $output = $response->json()['data']['percentage'];
+        $Tscoring = TScoring::where('ID_NASABAH', $request->ID_NASABAH)->first();
+        if($Tscoring == null){
+            $scoring = $output / 5;
+            TScoring::insert([
+                'ID_NASABAH' => $request->ID_NASABAH,
+                'CAPACITY' => 0,
+                'CAPITAL' => 0,
+                'CHARACTER' => 0,
+                'COLLATERAL' => 0,
+                'CONDITION' => $output,
+                'SYARIAH' => 0,
+                'SCORING' => $scoring
+                
+            ]);
+        } else {
+            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CAPITAL) / 5;
+            TScoring::where('ID_NASABAH', $request->ID_NASABAH)->update([
+                'CONDITION' => $output,
+                'SCORING' => $scoring
+            ]);
+        }
         $result = "Berhasil memperbarui data!";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
@@ -80,6 +104,27 @@ class ConditionController extends Controller
         ]);
 
         $output = $response->json()['data']['percentage'];
+        $Tscoring = TScoring::where('ID_NASABAH', $request->ID_NASABAH)->first();
+        if($Tscoring == null){
+            $scoring = $output / 5;
+            TScoring::insert([
+                'ID_NASABAH' => $request->ID_NASABAH,
+                'CAPACITY' => 0,
+                'CAPITAL' => 0,
+                'CHARACTER' => 0,
+                'COLLATERAL' => 0,
+                'CONDITION' => $output,
+                'SYARIAH' => 0,
+                'SCORING' => $scoring
+                
+            ]);
+        } else {
+            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CAPITAL) / 5;
+            TScoring::where('ID_NASABAH', $request->ID_NASABAH)->update([
+                'CONDITION' => $output,
+                'SCORING' => $scoring
+            ]);
+        }
         $result = "-";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $request->id)->first();

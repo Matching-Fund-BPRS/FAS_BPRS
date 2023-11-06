@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TNasabah;
 use App\Models\TCapital;
+use App\Models\TScoring;
+use Illuminate\Support\Facades\Http;
 
 class CapitalController extends Controller
 {
@@ -12,11 +14,13 @@ class CapitalController extends Controller
         // request data 5c nasabah ke API dengan paramter $id
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
-
+        $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
+        $output = $Tscoring->CAPITAL ?? 0;
         return view('5capital',[
             'result' => "-",
             'capital_nasabah' => $capital_nasabah,
-            'nasabah' => $nasabah
+            'nasabah' => $nasabah,
+            'output' => $output
         ]);
     }
 
@@ -36,14 +40,46 @@ class CapitalController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $output = null;
+        $response = Http::post('model:8000/capital', [
+            'cm_dar' => $request->cm_dar,
+            'cm_der' => $request->cm_der,
+            'cm_lder' => $request->cm_lder,
+            'pk_income_sales' => $request->pk_income_sales,
+            'rpc' => $request->rpc,
+            'pk_ebit' => $request->pk_ebit,
+        ]);
+
+        $output = $response->json()['data']['percentage'];
+        $Tscoring = TScoring::where('ID_NASABAH', $request->ID_NASABAH)->first();
+        if($Tscoring == null){
+            $scoring = $output / 5;
+            TScoring::insert([
+                'ID_NASABAH' => $request->ID_NASABAH,
+                'CAPACITY' => 0,
+                'CAPITAL' => $output,
+                'CHARACTER' => 0,
+                'COLLATERAL' => 0,
+                'CONDITION' => 0,
+                'SYARIAH' => 0,
+                'SCORING' => $scoring
+                
+            ]);
+        } else {
+            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CONDITION) / 5;
+            TScoring::where('ID_NASABAH', $request->ID_NASABAH)->update([
+                'CAPITAL' => $output,
+                'SCORING' => $scoring
+            ]);
+        }
+
         $result = "Berhasil menambahkan data!";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH',$request->id)->first();
         return view('5capital',[
             'capital_nasabah' => $capital_nasabah,
             'result' => $result,
-            'nasabah' => $nasabah
+            'nasabah' => $nasabah,
+            'output' => $output
         ])->with('message-add', $result);
     }
 
@@ -58,14 +94,48 @@ class CapitalController extends Controller
             'PK_EBIT' => $request->pk_ebit,
         ]);
 
-        $output = null;
+        $response = Http::post('model:8000/capital', [
+            'cm_dar' => floatval($request->cm_dar),
+            'cm_der' => floatval($request->cm_der),
+            'cm_lder' => floatval($request->cm_lder),
+            'pk_income_sales' => floatval($request->pk_income_sales),
+            'rpc' => floatval($request->rpc),
+            'pk_ebit' => floatval($request->pk_ebit),
+        ]);
+
+        $output = $response->json()['data']['percentage'];
+        $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
+        if($Tscoring == null){
+            $scoring = $output / 5;
+            TScoring::insert([
+                'ID_NASABAH' => $id,
+                'CAPACITY' => 0,
+                'CAPITAL' => $output,
+                'CHARACTER' => 0,
+                'COLLATERAL' => 0,
+                'CONDITION' => 0,
+                'SYARIAH' => 0,
+                'SCORING' => $scoring
+                
+            ]);
+        } else {
+            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CONDITION) / 5;
+            TScoring::where('ID_NASABAH', $id)->update([
+                'CAPITAL' => $output,
+                'SCORING' => $scoring
+            ]);
+        }
+
+
         $result = "-";
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
+
         return view('5capital',[
             'capital_nasabah' => $capital_nasabah,
             'result' => $result,
-            'nasabah' => $nasabah
+            'nasabah' => $nasabah,
+            'output' => $output
 
         ])->with('message', "Berhasil memperbarui data!");
     }
