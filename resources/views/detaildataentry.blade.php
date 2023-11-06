@@ -470,7 +470,7 @@
 @else
 <form method="POST" action="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}/edit">
     @csrf
-    <section id="start" class="md:flex md:flex-row mb-4 md:justify-between">
+    <section id="start" class="md:flex md:flex-row mb-4 space-x-4 md:justify-between">
         <div class="my-4 space-y-4 relative w-full">
             <div>
                 <label for="cif" class="block mb-2 text-xs font-medium text-gray-900">CIF Bank</label>
@@ -518,7 +518,7 @@
             I. Data Permohonan Pembiayaan
         </p>
 
-        <div class="md:flex md:flex-row space-y-4 md:space-y-0 mb-4 md:justify-between">
+        <div class="md:flex md:flex-row space-y-4 space-x-4 md:space-y-0 mb-4 md:justify-between">
             <div class="space-y-4 w-full">
                 <div>
                     <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Limit Kredit yang Dimohon</label>
@@ -592,7 +592,7 @@
             II. Data Diri Nasabah
         </p>
 
-        <div class="md:flex md:flex-row mb-4 md:justify-between">
+        <div class="md:flex md:flex-row space-x-4 mb-4 md:justify-between">
             <div class="my-4 space-y-4 w-full">
                 <div>
                     <label for="jenisperm" class="block mb-2 text-xs font-medium text-gray-900">Nama Debitur</label>
@@ -734,8 +734,9 @@
         
     </section>
 
-    <section id="3and4" class="md:flex md:flex-row mb-4 md:justify-between">
-        <div class="space-y-4 w-full">
+
+    <section id="3and4" class="md:flex md:flex-row mb-4 space-x-4 md:justify-between">
+        <div class="space-y-4 space-x-4 w-full">
             <section id="suami_istri" class="my-4 space-y-4">
                 <p class=" block py-4 text-base font-semibold text-gray-900">
                     III. Data Diri Suami / Istri
@@ -812,9 +813,7 @@
                         <option value="5">Rekan Kerja</option>
                         <option value="6">Tetangga</option>
                 </select>
-            </div>
                 </div>
-            
                 <div>
                     <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Sesuai KTP</label>
                     <textarea name="alamat_ktp_kontak_darurat" id="alamatktp" rows="4" class=" max-w-xl block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">
@@ -826,9 +825,11 @@
                     <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon / HP</label>
                     <input value ="{{ $nasabah->NO_TELP_EC }}" name="nomor_telepon_kontak_darurat" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                 </div>
+                </div>
                 
             </section>
         </div>
+
     </section>
 
     <section id="bun" class="my-4 space-y-4">
@@ -911,13 +912,13 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <div class=" pt-6">
         <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan Perubahan</button>
     </div>
-</form>
+
+    </form>
 @endif
 
 @if (session('success-add'))

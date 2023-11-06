@@ -163,3 +163,13 @@ Route::post('/register', [AuthenticateController::class, 'register'])->name('reg
 Route::get('/dashboard/user', [UserController::class, 'index']);
 Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
 Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
+
+
+///////  SYARIAH
+
+Route::get('/dashboard/5syariah', function () {
+    return view('5syariah',[
+        'nasabah' => null
+    ]);
+});
+
