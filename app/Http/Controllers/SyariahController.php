@@ -24,7 +24,7 @@ class SyariahController extends Controller
                 'SY_SERTIFIKASI_HALAL' => $request->sertifikasi,
                 'SY_JUMLAH_HUTANG' => $request->jumlah_hutang,
                 'SY_AKAD_USAHA' => $request->akad_usaha,
-                'SY_JENIS_BARANG' => $request->jenis_barang,
+                'SY_JENIS_BARANG' => $request->jenis_barang_usaha,
                 'SY_PRESENTASE_NON_SYARIAH' => $request->presentase,
                 'ID_NASABAH' => $request->id
             ]);
@@ -33,7 +33,7 @@ class SyariahController extends Controller
                 'SY_SERTIFIKASI_HALAL' => $request->sertifikasi,
                 'SY_JUMLAH_HUTANG' => $request->jumlah_hutang,
                 'SY_AKAD_USAHA' => $request->akad_usaha,
-                'SY_JENIS_BARANG' => $request->jenis_barang,
+                'SY_JENIS_BARANG' => $request->jenis_barang_usaha,
                 'SY_PRESENTASE_NON_SYARIAH' => $request->presentase,
             ]);
         }
