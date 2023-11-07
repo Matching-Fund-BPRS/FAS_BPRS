@@ -111,7 +111,7 @@
             <div class= "min-w-xl">
                 <label for="teh_utilisasi" class="block mb-2 text-xs font-medium text-gray-900">Utilisasi Kapasitas Usaha</label>
                 <select name="teh_utilisasi" id="teh_utilisasi" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option @if($capacity_nasabah->TEH_UTILISASI == 1) selected @endif  value="1">Kurang dari 50%</option>
+                    <option @if($capacity_nasabah->TEH_UTILISASI == 1) selected @endif value="1">Kurang dari 50%</option>
                     <option @if($capacity_nasabah->TEH_UTILISASI == 2) selected @endif value="2">50% - 75%</option>
                     <option @if($capacity_nasabah->TEH_UTILISASI == 3) selected @endif value="3">Lebih dari 75%</option>
                 </select>

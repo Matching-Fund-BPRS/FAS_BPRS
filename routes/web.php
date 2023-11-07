@@ -19,7 +19,8 @@ use App\Http\Controllers\CapacityController;
 use App\Http\Controllers\CollateralController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\CapitalController;
-
+use App\Http\Controllers\SyariahController;
+use App\Http\Controllers\NeracaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,9 +123,14 @@ Route::get('/dashboard/5character/{id}', [CharacterController::class, 'index'])-
 Route::post('/dashboard/5character/{id}/edit', [CharacterController::class, 'update']);
 Route::post('/dashboard/5character/submitCharacter', [CharacterController::class, 'submitCharacter'])->name('postCharacter');
 
+//syariah
+Route::get('/dashboard/5syariah/{id}', [SyariahController::class, 'index']);
+Route::post('/dashboard/5syariah/tambah', [SyariahController::class, 'submitSyariah']);
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //rugi laba page
 Route::get('/dashboard/rugilaba/{id}', [RugiLabaController::class, 'index']);
+Route::post('/dashboard/rugilaba/tambah', [RugiLabaController::class, 'addRugiLaba']);
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,11 +140,8 @@ Route::post('/dashboard/rekomendasi/tambah', [RekomendasiController::class, 'add
 Route::post('/dashboard/rekomendasi/{id}/edit', [RekomendasiController::class, 'editRekomendasi']);
 
 
-Route::get('/dashboard/neraca', function () {
-    return view('neraca',[
-        'nasabah' => null
-    ]);
-});
+Route::get('/dashboard/neraca/{id}', [NeracaController::class, 'index']);
+Route::get('/dashboard/neraca/tambah', [NeracaController::class, 'addNeraca']);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Daftar angsuran page
@@ -165,11 +168,4 @@ Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->
 Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
 
 
-///////  SYARIAH
-
-Route::get('/dashboard/5syariah', function () {
-    return view('5syariah',[
-        'nasabah' => null
-    ]);
-});
 
