@@ -29,7 +29,7 @@
             <div>
                 <label for="cb_dscr" class="block mb-2 text-xs font-medium text-gray-900">Presentase Non-Syariah</label>
                 <div class="flex items-center">
-                    <input value="{{ $syariah_nasabah->PRESENTASE_NON_SYARIAH ?? 0}}" name="presentase" type="text" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input value="{{ $syariah_nasabah->SY_PRESENTASE_NON_SYARIAH ?? 0}}" name="presentase" type="text" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         %
                     </p>
@@ -73,4 +73,11 @@
             </div>
     </section>
 </form>
+
+@if(session('message'))
+<script>
+    alert('Berhasil menyimpan data!')
+</script>
+@endif
+
 @endsection

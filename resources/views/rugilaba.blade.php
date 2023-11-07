@@ -274,4 +274,10 @@
     </div>
 </div>
 <script src="{{ asset('js/labarugi.js') }}"></script>
+@if(session('message'))
+<script>
+    alert('Berhasil menyimpan data!')
+</script>
+@endif
+
 @endsection

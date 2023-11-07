@@ -72,6 +72,6 @@ class NeracaController extends Controller
                 'OIS' => $ois
             ]);
         }
-        return redirect()->back();
+        return redirect()->back()->with('message', 'success');
     }
 }

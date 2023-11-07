@@ -68,6 +68,6 @@ class RugiLabaController extends Controller
                 'SET_HPP' => 0.75,
             ]);
         }
-        return redirect()->back();
+        return redirect()->back()->with(',message', 'success');
     }
 }

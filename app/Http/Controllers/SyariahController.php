@@ -38,6 +38,6 @@ class SyariahController extends Controller
             ]);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'success');
     }
 }

@@ -500,4 +500,10 @@
     </div>
 </form>
 
+@if(session('message'))
+<script>
+    alert('Berhasil menyimpan data!')
+</script>
+@endif
+
 @endsection
