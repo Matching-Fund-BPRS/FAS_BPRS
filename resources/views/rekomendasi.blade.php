@@ -173,7 +173,7 @@
             <div class="">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
                 <div class="flex flex-row">
-                    <input name="margin" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input value="{{ $rekomendasi_nasabah->BUNGA }}" name="margin" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         % per Bulan
                     </p>
