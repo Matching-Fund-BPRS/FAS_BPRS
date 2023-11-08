@@ -77,12 +77,14 @@ class NeracaController extends Controller
         $totalAset = $request->kas + $request->piutang_dagang + $request->persediaan + $request->tanah + $request->gedung + $request->peralatan - $request->penyusutan_gedung - $request->penyusutan_peralatan;
         $totalHutang = $request->hutang_jangka_pendek + $request->hutang_jangka_panjang;
 
-        $modal = $request->tanah + $request->gedung + $request->peralatan - $request->penyusutan_gedung - $request->penyusutan_peralatan + $request->laba_ditahan + $request->laba_berjalan;
+        $modal = $request->kas + $request->piutang_dagang + $request->persediaan+$request->tanah + $request->gedung + $request->peralatan - $request->penyusutan_gedung - $request->penyusutan_peralatan + $request->laba_ditahan + $request->laba_berjalan + $request->laba_berjalan_2 + $request->laba_berjalan_3;
 
 
         $dar = -1 * ($totalHutang / $totalAset);
         $der = -1 * ($totalHutang / $modal);
         $lder = -1 * ($request->hutang_jangka_pendek / $modal);
+
+
         if($capital != null){
             $capital->update([
                 'CM_DAR' => $dar,

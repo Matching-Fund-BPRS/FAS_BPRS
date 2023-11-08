@@ -16,6 +16,7 @@ class CollateralController extends Controller
         // request data 5c nasabah ke API dengan paramter $id
 
         $collateral_nasabah = TCollateral::where('ID_NASABAH', $id)->first();
+        $agunan_nasabah = TAgunan::where('ID_NASABAH', $id)->get();
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
         $output = $Tscoring->COLLATERAL ?? 0;
@@ -24,6 +25,7 @@ class CollateralController extends Controller
         return view('5collateral',[
             'collateral_nasabah' => $collateral_nasabah,
             'nasabah' => $nasabah,
+            'agunan_nasabah' => $agunan_nasabah,
             'resiko_nasabah' => $resiko_nasabah,
             'result_message' => $result,
             'output' => $output
@@ -188,5 +190,39 @@ class CollateralController extends Controller
             'result_message' => $result,
             'resiko_nasabah' => $resiko_nasabah,
         ]);
+    }
+
+    public function addAgunan(Request $request){
+        TAgunan::insert([
+            'ID_NASABAH' => $request->id,
+            'JENIS' => $request->jenis,
+            'BUKTI_MILIK' => $request->bukti_milik,
+            'MERK' => $request->merk,
+            'TAHUN' => $request->tahun,
+            'NO_BPKB' => $request->no_bpkb,
+            'NOPOL' => $request->nopol,
+            'NO_MESIN' => $request->no_mesin,
+            'NO_RANGKA' => $request->no_rangka,
+            'WARNA' => $request->warna,
+            'ATAS_NAMA' => $request->atas_nama,
+            'ALAMAT' => $request->alamat,
+            'TGL_BERLAKU' => $request->tgl_berlaku,
+            'NO_AGUNAN' => $request->no_agunan,
+            'NAMA_PEMILIK' => $request->nama_pemilik,
+            'LOKASI' => $request->lokasi,
+            'NILAI' => $request->nilai,
+            'JENIS_PENGIKATAN' => $request->jenis_pengikatan,
+            'ASURANSI' => $request->asuransi,
+            'KET' => $request->ket,
+            'LUAS_TANAH' => $request->luas_tanah,
+            'LUAS_BANGUNAN' => $request->luas_bangunan,
+            'NO_DEP' => $request->no_dep,
+            'DEP_BANK' => $request->dep_bank,
+            'SAVE_MARGIN' => $request->safety_margin,
+            'JENIS_BANGUNAN' => $request->jenis_bangunan
+        ]);
+
+        $result = "Berhasil menambahkan data agunan!";
+        return redirect()->back()->with('message', 'success');
     }
 }
