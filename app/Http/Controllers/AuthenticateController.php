@@ -26,7 +26,7 @@ class AuthenticateController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('login_page');
+        return redirect()->route('login');
     }
 
     public function register(Request $request){
@@ -37,6 +37,6 @@ class AuthenticateController extends Controller
             'level' => 0,
         ]);
 
-        return redirect()->route('login_page')->with('message', 'Daftar berhasil, silakan login!');
+        return redirect()->route('login')->with('message', 'Daftar berhasil, silakan login!');
     }
 }
