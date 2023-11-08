@@ -12,6 +12,7 @@ class RekomendasiController extends Controller
     //TODO
     //Tangkap data dari view
     public function addRekomendasi(Request $request){
+        dd($request);
         TRekomendasi::insert([
             'ID_NASABAH' => $request->id,
             'LIMIT_KREDIT' => $request->plafond,
