@@ -54,6 +54,11 @@ class NasabahController extends BaseController
     }
 
     public function tambah_nasabah(Request $request){
+        if($request->tgl_berlaku_ktp == "on"){
+            $tgl_berlaku_ktp = null;
+        }else{
+            $tgl_berlaku_ktp = Carbon::createFromFormat('m/d/Y', $request->tgl_berlaku_ktp)->format('Y-m-d');
+        }
         TNasabah::insert([
             'ID_NASABAH' => $request->id_user,
             'ID_CABANG'  => 001, 
@@ -80,7 +85,7 @@ class NasabahController extends BaseController
             'TGL_LAHIR' => Carbon::createFromFormat('m/d/Y', $request->tgl_lahir)->format('Y-m-d'),
             'GENDER' => $request->gender,
             'NO_KTP'=>$request->no_ktp,
-            'TGL_BERLAKU_KTP' => Carbon::createFromFormat('m/d/Y', $request->tgl_berlaku_ktp)->format('Y-m-d'),
+            'TGL_BERLAKU_KTP' => $tgl_berlaku_ktp,
             'ALAMAT' => $request->alamat_ktp,
             'NO_TELP' => $request->nomor_telepon,
             'NO_KANTOR' => $request->nomor_telepon_kantor,

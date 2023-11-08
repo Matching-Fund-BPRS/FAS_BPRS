@@ -10,7 +10,9 @@
     <table class="text-sm">
         <tr>
             <td>
-                Plafond 
+                <b>
+                    Plafond 
+                </b>
             </td>
             <td>
                 :   Rp{{ $plafond }}
@@ -19,7 +21,9 @@
 
         <tr>
             <td>
-                Jangka Waktu
+                <b>
+                    Jangka Waktu
+                </b>
             </td>
             <td>
                 :   {{ $jangkaWaktu }} Bulan
@@ -28,7 +32,9 @@
 
         <tr>
             <td>
-                Margin 
+                <b>
+                    Margin
+                </b> 
             </td>
             <td>
                 : {{ $margin }}  % Per Bulan

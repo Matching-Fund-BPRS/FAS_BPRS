@@ -15,12 +15,12 @@
         <div class= "min-w-xl">
             <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat</label>
             <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="US">Murabahah</option>
-                <option value="CA">Musyarakah</option>
-                <option value="FR">Mudarabah</option>
-                <option value="FR">Ijaroh</option>
-                <option value="FR">Rahn</option>
-                <option value="FR">Qord</option>
+                <option value="1">Murabahah</option>
+                <option value="2">Musyarakah</option>
+                <option value="3">Mudarabah</option>
+                <option value="4">Ijaroh</option>
+                <option value="5">Rahn</option>
+                <option value="6">Qord</option>
             </select>
         </div>
 
@@ -150,12 +150,12 @@
         <div class= "min-w-xl">
             <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat</label>
             <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="US">Murabahah</option>
-                <option value="CA">Musyarakah</option>
-                <option value="FR">Mudarabah</option>
-                <option value="FR">Ijaroh</option>
-                <option value="FR">Rahn</option>
-                <option value="FR">Qord</option>
+                <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 1) selected @endif value="1">Murabahah</option>
+                <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 2) selected @endif value="2">Musyarakah</option>
+                <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 3) selected @endif value="3">Mudarabah</option>
+                <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 4) selected @endif value="4">Ijaroh</option>
+                <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 5) selected @endif value="5">Rahn</option>
+                <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 6) selected @endif value="6">Qord</option>
             </select>
         </div>
 
@@ -217,7 +217,7 @@
             <div class="">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Angsuran / Bulan</label>
                 <div class="flex flex-row">
-                    <input value="{{ $rekomendasi_nasabah->ANGSURAN }}"name="angsuran_bulan" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input value="{{ $rekomendasi_nasabah->ANGSURAN }}" name="angsuran_bulan" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         
                     </p>
