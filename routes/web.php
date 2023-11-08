@@ -164,7 +164,7 @@ Route::group(['middleware'=>'guest'], function(){
     Route::post("/login/authenticate", [AuthenticateController::class, 'authenticate'])->name('authenticate');
 });
 Route::post("/logout", [AuthenticateController::class, 'logout'])->name('logout');
-// Route::get('/register', function(){
-//     return view('register');
-// })->name('register_page');
-// Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
+Route::get('/register', function(){
+    return view('register');
+})->name('register_page');
+Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
