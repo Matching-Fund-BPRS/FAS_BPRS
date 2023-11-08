@@ -2,7 +2,7 @@
 
 @section('container')
 
-<form method="POST" action="/dashboard/neraca/tambah">
+<form method="POST" action="/dashboard/neraca/tambah" id="neraca_form">
     @csrf
     <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <div class="flex flex-col mt-6">
@@ -48,7 +48,7 @@
                             <p class="text-sm font-semibold text-center text-gray-600">AKTIVA</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input class="text-sm font-semibold text-center text-gray-600">
+                            <input class="text-sm font-semibold text-center text-gray-600" name="aktiva">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input class="text-sm font-semibold text-center text-gray-600">
@@ -138,7 +138,7 @@
                             <p class="text-sm font-semibold text-center text-gray-600">Subtotal</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600" name="sub_total_aktiva_lancar"">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
@@ -264,7 +264,7 @@
                             <p class="text-sm font-semibold text-center text-gray-600">Subtotal</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600" name="sub_total_aktiva_tetap">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
@@ -279,7 +279,7 @@
                             <p class="text-sm font-semibold text-center text-gray-600">PASIVA</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600" name="pasiva">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
@@ -351,7 +351,7 @@
                             <p class="text-sm font-semibold text-center text-gray-600">Subtotal</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600" name="sub_total_kewajiban">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled  class="text-sm font-semibold text-center text-gray-600">
@@ -478,7 +478,7 @@
                             <p class="text-sm font-semibold text-center text-gray-600">Subtotal</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600" name="sub_total_modal">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
@@ -499,7 +499,7 @@
         </div>
     </div>
 </form>
-
+<script src="{{ asset('js/neraca.js') }}"></script>
 @if(session('message'))
 <script>
     alert('Berhasil menyimpan data!')

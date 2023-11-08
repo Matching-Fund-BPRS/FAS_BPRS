@@ -84,7 +84,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">{{ $data->ANGS_BUNGA }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ANGS_POKOK + $data->ANGS_BUNGA }}</p>
                             </td>
                         </tr>
                         @endforeach
@@ -93,14 +93,15 @@
                             <td colspan="2" class="px-4 py-1 whitespace-nowrap">
                                 <p class="text-sm font-bold text-center text-gray-600">Total</p>
                             </td>
+
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{  $data_angsuran->sum('ANGS_POKOK')}}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data_angsuran->sum('ANGS_BUNGA') }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">xxx.xxx.xxx</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data_angsuran->sum('ANGS_BUNGA') + $data_angsuran->sum('ANGS_POKOK') }}</p>
                             </td>
                         </tr>
 

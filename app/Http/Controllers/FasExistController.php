@@ -58,4 +58,20 @@ class FasExistController extends Controller
         ]);
         return redirect()->back()->with('success-edit', 'message');
     }
+
+    public function store(Request $request){
+        TFa::insert([
+            'ID_NASABAH' => $request->id,
+            'KODE' => 1,
+            'BANK' => $request->bank,
+            'JENIS_KREDIT' => $request->jenis_kredit,
+            'PLAFOND' => $request->plafond,
+            'BAKI_DEBET' => $request->baki_debet,
+            'TGL_JATUH_TEMPO' => $request->tgl_jatuh_tempo,
+            'KOL' => $request->kol,
+            'TUNGGAKAN' => $request->tunggakan,
+            'LAMA_TUNGGAKAN' => $request->lama_tunggakan,
+            'KET' => null
+        ]);
+    }
 }

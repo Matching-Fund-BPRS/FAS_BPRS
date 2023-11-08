@@ -469,6 +469,7 @@
 
 {{-- ///////////////TAMBAH RIWAYAT POPUP/////////////////// --}}
 
+
 <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-sm md:max-w-xl max-h-full">
         <!-- Modal content -->
@@ -486,19 +487,19 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <form method="post" action="{{ Route('tambah_user') }}">
+            <form action="{{ route('tambah_existing') }}" method="POST">
                 @csrf
                 <div class="p-4 space-y-4">
-
+                    <input type="hidden" name="id" value="{{ $nasabah->ID_NASABAH }}">
                     <div class="grid grid-cols-2 space-x-4">
                         <div>
-                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Bank</label>
-                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Bank</label>
+                            <input name="bank" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                         </div>
     
                         <div class= "">
-                            <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Jenis</label>
-                            <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-gray-900">Jenis</label>
+                            <select name="jenis_kredit" id="jenis_kredit" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                                 <option value="1">Modal Kerja</option>
                                 <option value="2">Investasi</option>
                                 <option value="3">Konsumsi</option>
@@ -509,12 +510,12 @@
                     <div class="grid grid-cols-2 space-x-4">
                         <div>
                             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Plafond</label>
-                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            <input name="plafond" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                         </div>
     
                         <div>
                             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Baki Debet</label>
-                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            <input name="baki_debet" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                         </div>
                     </div>
 
@@ -528,14 +529,14 @@
                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                     </svg>
                                 </div>
-                                <input name="tgl_permohonan" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                <input name="tgl_jatuh_tempo" datepicker datepicker-autohide type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                             </div>
                         </div>
                     </div>
 
                     <div class= "min-w-full">
-                        <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Kol</label>
-                        <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        <label for="kol" class="block mb-2 text-xs font-medium text-gray-900">Kol</label>
+                        <select name="kol" id="kol" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -547,12 +548,12 @@
                     <div class="grid grid-cols-2 space-x-4">
                         <div>
                             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Tunggakan</label>
-                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            <input name="tunggakan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                         </div>
     
                         <div>
                             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Lama Tunggakan</label>
-                            <input name="email" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            <input name="lama_tunggakan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                         </div>
                     </div>
 

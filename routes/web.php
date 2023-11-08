@@ -65,7 +65,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard/fasilitasexisting/{id}', [FasExistController::class, 'fasIndex']);
     Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
     Route::post('/dashboard/fasilitasexisting/{id}/edit', [FasExistController::class, 'edit_bisid']);
-
+    Route::post('/dashboard/fasilitasexisting/add', [FasExistController::class, 'store'])->name("tambah_existing");
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //analisisa kualitatif page
@@ -141,7 +141,7 @@ Route::group(['middleware'=>'auth'], function(){
 
 
     Route::get('/dashboard/neraca/{id}', [NeracaController::class, 'index']);
-    Route::get('/dashboard/neraca/tambah', [NeracaController::class, 'addNeraca']);
+    Route::post('/dashboard/neraca/tambah', [NeracaController::class, 'addNeraca']);
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Daftar angsuran page

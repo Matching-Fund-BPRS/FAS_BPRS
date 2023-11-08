@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TAngsuran;
 use App\Models\TNasabah;
+use App\Models\TRekomendasi;
 
 class AngsuranController extends Controller
 {
@@ -12,17 +13,16 @@ class AngsuranController extends Controller
 
         //TODO
         //ambil data angsuran berdasarkan nomor nasabah/nota
-        $data_angsuran = TAngsuran::where('ID_NASABAH', $id)->paginate(5);
+        $data_angsuran = TAngsuran::where('ID_NASABAH', $id)->get();
 
         //TODO
         //Siapin rumus untuk perhitungan plafond, margin, dan jangka waktu
-        $plafond = 0;
-        $margin = 0;
-        $jangkaWaktu = 0;
+        $data_rekomendasi = TRekomendasi::where('ID_NASABAH', $id)->first();
+        $plafond = $data_rekomendasi->LIMIT_KREDIT;
+        $margin = $data_rekomendasi->BUNGA;
+        $jangkaWaktu = $data_rekomendasi->JANGKA_WAKTU;
 
-        //TODO
-        //Siapin rumus untuk ngitung total ini juga
-        $total = 0;
+
 
 
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
