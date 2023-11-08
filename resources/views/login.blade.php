@@ -12,30 +12,35 @@
 </head>
 <body>
 
-    <div class=" w-full h-full flex justify-center items-center drop-shadow-md">
-
-    <form method="post" action="{{ Route('login') }}">
+    <form method="post" action="{{ Route('login') }}" class="m-0">
         @csrf
-        <div class="flex justify-center py-4">
-            <img src="{{ asset('img/logo.png') }}" alt="" class="w-auto h-24"> 
+        <div class="h-full w-full flex">
+            <div class="w-96 m-auto">
+                <div class="flex justify-center py-4">
+                    <img src="{{ asset('img/logo.png') }}" alt="" class="w-auto h-24"> 
+                </div>
+                
+                <div class="align-middle space-y-4">
+                    
+                    <div>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Email</label>
+                        <input name="email" type="email" placeholder="Email" class=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    </div>
+            
+                    <div>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Password</label>
+                        <input name="password" type="password" placeholder="Password" class=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    </div>
+                    <div class=" items-center flex justify-center">
+                        <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
+
+
         
-        <div class="align-middle space-y-4">
-            
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Email</label>
-                <input name="email" type="email" placeholder="Email" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
-            </div>
-    
-            <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Password</label>
-                <input name="password" type="password" placeholder="Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
-            </div>
-            <div class=" items-center flex justify-center">
-                <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Login</button>
-            </div>
-            
-        </div>
         
     </form>
     
@@ -46,6 +51,5 @@
         </script>
     @endif
 
-</div>
 </body>
 </html>
