@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TCapacity;
 use App\Models\TNasabah;
-
+use App\Models\TScoring;
+use Illuminate\Support\Facades\Http;
 
 class CapacityController extends Controller
 {
@@ -15,9 +16,11 @@ class CapacityController extends Controller
         $result = null;
         $capacity_nasabah = TCapacity::where('ID_NASABAH', $id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
+        $output = $Tscoring->CAPACITY ?? 0;
         return view('5capacity',[
             'capacity_nasabah' => $capacity_nasabah,
-            'result' => "-",
+            'output' => $output,
             'nasabah' => $nasabah,
             'result_message' => $result
         ]);
@@ -36,8 +39,38 @@ class CapacityController extends Controller
             'ID_NASABAH' => $request->id,
         ]);
 
+        $response = Http::post('model:8000/capacity', [
+            'teh_utilisasi' => intval($request->teh_utilisasi),
+            'teh_lama_usaha' => intval($request->teh_lama_usaha),
+            'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),
+            'cb_pengelolaan' => intval($request->cb_pengelolaan),
+            'cb_dscr' => intval($request->cb_dscr)
+        ]);
 
-        $output = null;
+        $output = $response->json()['data']['percentage'];
+        $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
+        if($Tscoring == null){
+            $scoring = $output / 5;
+            TScoring::insert([
+                'ID_NASABAH' => $request->id,
+                'CAPACITY' => $output,
+                'CAPITAL' => 0,
+                'CHARACTER' => 0,
+                'COLLATERAL' => 0,
+                'CONDITION' => 0,
+                'SYARIAH' => 0,
+                'SCORING' => $scoring
+                
+            ]);
+        } else {
+            $scoring = ($output + $Tscoring->COLLATERAL+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            TScoring::where('ID_NASABAH', $request->id)->update([
+                'CAPACITY' => $output,
+                'SCORING' => $scoring
+            ]);
+        }
+
+        
         $result = "Berhasil menambahkan data!";
 
         $capacity_nasabah = TCapacity::where('ID_NASABAH', $request->id)->first();
@@ -59,7 +92,37 @@ class CapacityController extends Controller
             'CB_DSCR' => $request->cb_dscr,
         ]);
 
-        $output = null;
+        $response = Http::post('model:8000/capacity', [
+            'teh_utilisasi' => intval($request->teh_utilisasi),
+            'teh_lama_usaha' => intval($request->teh_lama_usaha),
+            'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),
+            'cb_pengelolaan' => intval($request->cb_pengelolaan),
+            'cb_dscr' => intval($request->cb_dscr)
+        ]);
+
+        $output = $response->json()['data']['percentage'];
+        $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
+        if($Tscoring == null){
+            $scoring = $output / 5;
+            TScoring::insert([
+                'ID_NASABAH' => $request->id,
+                'CAPACITY' => $output,
+                'CAPITAL' => 0,
+                'CHARACTER' => 0,
+                'COLLATERAL' => 0,
+                'CONDITION' => 0,
+                'SYARIAH' => 0,
+                'SCORING' => $scoring
+                
+            ]);
+        } else {
+            $scoring = ($output + $Tscoring->COLLATERAL+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            TScoring::where('ID_NASABAH', $request->id)->update([
+                'CAPACITY' => $output,
+                'SCORING' => $scoring
+            ]);
+        }
+
         //ini bikin conditional berdasarkan response dari API
         //kalo berhasil edit, result == berhasil
         //kalo gagal, result == gagal
