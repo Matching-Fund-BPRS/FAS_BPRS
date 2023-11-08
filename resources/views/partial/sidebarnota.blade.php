@@ -88,7 +88,7 @@
                             <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5character/{{ $nasabah->ID_NASABAH }}">
                                 <span class="mx-2 ml-6 text-sm font-normal">Character</span>  
                             </a>
-                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5syariah/">
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/5syariah/{{ $nasabah->ID_NASABAH }}">
                                 <span class="mx-2 ml-6 text-sm font-normal">Syariah</span>  
                             </a>
                         </div>
@@ -154,6 +154,9 @@
                             </a>
                             <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
                                 <span class="mx-2 ml-6 text-sm font-normal">Character</span>  
+                            </a>
+                            <a class="flex items-center py-1 px-1 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" onClick="alert('Silakan masukkan ID Nasabah terlebih dahulu!')" href="#">
+                                <span class="mx-2 ml-6 text-sm font-normal">Syariah</span>  
                             </a>
                         </div>
                     </div>

@@ -31,12 +31,21 @@
                 <div class= "min-w-xl">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Jenis Pembiayaan</label>
                     <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="1" {{ $limit_kredit_nasabah->JENIS == 1 ? 'selected' : '' }}>Murabahah</option>
-                        <option value="2" {{ $limit_kredit_nasabah->JENIS == 2 ? 'selected' : '' }}>Musyarakah</option>
-                        <option value="3" {{ $limit_kredit_nasabah->JENIS == 3 ? 'selected' : '' }}>Mudarabah</option>
-                        <option value="4" {{ $limit_kredit_nasabah->JENIS == 4 ? 'selected' : '' }}>Ijaroh</option>
-                        <option value="5" {{ $limit_kredit_nasabah->JENIS == 5 ? 'selected' : '' }}>Rahn</option>
-                        <option value="6" {{ $limit_kredit_nasabah->JENIS == 6 ? 'selected' : '' }}>Qord</option>
+                        @if($limit_kredit_nasabah != null)
+                            <option value="1" {{ $limit_kredit_nasabah->JENIS == 1 ? 'selected' : '' }}>Murabahah</option>
+                            <option value="2" {{ $limit_kredit_nasabah->JENIS == 2 ? 'selected' : '' }}>Musyarakah</option>
+                            <option value="3" {{ $limit_kredit_nasabah->JENIS == 3 ? 'selected' : '' }}>Mudarabah</option>
+                            <option value="4" {{ $limit_kredit_nasabah->JENIS == 4 ? 'selected' : '' }}>Ijaroh</option>
+                            <option value="5" {{ $limit_kredit_nasabah->JENIS == 5 ? 'selected' : '' }}>Rahn</option>
+                            <option value="6" {{ $limit_kredit_nasabah->JENIS == 6 ? 'selected' : '' }}>Qord</option>
+                        @else
+                        <option value="1" >Murabahah</option>
+                        <option value="2" >Musyarakah</option>
+                        <option value="3" >Mudarabah</option>
+                        <option value="4" >Ijaroh</option>
+                        <option value="5" >Rahn</option>
+                        <option value="6" >Qord</option>
+                        @endif
                     </select>
                 </div>
             
