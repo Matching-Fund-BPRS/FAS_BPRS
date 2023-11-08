@@ -423,7 +423,7 @@
                             <p class="text-sm font-normal text-center text-gray-600">Laba Berjalan</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input name="laba_berjalan" value="{{ $neraca_nasabah->LABA_BERJALAN }}" class="text-sm font-normal text-center text-gray-600">
+                            <input name="laba_berjalan" value="{{ $neraca_nasabah->LABA_BERJALAN ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
@@ -441,7 +441,7 @@
                             <p class="text-sm font-normal text-center text-gray-600">Laba Berjalan II</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input name="laba_berjalan_2" value="{{ $neraca_nasabah->LABA_BERJALAN_2 }}" class="text-sm font-normal text-center text-gray-600">
+                            <input name="laba_berjalan_2" value="{{ $neraca_nasabah->LABA_BERJALAN_2 ?? 0}}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
@@ -459,7 +459,7 @@
                             <p class="text-sm font-normal text-center text-gray-600">Laba Berjalan III</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input name="laba_berjalan_3" value="{{ $neraca_nasabah->LABA_BERJALAN }}" class="text-sm font-normal text-center text-gray-600">
+                            <input name="laba_berjalan_3" value="{{ $neraca_nasabah->LABA_BERJALAN_3 ?? 0}}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">

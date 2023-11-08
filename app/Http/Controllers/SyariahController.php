@@ -13,9 +13,10 @@ class SyariahController extends Controller
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $syariah_nasabah = TSyariah::where('ID_NASABAH', $id)->first();
         $hasil_scoring = TScoring::where('ID_NASABAH',$id)->first();
+        $hasil_scoring_syariah = $hasil_scoring->SYARIAH ?? 0;
         return view('5syariah',[
             'nasabah' => $nasabah,
-            'scoring_syariah' => $hasil_scoring->SYARIAH,
+            'scoring_syariah' => $hasil_scoring_syariah,
             'syariah_nasabah' => $syariah_nasabah
         ]);
     }
