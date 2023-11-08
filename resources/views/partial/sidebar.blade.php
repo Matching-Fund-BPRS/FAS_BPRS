@@ -24,7 +24,11 @@
         <p class="text-left text-xs font-bold">
             Level : 
             @auth
-            <span class="font-normal">{{ auth()->user()->level }}</span>
+            @if(auth()->user()->level == 1)
+            <span class="font-normal">Supervisor</span>
+            @else
+            <span class="font-normal">Operator</span>
+            @endif
             @endauth
         </p>
     </div>
