@@ -26,12 +26,22 @@
 
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
-            <input name="jenis_permohonan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+           
+            <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="1">Baru</option>
+                <option value="2"> Tambahan </option>
+                <option value="3"> Tambahan dan Perpanjangan </option>
+            </select>
         </div>
 
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
-            <input name="tujuan_penggunaan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+           
+            <select name="tujuan_penggunaan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="1">Modal Kerja</option>
+                <option value="2">Investasi</option>
+                <option value="3">Konsumsi</option>
+            </select>
         </div>
 
         <div class="grid grid-cols-2 max-w-md space-x-4">
