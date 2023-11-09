@@ -11,24 +11,29 @@
         </p>
         <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
             <div class= "min-w-xl">
-                <label for="cb_manajemen_sdm" class="block mb-2 text-xs font-medium text-gray-900">Manajemen SDM</label>
+                <label for="cb_manajemen_sdm" class="block mb-2 text-xs font-medium text-gray-900">Manajemen Keuangan</label>
                 <select name="cb_manajemen_sdm" id="cb_manajemen_sdm" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">Gaji Karyawan Sering Telat dan Tidak Ada Bonus</option>
-                    <option value="2">Gaji Karyawan Kadang Kadang Telat</option>
-                    <option value="3">Gaji Karyawan Kurang Lancar dan Ada Bonus</option>
-                    <option value="4">Gaji Karyawan Lancar</option>
-                    <option value="5">Gaji Karyawan Lancar dan Ada Bonus</option>
+                    <option value="1">Tidak Memiliki sistem Pencatan  keuangan , Tidak Memiliki karyawan dalam bidang pencatatan keuangan</option>
+                    <option value="2">Memiliki Sistem Pencatan keuangan yang  baik, Tidak memliki karywan dalam bidang pencatatan keuangan</option>
+                    <option value="3">Memiliki Sisem Pencattan keuangan yang Baik,Membuat Laporan Keuangan Secara Periodik, Tidak Memiliki karyawan dalam bidang pencatatan keuangan</option>
+                    <option value="4">Memiliki Sistem pencatatan keuangan yang baik, Membuat laporan Keuangan Secara Periodik, dan Memiliki karyawan yang ahli dalam bidang pencatatan keuangan</option>
+                    <option value="5">Memiliki Sistem pencatatan keuangan yang baik, Membuat laporan keuangan secara periodik dan di audit oleh akuntan publik, serta Memiliki karyawan yang ahli dalam bidang pencatatan keuangan</option> 
                 </select>
             </div>
 
             <div class= "min-w-xl">
                 <label for="cb_pengelolaan" class="block mb-2 text-xs font-medium text-gray-900">Kemampuan Pengelolaan</label>
                 <select name="cb_pengelolaan" id="cb_pengelolaan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">Perusahaan Mengalami Kerugian Jauh Dari Nilai Titiik Impas</option>
-                    <option value="2">Perusahan Mengalami Sedikit Kerugian Dari Nilai Titik Impas</option>
-                    <option value="3">Laba Perusahaan Mencapai Titik Impas</option>
-                    <option value="4">Laba Sesuai Target</option>
-                    <option value="5">Laba Lebih Dari Target Yang Ditentukan</option>
+                    1. Pengelolaan perusahaan masih sangat tergantung pada pemilik secara individu dan banyak melibatkan keluarga
+2. Pengeloalan perusahaan tergantung dengan pengelolaan individu dan tidak melibatkan banyak keluarga
+3. Pengelolan perusahan tidak tergantung dengan individu 
+4. Pengelolaan perusahaan menggunakan manajemen yang profesional
+5. Perusahaan dikelola dengan menggunakan tenaga manajemen profesional dan modern
+                    <option value="1">Pengelolaan perusahaan masih sangat tergantung pada pemilik secara individu dan banyak melibatkan keluarga</option>
+                    <option value="2">Pengeloalan perusahaan tergantung dengan pengelolaan individu dan tidak melibatkan banyak keluarga</option>
+                    <option value="3">Pengelolan perusahan tidak tergantung dengan individu </option>
+                    <option value="4">Pengelolaan perusahaan menggunakan manajemen yang profesional</option>
+                    <option value="5">perusahaan dikelola dengan menggunakan tenaga manajemen profesional dan modern</option>
                 </select>
             </div>
 
@@ -77,24 +82,24 @@
         </p>
 
             <div class= "min-w-xl">
-                <label for="cb_manajemen_sdm" class="block mb-2 text-xs font-medium text-gray-900">Manajemen SDM</label>
+                <label for="cb_manajemen_sdm" class="block mb-2 text-xs font-medium text-gray-900">Manajemen Keuangan</label>
                 <select name="cb_manajemen_sdm" id="cb_manajemen_sdm" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 1) selected @endif value="1">Gaji Karyawan Sering Telat dan Tidak Ada Bonus</option>
-                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 2) selected @endif value="2">Gaji Karyawan Kadang Kadang Telat</option>
-                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 3) selected @endif value="3"  >Gaji Karyawan Kurang Lancar dan Ada Bonus</option>
-                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 4) selected @endif value="4">Gaji Karyawan Lancar</option>
-                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 5) selected @endif value="5">Gaji Karyawan Lancar dan Ada Bonus</option>
+                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 1) selected @endif value="1">Tidak Memiliki sistem Pencatan  keuangan , Tidak Memiliki karyawan dalam bidang pencatatan keuangan</option>
+                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 2) selected @endif value="2"> Memiliki Sistem Pencatan keuangan yang  baik, Tidak memliki karywan dalam bidang pencatatan keuangan</option>
+                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 3) selected @endif value="3"  > Memiliki Sisem Pencattan keuangan yang Baik,Membuat Laporan Keuangan Secara Periodik, Tidak Memiliki karyawan dalam bidang pencatatan keuangan</option>
+                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 4) selected @endif value="4"> Memiliki Sistem pencatatan keuangan yang baik, Membuat laporan Keuangan Secara Periodik, dan Memiliki karyawan yang ahli dalam bidang pencatatan keuangan</option>
+                    <option @if($capacity_nasabah->CB_MANAJEMEN_SDM == 5) selected @endif value="5"> Memiliki Sistem pencatatan keuangan yang baik, Membuat laporan keuangan secara periodik dan di audit oleh akuntan publik, serta Memiliki karyawan yang ahli dalam bidang pencatatan keuangan</option>
                 </select>
             </div>
 
             <div class= "min-w-xl">
                 <label for="cb_pengelolaan" class="block mb-2 text-xs font-medium text-gray-900">Kemampuan Pengelolaan</label>
                 <select name="cb_pengelolaan" id="cb_pengelolaan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 1) selected @endif value="1">Perusahaan Mengalami Kerugian Jauh Dari Nilai Titik Impas</option>
-                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 2) selected @endif  value="2">Perusahan Mengalami Sedikit Kerugian Dari Nilai Titik Impas</option>
-                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 3) selected @endif  value="3">Laba Perusahaan Mencapai Titik Impas</option>
-                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 4) selected @endif  value="4">Laba Sesuai Target</option>
-                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 5) selected @endif  value="5">Laba Lebih Dari Target Yang Ditentukan</option>
+                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 1) selected @endif value="1"> Pengelolaan perusahaan masih sangat tergantung pada pemilik secara individu dan banyak melibatkan keluarga </option>
+                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 2) selected @endif  value="2"> Pengelolaan perusahaan tergantung dengan pengelolaan individu dan tidak melibatkan banyak keluarga </option>
+                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 3) selected @endif  value="3"> Pengelolaan perusahaaan tergantung dengan pengelolaan individu dan melibatkan banyak keluarga </option>
+                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 4) selected @endif  value="4"> Pengelolaan perusahaan menggunakan manajemen yang profesional</option>
+                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 5) selected @endif  value="5"> Pengelolaan perusahaaan menggunakan manajemen yang profesional dan modern</option>
                 </select>
             </div>
 

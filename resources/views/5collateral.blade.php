@@ -13,9 +13,9 @@
             <div class= "min-w-xl">
                 <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Nilai Agunan</label>
                 <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1"> Lebih kecil dari plafond</option>
-                    <option value="2">Nilai Agunan sama dengan plafond</option>
-                    <option value="3">Lebih besar dari plafond</option>
+                    <option value="1"> Nilai Jual Agunan Lebih Rendah Dari Nilai Pembiayaan</option>
+                    <option value="2">Nilai Jual Agunan Setara Nilai Pembiayaan</option>
+                    <option value="3">Nilai Jual Agunan melebihi nilai Pembiayaan</option>
                 </select>
             </div>
 
@@ -113,9 +113,9 @@
             <div class= "min-w-xl">
                 <label for="ca_nilai_agunan" class="block mb-2 text-xs font-medium text-gray-900">Nilai Agunan</label>
                 <select name="ca_nilai_agunan" id="ca_nilai_agunan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 1) selected @endif value="1">Lebih kecil dari plafond</option>
-                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 2) selected @endif value="2">Nilai Agunan sama dengan plafond</option>
-                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 3) selected @endif value="3">Lebih besar dari plafond</option>
+                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 1) selected @endif value="1">Nilai Jual Agunan Lebih Rendah Dari Nilai Pembiayaan</option>
+                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 2) selected @endif value="2">Nilai Jual Agunan Setara Nilai Pembiayaan</option>
+                    <option @if($collateral_nasabah->CA_NILAI_AGUNAN == 3) selected @endif value="3">Nilai Jual Agunan melebihi nilai Pembiayaan</option>
                 </select>
             </div>
 

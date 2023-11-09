@@ -73,5 +73,6 @@ class FasExistController extends Controller
             'LAMA_TUNGGAKAN' => $request->lama_tunggakan,
             'KET' => null
         ]);
+        return redirect()->back()->with('success-add', 'message');
     }
 }

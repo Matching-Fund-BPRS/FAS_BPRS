@@ -13,18 +13,19 @@
             <div class= "min-w-xl">
                 <label for="cu_pasokan" class="block mb-2 text-xs font-medium text-gray-900">Pengadaan barang Baku</label>
                 <select name="cu_pasokan" id="cu_pasokan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1"> Tidak menentu </option>
-                    <option value="2"> Supplier terbatas </option>
-                    <option value="3"> Mudah didapat </option>
+                    <option value="1"> Proses Pengadaan Tidak Lancar </option>
+                    <option value="2"> Proses Pengadaan Lancar </option>
+                    <option value="3"> Proses Pengadaan Sangat Lancar </option>
                 </select>
             </div>
 
             <div class= "min-w-xl">
-                <label for="cu_konsumen" class="block mb-2 text-xs font-medium text-gray-900">Jumlah Pelanggan</label>
+                <label for="cu_konsumen" class="block mb-2 text-xs font-medium text-gray-900">Kepuasan Pelanggan</label>
                 <select name="cu_konsumen" id="cu_konsumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1"> Lebih sedikit dari usaha sejenis </option>
-                    <option value="2"> Sama dari usaha sejenis </option>
-                    <option value="3"> Diatas dari usaha sejenis </option>
+	
+                    <option value="1"> Kepuasan Pelanggan Terhadap Perusahaaan Rendah </option>
+                    <option value="2"> Kepuasan Pelanggan Terhadap Perusahaaan Cukup </option>
+                    <option value="3"> Kepuasan Pelanggan Terhadap Perusahaaan Tinggi </option>
                 </select>
             </div>
 
@@ -51,11 +52,11 @@
             <div class= "min-w-xl">
                 <label for="cu_kecakapan" class="block mb-2 text-xs font-medium text-gray-900">Kecakapan dalam Berusaha</label>
                 <select name="cu_kecakapan" id="cu_kecakapan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">Sangat Tidak Cakap dalam Berusaha</option>
-                    <option value="2">Kurang Cakap dalam Berusaha</option>
-                    <option value="3">Netral / Sedang dalam Kecakapan Berusaha</option>
-                    <option value="4">Cakap dalam Berusaha</option>
-                    <option value="5">Sangat Cakap dalam Berusaha</option>
+                    <option value="1">Tidak Memiliki keterampilan khusus dan pengalaman yang relevan</option>
+                    <option value="2">Memiliki keterampilan dasar yang relevan</option>
+                    <option value="3">Memiliki keahlian yang cukup, dengan pengalaman kurang dari 5 tahun</option>
+                    <option value="4">Memiliki keahlian yang tinggi, dengan pengalaman lebih dari 5 tahun</option>
+                    <option value="5">Memiliki keahlian tinggi, dengan pengalaman yang sangat luas dan mendalam</option>
                 </select>
             </div>
 
@@ -89,19 +90,19 @@
             <div class= "min-w-xl">
                 <label for="cu_pasokan" class="block mb-2 text-xs font-medium text-gray-900">Pengadaan barang Baku</label>
                 <select name="cu_pasokan" id="cu_pasokan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1" @if($condition_nasabah->CU_PASOKAN == 1) selected @endif> Tidak menentu </option>
-                    <option value="2" @if($condition_nasabah->CU_PASOKAN == 2) selected @endif> Supplier terbatas </option>
-                    <option value="3" @if($condition_nasabah->CU_PASOKAN == 3) selected @endif> Mudah didapat </option>
+                    <option value="1" @if($condition_nasabah->CU_PASOKAN == 1) selected @endif> Proses Pengadaan Tidak Lancar </option>
+                    <option value="2" @if($condition_nasabah->CU_PASOKAN == 2) selected @endif>  Proses Pengadaan Lancar </option>
+                    <option value="3" @if($condition_nasabah->CU_PASOKAN == 3) selected @endif>  Proses Pengadaan Sangat Lancar </option>
                     
                 </select>
             </div>
 
             <div class= "min-w-xl">
-                <label for="cu_konsumen" class="block mb-2 text-xs font-medium text-gray-900">Jumlah Pelanggan</label>
+                <label for="cu_konsumen" class="block mb-2 text-xs font-medium text-gray-900">Kepuasan Pelanggan</label>
                 <select name="cu_konsumen" id="cu_konsumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1" @if($condition_nasabah->CU_KONSUMEN == 1) selected @endif> Lebih sedikit dari usaha sejenis </option>
-                    <option value="2" @if($condition_nasabah->CU_KONSUMEN == 1) selected @endif> Sama dari usaha sejenis </option>
-                    <option value="3" @if($condition_nasabah->CU_KONSUMEN == 1) selected @endif> Diatas dari usaha sejenis </option>
+                    <option value="1" @if($condition_nasabah->CU_KONSUMEN == 1) selected @endif> Kepuasan Pelanggan Terhadap Perusahaaan Rendah </option>
+                    <option value="2" @if($condition_nasabah->CU_KONSUMEN == 1) selected @endif> Kepuasan Pelanggan Terhadap Perusahaaan Cukup </option>
+                    <option value="3" @if($condition_nasabah->CU_KONSUMEN == 1) selected @endif>  Kepuasan Pelanggan Terhadap Perusahaaan Tinggi </option>
                 </select>
             </div>
 
@@ -128,11 +129,11 @@
             <div class= "min-w-xl">
                 <label for="cu_kecakapan" class="block mb-2 text-xs font-medium text-gray-900">Kecakapan dalam Berusaha</label>
                 <select name="cu_kecakapan" id="cu_kecakapan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1" @if($condition_nasabah->CU_KECAKAPAN == 1) selected @endif>Sangat Tidak Cakap dalam Berusaha</option>
-                    <option value="2" @if($condition_nasabah->CU_KECAKAPAN == 2) selected @endif>Kurang Cakap dalam Berusaha</option>
-                    <option value="3" @if($condition_nasabah->CU_KECAKAPAN == 3) selected @endif>Netral / Sedang dalam Kecakapan Berusaha</option>
-                    <option value="4" @if($condition_nasabah->CU_KECAKAPAN == 4) selected @endif>Cakap dalam Berusaha</option>
-                    <option value="5" @if($condition_nasabah->CU_KECAKAPAN == 5) selected @endif>Sangat Cakap dalam Berusaha</option>
+                    <option value="1" @if($condition_nasabah->CU_KECAKAPAN == 1) selected @endif> Tidak Memiliki keterampilan khusus dan pengalaman yang relevan</option>
+                    <option value="2" @if($condition_nasabah->CU_KECAKAPAN == 2) selected @endif> Memiliki keterampilan dasar yang relevan </option>
+                    <option value="3" @if($condition_nasabah->CU_KECAKAPAN == 3) selected @endif> Memiliki keahlian yang cukup, dengan pengalaman kurang dari 5 tahun </option>
+                    <option value="4" @if($condition_nasabah->CU_KECAKAPAN == 4) selected @endif> Memiliki keahlian yang tinggi, dengan pengalaman lebih dari 5 tahun </option>
+                    <option value="5" @if($condition_nasabah->CU_KECAKAPAN == 5) selected @endif> Memiliki keahlian yang sangat tinggi, dengan pengalaman lebih dari 10 tahun </option>
                 </select>
             </div>
 

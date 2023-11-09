@@ -12,22 +12,27 @@
         <div class= "min-w-xl">
             <label for="cw_tanggung" class="block mb-2 text-xs font-medium text-gray-900">Tanggung Jawab</label>
             <select name="cw_tanggung" id="cw_tanggung" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="1">Sangat Tidak Bertanggung Jawab</option>
+                1. Kurang Bertanggung Jawab dan Memiliki Reputasi yang Kurang Baik
+2. Kurang Bertanggung Jawab
+3. Cukup Bertanggung Jawab
+4. Bertanggung Jawab
+5. Sangat Bertanggung Jawab dan Memiliki Reputasi yang Baik 
+                <option value="1">Kurang bertanggun Jawab dan Memiliki Reputasi yang Kurang Baik</option>
                 <option value="2">Kurang Bertanggung Jawab</option>
-                <option value="3">Netral dalam tanggung Jawab</option>
+                <option value="3"> Cukup Bertanggung Jawab</option>
                 <option value="4">Bertanggung Jawab</option>
-                <option value="5">Sangat Bertanggung Jawab</option>
+                <option value="5">Sangat Bertanggung Jawab dan Memiliki Reputasi yang Baik</option>
             </select>
         </div>
 
         <div class= "min-w-xl">
             <label for="cw_terbuka" class="block mb-2 text-xs font-medium text-gray-900">Keterbukaan</label>
             <select name="cw_terbuka" id="cw_terbuka" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="1">Penyampaian informasi tentang perusahaan tidak ada</option>
+                <option value="1">Tidak Terbuka dan Cenderung Menyembunyikan Informasi Perusahaan</option>
                 <option value="2">Penyampaian informasi tentang perusahaan kurang lengkap</option>
                 <option value="3">Penyampaian informasi tentang perusahaan cukup lengkap</option>
                 <option value="4">Penyampaian informasi tentang perusahaan lengkap</option>
-                <option value="5">Penyampaian informasi tentang perusahaan sangat lengkap</option>
+                <option value="5">Penyampaian informasi tentang perusahaan secara lengkap dan sukarela</option>
                
             </select>
         </div>
@@ -37,9 +42,9 @@
             <select name="cw_disiplin" id="cw_disiplin" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                 <option value="1">Tidak ada bukti disiplin dalam penggunaan dana atau pemenuhan kewajiban keuangan (Tidak disiplin)</option>
                 <option value="2">Beberapa aspek pengelolaan dana dan kewajiban keuangan mungkin belum sesuai standar (Kurang disiplin)</option>
-                <option value="3">Kewajiban keuangan dipenuhi dan dana digunakan secara bertanggung jawab (Netral)</option>
+                <option value="3">Kewajiban keuangan dipenuhi dan dana digunakan secara bertanggung jawab </option>
                 <option value="4">Penggunaan dana dan pemenuhan kewajiban keuangan dilakukan dengan baik dan sesuai aturan (Disiplin)</option>
-                <option value="5">Penggunaan dana sangat efisien (Sangat disiplin)</option>
+                <option value="5"> Sangat Disiplin dalam Melaksanakan Peraturan Perusahaan</option>
 
             </select>
         </div>
@@ -51,7 +56,7 @@
                 <option value="2">Perusahan kadang tepat janji</option>
                 <option value="3">Perusahan tepat janji</option>
                 <option value="4">Perusahan sering tepat janji</option>
-                <option value="5">Perusahan selalu tepat janji</option>
+                <option value="5">Perusahaan selalu menepati janji terhadap pihak yang berhubungan dengan perusahaan dan pihak lainnya</option>
             </select>
         </div>
 
@@ -124,22 +129,22 @@
         <div class= "min-w-xl">
             <label for="cw_tanggung" class="block mb-2 text-xs font-medium text-gray-900">Tanggung Jawab</label>
             <select name="cw_tanggung" id="cw_tanggung" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="1" @if($character_nasabah->CW_TANGGUNG == 1) selected @endif >Sangat Tidak Bertanggung Jawab</option>
+                <option value="1" @if($character_nasabah->CW_TANGGUNG == 1) selected @endif > Kurang bertanggun Jawab dan Memiliki Reputasi yang Kurang Baik</option>
                 <option value="2" @if($character_nasabah->CW_TANGGUNG == 2) selected @endif >Kurang Bertanggung Jawab</option>
-                <option value="3" @if($character_nasabah->CW_TANGGUNG == 3) selected @endif >Netral dalam tanggung Jawab</option>
+                <option value="3" @if($character_nasabah->CW_TANGGUNG == 3) selected @endif > Cukup Bertanggung Jawab</option>
                 <option value="4" @if($character_nasabah->CW_TANGGUNG == 4) selected @endif >Bertanggung Jawab</option>
-                <option value="5" @if($character_nasabah->CW_TANGGUNG == 5) selected @endif >Sangat Bertanggung Jawab</option>
+                <option value="5" @if($character_nasabah->CW_TANGGUNG == 5) selected @endif >Sangat Bertanggung Jawab dan Memiliki Reputasi yang Baik</option>
             </select>
         </div>
 
         <div class= "min-w-xl">
             <label for="cw_terbuka" class="block mb-2 text-xs font-medium text-gray-900">Keterbukaan</label>
             <select name="cw_terbuka" id="cw_terbuka" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="1" @if($character_nasabah->CW_TERBUKA == 1) selected @endif>Penyampaian informasi tentang perusahaan tidak ada</option>
+                <option value="1" @if($character_nasabah->CW_TERBUKA == 1) selected @endif>Tidak Terbuka dan Cenderung Menyembunyikan Informasi Perusahaan</option>
                 <option value="2" @if($character_nasabah->CW_TERBUKA == 2) selected @endif>Penyampaian informasi tentang perusahaan kurang lengkap</option>
                 <option value="3" @if($character_nasabah->CW_TERBUKA == 3) selected @endif>Penyampaian informasi tentang perusahaan cukup lengkap</option>
                 <option value="4" @if($character_nasabah->CW_TERBUKA == 4) selected @endif>Penyampaian informasi tentang perusahaan lengkap</option>
-                <option value="5" @if($character_nasabah->CW_TERBUKA == 5) selected @endif>Penyampaian informasi tentang perusahaan sangat lengkap</option>
+                <option value="5" @if($character_nasabah->CW_TERBUKA == 5) selected @endif>Penyampaian informasi tentang perusahaan secara lengkap dan sukarela</option>
                
             </select>
         </div>
@@ -148,10 +153,10 @@
             <label for="cw_disiplin" class="block mb-2 text-xs font-medium text-gray-900">Kedisiplinan</label>
             <select name="cw_disiplin" id="cw_disiplin" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                 <option value="1" @if($character_nasabah->CW_DISIPLIN == 1) selected @endif>Tidak ada bukti disiplin dalam penggunaan dana atau pemenuhan kewajiban keuangan (Tidak disiplin)</option>
-                <option value="2" @if($character_nasabah->CW_DISIPLIN == 2) selected @endif>Beberapa aspek pengelolaan dana dan kewajiban keuangan mungkin belum sesuai standar (Kurang disiplin)</option>
-                <option value="3" @if($character_nasabah->CW_DISIPLIN == 3) selected @endif>Kewajiban keuangan dipenuhi dan dana digunakan secara bertanggung jawab (Netral)</option>
+                <option value="2" @if($character_nasabah->CW_DISIPLIN == 2) selected @endif>Beberapa aspek pengeloaan dana dan kewajiban keuangan mungkin tidak sesuai standar (Kurang disiplin)</option>
+                <option value="3" @if($character_nasabah->CW_DISIPLIN == 3) selected @endif>Kewajiban keuangan dipenuhi dan dana digunakan secara bertanggung jawab</option>
                 <option value="4" @if($character_nasabah->CW_DISIPLIN == 4) selected @endif>Penggunaan dana dan pemenuhan kewajiban keuangan dilakukan dengan baik dan sesuai aturan (Disiplin)</option>
-                <option value="5" @if($character_nasabah->CW_DISIPLIN == 5) selected @endif>Penggunaan dana sangat efisien (Sangat disiplin)</option>
+                <option value="5" @if($character_nasabah->CW_DISIPLIN == 5) selected @endif>Tangat Disiplin dalam Melaksanakan Peraturan Perusahaan</option> 
 
             </select>
         </div>
@@ -163,7 +168,7 @@
                 <option value="2" @if($character_nasabah->CW_JANJI == 2) selected @endif>Perusahan kadang tepat janji</option>
                 <option value="3" @if($character_nasabah->CW_JANJI == 3) selected @endif>Perusahan tepat janji</option>
                 <option value="4" @if($character_nasabah->CW_JANJI == 4) selected @endif>Perusahan sering tepat janji</option>
-                <option value="5" @if($character_nasabah->CW_JANJI == 5) selected @endif>Perusahan selalu tepat janji</option>
+                <option value="5" @if($character_nasabah->CW_JANJI == 5) selected @endif>Perusahan selalu tepat janji terhadap pihak yang berhungan dengan perusahan</option>
             </select>
         </div>
 
