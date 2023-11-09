@@ -44,9 +44,9 @@ class RekomendasiController extends Controller
             TAngsuran::insert([
                 'ID_NASABAH' => $request->id,
                 'NO_ANGSURAN' => $i+1,
-                'POKOK_PINJAMAN' => $request->plafond,
+                'POKOK_PINJAMAN' => $request->plafond - ($request->angsuran_bulan * $i),
                 'ANGS_POKOK' => $request->angsuran_bulan,
-                'ANGS_BUNGA' => $request->plafond * $request->margin
+                'ANGS_BUNGA' => $request->plafond * $request->margin / 100
             ]);
         }
         return redirect()->back()->with('success-add', 'message');;
@@ -86,7 +86,7 @@ class RekomendasiController extends Controller
                 'NO_ANGSURAN' => $i+1,
                 'POKOK_PINJAMAN' => $request->plafond - ($request->angsuran_bulan * $i),
                 'ANGS_POKOK' => $request->angsuran_bulan,
-                'ANGS_BUNGA' => $request->plafond * $request->margin
+                'ANGS_BUNGA' => $request->plafond * $request->margin / 100
             ]);
         }
         return redirect()->back()->with('success-edit', 'message');;
