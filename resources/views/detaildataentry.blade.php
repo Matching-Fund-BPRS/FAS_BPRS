@@ -100,7 +100,7 @@
                 </div>
                     
                 <div class= "min-w-xl">
-                    <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat Pembiayaan</label>
+                    <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Akad Pembiayaan</label>
                     <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         <option value="1">Murabahah</option>
                         <option value="2">Musyarakah</option>
@@ -232,7 +232,7 @@
             
                     <div>
                         <label for="nokan" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon Kantor</label>
-                        <input name="nomor_telepon_kantor" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                        <input name="nomor_telepon_kantor" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
                     </div>
                 </div>
             
@@ -548,7 +548,7 @@
                 </div>
                     
                 <div class= "min-w-xl">
-                    <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat Pembiayaan</label>
+                    <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Akad Pembiayaan</label>
                     <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         <option value="1">Murabahah</option>
                         <option value="2">Musyarakah</option>
@@ -680,7 +680,7 @@
             
                     <div>
                         <label for="nokan" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon Kantor</label>
-                        <input value="{{ $nasabah->NO_KANTOR }}" name="nomor_telepon_kantor" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                        <input value="{{ $nasabah->NO_KANTOR }}" name="nomor_telepon_kantor" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
                     </div>
                 </div>
             
