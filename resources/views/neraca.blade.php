@@ -48,13 +48,13 @@
                             <p class="text-sm font-semibold text-center text-gray-600">AKTIVA</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input class="text-sm font-semibold text-center text-gray-600" name="aktiva">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input class="text-sm font-semibold text-center text-gray-600">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input class="text-sm font-semibold text-center text-gray-600">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
                     </div>
                     

@@ -145,11 +145,11 @@ Route::group(['middleware'=>'auth'], function(){
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //Daftar angsuran page
-    Route::get('/dashboard/daftarangsuran/{id}', [AngsuranController::class, 'index']);
-
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //user management page
+    Route::get('/dashboard/daftarangsuran/{id}', [AngsuranController::class, 'index']); 
+});
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//user management page
+Route::group(['middleware'=>['auth', 'isSupervisor:1']], function(){
     Route::get('/dashboard/user', [UserController::class, 'index']);
     Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
     Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
@@ -162,9 +162,9 @@ Route::group(['middleware'=>'guest'], function(){
         return view('login');
     })->name('login');
     Route::post("/login/authenticate", [AuthenticateController::class, 'authenticate'])->name('authenticate');
+    Route::get('/register', function(){
+        return view('register');
+    })->name('register_page');
+    Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
 });
 Route::post("/logout", [AuthenticateController::class, 'logout'])->name('logout');
-Route::get('/register', function(){
-    return view('register');
-})->name('register_page');
-Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
