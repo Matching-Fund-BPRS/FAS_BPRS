@@ -96,14 +96,9 @@ class RekomendasiController extends Controller
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $rekomendasi_nasabah =  TRekomendasi::where('ID_NASABAH', $id)->first();
 
-        if($rekomendasi_nasabah == null){
-            return redirect()->back()->with('message', 'Silahkan input data lain terlebih dahulu!');
-        }else{
-            return view('rekomendasi',[
-                'nasabah' => $nasabah,
-                'rekomendasi_nasabah' => $rekomendasi_nasabah
-            ]);
-        }
-
+        return view('rekomendasi',[
+            'nasabah' => $nasabah,
+            'rekomendasi_nasabah' => $rekomendasi_nasabah
+        ]);
     }
 }

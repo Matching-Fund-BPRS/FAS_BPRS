@@ -22,16 +22,17 @@ class AngsuranController extends Controller
         $margin = $data_rekomendasi->BUNGA;
         $jangkaWaktu = $data_rekomendasi->JANGKA_WAKTU;
 
-
-
-
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
-        return view('daftarangsuran', [
-            'nasabah' => $nasabah,
-            'plafond' => $plafond,
-            'margin' => $margin,
-            'jangkaWaktu' => $jangkaWaktu,
-            'data_angsuran' => $data_angsuran
-        ]);
+        if($data_rekomendasi == null){
+            return redirect()->back()->with('message', 'Silahkan input data rekomendasi terlebih dahulu!');
+        }else{
+            return view('daftarangsuran', [
+                'nasabah' => $nasabah,
+                'plafond' => $plafond,
+                'margin' => $margin,
+                'jangkaWaktu' => $jangkaWaktu,
+                'data_angsuran' => $data_angsuran
+            ]);
+        }
     }
 }
