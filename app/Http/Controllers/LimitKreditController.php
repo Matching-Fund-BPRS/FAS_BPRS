@@ -31,15 +31,30 @@ class LimitKreditController extends Controller
         $TLabaRugi = TRugilaba::where('ID_NASABAH', $request->id)->first();
         $capital = TCapital::where('ID_NASABAH', $request->id)->first();
         $capacity = TCapacity::where('ID_NASABAH', $request->id)->first();
-        $dscr = ($request->omset - $request->hpp - $request->total_biaya_ops_nonops - $request->angsuran_bank_lain + $request->pendapatan_lain - $request->biaya_lain) / (($request->limit_kredit / $request->jangka_waktu) + ($request->limit_kredit * ($request->margin / 100)));
-        $income_Sales = ($request->omset - $request->hpp) / $request->omset;
-        $ebit_per_interest = ($request->omset - $request->hpp - $request->total_biaya_ops_nonops - $request->angsuran_bank_lain + $request->pendapatan_lain - $request->biaya_lain) / ($request->limit_kredit * ($request->margin / 100));
-        $biaya_bunga = $request->limit_kredit * ($request->margin / 100);
+
+        $omset = str_replace('.', '', $request->omset);
+        $hpp = str_replace('.', '', $request->hpp);
+        $total_biaya_ops_nonops = str_replace('.', '', $request->total_biaya_ops_nonops);
+        $angsuran_bank_lain = str_replace('.', '', $request->angsuran_bank_lain);
+        $pendapatan_lain = str_replace('.', '', $request->pendapatan_lain);
+        $biaya_lain = str_replace('.', '', $request->biaya_lain);
+        $limit_kredit = str_replace('.', '', $request->limit_kredit);
+        $angsuran = str_replace('.', '', $request->angsuran);
+        $jangka_waktu = $request->jangka_waktu;
+        $margin = $request->margin;
+        $rpc = $request->rpc;
+
+
+
+        $dscr = ($omset - $hpp - $total_biaya_ops_nonops - $angsuran_bank_lain + $pendapatan_lain - $biaya_lain) / (($limit_kredit / $jangka_waktu) + ($limit_kredit * ($margin / 100)));
+        $income_Sales = ($omset - $hpp) / $omset;
+        $ebit_per_interest = ($omset - $hpp - $total_biaya_ops_nonops - $angsuran_bank_lain + $pendapatan_lain - $biaya_lain) / ($limit_kredit * ($margin / 100));
+        $biaya_bunga = $limit_kredit * ($margin / 100);
         if($capital != null){
             $capital->update([
 
                 'PK_INCOME_SALES' => $income_Sales,
-                'RPC' => $request->rpc,
+                'RPC' => $rpc,
                 'PK_EBIT' => $ebit_per_interest
             ]);
         } 
@@ -51,7 +66,7 @@ class LimitKreditController extends Controller
                 'CM_LDER' => 0,
                 'PK_ASET' => 0,
                 'PK_INCOME_SALES' => $income_Sales,
-                'RPC' => $request->rpc,
+                'RPC' => $rpc,
                 'PK_EBIT' => $ebit_per_interest
             ]);
         }
@@ -73,12 +88,12 @@ class LimitKreditController extends Controller
         }
         if($TLabaRugi != null){
            $TLabaRugi->update([
-               'PENJUALAN_BERSIH' => $request->omset,
-               'HPP' => $request->hpp,
-               'BIAYA_HIDUP' => $request->total_biaya_ops_nonops,
-               'PENDAPATAN_LAIN' => $request->pendapatan_lain,
-               'BIAYA_LAIN' => $request->biaya_lain,
-               'PENYUSUTAN' => $request->angsuran_bank_lain,
+               'PENJUALAN_BERSIH' => $omset,
+               'HPP' => $hpp,
+               'BIAYA_HIDUP' => $total_biaya_ops_nonops,
+               'PENDAPATAN_LAIN' => $pendapatan_lain,
+               'BIAYA_LAIN' => $biaya_lain,
+               'PENYUSUTAN' => $angsuran_bank_lain,
                'BIAYA_BUNGA' => $biaya_bunga
            ]); 
         }
@@ -87,8 +102,8 @@ class LimitKreditController extends Controller
                 'ID_NASABAH' => $request->id,
                 'PERIODE' => 1,
                 'TGL_PERIODE' => date('Y-m-d'),
-                'PENJUALAN_BERSIH' => $request->omset,
-                'HPP' => $request->hpp,
+                'PENJUALAN_BERSIH' => $omset,
+                'HPP' => $hpp,
                 'BIAYA_PEGAWAI' => 0,
                 'BIAYA_TRANSPORT' => 0,
                 'BIAYA_LISTRIK' => 0,
@@ -99,45 +114,45 @@ class LimitKreditController extends Controller
                 'SET_ASSET' => 0.05,
                 'SET_BIAYA' => 0.05,
                 'SET_HPP' => 0.75,
-                'BIAYA_HIDUP' => $request->total_biaya_ops_nonops,
-                'PENDAPATAN_LAIN' => $request->pendapatan_lain,
-                'BIAYA_LAIN' => $request->biaya_lain,
-                'PENYUSUTAN' => $request->angsuran_bank_lain
+                'BIAYA_HIDUP' => $total_biaya_ops_nonops,
+                'PENDAPATAN_LAIN' => $pendapatan_lain,
+                'BIAYA_LAIN' => $biaya_lain,
+                'PENYUSUTAN' => $angsuran_bank_lain
             ]);
         }
 
         if($TLimitKredit != null){
             $TLimitKredit->update([
-                'LIMIT_KREDIT' => $request->limit_kredit,
-                'JANGKA_WAKTU' => $request->jangka_waktu,
-                'OMSET' => $request->omset, 
-                'HPP' => $request->hpp,
-                'BIAYA_HIDUP' => $request->total_biaya_ops_nonops,
-                'ANGS_BANK_LAIN' => $request->angsuran_bank_lain,
-                'BUNGA_KREDIT' => $request->margin,
-                'ANGSURAN' => $request->angsuran,
-                'PEND_LAIN' => $request->pendapatan_lain,
-                'RPC' => $request->rpc,
+                'LIMIT_KREDIT' => $limit_kredit,
+                'JANGKA_WAKTU' => $jangka_waktu,
+                'OMSET' => $omset, 
+                'HPP' => $hpp,
+                'BIAYA_HIDUP' => $total_biaya_ops_nonops,
+                'ANGS_BANK_LAIN' => $angsuran_bank_lain,
+                'BUNGA_KREDIT' => $margin,
+                'ANGSURAN' => $angsuran,
+                'PEND_LAIN' => $pendapatan_lain,
+                'RPC' => $rpc,
                 'JENIS' => $request->sifat,
-                'BIAYA_LAIN' => $request->biaya_lain,
+                'BIAYA_LAIN' => $biaya_lain,
             ]);
             return redirect()->back()->with('success-add', 'message');
         } 
         else {
         TLimitKredit::insert([
             'ID_NASABAH' => $request->id ,
-            'LIMIT_KREDIT' => $request->limit_kredit,
-            'JANGKA_WAKTU' => $request->jangka_waktu,
-            'OMSET' => $request->omset, 
-            'HPP' => $request->hpp,
-            'BIAYA_HIDUP' => $request->total_biaya_ops_nonops,
-            'ANGS_BANK_LAIN' => $request->angsuran_bank_lain,
-            'BUNGA_KREDIT' => $request->margin,
-            'ANGSURAN' => $request->angsuran,
-            'PEND_LAIN' => $request->pendapatan_lain,
-            'RPC' => $request->rpc,
+            'LIMIT_KREDIT' => $limit_kredit,
+            'JANGKA_WAKTU' => $jangka_waktu,
+            'OMSET' => $omset, 
+            'HPP' => $hpp,
+            'BIAYA_HIDUP' => $total_biaya_ops_nonops,
+            'ANGS_BANK_LAIN' => $angsuran_bank_lain,
+            'BUNGA_KREDIT' => $margin,
+            'ANGSURAN' => $angsuran,
+            'PEND_LAIN' => $pendapatan_lain,
+            'RPC' => $rpc,
             'JENIS' => $request->sifat,
-            'BIAYA_LAIN' => $request->biaya_lain,
+            'BIAYA_LAIN' => $biaya_lain,
         ]);
         return redirect()->back()->with('success-edit', 'message');
         }

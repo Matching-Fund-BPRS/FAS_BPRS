@@ -26,6 +26,8 @@ const noDepInput = document.querySelector('[name="no_dep"]');
 const depBankInput = document.querySelector('[name="dep_bank"]');
 
 
+
+
 function hideAll() {
   const inputElements = [
     buktiMilikInput,
@@ -110,3 +112,53 @@ function showForm () {
 }
 showForm();
 jenisInput.addEventListener("change", showForm);
+
+function formatNumber(amount) {
+  if (amount == NaN || amount == ''){
+    return 0;
+  }
+  // Convert the number to a string and remove points
+  const formattedAmount = amount.toString().replace(/\./g, '');
+
+  // Convert the string back to a number
+  const result = parseFloat(formattedAmount);
+
+  return result;
+}
+
+function fixedFormatNumber(amount) {
+  // Convert the number to a string
+  const formattedAmount = amount.toString();
+
+  // Use a regular expression to add a dot after every three digits
+  const result = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return result;
+}
+
+let input = [
+  'nilai',
+  'safety_margin'
+]
+
+function formatInput(id) {
+  let inputElement = document.getElementsByName(id)[0];
+  
+  // Save the current caret position
+  let caretPosition = inputElement.selectionStart;
+
+  let val = fixedFormatNumber(formatNumber(inputElement.value));
+  
+  // Update the input value
+  inputElement.value = val;
+
+  // Restore the caret position
+  inputElement.setSelectionRange(caretPosition, caretPosition);
+}
+input.forEach(element => {
+  console.log(element)
+  formatInput(element);
+  document.getElementsByName(element)[0].addEventListener('input', function() {
+    formatInput(element);
+  })
+});

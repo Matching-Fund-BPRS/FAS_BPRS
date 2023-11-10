@@ -32,10 +32,10 @@ class CapitalController extends Controller
 
 
         TCapital::insert([
-            'CM_DAR' => $request->cm_dar,
-            'CM_DER' => $request->cm_der,
-            'CM_LDER' => $request->cm_lder,
-            'PK_ASET' => $request->pk_asset,
+            'CM_DAR' => -1 * $request->cm_dar,
+            'CM_DER' => -1 * $request->cm_der,
+            'CM_LDER' => -1 * $request->cm_lder,
+            'PK_ASET' => str_replace('.', '', $request->pk_asset),
             'PK_INCOME_SALES' => $request->pk_income_sales,
             'RPC' => $request->rpc,
             'PK_EBIT' => $request->pk_ebit,
@@ -43,9 +43,9 @@ class CapitalController extends Controller
         ]);
 
         $response = Http::post('model:8000/capital', [
-            'cm_dar' => floatval($request->cm_dar),
-            'cm_der' => floatval($request->cm_der),
-            'cm_lder' => floatval($request->cm_lder),
+            'cm_dar' => -1 * floatval($request->cm_dar),
+            'cm_der' =>  -1 * floatval($request->cm_der),
+            'cm_lder' =>  -1 * floatval($request->cm_lder),
             'pk_income_sales' => floatval($request->pk_income_sales),
             'rpc' => floatval($request->rpc),
             'pk_ebit' => floatval($request->pk_ebit),
@@ -88,18 +88,18 @@ class CapitalController extends Controller
 
     public function update(Request $request, $id){
         TCapital::where('ID_NASABAH', $id)->update([
-            'CM_DAR' => $request->cm_dar,
-            'CM_DER' => $request->cm_der,
-            'CM_LDER' => $request->cm_lder,
-            'PK_ASET' => $request->pk_asset,
+            'CM_DAR' => -1 * $request->cm_dar,
+            'CM_DER' => -1 * $request->cm_der,
+            'CM_LDER' => -1 * $request->cm_lder,
+            'PK_ASET' => str_replace('.', '', $request->pk_asset),
             'PK_INCOME_SALES' => $request->pk_income_sales,
             'RPC' => $request->rpc,
             'PK_EBIT' => $request->pk_ebit,
         ]);
         $response = Http::post('model:8000/capital', [
-            'cm_dar' => floatval($request->cm_dar),
-            'cm_der' => floatval($request->cm_der),
-            'cm_lder' => floatval($request->cm_lder),
+            'cm_dar' => -1 * floatval($request->cm_dar),
+            'cm_der' =>  -1 * floatval($request->cm_der),
+            'cm_lder' =>  -1 * floatval($request->cm_lder),
             'pk_income_sales' => floatval($request->pk_income_sales),
             'rpc' => floatval($request->rpc),
             'pk_ebit' => floatval($request->pk_ebit),

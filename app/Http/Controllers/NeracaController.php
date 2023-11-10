@@ -22,29 +22,44 @@ class NeracaController extends Controller
 
     public function addNeraca(Request $request){
         //tambahin formula di variabel ebit + ois
-        $ebit = null;
-        $ois = null;
+        //format 1.000.000 to 1000000
+        $kas = str_replace('.', '', $request->kas);
+        $piutang_dagang = str_replace('.', '', $request->piutang_dagang);
+        $persediaan = str_replace('.', '', $request->persediaan);
+        $tanah = str_replace('.', '', $request->tanah);
+        $gedung = str_replace('.', '', $request->gedung);
+        $penyusutan_gedung = str_replace('.', '', $request->penyusutan_gedung);
+        $peralatan = str_replace('.', '', $request->peralatan);
+        $penyusutan_peralatan = str_replace('.', '', $request->penyusutan_peralatan);
+        $hutang_jangka_pendek = str_replace('.', '', $request->hutang_jangka_pendek);
+        $hutang_jangka_panjang = str_replace('.', '', $request->hutang_jangka_panjang);
+        $modal = str_replace('.', '', $request->modal);
+        $laba_ditahan = str_replace('.', '', $request->laba_ditahan);
+        $laba_berjalan = str_replace('.', '', $request->laba_berjalan);
+        $ebit = 0 ;
+        $ois = 0;
+
 
         if(TNeraca::where('ID_NASABAH', $request->id)->first() == null){
             TNeraca::insert([
                 'ID_NASABAH' => $request->id,
                 'PERIODE'=> 1,
                 'TANGGAL_PERIODE' => Carbon::createFromFormat('Y-m-d', $request->tgl_periode)->format('Y-m-d'),  
-                'KAS'=> $request->kas,
-                'PIUTANG_DAGANG' =>$request->piutang_dagang,
-                'PERSEDIAAN' => $request->persediaan, 
-                'TANAH' => $request->tanah,
-                'GEDUNG' =>$request->gedung,
-                'PENYUSUTAN_GED' => $request->penyusutan_gedung,
-                'PERALATAN' => $request->peralatan,
-                'PENYUSUTAN_PERALATAN' => $request->penyusutan_peralatan,
-                'HUTANG_JANGKA_PENDEK' => $request->hutang_jangka_pendek,
-                'HUTANG_JANGKA_PANJANG' => $request->hutang_jangka_panjang,
-                'MODAL' => $request->modal,
-                'LABA_DITAHAN' => $request->laba_ditahan,
-                'LABA_BERJALAN' => $request->laba_berjalan,
-                'LABA_BERJALAN_2' => $request->laba_berjalan_2,
-                'LABA_BERJALAN_3' => $request->laba_berjalan_3,
+                'KAS'=> $kas,
+                'PIUTANG_DAGANG' =>$piutang_dagang,
+                'PERSEDIAAN' => $persediaan,
+                'TANAH' => $tanah,
+                'GEDUNG' => $gedung,
+                'PENYUSUTAN_GED' => $penyusutan_gedung,
+                'PERALATAN' => $peralatan,
+                'PENYUSUTAN_PERALATAN' => $penyusutan_peralatan,
+                'HUTANG_JANGKA_PENDEK' => $hutang_jangka_pendek,
+                'HUTANG_JANGKA_PANJANG' => $hutang_jangka_panjang,
+                'MODAL' => $modal,
+                'LABA_DITAHAN' => $laba_ditahan,
+                'LABA_BERJALAN' => $laba_berjalan,
+                'LABA_BERJALAN_2' => 0,
+                'LABA_BERJALAN_3' => 0,
                 'SET_ASSET' => 0.05,
                 'EBIT' => $ebit, 
                 'OIS' => $ois
@@ -53,36 +68,33 @@ class NeracaController extends Controller
             TNeraca::where('ID_NASABAH', $request->id)->update([
                 'PERIODE'=> 1,
                 'TANGGAL_PERIODE' => Carbon::createFromFormat('Y-m-d', $request->tgl_periode)->format('Y-m-d'),  
-                'KAS'=> $request->kas,
-                'PIUTANG_DAGANG' =>$request->piutang_dagang,
-                'PERSEDIAAN' => $request->persediaan, 
-                'TANAH' => $request->tanah,
-                'GEDUNG' =>$request->gedung,
-                'PENYUSUTAN_GED' => $request->penyusutan_gedung,
-                'PERALATAN' => $request->peralatan,
-                'PENYUSUTAN_PERALATAN' => $request->penyusutan_peralatan,
-                'HUTANG_JANGKA_PENDEK' => $request->hutang_jangka_pendek,
-                'HUTANG_JANGKA_PANJANG' => $request->hutang_jangka_panjang,
-                'MODAL' => $request->modal,
-                'LABA_DITAHAN' => $request->laba_ditahan,
-                'LABA_BERJALAN' => $request->laba_berjalan,
-                'LABA_BERJALAN_2' => $request->laba_berjalan_2,
-                'LABA_BERJALAN_3' => $request->laba_berjalan_3,
+                'KAS'=> $kas,
+                'PIUTANG_DAGANG' =>$piutang_dagang,
+                'PERSEDIAAN' => $persediaan,
+                'TANAH' => $tanah,
+                'GEDUNG' => $gedung,
+                'PENYUSUTAN_GED' => $penyusutan_gedung,
+                'PERALATAN' => $peralatan,
+                'PENYUSUTAN_PERALATAN' => $penyusutan_peralatan,
+                'HUTANG_JANGKA_PENDEK' => $hutang_jangka_pendek,
+                'HUTANG_JANGKA_PANJANG' => $hutang_jangka_panjang,
+                'MODAL' => $modal,
+                'LABA_DITAHAN' => $laba_ditahan,
+                'LABA_BERJALAN' => $laba_berjalan,
+                'LABA_BERJALAN_2' => 0,
+                'LABA_BERJALAN_3' => 0,
                 'SET_ASSET' => 0.05,
-                'EBIT' => $ebit, 
+                'EBIT' => $ebit,
                 'OIS' => $ois
             ]);
         }
         $capital = TCapital::where('ID_NASABAH', $request->id)->first();
-        $totalAset = $request->kas + $request->piutang_dagang + $request->persediaan + $request->tanah + $request->gedung + $request->peralatan - $request->penyusutan_gedung - $request->penyusutan_peralatan;
-        $totalHutang = $request->hutang_jangka_pendek + $request->hutang_jangka_panjang;
-
-        $modal = $request->kas + $request->piutang_dagang + $request->persediaan+$request->tanah + $request->gedung + $request->peralatan - $request->penyusutan_gedung - $request->penyusutan_peralatan + $request->laba_ditahan + $request->laba_berjalan + $request->laba_berjalan_2 + $request->laba_berjalan_3;
-
+        $totalAset = $kas + $piutang_dagang + $persediaan + $tanah + $gedung + $peralatan - $penyusutan_gedung - $penyusutan_peralatan;
+        $totalHutang = $hutang_jangka_panjang + $hutang_jangka_pendek;
 
         $dar = -1 * ($totalHutang / $totalAset);
         $der = -1 * ($totalHutang / $modal);
-        $lder = -1 * ($request->hutang_jangka_pendek / $modal);
+        $lder = -1 * ($hutang_jangka_pendek / $modal);
 
 
         if($capital != null){

@@ -15,7 +15,7 @@
                 </b>
             </td>
             <td>
-                :   Rp{{ $plafond }}
+                :   Rp. {{ number_format($plafond, 0, ',', '.') }}
             </td>
         </tr>
 
@@ -81,16 +81,24 @@
                                 <p class="text-sm font-normal text-center text-gray-600">{{ $data->NO_ANGSURAN }}</p>
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->POKOK_PINJAMAN }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">
+                                    {{ number_format($data->POKOK_PINJAMAN, 0, ',', '.') }}
+                                </p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ANGS_POKOK }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ 
+                                    number_format($data->ANGS_POKOK, 0, ',', '.')
+                                }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ANGS_BUNGA }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ 
+                                    number_format($data->ANGS_BUNGA, 0, ',', '.')
+                                }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->ANGS_POKOK + $data->ANGS_BUNGA }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ 
+                                    number_format($data->ANGS_POKOK + $data->ANGS_BUNGA, 0, ',', '.')
+                                    }}</p>
                             </td>
                         </tr>
                         @endforeach
@@ -101,13 +109,19 @@
                             </td>
 
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{  $data_angsuran->sum('ANGS_POKOK')}}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{  
+                                    number_format($data_angsuran->sum('ANGS_POKOK'), 0, ',', '.')
+                                }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data_angsuran->sum('ANGS_BUNGA') }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ 
+                                    number_format($data_angsuran->sum('ANGS_BUNGA'), 0, ',', '.')
+                                    }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data_angsuran->sum('ANGS_BUNGA') + $data_angsuran->sum('ANGS_POKOK') }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ 
+                                    number_format($data_angsuran->sum('ANGS_POKOK') + $data_angsuran->sum('ANGS_BUNGA'), 0, ',', '.')
+                                    }}</p>
                             </td>
                         </tr>
 

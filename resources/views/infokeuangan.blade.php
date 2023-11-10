@@ -45,11 +45,11 @@
             </div>
             <div>
                 <label for="total_biaya" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
-                <input name="total_biaya" type="text" id="total_biaya" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="total_biaya" type="text" id="total_biaya" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly required>
             </div>
             <div>
                 <label for="laba_rugi" class="block mb-2 text-xs font-semibold text-gray-900">Laba (Rugi) Usaha</label>
-                <input name="laba_rugi_usaha" type="text" id="laba_rugi" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="laba_rugi_usaha" type="text" id="laba_rugi" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly required>
             </div>
         </section>
         
@@ -89,7 +89,7 @@
             </div>
             <div>
                 <label for="total_biaya_rt" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total Biaya</label>
-                <input name="total_biaya_rt" type="text" id="total_biaya_rt" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="total_biaya_rt" type="text" id="total_biaya_rt" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly required>
             </div>
             <p class="block text-base font-semibold text-gray-900">
                 Pendapatan dan Biaya Lain-Lain
@@ -133,7 +133,7 @@
             </div>
             <div>
                 <label for="total_angsuran" class="block mb-2 text-xs font-semibold text-gray-900 border-t-2 border-black pt-3 max-w-md">Total</label>
-                <input name="total_angsuran" type="text" id="total_angsuran" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input name="total_angsuran" type="text" id="total_angsuran" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly required>
             </div>
             <div>
                 <label for="biaya_angsuran_lain" class="block mb-2 text-xs font-medium text-gray-900">Biaya Lain-Lain</label>

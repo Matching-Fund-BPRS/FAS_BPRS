@@ -80,32 +80,32 @@
             <div class="flex space-x-4">
                 <div>
                     <label for="cm_dar" class="block mb-2 text-xs font-medium text-gray-900">Debt Asset Ratio</label>
-                    <input value="{{ $capital_nasabah->CM_DAR }}" name="cm_dar" type="text" id="cm_dar" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input readonly value="{{  abs($capital_nasabah->CM_DAR) }}" name="cm_dar" type="text" id="cm_dar" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
         
                 <div>
                     <label for="cm_der" class="block mb-2 text-xs font-medium text-gray-900">Debt Equity Ratio</label>
-                    <input value="{{ $capital_nasabah->CM_DER }}" name="cm_der" type="text" id="cm_der" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input readonly value="{{abs($capital_nasabah->CM_DER) }}" name="cm_der" type="text" id="cm_der" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
                 <div>
                     <label for="cm_lder" class="block mb-2 text-xs font-medium text-gray-900">Long Debt Equity Ratio</label>
-                    <input value="{{ $capital_nasabah->CM_LDER }}" name="cm_lder" type="text" id="cm_lder" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input readonly value="{{ abs($capital_nasabah->CM_LDER) }}" name="cm_lder" type="text" id="cm_lder" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
             </div>
 
             <div class="flex space-x-4">
                 <div>
                     <label for="pk_asset" class="block mb-2 text-xs font-medium text-gray-900">Nilai Asset</label>
-                    <input value="{{ $capital_nasabah->PK_ASET }}" name="pk_asset" type="text" id="pk_asset" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input readonly value="{{ number_format($capital_nasabah->PK_ASET , 0,',','.') }}" name="pk_asset" type="text" id="pk_asset" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
                 <div>
                     <label for="pk_income_sales" class="block mb-2 text-xs font-medium text-gray-900">Operational Income / Sales %</label>
-                    <input value="{{ $capital_nasabah->PK_INCOME_SALES }}" name="pk_income_sales" type="text" id="pk_income_sales" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input readonly value="{{ $capital_nasabah->PK_INCOME_SALES }}" name="pk_income_sales" type="text" id="pk_income_sales" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
         
                 <div>
                     <label for="rpc" class="block mb-2 text-xs font-medium text-gray-900">Repayment Capacity (RPC) %</label>
-                    <input value="{{ $capital_nasabah->RPC }}" name="rpc" type="text" id="rpc" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input readonly value="{{ $capital_nasabah->RPC }}" name="rpc" type="text" id="rpc" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
             </div>
 

@@ -142,14 +142,7 @@ class CollateralController extends Controller
         $nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
         $resiko_nasabah = TResiko::where('ID_NASABAH', $request->id)->first();
         $collateral_nasabah = TCollateral::where('ID_NASABAH', $id)->first();
-        return view('5collateral',[
-            'result' => $result,
-            'output' => $output,
-            'collateral_nasabah' => $collateral_nasabah,
-            'nasabah' => $nasabah,
-            'result_message' => $result,
-            'resiko_nasabah' => $resiko_nasabah,
-            ])->with('message', $result);
+        return redirect()->back()->with('message', $result);
     }
 
     public function addResiko(Request $request){
@@ -164,13 +157,8 @@ class CollateralController extends Controller
         $nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
         $resiko_nasabah = TResiko::where('ID_NASABAH', $request->id)->first();
         $collateral_nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
-        return view('5collateral',[
-            'output' => $output,
-            'collateral_nasabah' => $collateral_nasabah,
-            'nasabah' => $nasabah,
-            'result_message' => $result,
-            'resiko_nasabah' => $resiko_nasabah,
-        ]);
+        
+        return redirect()->back()->with('message', 'success');
     }
 
     public function editResiko(Request $request, $id){
@@ -183,13 +171,7 @@ class CollateralController extends Controller
         $nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
         $resiko_nasabah = TResiko::where('ID_NASABAH', $request->id)->first();
         $collateral_nasabah = TCollateral::where('ID_NASABAH', $id)->first();
-        return view('5collateral',[
-            'output' => $output,
-            'collateral_nasabah' => $collateral_nasabah,
-            'nasabah' => $nasabah,
-            'result_message' => $result,
-            'resiko_nasabah' => $resiko_nasabah,
-        ]);
+        return redirect()->back()->with('message', 'success');
     }
 
     public function addAgunan(Request $request){
@@ -210,7 +192,7 @@ class CollateralController extends Controller
             'NO_AGUNAN' => $request->no_agunan,
             'NAMA_PEMILIK' => $request->nama_pemilik,
             'LOKASI' => $request->lokasi,
-            'NILAI' => $request->nilai,
+            'NILAI' => str_replace('.', '', $request->nilai),
             'JENIS_PENGIKATAN' => $request->jenis_pengikatan,
             'ASURANSI' => $request->asuransi,
             'KET' => $request->ket,
@@ -218,7 +200,7 @@ class CollateralController extends Controller
             'LUAS_BANGUNAN' => $request->luas_bangunan,
             'NO_DEP' => $request->no_dep,
             'DEP_BANK' => $request->dep_bank,
-            'SAVE_MARGIN' => $request->safety_margin,
+            'SAVE_MARGIN' => str_replace('.', '', $request->safety_margin),
             'JENIS_BANGUNAN' => $request->jenis_bangunan
         ]);
 

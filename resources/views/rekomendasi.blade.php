@@ -3,24 +3,24 @@
 @section('container')
 
 @if($rekomendasi_nasabah == null)
-<form method="post" action="{{ Route('tambah_rekomendasi') }}">
+<form id="rekomendasi_form" method="post" action="{{ Route('tambah_rekomendasi') }}">
     @csrf
     <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <div class=" my-4 space-y-4">
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Plafond</label>
-            <input name="plafond"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            <input name="plafond"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" value="{{ $nasabah->LIMIT_KREDIT }}" required>
         </div>
 
         <div class= "min-w-xl">
             <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat</label>
             <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="1">Murabahah</option>
-                <option value="2">Musyarakah</option>
-                <option value="3">Mudarabah</option>
-                <option value="4">Ijaroh</option>
-                <option value="5">Rahn</option>
-                <option value="6">Qord</option>
+                <option value="1" {{ $nasabah->SIFAT == 1 ? 'selected' : '' }}>Murabahah</option>
+                <option value="2" {{ $nasabah->SIFAT == 2 ? 'selected' : '' }}>Musyarakah</option>
+                <option value="3" {{ $nasabah->SIFAT == 3 ? 'selected' : '' }}>Mudarabah</option>
+                <option value="4" {{ $nasabah->SIFAT == 4 ? 'selected' : '' }}>Ijaroh</option>
+                <option value="5" {{ $nasabah->SIFAT == 5 ? 'selected' : '' }}>Rahn</option>
+                <option value="6" {{ $nasabah->SIFAT == 6 ? 'selected' : '' }}>Qord</option>
             </select>
         </div>
 
@@ -28,9 +28,9 @@
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
            
             <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="1">Baru</option>
-                <option value="2"> Tambahan </option>
-                <option value="3"> Tambahan dan Perpanjangan </option>
+                <option value="1" {{ $nasabah->JENIS_PERMOHONAN == 1 ? 'selected' : '' }}>Tambahan</option>
+                <option value="2" {{ $nasabah->JENIS_PERMOHONAN == 2 ? 'selected' : '' }}>Perpanjangan</option>
+                <option value="3" {{ $nasabah->JENIS_PERMOHONAN == 3 ? 'selected' : '' }}>Tambahan dan Perpanjangan</option>
             </select>
         </div>
 
@@ -38,9 +38,9 @@
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
            
             <select name="tujuan_penggunaan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                <option value="1">Modal Kerja</option>
-                <option value="2">Investasi</option>
-                <option value="3">Konsumsi</option>
+                <option value="1" {{ $nasabah->TUJUAN == 1 ? 'selected' : '' }}>Modal Kerja</option>
+                <option value="2" {{ $nasabah->TUJUAN == 2 ? 'selected' : '' }}>Investasi</option>
+                <option value="3" {{ $nasabah->TUJUAN == 3 ? 'selected' : '' }}>Konsumsi</option>
             </select>
         </div>
 
@@ -48,17 +48,17 @@
             <div class="">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
                 <div class="flex flex-row">
-                    <input name="margin" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input name="margin" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " value="{{ $nasabah->BUNGA ?? 0 }}" required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         % per Bulan
                     </p>
                 </div>
             </div>
 
-            <div class="">
+            <div class="" id="input_bayar_pokok">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bayar Pokok</label>
                 <div class="flex flex-row">
-                    <input name="bayar_pokok" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input value="0" name="bayar_pokok" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         kali
                     </p>
@@ -70,17 +70,17 @@
             <div class="">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Jangka Waktu</label>
                 <div class="flex flex-row">
-                    <input name="jangka_waktu" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input name="jangka_waktu" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " value="{{ $nasabah->JANGKA_WAKTU ?? 0 }}" required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         Bulan
                     </p>
                 </div>
             </div>
 
-            <div class="">
+            <div class="" id="input_bagi_hasil_bank">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bagi Hasil Bank</label>
                 <div class="flex flex-row">
-                    <input name="bagi_hasil_bank"type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input value="0" name="bagi_hasil_bank"type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         %
                     </p>
@@ -99,10 +99,10 @@
                 </div>
             </div>
 
-            <div class="">
+            <div class="" id="input_bagi_hasil_mudharib">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bagi Hasil Mudharib</label>
                 <div class="flex flex-row">
-                    <input name="bagi_hasil_mudharib" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input value="0" name="bagi_hasil_mudharib" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         %
                     </p>
@@ -148,13 +148,13 @@
     </div>
 </form>
 @else
-<form method="post" action="/dashboard/rekomendasi/{{ $nasabah->ID_NASABAH }}/edit">
+<form id="rekomendasi_form" method="post" action="/dashboard/rekomendasi/{{ $nasabah->ID_NASABAH }}/edit">
     @csrf
     <div class=" my-4 space-y-4">
 
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Plafond</label>
-            <input value="{{ $rekomendasi_nasabah->LIMIT_KREDIT }}" name="plafond"type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            <input value="{{ $rekomendasi_nasabah->LIMIT_KREDIT }}" name="plafond" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
         </div>
 
         <div class= "min-w-xl">
@@ -190,7 +190,7 @@
                 </div>
             </div>
 
-            <div class="">
+            <div class="" id="input_bayar_pokok">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bayar Pokok</label>
                 <div class="flex flex-row">
                     <input value="{{ $rekomendasi_nasabah->BAYAR_POKOK }}" name="bayar_pokok" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
@@ -212,7 +212,7 @@
                 </div>
             </div>
 
-            <div class="">
+            <div class="" id="input_bagi_hasil_bank">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bagi Hasil Bank</label>
                 <div class="flex flex-row">
                     <input value="{{ $rekomendasi_nasabah->BASIL_BANK }}" name="bagi_hasil_bank"type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
@@ -234,7 +234,7 @@
                 </div>
             </div>
 
-            <div class="">
+            <div class="" id="input_bagi_hasil_mudharib">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bagi Hasil Mudharib</label>
                 <div class="flex flex-row">
                     <input value="{{ $rekomendasi_nasabah->BASIL_DEB }}" name="bagi_hasil_mudharib" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
@@ -283,6 +283,8 @@
     </div>
 </form>
 @endif
+
+<script src="{{ asset('js/rekomendasi.js') }}"></script>
 
 @if(session('success-edit'))
     <script>
