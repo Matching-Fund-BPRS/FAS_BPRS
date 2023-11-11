@@ -90,7 +90,7 @@
 
         <div class="grid grid-cols-2 max-w-md space-x-4">
             <div class="">
-                <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Angsuran / Bulan</label>
+                <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Total / Bulan</label>
                 <div class="flex flex-row">
                     <input name="angsuran_bulan" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
@@ -235,7 +235,7 @@
 
         <div class="grid grid-cols-2 max-w-md space-x-4">
             <div class="">
-                <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Angsuran / Bulan</label>
+                <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Total / Bulan</label>
                 <div class="flex flex-row">
                     <input value="{{ $rekomendasi_nasabah->ANGSURAN }}" name="angsuran_bulan" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
@@ -311,7 +311,7 @@
                                 </th>
 
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                    Penilaian
+                                    Bobot
                                 </th>
 
                             </tr>
@@ -325,7 +325,7 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CHARACTER *100 ?? 0), 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">20 %</p>
                                 </td>
                             </tr>
 
@@ -337,7 +337,7 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPACITY *100 ?? 0), 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">1.000.000</p>
+                                        <p class="text-sm font-normal text-center text-gray-600"> 20 %</p>
                                 </td>
                             </tr>
                 
@@ -349,7 +349,7 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CONDITION *100 ?? 0), 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">500.000</p>
+                                        <p class="text-sm font-normal text-center text-gray-600"> 15 %</p>
                                 </td>
                             </tr>
                                                 
@@ -361,7 +361,7 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPITAL *100 ?? 0), 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">300.000</p>
+                                        <p class="text-sm font-normal text-center text-gray-600"> 20 %</p>
                                 </td>
                             </tr>
                                                 
@@ -373,7 +373,7 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->COLLATERAL *100 ?? 0), 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">20 %</p>
                                 </td>
                             </tr>
                                                 
@@ -385,7 +385,18 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SYARIAH *100 ?? 0), 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">20</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">5 %</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-semibold text-center text-gray-600">Hasil Akhir</p>
+                                </td>
+                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SCORING *100 ?? 0), 2). ' %' }}</p>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">A+</p>
                                 </td>
                             </tr>
                         </tbody>
