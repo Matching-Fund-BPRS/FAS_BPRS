@@ -1,9 +1,9 @@
 @extends ('partial.mainnota')
 
 @section('container')
-
+<section class="md:grid md:grid-cols-4 space-x-8 ">
 @if($rekomendasi_nasabah == null)
-<form id="rekomendasi_form" method="post" action="{{ Route('tambah_rekomendasi') }}">
+<form id="rekomendasi_form" method="post" action="{{ Route('tambah_rekomendasi') }}" class="col-span-2">
     @csrf
     <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <div class=" my-4 space-y-4">
@@ -148,7 +148,7 @@
     </div>
 </form>
 @else
-<form id="rekomendasi_form" method="post" action="/dashboard/rekomendasi/{{ $nasabah->ID_NASABAH }}/edit">
+<form id="rekomendasi_form" method="post" action="/dashboard/rekomendasi/{{ $nasabah->ID_NASABAH }}/edit" class="col-span-2">
     @csrf
     <div class=" my-4 space-y-4">
 
@@ -171,12 +171,22 @@
 
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
-            <input value="{{ $rekomendasi_nasabah->JENIS_PERMOHONAN }}" name="jenis_permohonan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+           
+            <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="1" {{ $rekomendasi_nasabah->JENIS_PERMOHONAN == 1 ? 'selected' : '' }}>Tambahan</option>
+                <option value="2" {{ $rekomendasi_nasabah->JENIS_PERMOHONAN == 2 ? 'selected' : '' }}>Perpanjangan</option>
+                <option value="3" {{ $rekomendasi_nasabah->JENIS_PERMOHONAN == 3 ? 'selected' : '' }}>Tambahan dan Perpanjangan</option>
+            </select>
         </div>
 
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
-            <input value="{{ $rekomendasi_nasabah->TUJUAN }}" name="tujuan_penggunaan" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+           
+            <select name="tujuan_penggunaan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="1" {{ $rekomendasi_nasabah->TUJUAN == 1 ? 'selected' : '' }}>Modal Kerja</option>
+                <option value="2" {{ $rekomendasi_nasabah->TUJUAN == 2 ? 'selected' : '' }}>Investasi</option>
+                <option value="3" {{ $rekomendasi_nasabah->TUJUAN == 3 ? 'selected' : '' }}>Konsumsi</option>
+            </select>
         </div>
 
         <div class="grid grid-cols-2 max-w-md space-x-4">
@@ -283,7 +293,110 @@
     </div>
 </form>
 @endif
+<div class="col-span-2">
+    <div class="flex flex-col mt-6">
+        <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden border border-gray-200 md:rounded-lg">
 
+                    <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="w-72 px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Aspek
+                                </th>
+
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Persentase
+                                </th>
+
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    Penilaian
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-20">
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-semibold text-center text-gray-600">Character</p>
+                                </td>
+                                <td class="px-12 py-4 font-medium whitespace-nowrap"> 
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CHARACTER *100 ?? 0), 2). ' %' }}</p>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-semibold text-center text-gray-600">Capacity</p>
+                                </td>
+                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPACITY *100 ?? 0), 2). ' %' }}</p>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">1.000.000</p>
+                                </td>
+                            </tr>
+                
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-semibold text-center text-gray-600">Condition</p>
+                                </td>
+                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CONDITION *100 ?? 0), 2). ' %' }}</p>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">500.000</p>
+                                </td>
+                            </tr>
+                                                
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-semibold text-center text-gray-600">Capital</p>
+                                </td>
+                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPITAL *100 ?? 0), 2). ' %' }}</p>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">300.000</p>
+                                </td>
+                            </tr>
+                                                
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-semibold text-center text-gray-600">Collateral</p>
+                                </td>
+                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->COLLATERAL *100 ?? 0), 2). ' %' }}</p>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                </td>
+                            </tr>
+                                                
+                            <tr>
+                                <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-semibold text-center text-gray-600">Syariah</p>
+                                </td>
+                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SYARIAH *100 ?? 0), 2). ' %' }}</p>
+                                </td>
+                                <td class="px-4 py-4 whitespace-nowrap">
+                                        <p class="text-sm font-normal text-center text-gray-600">20</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</section>
 <script src="{{ asset('js/rekomendasi.js') }}"></script>
 
 @if(session('success-edit'))

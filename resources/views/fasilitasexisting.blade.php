@@ -433,11 +433,11 @@
                             </td>
 
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->PLAFOND }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ number_format($data->PLAFOND, 0, ',', '.') }}</p>
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->BAKI_DEBET }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ number_format($data->BAKI_DEBET, 0, ',', '.') }}</p>
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
@@ -449,7 +449,7 @@
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->TUNGGAKAN }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ number_format($data->TUNGGAKAN, 0, ',', '.') }}</p>
                             </td> 
 
                             <td class="px-4 py-4 whitespace-nowrap">

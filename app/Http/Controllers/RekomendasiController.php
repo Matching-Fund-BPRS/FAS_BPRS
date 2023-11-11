@@ -6,6 +6,7 @@ use App\Models\TAngsuran;
 use Illuminate\Http\Request;
 use App\Models\TRekomendasi;
 use App\Models\TNasabah;
+use App\Models\TScoring;
 
 class RekomendasiController extends Controller
 {
@@ -115,9 +116,11 @@ class RekomendasiController extends Controller
     public function index($id){
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $rekomendasi_nasabah =  TRekomendasi::where('ID_NASABAH', $id)->first();
+        $scoring = TScoring::where('ID_NASABAH', $id)->first();
         return view('rekomendasi',[
             'nasabah' => $nasabah,
-            'rekomendasi_nasabah' => $rekomendasi_nasabah
+            'rekomendasi_nasabah' => $rekomendasi_nasabah,
+            'scoring' => $scoring
         ]);
     }
 }

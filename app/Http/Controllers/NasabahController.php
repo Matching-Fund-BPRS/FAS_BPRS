@@ -36,10 +36,17 @@ class NasabahController extends BaseController
     }
 
     public function index(){
-        return view('danolisa',[
-            'all_nasabah' => TNasabah::all()
-        ]);
+        if(auth()->user()->level == 1){
+            return view('danolisa',[
+                'all_nasabah' => TNasabah::all()
+            ]);
+        }else{
+            return view('danolisa',[
+                'all_nasabah' => TNasabah::where('USER_ID', auth()->user()->NAME)->get()
+            ]);
+        }
     }
+
 
     public function data_nasabah($id){
         return view('detaildataentry', [

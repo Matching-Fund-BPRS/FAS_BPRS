@@ -70,6 +70,9 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
 
                         <tr>
@@ -86,6 +89,9 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
                         <tr>
                             <td class="px-4 py-1 whitespace-nowrap">
@@ -99,6 +105,9 @@
                                 readonly>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
                         </tr>
@@ -117,6 +126,9 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
 
                         <tr>
@@ -130,6 +142,9 @@
                                 <input readonly name="laba_kotor_ops" id="laba_kotor_ops" class="text-sm font-normal text-center text-gray-600 border-none p-0" readonly>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
                         </tr>
@@ -148,6 +163,9 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
 
                         <tr>
@@ -162,6 +180,9 @@
                                 readonly>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
                         </tr>
@@ -180,6 +201,9 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
 
                         <tr>
@@ -196,6 +220,9 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
 
                         <tr>
@@ -209,6 +236,9 @@
                                 <input readonly name="ebit" id="ebit" class="text-sm font-normal text-center text-gray-600 border-none p-0" readonly>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
                         </tr>
@@ -227,6 +257,9 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
 
                         <tr>
@@ -238,9 +271,12 @@
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <input name="biaya_pajak" id="biaya_pajak" class="text-sm font-normal text-center text-gray-600 border-none p-0"
-                                value="{{ $rugi_laba_nasabah->BIAYA_PAJAK ?? 0 }}">
+                                value="{{ $rugi_laba_nasabah->BIAYA_PAJAK ?? 0 }}" readonly>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
                         </tr>
@@ -258,17 +294,20 @@
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                                 <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
+                                                  <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <p class="text-sm font-normal text-center text-gray-600"></p>
+                            </td>
                         </tr>
 
                     </tbody>
                 </table>
             </div>
             <br>
-            @if($rugi_laba_nasabah == null)
+            {{-- @if($rugi_laba_nasabah == null)
                 <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 justify-items-end ml-auto">Simpan</button>
             @else
                 <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 justify-items-end ml-auto">Simpan Perubahan</button>
-            @endif
+            @endif --}}
         </form>
         </div>
     </div>
