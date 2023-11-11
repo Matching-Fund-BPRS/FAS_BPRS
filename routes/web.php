@@ -66,6 +66,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
     Route::post('/dashboard/fasilitasexisting/{id}/edit', [FasExistController::class, 'edit_bisid']);
     Route::post('/dashboard/fasilitasexisting/add', [FasExistController::class, 'store'])->name("tambah_existing");
+    Route::post('/dashboard/fasilitasexisting/{id}/update', [FasExistController::class, 'edit_existing']);
+    Route::post('/dashboard/fasilitasexisting/{id}/delete', [FasExistController::class, 'delete_existing']);
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //analisisa kualitatif page
@@ -104,6 +106,8 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/dashboard/5collateral/{id}/edit', [CollateralController::class, 'update']);
     Route::post('/dashboard/5collateral/submitCollateral', [CollateralController::class, 'submitCollateral'])->name('postCollateral');
     Route::post('/dashboard/5collateral/tambah-agunan', [CollateralController::class, 'addAgunan'])->name('tambah_agunan');
+    Route::post('/dashboard/5collateral/{id}/edit-agunan', [CollateralController::class, 'editAgunan'])->name('edit_agunan');
+    Route::post('/dashboard/5collateral/{id}/delete-agunan', [CollateralController::class, 'deleteAgunan'])->name('delete_agunan');
     Route::post('/dashboard/5collateral/tambah-resiko', [CollateralController::class, 'addResiko'])->name('tambah_resiko');
     Route::post('/dashboard/5collateral/{id}/edit-agunan', [CollateralController::class, 'editAgunan']);
     Route::post('/dashboard/5collateral/{id}/edit-resiko', [CollateralController::class, 'editResiko']);

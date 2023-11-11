@@ -65,14 +65,35 @@ class FasExistController extends Controller
             'KODE' => 1,
             'BANK' => $request->bank,
             'JENIS_KREDIT' => $request->jenis_kredit,
-            'PLAFOND' => $request->plafond,
-            'BAKI_DEBET' => $request->baki_debet,
+            'PLAFOND' => str_replace('.', '', $request->plafond),
+            'BAKI_DEBET' => str_replace('.', '', $request->baki_debet),
             'TGL_JATUH_TEMPO' => $request->tgl_jatuh_tempo,
             'KOL' => $request->kol,
-            'TUNGGAKAN' => $request->tunggakan,
+            'TUNGGAKAN' => str_replace('.', '', $request->tunggakan),
             'LAMA_TUNGGAKAN' => $request->lama_tunggakan,
             'KET' => null
         ]);
         return redirect()->back()->with('success-add', 'message');
+    }
+
+    public function edit_existing(Request $request, $id){
+        TFa::where('ID', $id)->update([
+            'KODE' => 1,
+            'BANK' => $request->bank,
+            'JENIS_KREDIT' => $request->jenis_kredit,
+            'PLAFOND' => str_replace('.', '', $request->plafond),
+            'BAKI_DEBET' => str_replace('.', '', $request->baki_debet),
+            'TGL_JATUH_TEMPO' => $request->tgl_jatuh_tempo,
+            'KOL' => $request->kol,
+            'TUNGGAKAN' => str_replace('.', '', $request->tunggakan),
+            'LAMA_TUNGGAKAN' => $request->lama_tunggakan,
+            'KET' => null
+        ]);
+        return redirect()->back()->with('success-edit', 'message');
+    }
+
+    public function delete_existing($id){
+        TFa::where('ID', $id)->delete();
+        return redirect()->back()->with('success-delete', 'message');
     }
 }

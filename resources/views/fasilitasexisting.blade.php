@@ -423,7 +423,9 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-20">
                         @foreach($data_fasilitas_existing as $data)
-                        <tr>
+                        <tr onclick="
+                                document.getElementById('openPopup{{ $data->ID }}').click()" class="hover:bg-gray-100 cursor-pointer">
+                            <button type="button" class="hidden" data-modal-target="defaultModal{{ $data->ID }}" data-modal-toggle="defaultModal{{ $data->ID }}" id="openPopup{{ $data->ID }}" ></button>
                             <td class="px-4 py-4 whitespace-nowrap">
                                     <p class="text-sm font-normal text-center text-gray-600">{{ $data->BANK }}</p>
                             </td>
@@ -529,7 +531,7 @@
                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                     </svg>
                                 </div>
-                                <input name="tgl_jatuh_tempo" datepicker datepicker-autohide type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                <input name="tgl_jatuh_tempo" datepicker datepicker-autohide type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
                             </div>
                         </div>
                     </div>
@@ -570,8 +572,118 @@
 </div>
 
 {{-- //////////////////TAMBAH RIWAYAT POPUP END///////////////// --}}
+@if($data_fasilitas_existing->count() > 0)
+@foreach ( $data_fasilitas_existing as $fas)
+<div id="defaultModal{{ $fas->ID }}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-sm md:max-w-xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between p-4 border-b border-gray-200 rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-bold text-gray-700 dark:text-white">
+                    Edit Riwayat
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal{{ $fas->ID }}">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <form action=" /dashboard/fasilitasexisting/{{ $fas->ID }}/update" method="POST">
+                @csrf
+                <div class="p-4 space-y-4">
+                    <input type="hidden" name="id" value="{{ $nasabah->ID_NASABAH }}">
+                    <div class="grid grid-cols-2 space-x-4">
+                        <div>
+                            <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Bank</label>
+                            <input value="{{ $fas->BANK }}" name="bank" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+    
+                        <div class= "">
+                            <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-gray-900">Jenis</label>
+                            <select name="jenis_kredit" id="jenis_kredit" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                                <option value="1" {{ $fas->JENIS_KREDIT == 1 ? 'selected' : '' }}>Modal Kerja</option>
+                                <option value="2" {{ $fas->JENIS_KREDIT == 2 ? 'selected' : '' }}>Investasi</option>
+                                <option value="3" {{ $fas->JENIS_KREDIT == 3 ? 'selected' : '' }}>Konsumsi</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 space-x-4">
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Plafond</label>
+                            <input value="{{ $fas->PLAFOND }}" name="plafond" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+    
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Baki Debet</label>
+                            <input value="{{ $fas->BAKI_DEBET }}" name="baki_debet" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+                    </div>
 
 
+                    <div class=" flex justify-center">
+                        <div class="">
+                            <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900 text-center">Jatuh Tempo</label>
+                            <div class="relative max-w-[220px]" id="tglperm">
+                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                    </svg>
+                                </div>
+                                <input value="{{ $fas->TGL_JATUH_TEMPO->format('Y-m-d') ?? '' }}" name="tgl_jatuh_tempo" datepicker datepicker-autohide type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class= "min-w-full">
+                        <label for="kol" class="block mb-2 text-xs font-medium text-gray-900">Kol</label>
+                        <select name="kol" id="kol" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1" {{ $fas->KOL == 1 ? 'selected' : '' }}>1</option>
+                            <option value="2" {{ $fas->KOL == 2 ? 'selected' : '' }}>2</option>
+                            <option value="3" {{ $fas->KOL == 3 ? 'selected' : '' }}>3</option>
+                            <option value="4" {{ $fas->KOL == 4 ? 'selected' : '' }}>4</option>
+                            <option value="5" {{ $fas->KOL == 5 ? 'selected' : '' }}>5</option>
+                        </select>
+                    </div>
+
+                    <div class="grid grid-cols-2 space-x-4">
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Tunggakan</label>
+                            <input value="{{ $fas->TUNGGAKAN }}" name="tunggakan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+    
+                        <div>
+                            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Lama Tunggakan</label>
+                            <input value="{{ $fas->LAMA_TUNGGAKAN }}" name="lama_tunggakan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        </div>
+                    </div>
+
+                </div>
+                                         
+                <!-- Modal footer -->
+                <div class="flex justify-between  p-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <div class="flex items-center space-x-2">
+                        <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+                        <button data-modal-hide="defaultModal{{ $fas->ID }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                    </div>
+                    <div class="">
+                        <button type="button" class="text-white bg-gradient-to-b from-red-400 to-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onclick="document.getElementById('delete_riwayat_{{ $fas->ID }}').submit()">Hapus</button>
+                    </div>
+                </div>
+                
+            </form>
+            <form action="/dashboard/fasilitasexisting/{{ $fas->ID }}/delete" method="POST" id="delete_riwayat_{{ $fas->ID }}">
+                @csrf
+                </form>
+        </div>
+    </div>
+</div>    
+@endforeach
+@endif
+<script src="{{ asset('js/fas.js') }}"></script>
 @if(session('success-add'))
 <script>
     alert('Data berhasil ditambahkan!')

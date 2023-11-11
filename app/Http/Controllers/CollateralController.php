@@ -207,4 +207,46 @@ class CollateralController extends Controller
         $result = "Berhasil menambahkan data agunan!";
         return redirect()->back()->with('message', 'success');
     }
+    public function editAgunan(Request $request, $id){
+        TAgunan::where('ID', $id)->update([
+            'JENIS' => $request->jenis,
+                'BUKTI_MILIK' => $request->bukti_milik,
+                'MERK' => $request->merk,
+                'TAHUN' => $request->tahun,
+                'NO_BPKB' => $request->no_bpkb,
+                'NOPOL' => $request->nopol,
+                'NO_MESIN' => $request->no_mesin,
+                'NO_RANGKA' => $request->no_rangka,
+                'WARNA' => $request->warna,
+                'ATAS_NAMA' => $request->atas_nama,
+                'ALAMAT' => $request->alamat,
+                'TGL_BERLAKU' => $request->tgl_berlaku,
+                'NO_AGUNAN' => $request->no_agunan,
+                'NAMA_PEMILIK' => $request->nama_pemilik,
+                'LOKASI' => $request->lokasi,
+                'NILAI' => str_replace('.', '', $request->nilai),
+                'JENIS_PENGIKATAN' => $request->jenis_pengikatan,
+                'ASURANSI' => $request->asuransi,
+                'KET' => $request->ket,
+                'LUAS_TANAH' => $request->luas_tanah,
+                'LUAS_BANGUNAN' => $request->luas_bangunan,
+                'NO_DEP' => $request->no_dep,
+                'DEP_BANK' => $request->dep_bank,
+                'SAVE_MARGIN' => str_replace('.', '', $request->safety_margin),
+                'JENIS_BANGUNAN' => $request->jenis_bangunan
+        ]);
+    
+        $result = "Berhasil memperbarui data agunan!";
+        return redirect()->back()->with('message', 'success');
+    }
+
+    public function deleteAgunan($id){
+        TAgunan::where('ID', $id)->delete();
+        $result = "Berhasil menghapus data agunan!";
+        return redirect()->back()->with('message', 'success');
+    }
 }
+
+
+
+

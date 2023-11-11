@@ -1,29 +1,29 @@
 const formAgunan = document.getElementById("form_agunan");
-const jenisInput = document.querySelector('[name="jenis"]');
-const jenisBangunanInput = document.querySelector('[name="jenis_bangunan"]');
-const buktiMilikInput = document.querySelector('[name="bukti_milik"]');
-const merkInput = document.querySelector('[name="merk"]');
-const tahunInput = document.querySelector('[name="tahun"]');
-const noBpkbInput = document.querySelector('[name="no_bpkb"]');
-const nopolInput = document.querySelector('[name="nopol"]');
-const noMesinInput = document.querySelector('[name="no_mesin"]');
-const noRangkaInput = document.querySelector('[name="no_rangka"]');
-const warnaInput = document.querySelector('[name="warna"]');
-const atasNamaInput = document.querySelector('[name="atas_nama"]');
-const alamatInput = document.querySelector('[name="alamat"]');
-const tglBerlakuInput = document.querySelector('[name="tgl_berlaku"]');
-const noAgunanInput = document.querySelector('[name="no_agunan"]');
-const namaPemilikInput = document.querySelector('[name="nama_pemilik"]');
-const lokasiInput = document.querySelector('[name="lokasi"]');
-const nilaiInput = document.querySelector('[name="nilai"]');
-const safetyMarginInput = document.querySelector('[name="safety_margin"]');
-const jenisPengikatanInput = document.querySelector('[name="jenis_pengikatan"]');
-const asuransiInput = document.querySelector('[name="asuransi"]');
-const ketInput = document.querySelector('[name="ket"]');
-const luasTanahInput = document.querySelector('[name="luas_tanah"]');
-const luasBangunanInput = document.querySelector('[name="luas_bangunan"]');
-const noDepInput = document.querySelector('[name="no_dep"]');
-const depBankInput = document.querySelector('[name="dep_bank"]');
+const jenisInput = document.querySelectorAll('[name="jenis"]');
+const jenisBangunanInput = document.querySelectorAll('[name="jenis_bangunan"]');
+const buktiMilikInput = document.querySelectorAll('[name="bukti_milik"]');
+const merkInput = document.querySelectorAll('[name="merk"]');
+const tahunInput = document.querySelectorAll('[name="tahun"]');
+const noBpkbInput = document.querySelectorAll('[name="no_bpkb"]');
+const nopolInput = document.querySelectorAll('[name="nopol"]');
+const noMesinInput = document.querySelectorAll('[name="no_mesin"]');
+const noRangkaInput = document.querySelectorAll('[name="no_rangka"]');
+const warnaInput = document.querySelectorAll('[name="warna"]');
+const atasNamaInput = document.querySelectorAll('[name="atas_nama"]');
+const alamatInput = document.querySelectorAll('[name="alamat"]');
+const tglBerlakuInput = document.querySelectorAll('[name="tgl_berlaku"]');
+const noAgunanInput = document.querySelectorAll('[name="no_agunan"]');
+const namaPemilikInput = document.querySelectorAll('[name="nama_pemilik"]');
+const lokasiInput = document.querySelectorAll('[name="lokasi"]');
+const nilaiInput = document.querySelectorAll('[name="nilai"]');
+const safetyMarginInput = document.querySelectorAll('[name="safety_margin"]');
+const jenisPengikatanInput = document.querySelectorAll('[name="jenis_pengikatan"]');
+const asuransiInput = document.querySelectorAll('[name="asuransi"]');
+const ketInput = document.querySelectorAll('[name="ket"]');
+const luasTanahInput = document.querySelectorAll('[name="luas_tanah"]');
+const luasBangunanInput = document.querySelectorAll('[name="luas_bangunan"]');
+const noDepInput = document.querySelectorAll('[name="no_dep"]');
+const depBankInput = document.querySelectorAll('[name="dep_bank"]');
 
 
 
@@ -60,45 +60,50 @@ function hideAll() {
   ];
 
   // Hide input elements and their associated labels
-  inputElements.forEach((inputElement) => {
-    inputElement.style.display = "none";
-    const labelElement = inputElement.previousElementSibling;
-    if (labelElement && labelElement.tagName === "LABEL") {
-      labelElement.style.display = "none";
-    }
+  inputElements.forEach((input) => {
+    input.forEach((element) => {
+      element.style.display = "none";
+      const labelElement = element.previousElementSibling;
+      if (labelElement && labelElement.tagName === "LABEL") {
+        labelElement.style.display = "none";
+      }
+    })
   });
 }
 
 function showElement(...elements) {
   elements.forEach((element) => {
-    element.style.display = "block";
-    const labelElement = element.previousElementSibling;
-    if (labelElement && labelElement.tagName === "LABEL") {
-      labelElement.style.display = "block";
-    }
+    element.forEach((element) => {
+      element.style.display = "block";
+      const labelElement = element.previousElementSibling;
+      if (labelElement && labelElement.tagName === "LABEL") {
+        labelElement.style.display = "block";
+      }
+    })
   });
 }
 
-function showForm () {
+function showForm (index) {
+  console.log(index);
   hideAll();
-  if (jenisInput.value == 1) {
+  if (jenisInput[index].value == 1) {
     showElement(buktiMilikInput, noAgunanInput, luasTanahInput, namaPemilikInput, lokasiInput, nilaiInput, safetyMarginInput, jenisPengikatanInput, asuransiInput);
 
   }
-  else if (jenisInput.value == 2) {
+  else if (jenisInput[index].value == 2) {
     showElement(buktiMilikInput, noAgunanInput, luasTanahInput, namaPemilikInput, lokasiInput, nilaiInput, safetyMarginInput, jenisPengikatanInput, asuransiInput, luasBangunanInput, jenisBangunanInput);
 
   }
-  else if (jenisInput.value == 3) {
+  else if (jenisInput[index].value == 3) {
     showElement(buktiMilikInput, noAgunanInput, namaPemilikInput, lokasiInput, nilaiInput, safetyMarginInput, jenisPengikatanInput, asuransiInput, luasBangunanInput, jenisBangunanInput);
 
   }
   //else if untuk nilai 4-11
-  else if (jenisInput.value == 4 || jenisInput.value == 5 || jenisInput.value == 6 || jenisInput.value == 7 || jenisInput.value == 8 || jenisInput.value == 9 || jenisInput.value == 10 || jenisInput.value == 11) {
+  else if (jenisInput[index].value == 4 || jenisInput[index].value == 5 || jenisInput[index].value == 6 || jenisInput[index].value == 7 || jenisInput[index].value == 8 || jenisInput[index].value == 9 || jenisInput[index].value == 10 || jenisInput[index].value == 11) {
     showElement(buktiMilikInput, merkInput, tahunInput, noBpkbInput, nopolInput, noMesinInput, noRangkaInput, warnaInput, atasNamaInput, alamatInput, tglBerlakuInput, nilaiInput, safetyMarginInput, jenisPengikatanInput, asuransiInput);
 
   }
-  else if (jenisInput.value == 12) {
+  else if (jenisInput[index].value == 12) {
     showElement(noDepInput, depBankInput, namaPemilikInput, nilaiInput, safetyMarginInput, jenisPengikatanInput, asuransiInput);
 
   }
@@ -107,11 +112,17 @@ function showForm () {
 
   }
 
-  console.log(jenisInput.value);
+  console.log(jenisInput[index].value);
 
 }
-showForm();
-jenisInput.addEventListener("change", showForm);
+
+showForm(0);
+let i = 0
+jenisInput.forEach((input,i) => {
+  input.addEventListener("change", () => showForm(i-1));
+  i++;
+});
+
 
 function formatNumber(amount) {
   if (amount == NaN || amount == ''){
@@ -141,19 +152,20 @@ let input = [
   'safety_margin'
 ]
 
-function formatInput(id) {
-  let inputElement = document.getElementsByName(id)[0];
+function formatInput(name) {
+  let inputElement = document.querySelectorAll(`[name="${name}"]`);
   
+  inputElement.forEach((element) => {
+    let caretPosition = element.selectionStart;
+    val = fixedFormatNumber(formatNumber(element.value));
+  
+    // Update the input value
+    element.value = val;
+  
+    // Restore the caret position
+    element.setSelectionRange(caretPosition, caretPosition);
   // Save the current caret position
-  let caretPosition = inputElement.selectionStart;
-
-  let val = fixedFormatNumber(formatNumber(inputElement.value));
-  
-  // Update the input value
-  inputElement.value = val;
-
-  // Restore the caret position
-  inputElement.setSelectionRange(caretPosition, caretPosition);
+  })
 }
 input.forEach(element => {
   console.log(element)
@@ -162,3 +174,5 @@ input.forEach(element => {
     formatInput(element);
   })
 });
+
+console.log(jenisInput);
