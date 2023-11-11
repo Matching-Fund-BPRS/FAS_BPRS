@@ -37,7 +37,7 @@ class NasabahController extends BaseController
 
     public function index(){
         return view('danolisa',[
-            'all_nasabah' => TNasabah::paginate(25)
+            'all_nasabah' => TNasabah::all()
         ]);
     }
 

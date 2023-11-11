@@ -1,11 +1,13 @@
 @extends ('partial.main')
 
 @section('container')
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 
 <section class=" max-w-screen-xl h-fit">
     <div style="float:right">
-        <form method="get" action="" class="flex">   
+        {{-- <form method="get" action="" class="flex">   
             <label for="simple-search" class="sr-only">Search</label>
             <div class=" min-w-min">
                 <input type="text" name="id" id="simple-search" class="bg-gray-50 max-w-[160px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cari Nota" required>
@@ -16,16 +18,16 @@
                 </svg>
                 <span class="sr-only">Search</span>
             </button>
-        </form>
+        </form> --}}
     </div>
     <h2 class="text-lg font-medium text-gray-80">Customers</h2>
     <br>
     <div class="flex flex-col mt-6">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
-                <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+                <div class="overflow-hidden">
 
-                    <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal">
+                    <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal" id="tabel_nasabah" style="display: none;">
                         <thead class="bg-gray-50">
                             <tr>
                                 <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
@@ -106,7 +108,7 @@
                                     @endswitch
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600">{{ $nasabah->LIMIT_KREDIT }}</p>
+                                    <p class="text-sm font-normal text-center text-gray-600" type="currency">{{ $nasabah->LIMIT_KREDIT }}</p>
                                 </td>
                                 
                                 <td class="px-4 py-4 whitespace-nowrap">
@@ -123,9 +125,9 @@
     </div>
 
     <br>
-    <div class="flex justify-center">
+    {{-- <div class="flex justify-center">
         {{ $all_nasabah->links() }}
-    </div>
+    </div> --}}
 </section>
-
+    <script src="{{ asset('js/danolisa.js') }}"></script>
   @endsection
