@@ -50,7 +50,7 @@ class CapacityController extends Controller
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 2 / 10;
             TScoring::insert([
                 'ID_NASABAH' => $request->id,
                 'CAPACITY' => $output,
@@ -63,7 +63,7 @@ class CapacityController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->COLLATERAL+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            $scoring = $output* 2 / 10 + $Tscoring->COLLATERAL* 2 / 10+ $Tscoring->CHARACTER* 2 / 10+ $Tscoring->CAPITAL* 2 / 10+ $Tscoring->CONDITION* 15 / 100 + $Tscoring->SYARIAH* 5 / 100;
             TScoring::where('ID_NASABAH', $request->id)->update([
                 'CAPACITY' => $output,
                 'SCORING' => $scoring
@@ -103,7 +103,7 @@ class CapacityController extends Controller
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 2 / 10;
             TScoring::insert([
                 'ID_NASABAH' => $request->id,
                 'CAPACITY' => $output,
@@ -116,7 +116,7 @@ class CapacityController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->COLLATERAL+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            $scoring = $output* 2 / 10 + $Tscoring->COLLATERAL* 2 / 10+ $Tscoring->CHARACTER* 2 / 10+ $Tscoring->CAPITAL* 2 / 10+ $Tscoring->CONDITION* 15 / 100 + $Tscoring->SYARIAH* 5 / 100;
             TScoring::where('ID_NASABAH', $request->id)->update([
                 'CAPACITY' => $output,
                 'SCORING' => $scoring

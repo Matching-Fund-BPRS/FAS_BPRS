@@ -105,7 +105,7 @@
         
                 <div>
                     <label for="rpc" class="block mb-2 text-xs font-medium text-gray-900">Repayment Capacity (RPC) %</label>
-                    <input readonly value="{{ $capital_nasabah->RPC }}" name="rpc" type="text" id="rpc" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input readonly value="{{ -1 * $capital_nasabah->RPC }}" name="rpc" type="text" id="rpc" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
             </div>
 

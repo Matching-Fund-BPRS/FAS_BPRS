@@ -54,7 +54,7 @@ class LimitKreditController extends Controller
             $capital->update([
 
                 'PK_INCOME_SALES' => $income_Sales,
-                'RPC' => $rpc,
+                'RPC' => -1* $rpc,
                 'PK_EBIT' => $ebit_per_interest
             ]);
         } 
@@ -66,7 +66,7 @@ class LimitKreditController extends Controller
                 'CM_LDER' => 0,
                 'PK_ASET' => 0,
                 'PK_INCOME_SALES' => $income_Sales,
-                'RPC' => $rpc,
+                'RPC' => -1* $rpc,
                 'PK_EBIT' => $ebit_per_interest
             ]);
         }
