@@ -300,17 +300,17 @@
                 <div class="overflow-hidden border border-gray-200 md:rounded-lg">
 
                     <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
-                        <thead class="bg-gray-50">
+                        <thead class="bg-gray-100">
                             <tr>
-                                <th scope="col" class="w-72 px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="w-72 px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-gray-1000">
                                     Aspek
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-gray-1000">
                                     Persentase
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-gray-1000">
                                     Bobot
                                 </th>
 
