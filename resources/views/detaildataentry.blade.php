@@ -59,7 +59,7 @@
         <div class="grid grid-cols-1 items-center w-full">
             <div>
                 <label for="userid" name="user_id"class="block mb-2 text-xs font-medium text-gray-900">User ID</label>
-                <input name="id_user" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required> 
+                <input name="user_id" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required> 
             </div>
         </div>
 
@@ -550,12 +550,12 @@
                 <div class= "min-w-xl">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Akad Pembiayaan</label>
                     <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="1">Murabahah</option>
-                        <option value="2">Musyarakah</option>
-                        <option value="3">Mudarabah</option>
-                        <option value="4">Ijaroh</option>
-                        <option value="5">Rahn</option>
-                        <option value="6">Qord</option>
+                        <option @if($nasabah->SIFAT == 1) selected @endif value="1">Murabahah</option>
+                        <option @if($nasabah->SIFAT == 2) selected @endif value="2">Musyarakah</option>
+                        <option @if($nasabah->SIFAT == 3) selected @endif value="3">Mudarabah</option>
+                        <option @if($nasabah->SIFAT == 4) selected @endif value="4">Ijaroh</option>
+                        <option @if($nasabah->SIFAT == 5) selected @endif value="5">Rahn</option>
+                        <option @if($nasabah->SIFAT == 6) selected @endif value="6">Qord</option>
                     </select>
                 </div>
             </div>
@@ -564,18 +564,18 @@
                 <div class= "">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
                     <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="1">Baru</option>
-                        <option value="2">Tambahan</option>
-                        <option value="3">Tambahan dan Perpanjangan</option>
+                        <option @if($nasabah->JENIS_PERMOHONAN == 1) selected @endif value="1">Baru</option>
+                        <option @if($nasabah->JENIS_PERMOHONAN == 2) selected @endif value="2">Tambahan</option>
+                        <option @if($nasabah->JENIS_PERMOHONAN == 3) selected @endif value="3">Tambahan dan Perpanjangan</option>
                     </select>
                 </div>
 
                 <div class= "">
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
                     <select name="tujuan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="1">Modal Kerja</option>
-                        <option value="2">Investasi</option>
-                        <option value="3">Konsumsi</option>
+                        <option @if($nasabah->TUJUAN == 1) selected @endif value="1">Modal Kerja</option>
+                        <option @if($nasabah->TUJUAN == 2) selected @endif value="2">Investasi</option>
+                        <option @if($nasabah->TUJUAN == 3) selected @endif value="3">Konsumsi</option>
                     </select>
                 </div>
             
@@ -602,10 +602,10 @@
                 <div>
                     <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Pernikahan</label>
                     <select name="status_perkawinan" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                        <option value="1">Belum Menikah</option>
-                        <option value="2">Menikah</option>
-                        <option value="3">Duda</option>
-                        <option value="4">Janda</option>
+                        <option @if($nasabah->STATUS_PERKAWINAN == 1) selected @endif value="1">Belum Menikah</option>
+                        <option @if($nasabah->STATUS_PERKAWINAN == 2) selected @endif value="2">Menikah</option>
+                        <option @if($nasabah->STATUS_PERKAWINAN == 3) selected @endif value="3">Duda</option>
+                        <option @if($nasabah->STATUS_PERKAWINAN == 4) selected @endif value="4">Janda</option>
                     </select>
                 </div>
             
@@ -688,11 +688,11 @@
                     <div class= "min-w-xl">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Tempat Tinggal</label>
                         <select name="status_tempat_tinggal" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                            <option value="1">Milik Sendiri</option>
-                            <option value="2">Milik Keluarga/Ortu</option>
-                            <option value="3">Instansi</option>
-                            <option value="4">Kontrak</option>
-                            <option value="5">Kredit</option>
+                            <option @if($nasabah->STATUS_TEMPAT_TINGGAL == 1) selected @endif value="1">Milik Sendiri</option>
+                            <option @if($nasabah->STATUS_TEMPAT_TINGGAL == 2) selected @endif value="2">Milik Keluarga/Ortu</option>
+                            <option @if($nasabah->STATUS_TEMPAT_TINGGAL == 3) selected @endif value="3">Instansi</option>
+                            <option @if($nasabah->STATUS_TEMPAT_TINGGAL == 4) selected @endif value="4">Kontrak</option>
+                            <option @if($nasabah->STATUS_TEMPAT_TINGGAL == 5) selected @endif value="5">Kredit</option>
                         </select>
                     </div>
                     <div class="">
@@ -710,13 +710,13 @@
                     <div class= "">
                         <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tingkat Pendidikan</label>
                         <select name="tingkat_pendidikan" id="countries" class=" md:min-w-[300px] min-w-[200px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                            <option value="1">Sekolah Dasar</option>
-                            <option value="2">SMP</option>
-                            <option value="3">SMA</option>
-                            <option value="4">S1</option>
-                            <option value="5">S2</option>
-                            <option value="6">S3</option>
-                            <option value="7">Tidak Sekolah</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 1) selected @endif value="1">Sekolah Dasar</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 2) selected @endif value="2">SMP</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 3) selected @endif value="3">SMA</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 4) selected @endif value="4">S1</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 5) selected @endif value="5">S2</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 6) selected @endif value="6">S3</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 7) selected @endif value="7">Tidak Sekolah</option>
                         </select>
                     </div>
                     <div class="">
@@ -774,14 +774,14 @@
                     <div>
                         <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Profesi Suami / Istri</label>
                         <select name="profesi_pasangan" type="text" id="nokan" class=" md:min-w-[250px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                            <option value="1">Ibu Rumah Tangga</option>
-                            <option value="2">Pegawai BUMN/BUMD</option>
-                            <option value="3">Pegawai Negeri Sipil</option>
-                            <option value="4">TNI/Polri</option>
-                            <option value="5">Pegawai Swasta</option>
-                            <option value="6">Profesional</option>
-                            <option value="7">Wiraswasta</option>
-                            <option value="8">Tidak Bekerja</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 1) selected @endif value="1">Ibu Rumah Tangga</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 2) selected @endif value="2">Pegawai BUMN/BUMD</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 3) selected @endif value="3">Pegawai Negeri Sipil</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 4) selected @endif value="4">TNI/Polri</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 5) selected @endif value="5">Pegawai Swasta</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 6) selected @endif value="6">Profesional</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 7) selected @endif value="7">Wiraswasta</option>
+                            <option @if($nasabah->PROFESI_PASANGAN == 8) selected @endif value="8">Tidak Bekerja</option>
                         </select>
                     </div>
             
@@ -806,12 +806,12 @@
                 <div>
                     <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Hubungan Keluarga</label>
                     <select name="hub_keluarga" type="text" id="nokan" class=" md:min-w-[250px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                        <option value="1">Anak Kandung</option>
-                        <option value="2">Orang Tua</option>
-                        <option value="3">Saudara Kandung</option>
-                        <option value="4">Saudara Tidak Sekandung</option>
-                        <option value="5">Rekan Kerja</option>
-                        <option value="6">Tetangga</option>
+                        <option @if($nasabah->HUB_EC == 1) selected @endif value="1">Anak Kandung</option>
+                        <option @if($nasabah->HUB_EC == 2) selected @endif value="2">Orang Tua</option>
+                        <option @if($nasabah->HUB_EC == 3) selected @endif value="3">Saudara Kandung</option>
+                        <option @if($nasabah->HUB_EC == 4) selected @endif value="4">Saudara Tidak Sekandung</option>
+                        <option @if($nasabah->HUB_EC == 5) selected @endif value="5">Rekan Kerja</option>
+                        <option @if($nasabah->HUB_EC == 6) selected @endif value="6">Tetangga</option>
                 </select>
                 </div>
                 <div>
@@ -846,12 +846,12 @@
             <div>
                 <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Sektor Usaha</label>
                 <select name="bidang_usaha" type="text" id="nokan" class=" md:min-w-[200px] min-w-[200px]shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                    <option value="1">Industri</option>
-                    <option value="2">Jasa</option>
-                    <option value="3">Kontraktor</option>
-                    <option value="4">Pegawai</option>
-                    <option value="5">Perdagangan</option>
-                    <option value="6">Pertanian</option>
+                    <option @if($nasabah->SUB_USAHA == 1) selected @endif value="1">Industri</option>
+                    <option @if($nasabah->SUB_USAHA == 2) selected @endif value="2">Jasa</option>
+                    <option @if($nasabah->SUB_USAHA == 3) selected @endif value="3">Kontraktor</option>
+                    <option @if($nasabah->SUB_USAHA == 4) selected @endif value="4">Pegawai</option>
+                    <option @if($nasabah->SUB_USAHA == 5) selected @endif value="5">Perdagangan</option>
+                    <option @if($nasabah->SUB_USAHA == 6) selected @endif value="6">Pertanian</option>
                 </select>
             </div>
         
@@ -879,11 +879,11 @@
         <div>
             <label for="noprib" class="block mb-2 text-xs font-medium text-gray-900">Status Bidang Usaha</label>
             <select name="status_bidang_usaha" type="text" id="nokan" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5 " required>
-                <option value="1">Milik Sendiri</option>
-                <option value="2">Milik Keluarga/Ortu</option>
-                <option value="3">Instansi/Lembaga</option>
-                <option value="4">Kontrak</option>
-                <option value="5">Kredit</option>
+                <option @if($nasabah->STATUS_TEMPAT_USAHA == 1) selected @endif value="1">Milik Sendiri</option>
+                <option @if($nasabah->STATUS_TEMPAT_USAHA == 2) selected @endif value="2">Milik Keluarga/Ortu</option>
+                <option @if($nasabah->STATUS_TEMPAT_USAHA == 3) selected @endif value="3">Instansi/Lembaga</option>
+                <option @if($nasabah->STATUS_TEMPAT_USAHA == 4) selected @endif value="4">Kontrak</option>
+                <option @if($nasabah->STATUS_TEMPAT_USAHA == 5) selected @endif value="5">Kredit</option>
             </select>
         </div>
 
