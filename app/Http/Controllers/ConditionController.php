@@ -48,11 +48,11 @@ class ConditionController extends Controller
         ]);
 
         $output = $response->json()['data']['percentage'];
-        $Tscoring = TScoring::where('ID_NASABAH', $id)->first();
+        $Tscoring = TScoring::where('ID_NASABAH',  $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 15 /100;
             TScoring::insert([
-                'ID_NASABAH' => $id,
+                'ID_NASABAH' =>  $request->id,
                 'CAPACITY' => 0,
                 'CAPITAL' => 0,
                 'CHARACTER' => 0,
@@ -63,15 +63,15 @@ class ConditionController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CAPITAL) / 5;
-            TScoring::where('ID_NASABAH', $id)->update([
+            $scoring = $output * 15 /100 + $Tscoring->CAPACITY * 2 / 10+ $Tscoring->CHARACTER * 2 / 10+ $Tscoring->COLLATERAL * 2 / 10+ $Tscoring->CAPITAL * 2 / 10 + $Tscoring->SYARIAH * 5 /100;
+            TScoring::where('ID_NASABAH',  $request->id)->update([
                 'CONDITION' => $output,
                 'SCORING' => $scoring
             ]);
         }
         $result = "Berhasil memperbarui data!";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
-        $condition_nasabah = TCondition::where('ID_NASABAH', $id)->first();
+        $condition_nasabah = TCondition::where('ID_NASABAH',  $request->id)->first();
 
         return view('5condition',[
             'result_message' => $result,
@@ -107,7 +107,7 @@ class ConditionController extends Controller
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 15 /100;
             TScoring::insert([
                 'ID_NASABAH' => $request->id,
                 'CAPACITY' => 0,
@@ -120,7 +120,7 @@ class ConditionController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->COLLATERAL+ $Tscoring->CAPITAL) / 5;
+            $scoring = $output * 15 /100 + $Tscoring->CAPACITY * 2 / 10+ $Tscoring->CHARACTER * 2 / 10+ $Tscoring->COLLATERAL * 2 / 10+ $Tscoring->CAPITAL * 2 / 10 + $Tscoring->SYARIAH * 5 /100;
             TScoring::where('ID_NASABAH', $request->id)->update([
                 'CONDITION' => $output,
                 'SCORING' => $scoring

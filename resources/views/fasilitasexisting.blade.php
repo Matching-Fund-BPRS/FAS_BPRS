@@ -6,79 +6,132 @@
     @csrf
     <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <section class="md:grid md:grid-cols-4 space-x-8 ">
-        <div class="space-y-4">
+        <div class="space-y-4 col-span-1">
             <p class=" block py-4 text-base font-semibold text-gray-900">
                 Sandi BI
             </p>
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="jenisperm" class="block mb-2 text-xs font-medium text-gray-900">Sektor Ekonomi</label>
-                    <input name="sektor_ekonomi_bi" type="text" id="jenisperm" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <select name="sektor_ekonomi_bi" id="jenisperm" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        @foreach ($ref_bi->where('JENIS', '01') as $ref)
+                            <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+
+                        @endforeach
+                    </select>
                 </div>
-                <div>
+                <div class="w-1/2">
                     <label for="penggunaan" class="block mb-2 text-xs font-medium text-gray-900">Penggunaan</label>
-                    <input name="penggunaan_bi" type="text" id="penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select name="penggunaan_bi" id="penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        @foreach ($ref_bi->where('JENIS', '02') as $ref)
+                        <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="golongan_debitur" class="block mb-2 text-xs font-medium text-gray-900">Golongan Debitur</label>
-                    <input name="golongan_debitur_bi" type="text" id="golongan_debitur" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select v name="golongan_debitur_bi" type="text" id="golongan_debitur" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '03') as $ref)
+                        <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endforeach
+                    </select>
                 </div>
         
-                <div>
+                <div class="w-1/2">
                     <label for="sifat" class="block mb-2 text-xs font-medium text-gray-900">Sifat</label>
-                    <input name="sifat_bi" type="text" id="sifat" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select  name="sifat_bi" type="text" id="sifat" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '06') as $ref)
+                        <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                    @endforeach 
+                    </select>
                 </div>
             </div>
 
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="golongan_penjamin" class="block mb-2 text-xs font-medium text-gray-900">Golongan Penjamin</label>
-                    <input name="golongan_penjamin_bi" type="text" id="golongan_penjamin" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select name="golongan_penjamin_bi" type="text" id="golongan_penjamin" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '04') as $ref)
+                        <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 
-                <div>
+                <div class="w-1/2">
                     <label for="tujuan_penggunaan" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
-                    <input name="tujuan_penggunaan_bi" type="text" id="tujuan_penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select name="tujuan_penggunaan_bi" type="text" id="tujuan_penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '09') as $ref)
+                        <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             
 
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="golongan_piutang" class="block mb-2 text-xs font-medium text-gray-900">Golongan Piutang</label>
-                    <input name="golongan_piutang_bi" type="text" id="golongan_piutang" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select name="golongan_piutang_bi" type="text" id="golongan_piutang" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '10') as $ref)
+                        <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 
-                <div>
+                <div class="w-1/2">
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Sifat Plafond</label>
-                    <input name="sifat_plafond_bi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select  name="sifat_plafond_bi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '11') as $ref)
+                        <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endforeach
+                    </select>
                 </div> 
             </div>
         
         </div>
         
-        <div class="space-y-4">
+        <div class="space-y-4 grid grid-cols-1 col-span-1">
             <p class=" block py-4 text-base font-semibold text-gray-900">
                 Sandi SID
             </p>
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Sektor Ekonomi</label>
-                <input name="sektor_ekonomi_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <select  name="sektor_ekonomi_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    @foreach ($ref_sid->where('JENIS', '7') as $ref)
+                    <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        
+                    @endforeach
+                </select>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Penggunaan</label>
-                <input name="penggunaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <select  name="penggunaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    @foreach ($ref_sid->where('JENIS', '8') as $ref)
+                    <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endforeach
+                </select>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Pembiayaan</label>
-                <input name="pembiayaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
-            </div> 
-            <div class=" pt-6">
-                <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
+                <select name="pembiayaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    @foreach ($ref_sid->where('JENIS', '14') as $ref)
+                    <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                    @endforeach
+                </select>
             </div>
+            
+            <div class="flex justify-between items-end">
+                <div class="">
+                    <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 py-2.5 text-center mr-2 mb-2">Simpan Perubahan</button>
+                </div>
+                <div class="">
+                    <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" type="button" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-2 py-2.5 text-center mr-2 mb-2">Tambah Riwayat</button>
+                </div>
+            </div>
+
         </div>
         
         <div class="col-span-2">
@@ -191,75 +244,165 @@
 <form method="post" action="/dashboard/fasilitasexisting/{{ $nasabah->ID_NASABAH }}/edit">
     @csrf
     <section class="md:grid md:grid-cols-4 space-x-8 ">
-        <div class="space-y-4">
+        <div class="space-y-4 col-span-1">
             <p class=" block py-4 text-base font-semibold text-gray-900">
                 Sandi BI
             </p>
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="jenisperm" class="block mb-2 text-xs font-medium text-gray-900">Sektor Ekonomi</label>
-                    <input value="{{ $data_bisid_nasabah->SEKTOR_EKONOMI_BI }}" name="sektor_ekonomi_bi" type="text" id="jenisperm" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <select name="sektor_ekonomi_bi" id="jenisperm" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        @foreach ($ref_bi->where('JENIS', '01') as $ref)
+                            @if ($ref->SANDI == $data_bisid_nasabah->SEKTOR_EKONOMI_BI)
+                                <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @else
+                            <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @endif
+
+                        @endforeach
+                    </select>
                 </div>
-                <div>
+                <div class="w-1/2">
                     <label for="penggunaan" class="block mb-2 text-xs font-medium text-gray-900">Penggunaan</label>
-                    <input value="{{ $data_bisid_nasabah->PENGGUNAAN_BI }}" name="penggunaan_bi" type="text" id="penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select value="{{ $data_bisid_nasabah->PENGGUNAAN_BI }}" name="penggunaan_bi" id="penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        @foreach ($ref_bi->where('JENIS', '02') as $ref)
+                            @if ($ref->SANDI == $data_bisid_nasabah->PENGGUNAAN_BI)
+                                <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @else
+                                <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="golongan_debitur" class="block mb-2 text-xs font-medium text-gray-900">Golongan Debitur</label>
-                    <input value="{{ $data_bisid_nasabah->GOL_DEB_BI }}" name="golongan_debitur_bi" type="text" id="golongan_debitur" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select value="{{ $data_bisid_nasabah->GOL_DEB_BI }}" name="golongan_debitur_bi" type="text" id="golongan_debitur" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '03') as $ref)
+                            @if ($ref->SANDI == $data_bisid_nasabah->GOL_DEB_BI)
+                                <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @else
+                                <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
         
-                <div>
+                <div class="w-1/2">
                     <label for="sifat" class="block mb-2 text-xs font-medium text-gray-900">Sifat</label>
-                    <input value="{{ $data_bisid_nasabah->SIFAT_BI }}" name="sifat_bi" type="text" id="sifat" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select value="{{ $data_bisid_nasabah->SIFAT_BI }}" name="sifat_bi" type="text" id="sifat" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '06') as $ref)
+                        @if ($ref->SANDI == $data_bisid_nasabah->SIFAT_BI)
+                            <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @else
+                            <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endif
+                    @endforeach 
+                    </select>
                 </div>
             </div>
 
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="golongan_penjamin" class="block mb-2 text-xs font-medium text-gray-900">Golongan Penjamin</label>
-                    <input value="{{ $data_bisid_nasabah->GOL_PENJAMIN_BI }}" name="golongan_penjamin_bi" type="text" id="golongan_penjamin" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select name="golongan_penjamin_bi" type="text" id="golongan_penjamin" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '04') as $ref)
+                            @if ($ref->SANDI == $data_bisid_nasabah->GOL_PENJAMIN_BI)
+                                <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @else
+                                <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
                 
-                <div>
+                <div class="w-1/2">
                     <label for="tujuan_penggunaan" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
-                    <input value="{{ $data_bisid_nasabah->TUJUAN_BI }}" name="tujuan_penggunaan_bi" type="text" id="tujuan_penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select name="tujuan_penggunaan_bi" type="text" id="tujuan_penggunaan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '09') as $ref)
+                            @if ($ref->SANDI == $data_bisid_nasabah->TUJUAN_BI)
+                                <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @else
+                                <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
             </div>
             
 
             <div class="flex justify-center space-x-2">
-                <div>
+                <div class="w-1/2">
                     <label for="golongan_piutang" class="block mb-2 text-xs font-medium text-gray-900">Golongan Piutang</label>
-                    <input value="{{ $data_bisid_nasabah->GOL_PIUTANG_BI }}" name="golongan_piutang_bi" type="text" id="golongan_piutang" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select value="{{ $data_bisid_nasabah->GOL_PIUTANG_BI }}" name="golongan_piutang_bi" type="text" id="golongan_piutang" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '10') as $ref)
+                            @if ($ref->SANDI == $data_bisid_nasabah->GOL_PIUTANG_BI)
+                                <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @else
+                                <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
                 
-                <div>
+                <div class="w-1/2">
                     <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Sifat Plafond</label>
-                    <input value="{{ $data_bisid_nasabah->SIFAT_PLAFOND }}" name="sifat_plafond_bi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select value="{{ $data_bisid_nasabah->SIFAT_PLAFOND }}" name="sifat_plafond_bi" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        @foreach ($ref_bi->where('JENIS', '11') as $ref)
+                            @if ($ref->SANDI == $data_bisid_nasabah->SIFAT_PLAFOND)
+                                <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @else
+                                <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div> 
             </div>
         
         </div>
         
-        <div class="space-y-4 grid grid-cols-1">
+        <div class="space-y-4 grid grid-cols-1 col-span-1">
             <p class=" block py-4 text-base font-semibold text-gray-900">
                 Sandi SID
             </p>
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Sektor Ekonomi</label>
-                <input value="{{ $data_bisid_nasabah->SEK_EKO_SID }}" name="sektor_ekonomi_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <select value="{{ $data_bisid_nasabah->SEK_EKO_SID }}" name="sektor_ekonomi_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    @foreach ($ref_sid->where('JENIS', '7') as $ref)
+                        @if ($ref->SANDI == $data_bisid_nasabah->SEK_EKO_SID)
+                            <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @else
+                            <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endif
+                        
+                    @endforeach
+                </select>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Penggunaan</label>
-                <input value="{{ $data_bisid_nasabah->PENGGUNAAN_SID }}" name="penggunaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <select value="{{ $data_bisid_nasabah->PENGGUNAAN_SID }}" name="penggunaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    @foreach ($ref_sid->where('JENIS', '8') as $ref)
+                        @if ($ref->SANDI == $data_bisid_nasabah->PENGGUNAAN_SID)
+                            <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @else
+                            <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endif
+                        @endforeach
+                </select>
             </div> 
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Pembiayaan</label>
-                <input value="{{ $data_bisid_nasabah->PEMBIAYAAN_SID }}" name="pembiayaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <select value="{{ $data_bisid_nasabah->PEMBIAYAAN_SID }}" name="pembiayaan_sid" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    @foreach ($ref_sid->where('JENIS', '14') as $ref)
+                        @if ($ref->SANDI == $data_bisid_nasabah->PEMBIAYAAN_SID)
+                            <option selected value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @else
+                            <option value="{{ $ref->SANDI }}">{{ $ref->SANDI }} - {{ $ref->KETERANGAN }}</option>
+                        @endif
+                    @endforeach
+                </select>
             </div>
             
             <div class="flex justify-between items-end">
@@ -382,8 +525,8 @@
 @endif
 <div class="flex flex-col mt-6">
     <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
-            <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+        <div class="inline-block py-2 align-middle md:px-6 lg:px-8 w-full">
+            <div class="overflow-hidden border border-gray-200 md:rounded-lg ">
 
                 <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
                     <thead class="bg-gray-50">
@@ -496,7 +639,13 @@
                     <div class="grid grid-cols-2 space-x-4">
                         <div>
                             <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Bank</label>
-                            <input name="bank" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            <select name="bank" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required
+                            >
+                                @foreach ($ref_bank as $ref)
+                                    <option value="{{ $ref->KODE }}">{{ $ref->BANK }}</option>
+                                    
+                                @endforeach
+                            </select>
                         </div>
     
                         <div class= "">
@@ -598,7 +747,12 @@
                     <div class="grid grid-cols-2 space-x-4">
                         <div>
                             <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Bank</label>
-                            <input value="{{ $fas->BANK }}" name="bank" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            <select name="bank" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                @foreach ($ref_bank as $bank)
+                                    <option value="{{ $bank->KODE }}" {{ $bank->KODE == $fas->KODE ? 'selected' : '' }}>{{ $bank->BANK }}</option>
+
+                                @endforeach
+                            </select>
                         </div>
     
                         <div class= "">

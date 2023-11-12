@@ -33,7 +33,7 @@
                         </div>
                         <td class="px-4 py-1 whitespace-nowrap flex">
                             <input type="date" name="tgl_periode" class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto"
-                            value="{{  $neraca_nasabah->TANGGAL_PERIODE->format('Y-m-d') ?? date('Y-m-d') }}" required>
+                            value="{{ $neraca_nasabah ? $neraca_nasabah->TANGGAL_PERIODE->format('Y-m-d') : date('Y-m-d') }}" required>
                         </td>
                         <div class="border border-gray-200 flex justify-center"> 
                             <p class="text-sm font-semibold text-center text-gray-600">06/08/2015</p>

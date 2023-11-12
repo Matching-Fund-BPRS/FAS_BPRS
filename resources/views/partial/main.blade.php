@@ -14,7 +14,9 @@
     <div class="flex">
 
         <div class="min-h-screen min-w-fit hidden md:inline">
-            @include('partial.sidebar')
+
+        @include('partial.sidebar')
+
         </div>
 
         <div class="md:hidden mb-32 md:mb-0">

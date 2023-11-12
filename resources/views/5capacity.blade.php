@@ -24,11 +24,6 @@
             <div class= "min-w-xl">
                 <label for="cb_pengelolaan" class="block mb-2 text-xs font-medium text-gray-900">Kemampuan Pengelolaan</label>
                 <select name="cb_pengelolaan" id="cb_pengelolaan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    1. Pengelolaan perusahaan masih sangat tergantung pada pemilik secara individu dan banyak melibatkan keluarga
-2. Pengeloalan perusahaan tergantung dengan pengelolaan individu dan tidak melibatkan banyak keluarga
-3. Pengelolan perusahan tidak tergantung dengan individu 
-4. Pengelolaan perusahaan menggunakan manajemen yang profesional
-5. Perusahaan dikelola dengan menggunakan tenaga manajemen profesional dan modern
                     <option value="1">Pengelolaan perusahaan masih sangat tergantung pada pemilik secara individu dan banyak melibatkan keluarga</option>
                     <option value="2">Pengeloalan perusahaan tergantung dengan pengelolaan individu dan tidak melibatkan banyak keluarga</option>
                     <option value="3">Pengelolan perusahan tidak tergantung dengan individu </option>
@@ -110,7 +105,7 @@
             
             <div>
                 <label for="cb_dscr" class="block mb-2 text-xs font-medium text-gray-900">DSCR</label>
-                <input value="{{ $capacity_nasabah->CB_DSCR }}" name="cb_dscr" type="text" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <input value="{{ $capacity_nasabah->CB_DSCR }}" name="cb_dscr" type="text" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly required>
             </div>
 
             <div class= "min-w-xl">

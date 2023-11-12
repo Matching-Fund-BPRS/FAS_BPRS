@@ -13,7 +13,7 @@
         </div>
 
         <div class= "min-w-xl">
-            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat</label>
+            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Akad Pembiayaan</label>
             <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                 <option value="1" {{ $nasabah->SIFAT == 1 ? 'selected' : '' }}>Murabahah</option>
                 <option value="2" {{ $nasabah->SIFAT == 2 ? 'selected' : '' }}>Musyarakah</option>
@@ -158,7 +158,7 @@
         </div>
 
         <div class= "min-w-xl">
-            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sifat</label>
+            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Akad Pembiayaan</label>
             <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                 <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 1) selected @endif value="1">Murabahah</option>
                 <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 2) selected @endif value="2">Musyarakah</option>

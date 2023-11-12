@@ -35,7 +35,7 @@ class CollateralController extends Controller
     public function submitCollateral(Request $request){
         // ambil data dari request terus jadiin JSON terus post ke API
         // ambil response dari API terus masukin di variabel
-
+        $leg_usaha = $request->leg_usaha != 1 ? 1 : 0;
         TCollateral::insert([
             'CA_NILAI_AGUNAN' => $request->ca_nilai_agunan,
             'PA_DOKUMEN' =>$request->pa_dokumen,
@@ -47,19 +47,19 @@ class CollateralController extends Controller
             'ID_NASABAH' => $request->id,
         ]);
         $response = Http::post('model:8000/collateral', [
-            'ca_nilai_agunan' => $request->ca_nilai_agunan,
-            'pa_dokumen' => $request->pa_dokumen,
-            'leg_usaha' => $request->leg_usaha,
-            'pengikatan' => $request->pengikatan,
-            'marketability' => $request->marketability,
-            'kepemilikan' => $request->kepemilikan,
-            'penguasaan' => $request->penguasaan
+            'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
+            'pa_dokumen' => intval($request->pa_dokumen),
+            'leg_usaha' => intval($leg_usaha),
+            'pengikatan' => intval($request->pengikatan),
+            'marketability' => intval($request->marketability),
+            'kepemilikan' => intval($request->kepemilikan),
+            'penguasaan' => intval($request->penguasaan)
         ]);
 
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 2 /10;
             TScoring::insert([
                 'ID_NASABAH' => $request->id,
                 'CAPACITY' => 0,
@@ -72,7 +72,7 @@ class CollateralController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            $scoring = $output * 2 /10 + $Tscoring->CAPACITY * 2 /10+ $Tscoring->CHARACTER * 2 /10+ $Tscoring->CAPITAL * 2 /10+ $Tscoring->CONDITION * 15 /100 + $Tscoring->SYARIAH * 5 / 100;
             TScoring::where('ID_NASABAH', $request->id)->update([
                 'COLLATERAL' => $output,
                 'SCORING' => $scoring
@@ -85,17 +85,11 @@ class CollateralController extends Controller
         $nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
         $resiko_nasabah = TResiko::where('ID_NASABAH', $request->id)->first();
         $collateral_nasabah = TCollateral::where('ID_NASABAH', $request->id)->first();
-        return view('5collateral',[
-            'result' => $result,
-            'collateral_nasabah' => $collateral_nasabah,
-            'nasabah' => $nasabah,
-            'output' => $output,
-            'result_message' => $result,
-            'resiko_nasabah' => $resiko_nasabah,
-        ])->with('message', $result);
+        return redirect()->back()->with('message', $result);
     }
 
     public function update(Request $request, $id){
+        $leg_usaha = $request->leg_usaha != 1 ? 1 : 0;
         TCollateral::where('ID_NASABAH', $id)->update([
             'CA_NILAI_AGUNAN' => $request->ca_nilai_agunan,
             'PA_DOKUMEN' =>$request->pa_dokumen,
@@ -108,7 +102,7 @@ class CollateralController extends Controller
         $response = Http::post('model:8000/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
             'pa_dokumen' => intval($request->pa_dokumen),
-            'leg_usaha' => intval($request->leg_usaha),
+            'leg_usaha' => intval($leg_usaha),
             'pengikatan' => intval($request->pengikatan),
             'marketability' => intval($request->marketability),
             'kepemilikan' => intval($request->kepemilikan),
@@ -118,7 +112,7 @@ class CollateralController extends Controller
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 2 /10;
             TScoring::insert([
                 'ID_NASABAH' => $request->id,
                 'CAPACITY' => 0,
@@ -131,7 +125,7 @@ class CollateralController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->CAPACITY+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            $scoring = $output * 2 /10 + $Tscoring->CAPACITY * 2 /10+ $Tscoring->CHARACTER * 2 /10+ $Tscoring->CAPITAL * 2 /10+ $Tscoring->CONDITION * 15 /100 + $Tscoring->SYARIAH * 5 / 100;
             TScoring::where('ID_NASABAH', $request->id)->update([
                 'COLLATERAL' => $output,
                 'SCORING' => $scoring

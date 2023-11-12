@@ -47,7 +47,7 @@ class CharacterController extends Controller
             'man_reputasi' => intval($request->man_reputasi),
             'cw_tanggung' => intval($request->cw_tanggung),
             'cw_terbuka' => intval($request->cw_terbuka),
-            'cw_displin' => intval($request->cw_displin),
+            'cw_displin' => intval($request->cw_disiplin),
             'cw_janji' => intval($request->cw_janji),
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behaviour' => intval($request->pu_account_behaviour),
@@ -56,7 +56,7 @@ class CharacterController extends Controller
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 2/ 10 ;
             TScoring::insert([
                 'ID_NASABAH' => $request->id,
                 'CAPACITY' => 0,
@@ -69,7 +69,7 @@ class CharacterController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->COLLATERAL+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            $scoring = $output  * 2/ 10 + $Tscoring->COLLATERAL  * 2/ 10+ $Tscoring->CHARACTER  * 2/ 10+ $Tscoring->CAPITAL  * 2/ 10+ $Tscoring->CONDITION  * 2/ 10 + $Tscoring->SYARIAH * 5/100;
             TScoring::where('ID_NASABAH', $request->id)->update([
                 'CHARACTER' => $output,
                 'SCORING' => $scoring
@@ -79,15 +79,11 @@ class CharacterController extends Controller
         $result = "Berhasil menambahkan data!";
         $character_nasabah =TCharacter::where('ID_NASABAH', $request->id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
-        return view('5character',[
-            'output' => $output,
-            'nasabah' => $nasabah,
-            'character_nasabah' => $character_nasabah,
-            'result_message' => $result,
-        ]);
+        return redirect()->back()->with('message', $result);
     }
 
     public function update(Request $request, $id){
+
         TCharacter::where('ID_NASABAH', $id)->update([
             'MAN_KEMAUAN' => $request->man_kemauan,
             'MAN_KEJUJURAN' => $request->man_kejujuran,
@@ -105,16 +101,16 @@ class CharacterController extends Controller
             'man_reputasi' => intval($request->man_reputasi),
             'cw_tanggung' => intval($request->cw_tanggung),
             'cw_terbuka' => intval($request->cw_terbuka),
-            'cw_displin' => intval($request->cw_displin),
+            'cw_displin' => intval($request->cw_disiplin),
             'cw_janji' => intval($request->cw_janji),
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behavior' => intval($request->pu_account_behavior),
         ]);
-
+        // dd($response->json()['data'], intval($request->man_kemauan), intval($request->man_kejujuran),intval($request->man_reputasi),intval($request->cw_tanggung),intval($request->cw_terbuka),intval($request->cw_displin),intval($request->cw_janji),intval($request->pu_integritas),intval($request->pu_account_behavior));
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
-            $scoring = $output / 5;
+            $scoring = $output * 2/ 10 ;
             TScoring::insert([
                 'ID_NASABAH' => $request->id,
                 'CAPACITY' => 0,
@@ -127,7 +123,7 @@ class CharacterController extends Controller
                 
             ]);
         } else {
-            $scoring = ($output + $Tscoring->COLLATERAL+ $Tscoring->CHARACTER+ $Tscoring->CAPITAL+ $Tscoring->CONDITION) / 5;
+            $scoring = $output  * 2/ 10 + $Tscoring->COLLATERAL  * 2/ 10+ $Tscoring->CHARACTER  * 2/ 10+ $Tscoring->CAPITAL  * 2/ 10+ $Tscoring->CONDITION  * 2/ 10 + $Tscoring->SYARIAH * 5/100;
             TScoring::where('ID_NASABAH', $request->id)->update([
                 'CHARACTER' => $output,
                 'SCORING' => $scoring
@@ -137,12 +133,6 @@ class CharacterController extends Controller
         $result = "Berhasil memperbarui data!";
         $character_nasabah =TCharacter::where('ID_NASABAH', $request->id)->first();
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
-        return view('5character',[
-            'result' => $result,
-            'output' => $output,
-            'nasabah' => $nasabah,
-            'character_nasabah' => $character_nasabah,
-            'result_message' => $result,
-        ]);
+        return redirect()->back()->with('message', $result);
     }
 }
