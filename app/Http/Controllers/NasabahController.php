@@ -75,7 +75,7 @@ class NasabahController extends BaseController
         }else{
             $tgl_lahir_pasangan =Carbon::createFromFormat('m/d/Y', $request->tanggal_lahir_pasangan)->format('Y-m-d');
         }
-        if(TNasabah::where('ID_NASABAH' , $request->id)->first() == null){
+        if($request->id == "null"){
             TNasabah::insert([
                 'ID_NASABAH' => TNasabah::max('ID_NASABAH') + 1,
                 'ID_CABANG'  => 001, 
@@ -152,11 +152,10 @@ class NasabahController extends BaseController
             ->with('success-add', 'message');
         }else{
             TNasabah::where('ID_NASABAH' , $request->id)->update([
-                'ID_NASABAH' => $request->user_id,
                 'ID_CABANG'  => 001, 
                 'NO_SURVEY' => null, 
                 'CIF' => $request->cif,
-                'USER_ID'=> $request->user_id,
+                'USER_ID'=> null,
                 'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
                 'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
                 

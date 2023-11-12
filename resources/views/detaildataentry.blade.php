@@ -26,6 +26,7 @@
 
 
     @if ($nasabah == null)
+    <input name="id" value="null" type="hidden">
         <form method="POST" action="{{ Route('tambah_nasabah') }}">
             @csrf
             <section id="start" class="md:flex md:flex-row mb-4 md:justify-between">
@@ -621,6 +622,7 @@
     @else
         <form method="POST" action="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}/edit">
             @csrf
+            <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
             <section id="start" class="md:flex md:flex-row mb-4 space-x-4 md:justify-between">
                 <div class="my-4 space-y-4 relative w-full">
                     <div>
