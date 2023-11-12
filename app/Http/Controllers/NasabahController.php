@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\TNasabah;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class NasabahController extends BaseController
 {
@@ -67,7 +68,7 @@ class NasabahController extends BaseController
             $tgl_berlaku_ktp = Carbon::createFromFormat('m/d/Y', $request->tgl_berlaku_ktp)->format('Y-m-d');
         }
         TNasabah::insert([
-            'ID_NASABAH' => $request->id_user,
+            'ID_NASABAH' => TNasabah::max('ID_NASABAH') + 1,
             'ID_CABANG'  => 001, 
             'NO_SURVEY' => null, 
             'CIF' => $request->cif,
@@ -110,6 +111,7 @@ class NasabahController extends BaseController
             'HUB_EC' =>$request->hubungan_keluarga,
             'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
             'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
+            'USER_ID' => Auth::user()->name
         ]);
 
         return redirect()

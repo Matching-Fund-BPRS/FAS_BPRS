@@ -12,11 +12,7 @@
         <div class= "min-w-xl">
             <label for="cw_tanggung" class="block mb-2 text-xs font-medium text-gray-900">Tanggung Jawab</label>
             <select name="cw_tanggung" id="cw_tanggung" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                1. Kurang Bertanggung Jawab dan Memiliki Reputasi yang Kurang Baik
-2. Kurang Bertanggung Jawab
-3. Cukup Bertanggung Jawab
-4. Bertanggung Jawab
-5. Sangat Bertanggung Jawab dan Memiliki Reputasi yang Baik 
+
                 <option value="1">Kurang bertanggun Jawab dan Memiliki Reputasi yang Kurang Baik</option>
                 <option value="2">Kurang Bertanggung Jawab</option>
                 <option value="3"> Cukup Bertanggung Jawab</option>
@@ -107,14 +103,14 @@
             <select name="man_reputasi" id="man_reputasi" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                 <option value="1"> Sulit memberikan perilaku dan bisnis yang disukai dan dijadikan panutan </option>
                 <option value="2">Tidak ada keluhan dari rekan bisnis</option>
-                <option value="FR">Memberikan perilaku dan bisnis yang disukai dan dijadikan panutan</option>
+                <option value="3">Memberikan perilaku dan bisnis yang disukai dan dijadikan panutan</option>
             </select>
         </div>
 
         <div class="flex justify-between items-center">
             <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
             <p class="text-base">
-                Hasil : <span class="text-blue-700 font-bold"> {{ number_format(($output * 100), 2) . '%' }} </span>
+            Hasil : <span class="text-blue-700 font-bold"> {{ number_format(($output * 100), 2) . '%' }} </span>
             </p>
         </div>
     </section>

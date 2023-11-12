@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ReffBank;
+use App\Models\ReffSandiBi;
+use App\Models\ReffSandiSid;
 use Illuminate\Http\Request;
 use App\Models\TFa;
 use App\Models\TBisid;
@@ -14,10 +17,16 @@ class FasExistController extends Controller
         // ini filter berdasarkan nota(?)
     public function fasIndex($id){ 
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
+        $ref_bi = ReffSandiBi::all();
+        $ref_sid = ReffSandiSid::all();
+        $ref_bank = ReffBank::all();
         return view('fasilitasexisting',[
             'data_bisid_nasabah' => TBisid::where('ID_NASABAH', $id)->first(),
             'nasabah' => $nasabah,
             'data_fasilitas_existing' => TFa::where('ID_NASABAH', $id)->paginate(5),
+            'ref_bi' => $ref_bi,
+            'ref_sid' => $ref_sid,
+            'ref_bank' => $ref_bank
         ]);
     }
 
@@ -62,8 +71,8 @@ class FasExistController extends Controller
     public function store(Request $request){
         TFa::insert([
             'ID_NASABAH' => $request->id,
-            'KODE' => 1,
-            'BANK' => $request->bank,
+            'KODE' => $request->bank,
+            'BANK' => ReffBank::where('KODE', $request->bank)->first()->BANK,
             'JENIS_KREDIT' => $request->jenis_kredit,
             'PLAFOND' => str_replace('.', '', $request->plafond),
             'BAKI_DEBET' => str_replace('.', '', $request->baki_debet),
@@ -78,8 +87,8 @@ class FasExistController extends Controller
 
     public function edit_existing(Request $request, $id){
         TFa::where('ID', $id)->update([
-            'KODE' => 1,
-            'BANK' => $request->bank,
+            'KODE' => $request->bank,
+            'BANK' => ReffBank::where('KODE', $request->bank)->first()->BANK,
             'JENIS_KREDIT' => $request->jenis_kredit,
             'PLAFOND' => str_replace('.', '', $request->plafond),
             'BAKI_DEBET' => str_replace('.', '', $request->baki_debet),

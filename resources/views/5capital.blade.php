@@ -56,7 +56,7 @@
             <div class="">
                 <div class="">
                     <label for="pk_ebit" class="block mb-2 text-xs font-medium text-gray-900">EBIT / Interest %</label>
-                    <input name="pk_ebit" type="text" id="pk_ebit" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="pk_ebit" type="text" id="pk_ebit" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly required>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@
             <div class="">
                 <div class="">
                     <label for="pk_ebit" class="block mb-2 text-xs font-medium text-gray-900">EBIT / Interest %</label>
-                    <input value="{{ $capital_nasabah->PK_EBIT }}" name="pk_ebit" type="text" id="pk_ebit" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input value="{{ $capital_nasabah->PK_EBIT }}" name="pk_ebit" type="text" id="pk_ebit" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly required>
                 </div>
             </div>
 

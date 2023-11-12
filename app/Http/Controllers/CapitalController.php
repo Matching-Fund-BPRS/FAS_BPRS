@@ -47,7 +47,7 @@ class CapitalController extends Controller
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),
             'pk_income_sales' => floatval($request->pk_income_sales),
-            'rpc' => floatval($request->rpc),
+            'rpc' => -1 * floatval($request->rpc),
             'pk_ebit' => floatval($request->pk_ebit),
         ]);
 
@@ -101,8 +101,8 @@ class CapitalController extends Controller
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),
             'pk_income_sales' => floatval($request->pk_income_sales),
-            'rpc' => floatval($request->rpc),
-            'pk_ebit' => floatval($request->pk_ebit),
+            'rpc' => -1 * floatval($request->rpc),
+        'pk_ebit' => floatval($request->pk_ebit),
         ]);
 
         $output = $response->json()['data']['percentage'];
