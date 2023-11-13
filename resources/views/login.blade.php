@@ -23,8 +23,8 @@
                 <div class="align-middle space-y-4">
                     
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Email</label>
-                        <input name="email" type="email" placeholder="Email" class=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Username</label>
+                        <input name="username" type="text" placeholder="Username" class=" shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
             
                     <div>
@@ -44,6 +44,10 @@
             alert('Daftar berhasil, silakan login!')
         </script>
     @endif
-
+    @if(session('message-error'))
+    <script>
+        alert('Login Gagal!')
+        </script>
+    @endif
 </body>
 </html>

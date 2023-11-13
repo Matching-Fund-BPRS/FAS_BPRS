@@ -9,16 +9,16 @@ class UserController extends Controller
 {
     public function index(){
         return view('usermanagement',[
-            'user_data' => User::paginate(5)
+            'user_data' => User::paginate(5),
+            'nasabah' => null
         ]);
     }
 
     
     public function addUser(Request $request){
-
         User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'username' => $request->username,
             'password' => bcrypt($request->password),
             'level' => $request->level,
             'isActive' => true,
@@ -28,7 +28,7 @@ class UserController extends Controller
     }
 
     public function deleteUser(Request $request){
-        User::where('id' , $request->id)->delete();
+        User::where('username' , $request->username)->delete();
         
         return redirect()->back();
     }

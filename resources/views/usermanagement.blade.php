@@ -16,7 +16,7 @@
                             </th>
 
                             <th scope="col" class="px-2 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
-                                Email
+                                Username
                             </th>
                             <th scope="col" class="px-4 py-3.5 w-72 text-sm font-bold text-center rtl:text-right text-black-500">
                                 Level User
@@ -40,7 +40,7 @@
                                 <p class="text-sm font-normal text-center text-gray-600">{{ $user->name }}</p>
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $user->email }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $user->username }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                             @if($user->level == 0)
@@ -65,7 +65,7 @@
                                     <form method="post" action="{{ route('delete-user') }}">
                                         @method('delete')
                                         @csrf
-                                        <input name="id" value="{{ $user->id }}" type="hidden">
+                                        <input name="id" value="{{ $user->username }}" type="hidden">
                                         <button type="submit" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Delete User</button>
                                     </form>
                                 </div>
@@ -110,8 +110,8 @@
                     </div>
         
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Email</label>
-                        <input name="email" type="email" placeholder="Email" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Username</label>
+                        <input name="username" type="text" placeholder="Username" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
         
                     <div>

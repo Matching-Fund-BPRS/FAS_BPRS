@@ -46,7 +46,7 @@ class NasabahController extends BaseController
             ]);
         }else{
             return view('danolisa',[
-                'all_nasabah' => TNasabah::where('USER_ID', auth()->user()->NAME)->get(),
+                'all_nasabah' => TNasabah::where('USER_ID', auth()->user()->username)->get(),
                 'nasabah'=> null
             ]);
         }
@@ -246,7 +246,6 @@ class NasabahController extends BaseController
         }
     }
         
-
     public function edit_data_nasabah(Request $request, $id){
         if($request->tgl_berlaku_ktp == "on" || $request->tgl_berlaku_ktp == null){
             $tgl_berlaku_ktp = null;
@@ -359,7 +358,7 @@ class NasabahController extends BaseController
 
         return redirect()
             ->back()
-            ->with('success-edit', 'Data nasabah berhasil diedit!');
+            ->with('success-add-pengurus', 'Data nasabah berhasil diedit!');
     }
 
     public function edit_pengurus(Request $request, $id){

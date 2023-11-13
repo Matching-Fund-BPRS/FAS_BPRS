@@ -8,18 +8,16 @@
     <p class="my-2 text-center font-bold">
         BPRS Baktimakmur Indah    
     </p>
-
     {{-- TODO --}}
     {{-- Panggil data user yang sedang login berdasarkan session --}}
     <div class="mt-2 bg-gradient-to-tl from-emerald-400 via-green-200 to-lime-100 rounded-md p-2 drop-shadow-lg">
         <p class="text-left text-xs font-bold">
-            User ID : <span class="font-normal">Mandiri</span>
+            User ID : 
+            <span class="font-normal">{{ auth()->user()->username }}</span> 
         </p>
         <p class="text-left text-xs font-bold">
             Nama :
-            @auth
             <span class="font-normal">{{ auth()->user()->name }}</span>
-            @endauth
         </p>
         <p class="text-left text-xs font-bold">
             Level : 
@@ -51,11 +49,8 @@
                     <span class="mx-2 text-sm font-medium">Daftar Nota Analisa</span>
                 </a>
 
-                @if($nasabah == null)
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata">
-                @else
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}">
-                @endif
+                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata">
+                
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"></path>
@@ -67,11 +62,7 @@
 
                     <span class="mx-2 text-sm font-medium">Detail Data Entry</span>
                 </a>
-                @if($nasabah == null)
                 <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detailnota">
-                @else
-                <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detailnota?id={{ $nasabah->ID_NASABAH }}">
-                @endif
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                         <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
