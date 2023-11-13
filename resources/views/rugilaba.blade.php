@@ -44,8 +44,12 @@
                                     <p class="text-sm font-normal text-center text-gray-600"></p>
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap flex">
+                                @if($rugi_laba_nasabah != null)
                                     <input readonly type="date" name="tgl_periode" class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto"
                                     value="{{ $rugi_laba_nasabah->TGL_PERIODE->format('Y-m-d') ?? date('Y-m-d') }}" required>
+                                @else
+                                <input type="date" name="tgl_periode" class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto" required>
+                                @endif
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap">
                                     <p class="text-sm font-semibold text-center text-gray-600">06/08/2016</p>

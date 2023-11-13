@@ -322,7 +322,7 @@
                                         <p class="text-sm font-semibold text-center text-gray-600">Character</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap"> 
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CHARACTER *100 ?? 0), 2). ' %' }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CHARACTER ?? 0)*100, 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                         <p class="text-sm font-normal text-center text-gray-600">20 %</p>
@@ -334,7 +334,7 @@
                                         <p class="text-sm font-semibold text-center text-gray-600">Capacity</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPACITY *100 ?? 0), 2). ' %' }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPACITY ?? 0) *100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                         <p class="text-sm font-normal text-center text-gray-600"> 20 %</p>
@@ -346,7 +346,7 @@
                                         <p class="text-sm font-semibold text-center text-gray-600">Condition</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CONDITION *100 ?? 0), 2). ' %' }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CONDITION ?? 0)*100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                         <p class="text-sm font-normal text-center text-gray-600"> 15 %</p>
@@ -358,7 +358,7 @@
                                         <p class="text-sm font-semibold text-center text-gray-600">Capital</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPITAL *100 ?? 0), 2). ' %' }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPITAL ?? 0)*100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                         <p class="text-sm font-normal text-center text-gray-600"> 20 %</p>
@@ -370,7 +370,7 @@
                                         <p class="text-sm font-semibold text-center text-gray-600">Collateral</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->COLLATERAL *100 ?? 0), 2). ' %' }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->COLLATERAL ?? 0)*100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                         <p class="text-sm font-normal text-center text-gray-600">20 %</p>
@@ -382,7 +382,7 @@
                                         <p class="text-sm font-semibold text-center text-gray-600">Syariah</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SYARIAH *100 ?? 0), 2). ' %' }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SYARIAH ?? 0) *100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                         <p class="text-sm font-normal text-center text-gray-600">5 %</p>
@@ -393,7 +393,7 @@
                                         <p class="text-sm font-semibold text-center text-gray-600">Hasil Akhir</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SCORING *100 ?? 0), 2). ' %' }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SCORING ?? 0) *100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                         <p class="text-sm font-normal text-center text-gray-600">A+</p>
