@@ -146,6 +146,10 @@
         </section>
     </div>
 <form>
-
+@if(session('success'))
+<script>
+    alert('Data berhasil disimpan!')
+    </script>
+@endif
     <script src="{{ asset('js/infokeuangan.js') }}"></script>
 @endsection

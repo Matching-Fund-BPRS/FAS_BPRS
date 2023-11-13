@@ -202,7 +202,7 @@ class InfoKeuanganController extends Controller
 
         
 
-        return redirect()->back()->with('success-add', 'message');
+        return redirect()->back()->with('success', 'message');
     }
 
 
