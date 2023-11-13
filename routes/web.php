@@ -34,7 +34,9 @@ use App\Http\Controllers\NeracaController;
 */
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', function () {
-        return view('dashboard');
+        return view('dashboard', [
+            'nasabah' => null
+        ]);
     })->name('home');
 
     Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);

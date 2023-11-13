@@ -75,6 +75,17 @@ class NasabahController extends BaseController
         }else{
             $tgl_lahir_pasangan =Carbon::createFromFormat('m/d/Y', $request->tanggal_lahir_pasangan)->format('Y-m-d');
         }
+
+        if($request->tgl_pendirian == null && $request->tgl_anggaran == null && $request->tgl_pengurus == null){
+            $tgl_pendirian = null;
+            $tgl_anggaran = null;
+            $tgl_pengurus = null;
+        }else{
+            $tgl_pendirian = Carbon::createFromFormat('m/d/Y', $request->tgl_pendirian)->format('Y-m-d');
+            $tgl_anggaran = Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d');
+            $tgl_pengurus = Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d');
+        }
+
         if($request->id == "null"){
             TNasabah::insert([
                 'ID_NASABAH' => TNasabah::max('ID_NASABAH') + 1,
@@ -132,19 +143,19 @@ class NasabahController extends BaseController
                 'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
                 
                 'NO_PENDIRIAN' => $request->no_pendirian,
-                'TGL_PENDIRIAN' =>  Carbon::createFromFormat('m/d/Y', $request->tgl_pendirian)->format('Y-m-d'),
+                'TGL_PENDIRIAN' => $tgl_pendirian,
                 'ISI_PENDIRIAN' => $request->isi_pendirian,
                 'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
     
                 'ANGGARAN' => $request->no_anggaran,
                 'ISI_ANGGARAN' => $request->isi_anggaran,
-                'TGL_ANGGARAN' =>Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d'),
+                'TGL_ANGGARAN' => $tgl_anggaran,
                 'KONDISI_ANGGARAN' => $request->kondisi_anggaran,
     
                 'PENGURUS' => $request->no_pengurus,
                 'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
                 'ISI_PENGURUS' => $request->isi_pengurus,
-                'TGL_PENGURUS'=> Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d'),         
+                'TGL_PENGURUS'=> $tgl_pengurus,         
             ]);
     
             return redirect()
@@ -206,19 +217,19 @@ class NasabahController extends BaseController
                 'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
                 
                 'NO_PENDIRIAN' => $request->no_pendirian,
-                'TGL_PENDIRIAN' =>  Carbon::createFromFormat('m/d/Y', $request->tgl_pendirian)->format('Y-m-d'),
+                'TGL_PENDIRIAN' => $tgl_pendirian,
                 'ISI_PENDIRIAN' => $request->isi_pendirian,
                 'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
     
                 'ANGGARAN' => $request->no_anggaran,
                 'ISI_ANGGARAN' => $request->isi_anggaran,
-                'TGL_ANGGARAN' =>Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d'),
+                'TGL_ANGGARAN' => $tgl_anggaran,
                 'KONDISI_ANGGARAN' => $request->kondisi_anggaran,
     
                 'PENGURUS' => $request->no_pengurus,
                 'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
                 'ISI_PENGURUS' => $request->isi_pengurus,
-                'TGL_PENGURUS'=> Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d'),  
+                'TGL_PENGURUS'=> $tgl_pengurus,  
             ]);
     
             return redirect()
@@ -229,6 +240,29 @@ class NasabahController extends BaseController
         
 
     public function edit_data_nasabah(Request $request, $id){
+        if($request->tgl_berlaku_ktp == "on" || $request->tgl_berlaku_ktp == null){
+            $tgl_berlaku_ktp = null;
+        }else{
+            $tgl_berlaku_ktp = Carbon::createFromFormat('m/d/Y', $request->tgl_berlaku_ktp)->format('Y-m-d');
+        }
+
+        if($request->tanggal_lahir_pasangan == null){
+            $tgl_lahir_pasangan = null;
+        }else{
+            $tgl_lahir_pasangan =Carbon::createFromFormat('m/d/Y', $request->tanggal_lahir_pasangan)->format('Y-m-d');
+        }
+
+        if($request->tgl_pendirian == null && $request->tgl_anggaran == null && $request->tgl_pengurus == null){
+            $tgl_pendirian = null;
+            $tgl_anggaran = null;
+            $tgl_pengurus = null;
+        }else{
+            $tgl_pendirian = Carbon::createFromFormat('m/d/Y', $request->tgl_pendirian)->format('Y-m-d');
+            $tgl_anggaran = Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d');
+            $tgl_pengurus = Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d');
+        }
+
+
         TNasabah::where('ID_NASABAH' , $id)->update([
             'ID_CABANG'  => 001, 
             'NO_SURVEY' => null, 
@@ -263,7 +297,7 @@ class NasabahController extends BaseController
             'TGL_LAHIR' => Carbon::createFromFormat('m/d/Y', $request->tgl_lahir)->format('Y-m-d'),
             'GENDER' => $request->gender,
             'NO_KTP'=>$request->no_ktp,
-            'TGL_BERLAKU_KTP' => Carbon::createFromFormat('m/d/Y', $request->tgl_berlaku_ktp)->format('Y-m-d'),
+            'TGL_BERLAKU_KTP'=> $tgl_berlaku_ktp,
             'ALAMAT' => $request->alamat_ktp,
             'NO_TELP' => $request->nomor_telepon,
             'NO_KANTOR' => $request->nomor_telepon_kantor,
@@ -274,7 +308,7 @@ class NasabahController extends BaseController
             
             'NAMA_PASANGAN' => $request->nama_pasangan,
             'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
-            'TGL_LAHIR_PASANGAN' => Carbon::createFromFormat('m/d/Y', $request->tanggal_lahir_pasangan)->format('Y-m-d'),
+            'TGL_LAHIR_PASANGAN' => $tgl_lahir_pasangan,
             'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
             'PROFESI_PASANGAN' =>$request->profesi_pasangan,
             'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
@@ -284,19 +318,19 @@ class NasabahController extends BaseController
             'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
             
             'NO_PENDIRIAN' => $request->no_pendirian,
-            'TGL_PENDIRIAN' =>  Carbon::createFromFormat('m/d/Y', $request->tgl_pendirian)->format('Y-m-d'),
+            'TGL_PENDIRIAN' =>  $tgl_pendirian,
             'ISI_PENDIRIAN' => $request->isi_pendirian,
             'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
 
             'ANGGARAN' => $request->no_anggaran,
             'ISI_ANGGARAN' => $request->isi_anggaran,
-            'TGL_ANGGARAN' =>Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d'),
+            'TGL_ANGGARAN' => $tgl_anggaran,
             'KONDISI_ANGGARAN' => $request->kondisi_anggaran,
 
             'PENGURUS' => $request->no_pengurus,
             'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
             'ISI_PENGURUS' => $request->isi_pengurus,
-            'TGL_PENGURUS'=> Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d'),
+            'TGL_PENGURUS'=> $tgl_pengurus,
         ]);
 
         return redirect()
