@@ -1230,7 +1230,57 @@
 
         </form>
     @endif
+    <script >
+        function formatNumber(amount) {
+  if (amount == NaN || amount == ''){
+    return 0;
+  }
+  // Convert the number to a string and remove points
+  const formattedAmount = amount.toString().replace(/\./g, '');
 
+  // Convert the string back to a number
+  const result = parseFloat(formattedAmount);
+
+  return result;
+}
+
+function fixedFormatNumber(amount) {
+  // Convert the number to a string
+  const formattedAmount = amount.toString();
+
+  // Use a regular expression to add a dot after every three digits
+  const result = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return result;
+}
+
+let input = [
+  'limit'
+]
+function formatInput(id) {
+  let inputElement = document.getElementById(id);
+  
+  // Save the current caret position
+  let caretPosition = inputElement.selectionStart;
+
+  let val = fixedFormatNumber(formatNumber(inputElement.value));
+  
+  // Update the input value
+  inputElement.value = val;
+
+  // Restore the caret position
+  inputElement.setSelectionRange(caretPosition, caretPosition);
+}
+input.forEach(element => {
+  formatInput(element);
+  document.getElementById(element).addEventListener('keyup', function(){
+    formatInput(element);
+  })
+  document.getElementById(element).addEventListener('blur', function(){
+    formatInput(element);
+  })
+});
+    </script>
     @if (session('success-add'))
         <script>
             alert("Data berhasil ditambah!")

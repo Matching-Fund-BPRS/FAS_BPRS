@@ -39,7 +39,7 @@ Route::group(['middleware'=>'auth'], function(){
         ]);
     })->name('home');
 
-    Route::get('/dashboard/danolisa', [NasabahController::class, 'index']);
+    Route::get('/dashboard/danolisa', [NasabahController::class, 'index'])->name('danolisa');
 
 
     //////////////////////////////////////////////////////////////////////////////
@@ -55,11 +55,17 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard/detaildata/{id}', [NasabahController::class, 'data_nasabah']);
     Route::get('/dashboard/detaildataBU', function () {
         return view('detaildataentryBU', [
-            'nasabah' => null
+            'nasabah' => null,
+            'id'=> null
         ]);
     });
     Route::get('/dashboard/detaildataBU/{id}', [NasabahController::class, 'data_usaha_nasabah']);
     Route::get('/dashboard/detailnota', [NasabahController::class, 'searchNasabah'])->name("search-id");
+    Route::post('/dashboard/detaildataBU/pengurus', [NasabahController::class, 'tambah_pengurus'])->name("tambah_pengurus");
+    Route::post('/dashboard/detaildataBU/pengurus/{id}/edit', [NasabahController::class, 'edit_pengurus']);
+    Route::post('/dashboard/detaildataBU/pengurus/{id}/delete', [NasabahController::class, 'delete_pengurus']);
+
+
 
 
     //////////////////////////////////////////////////////////////////////////////

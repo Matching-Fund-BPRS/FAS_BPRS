@@ -58,7 +58,7 @@
         <div class="grid grid-cols-1 items-center w-full">
             <div>
                 <label for="userid" class="block mb-2 text-xs font-medium text-gray-900">User ID</label>
-                <input name="user_id" value="{{ $nasabah->ID_NASABAH ?? 0 }}" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required>
+                <input name="user_id" value="{{ Auth::user()->name }}" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required>
             </div>
         </div>
 
@@ -596,72 +596,284 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-20">
-                                <tr>
-                                    <td class="px-4 py-4 text-center font-medium w-[5%]">
-                                        1
-                                    </td>
-                                    <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <div>
-                                            <input type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 w-[20%] font-medium whitespace-nowrap">
-                                        <div class= "flex justify-center max-w-md">
-                                            <select id="countries" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2.5">
-                                            <option value="Direktur Utama">Direktur Utama</option>
-                                            <option value="Direktur">Direktur</option>
-                                            <option value="Komisaris Utama">Komisaris Utama</option>
-                                            <option value="Komisaris">Komisaris</option>
-                                            <option value="Pemegang Saham">Permegang Saham</option>
-                                            <option value="Persero Aktif">Persero Aktif</option>
-                                            <option value="Persero Komanditer">Persero Komanditer</option>
-                                            <option value="Ketua Umum">Ketua Umum</option>
-                                            </select>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div>
-                                            <div class="relative max-[15%:" id="tglperm">
-                                                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                                    <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                                                    </svg>
-                                                </div>
-                                                <input datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                @if($id != null)
+                                    @foreach ($pengurus as $index => $item)
+                                    <tr onclick="
+                                    document.getElementById('openPopup{{ $item->ID }}').click()" class="hover:bg-gray-100 cursor-pointer">
+                                    <button type="button" class="hidden" data-modal-target="defaultModal{{ $item->ID }}" data-modal-toggle="defaultModal{{ $item->ID }}" id="openPopup{{ $item->ID }}" ></button>
+                                        <td class="px-4 py-4 text-center font-medium w-[5%]">
+                                            {{ $index + 1 }}
+                                        </td>
+                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                            <div class= "flex justify-center max-w-md">
+                                                {{ $item->NAMA }}
                                             </div>
-                                        </div>
-                                    </td>
+                                        </td>
+                                        <td class="px-4 py-4 w-[20%] font-medium whitespace-nowrap">
+                                            <div class= "flex justify-center max-w-md">
+                                                {{ $item->JABATAN }}
+                                            </div>
+                                        </td>
+                                        <td class="px-4 py-4 whitespace-nowrap">
+                                            <div class= "flex justify-center max-w-md">
+                                                {{ date('d-m-Y', strtotime($item->TGL_LAHIR)) }}
+                                            </div>
+                                        </td>
+    
+                                        <td class="px-4 py-4 whitespace-nowrap">
+                                            <div class= "flex justify-center max-w-md">
+                                                {{ $item->NO_KTP }}
+                                            </div>
+                                        </td>
+    
+                                        <td class="px-4 py-4 whitespace-nowrap">
+                                            <div class= "flex justify-center max-w-md">
+                                                {{ $item->NO_TELP }}
+                                            </div>
+                                        </td>
+                                        
+                                        <td class="px-4 py-4 whitespace-nowrap">
+                                            <div class= "flex justify-center max-w-md">
+                                                {{ $item->SAHAM }}
+                                            </div>
+                                        </td> 
+                                    </tr>
+                                        
+                                    @endforeach
+                                    @else
+                                    <tr>
+                                        <td style="text-align:center" class="px-4 py-4 font-medium whitespace-nowrap">
+                                            Mohon Simpan Data Terlebih Dahulu
+                                        </td>
+                                    </tr>
+                                @endif
 
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div>
-                                            <input type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                                        </div>
-                                    </td>
-
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div>
-                                            <input type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                                        </div>
-                                    </td>
-                                    
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div>
-                                            <input type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                                        </div>
-                                    </td> 
-                                </tr>
 
                             </tbody>
                         </table>
                     </div>
                     <br>
-                    <button type="submit" style="float:right" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Tambah Pengurus</button>
+                    <button type="submit"  data-modal-target="defaultModal" data-modal-toggle="defaultModal" type="button" style="float:right" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Tambah Pengurus</button>
 
                 </div>
             </div>
         </div>
     </section>
     <br>
+    @if($id != null)
+    <div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-sm md:max-w-xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-start justify-between p-4 border-b border-gray-200 rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-bold text-gray-700 dark:text-white">
+                        Tambah Riwayat
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <form action="{{ route('tambah_pengurus') }}" method="POST">
+                    @csrf
+                    <div class="p-4 space-y-4">
+                        <input type="hidden" name="id" value="{{ $nasabah->ID_NASABAH }}">
+                        <div class="grid grid-cols-2 space-x-4">
+                            <div>
+                                <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Nama</label>
+                                <input name="nama" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+        
+                            <div class= "">
+                                <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-gray-900">Jabatan</label>
+                                <input name="jabatan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+                        </div>
+    
+                        <div class="grid grid-cols-2 space-x-4">
+                            <div>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Identitas</label>
+                                <input name="no_ktp" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+        
+                            <div>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon</label>
+                                <input name="no_telp" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 space-x-4">
+                            <div>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Saham</label>
+                                <input name="saham" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+        
+                            <div class="">
+                                <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900 ">Tanggal Lahir</label>
+                                <div class="relative  id="tglperm">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                        </svg>
+                                    </div>
+                                    <input name="tgl_lahir" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                                </div>
+                            </div>
+                        </div>
+    
+                        
+                    </div>
+                                             
+                    <!-- Modal footer -->
+                    <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                        <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+                        <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    @if($pengurus->count() > 0)
+    @foreach ( $pengurus as $fas)
+    <div id="defaultModal{{ $fas->ID }}" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-sm md:max-w-xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-start justify-between p-4 border-b border-gray-200 rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-bold text-gray-700 dark:text-white">
+                        Edit Pengurus
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal{{ $fas->ID }}">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <form action=" /dashboard/detaildataBU/pengurus/{{ $fas->ID }}/edit" method="POST">
+                    @csrf
+                    <div class="p-4 space-y-4">
+                        <input type="hidden" name="id" value="{{ $nasabah->ID_NASABAH }}">
+                        <div class="grid grid-cols-2 space-x-4">
+                            <div>
+                                <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Nama </label>
+                                <input name="nama" value="{{ $fas->NAMA }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+        
+                            <div class= "">
+                                <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-gray-900">Jabatan</label>
+                                <input name="jabatan" value="{{ $fas->JABATAN }}" type="text" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            </div>
+                        </div>
+    
+                        <div class="grid grid-cols-2 space-x-4">
+                            <div>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Identitas</label>
+                                <input name="no_ktp" value="{{ $fas->NO_KTP }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+        
+                            <div>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon</label>
+                                <input name="no_telp" value="{{ $fas->NO_TELP }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 space-x-4">
+                            <div>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Saham</label>
+                                <input name="saham" value="{{ $fas->SAHAM }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                            </div>
+        
+                            <div class="">
+                                <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900 ">Tanggal Lahir</label>
+                                <div class="relative  id="tglperm">
+                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                        </svg>
+                                    </div>
+                                    <input name="tgl_lahir" value="{{ $fas->TGL_LAHIR }}" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                                </div>
+                            </div>
+                        </div>
+                                             
+                    <!-- Modal footer -->
+                    <div class="flex justify-between  p-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+                        <div class="flex items-center space-x-2">
+                            <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+                            <button data-modal-hide="defaultModal{{ $fas->ID }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                        </div>
+                        <div class="">
+                            <button type="button" class="text-white bg-gradient-to-b from-red-400 to-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onclick="document.getElementById('delete_riwayat_{{ $fas->ID }}').submit()">Hapus</button>
+                        </div>
+                    </div>
+                    
+                </form>
+                <form action="/dashboard/detaildataBU/pengurus/{{ $fas->ID }}/delete" method="POST" id="delete_riwayat_{{ $fas->ID }}">
+                    @csrf
+                    </form>
+            </div>
+        </div>
+    </div>    
+    @endforeach
+    @endif
+    @endif
 
 
+    <script >
+        function formatNumber(amount) {
+  if (amount == NaN || amount == ''){
+    return 0;
+  }
+  // Convert the number to a string and remove points
+  const formattedAmount = amount.toString().replace(/\./g, '');
+
+  // Convert the string back to a number
+  const result = parseFloat(formattedAmount);
+
+  return result;
+}
+
+function fixedFormatNumber(amount) {
+  // Convert the number to a string
+  const formattedAmount = amount.toString();
+
+  // Use a regular expression to add a dot after every three digits
+  const result = formattedAmount.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  return result;
+}
+
+let input = [
+  'limit'
+]
+function formatInput(id) {
+  let inputElement = document.getElementById(id);
+  
+  // Save the current caret position
+  let caretPosition = inputElement.selectionStart;
+
+  let val = fixedFormatNumber(formatNumber(inputElement.value));
+  
+  // Update the input value
+  inputElement.value = val;
+
+  // Restore the caret position
+  inputElement.setSelectionRange(caretPosition, caretPosition);
+}
+input.forEach(element => {
+  formatInput(element);
+  document.getElementById(element).addEventListener('keyup', function(){
+    formatInput(element);
+  })
+  document.getElementById(element).addEventListener('blur', function(){
+    formatInput(element);
+  })
+});
+    </script>
 @endsection

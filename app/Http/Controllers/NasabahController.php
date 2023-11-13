@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use App\Models\TNasabah;
-use App\Models\TPengurus;
+use App\Models\TPenguru;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -41,11 +41,13 @@ class NasabahController extends BaseController
     public function index(){
         if(auth()->user()->level == 1){
             return view('danolisa',[
-                'all_nasabah' => TNasabah::all()
+                'all_nasabah' => TNasabah::all(),
+                'nasabah'=> null
             ]);
         }else{
             return view('danolisa',[
-                'all_nasabah' => TNasabah::where('USER_ID', auth()->user()->NAME)->get()
+                'all_nasabah' => TNasabah::where('USER_ID', auth()->user()->NAME)->get(),
+                'nasabah'=> null
             ]);
         }
     }
@@ -59,11 +61,14 @@ class NasabahController extends BaseController
 
     public function data_usaha_nasabah($id){
         return view('detaildataentryBU', [
-            'nasabah' => TNasabah::where('ID_NASABAH', $id)->first()
+            'nasabah' => TNasabah::where('ID_NASABAH', $id)->first(),
+            'pengurus' => TPenguru::where('ID_NASABAH', $id)->get(),
+            'id'=> $id
         ]);
     }
 
     public function tambah_nasabah(Request $request){
+        
         if($request->tgl_berlaku_ktp == "on" || $request->tgl_berlaku_ktp == null){
             $tgl_berlaku_ktp = null;
         }else{
@@ -85,10 +90,12 @@ class NasabahController extends BaseController
             $tgl_anggaran = Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d');
             $tgl_pengurus = Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d');
         }
-
-        if($request->id == "null"){
+        
+        $nextNasabah = TNasabah::max('ID_NASABAH') + 1;
+        $newId = (strlen($nextNasabah) == 8) ? '00' .$nextNasabah : '0' . $nextNasabah;
+        if($request->id == 0){
             TNasabah::insert([
-                'ID_NASABAH' => TNasabah::max('ID_NASABAH') + 1,
+                'ID_NASABAH' => $newId,
                 'ID_CABANG'  => 001, 
                 'NO_SURVEY' => null, 
                 'CIF' => $request->cif,
@@ -96,7 +103,7 @@ class NasabahController extends BaseController
                 'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
                 'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
                 
-                'LIMIT_KREDIT' => $request->limit_kredit,
+                'LIMIT_KREDIT' => str_replace('.','',$request->limit_kredit),
                 'BUNGA' => $request->margin, 
                 'JANGKA_WAKTU' => $request->jangka_waktu,
                 'SIFAT' => $request->sifat,
@@ -159,8 +166,9 @@ class NasabahController extends BaseController
             ]);
     
             return redirect()
-            ->back()
-            ->with('success-add', 'message');
+            ->to('/dashboard/detaildataBU/' . $newId)
+            ->with('success', 'Data Nasabah Berhasil');
+        
         }else{
             TNasabah::where('ID_NASABAH' , $request->id)->update([
                 'ID_CABANG'  => 001, 
@@ -170,7 +178,7 @@ class NasabahController extends BaseController
                 'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
                 'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
                 
-                'LIMIT_KREDIT' => $request->limit_kredit,
+                'LIMIT_KREDIT' => str_replace('.','',$request->limit_kredit),
                 'BUNGA' => $request->margin, 
                 'JANGKA_WAKTU' => $request->jangka_waktu,
                 'SIFAT' => $request->sifat,
@@ -271,7 +279,7 @@ class NasabahController extends BaseController
             'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
             'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
             
-            'LIMIT_KREDIT' => $request->limit_kredit,
+            'LIMIT_KREDIT' => str_replace('.','',$request->limit_kredit),
             'BUNGA' => $request->margin, 
             'JANGKA_WAKTU' => $request->jangka_waktu,
             'SIFAT' => $request->sifat,
@@ -337,4 +345,44 @@ class NasabahController extends BaseController
             ->back()
             ->with('success-edit', 'Data nasabah berhasil diedit!');
     }
+
+    public function tambah_pengurus(Request $request){
+        $pengurus = TPenguru::insert([
+            'ID_NASABAH' => $request->id,
+            'NAMA' => $request->nama,
+            'JABATAN' => $request->jabatan,
+            'NO_TELP' => $request->no_telp,
+            'TGL_LAHIR' => Carbon::createFromFormat('m/d/Y', $request->tgl_lahir)->format('Y-m-d'),
+            'NO_KTP' => $request->no_ktp,
+            'SAHAM' => $request->saham
+        ]);
+
+        return redirect()
+            ->back()
+            ->with('success-edit', 'Data nasabah berhasil diedit!');
+    }
+
+    public function edit_pengurus(Request $request, $id){
+        $pengurus = TPenguru::where('ID', $id)->update([
+            'NAMA' => $request->nama,
+            'JABATAN' => $request->jabatan,
+            'NO_TELP' => $request->no_telp,
+            'TGL_LAHIR' => Carbon::createFromFormat('m/d/Y', $request->tgl_lahir)->format('Y-m-d'),
+            'NO_KTP' => $request->no_ktp,
+            'SAHAM' => $request->saham
+        ]);
+
+        return redirect()
+            ->back()
+            ->with('success-edit', 'Data nasabah berhasil diedit!');
+    }
+    
+    public function delete_pengurus($id){
+        $pengurus = TPenguru::where('ID', $id)->delete();
+        return redirect()
+            ->back()
+            ->with('success-edit', 'Data nasabah berhasil dihapus!');
+    }
+
 }
+
