@@ -570,11 +570,11 @@
                                 document.getElementById('openPopup{{ $data->ID }}').click()" class="hover:bg-gray-100 cursor-pointer">
                             <button type="button" class="hidden" data-modal-target="defaultModal{{ $data->ID }}" data-modal-toggle="defaultModal{{ $data->ID }}" id="openPopup{{ $data->ID }}" ></button>
                             <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->BANK }}</p>
+                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->BANK ?? "-"}}</p>
                             </td>
 
                             <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->JENIS_KREDIT }}</p>
+                                    <p class="text-sm font-normal text-center text-gray-600">{{ $data->JENIS_KREDIT ?? "-"}}</p>
                             </td>
 
                             <td class="px-4 py-4 whitespace-nowrap">
@@ -586,11 +586,15 @@
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
+                                @if($data->TGL_JATUH_TEMPO != null)
                                 <p class="text-sm font-normal text-center text-gray-600">{{ date('d-m-Y', strtotime($data->TGL_JATUH_TEMPO)) }}</p>
+                                @else
+                                <p class="text-sm font-normal text-center text-gray-600">dd/mm/yy</p>
+                                @endif
                             </td>  
 
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->KOL }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->KOL ?? 0 }}</p>
                             </td>
                             
                             <td class="px-4 py-4 whitespace-nowrap">
@@ -598,7 +602,7 @@
                             </td> 
 
                             <td class="px-4 py-4 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->LAMA_TUNGGAKAN }}</p>
+                                <p class="text-sm font-normal text-center text-gray-600">{{ $data->LAMA_TUNGGAKAN ?? 0 }}</p>
                             </td> 
 
                         </tr>
@@ -787,7 +791,11 @@
                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                     </svg>
                                 </div>
+                                @if($fas->TGL_JATUH_TEMPO != null)
                                 <input value="{{ $fas->TGL_JATUH_TEMPO->format('Y-m-d') ?? '' }}" name="tgl_jatuh_tempo" datepicker datepicker-autohide type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                                @else
+                                <input name="tgl_jatuh_tempo" datepicker datepicker-autohide type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                                @endif
                             </div>
                         </div>
                     </div>
