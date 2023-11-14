@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\UserController;
-
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\FasExistController;
 use App\Http\Controllers\AnKuanController;
@@ -64,9 +63,6 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/dashboard/detaildataBU/pengurus', [NasabahController::class, 'tambah_pengurus'])->name("tambah_pengurus");
     Route::post('/dashboard/detaildataBU/pengurus/{id}/edit', [NasabahController::class, 'edit_pengurus']);
     Route::post('/dashboard/detaildataBU/pengurus/{id}/delete', [NasabahController::class, 'delete_pengurus']);
-
-
-
 
     //////////////////////////////////////////////////////////////////////////////
     // fasilitas existing page
