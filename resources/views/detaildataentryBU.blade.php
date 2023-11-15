@@ -90,7 +90,7 @@
                     <div class="">
                         <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
                         <div class="flex flex-row">
-                            <input name="margin" value="{{ $nasabah->BUNGA ?? 0 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <input name="margin" value="{{ $nasabah->BUNGA ?? 1.5 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                             <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                                 % per Bulan
                             </p>
@@ -254,7 +254,7 @@
 
                 <div>
                     <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Nomor Telepon Kantor</label>
-                    <input name="no_kantor" type="text" value="{{ $nasabah->NO_KANTOR ?? 0}}" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>    
+                    <input name="no_kantor" type="text" value="{{ $nasabah->NO_KANTOR ?? 0}}" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">    
                 </div>
             
                 <div class="flex justify-between max-w-md">
@@ -277,7 +277,7 @@
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                 </svg>
                             </div>
-                            <input name="jadi_nasabah_sejak" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                            <input name="menjadi_nasabah_sejak" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
                         </div>
                     </div>
                 
@@ -392,7 +392,7 @@
             </div>
             <div>
                 <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon Kantor</label>
-                <input value="{{ $nasabah->NO_KANTOR ?? 0 }}" name="nomor_telepon_kantor" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <input value="{{ $nasabah->NO_KANTOR ?? 0 }}" name="nomor_telepon_kantor" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
             </div>
         </div>
 

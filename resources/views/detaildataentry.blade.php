@@ -714,7 +714,7 @@
                             <div class="">
                                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
                                 <div class="flex flex-row">
-                                    <input disabled value=1 type="text" id="margin"
+                                    <input disabled value=1.5s type="text" id="margin"
                                         class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 "
                                         required>
                                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
@@ -991,8 +991,7 @@
                                 Istri</label>
                             <input value="{{ $nasabah->NAMA_PASANGAN }}" name="nama_pasangan" type="text"
                                 id="nokan"
-                                class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 "
-                                required>
+                                class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
                         </div>
 
                         <div class="flex justify-between max-w-md">
@@ -1202,8 +1201,7 @@
                     </div>
 
                     <div>
-                        <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Menjadi Nasabah
-                            Sejak</label>
+                        <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Menjadi Nasabah Sejak</label>
                         <div class="relative max-w-[220px]" id="tglperm">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
