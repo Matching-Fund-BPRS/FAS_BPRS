@@ -42,32 +42,32 @@ class SyariahController extends Controller
             ]);
         }
 
-        if($request->jumlah_hutang > 90 ){
+        if($request->jumlah_hutang > 80 ){
             $jumlah_hutang = 1;
         }
         else if($request->jumlah_hutang > 60 ){
             $jumlah_hutang = 2;
         }
-        else if($request->jumlah_hutang > 50 ){
+        else if($request->jumlah_hutang > 40 ){
             $jumlah_hutang = 3;
         }
-        else if($request->jumlah_hutang > 40 ){
+        else if($request->jumlah_hutang > 20 ){
             $jumlah_hutang = 4;
         }
         else {
             $jumlah_hutang = 5;
         }
 
-        if($request->presentase > 90 ){
+        if($request->presentase > 50 ){
             $non_syariah = 1;
         }
-        else if($request->presentase > 60 ){
+        else if($request->presentase > 30 ){
             $non_syariah = 2;
         }
-        else if($request->presentase > 50 ){
+        else if($request->presentase > 20 ){
             $non_syariah = 3;
         }
-        else if($request->presentase > 40 ){
+        else if($request->presentase > 10 ){
             $non_syariah = 4;
         }
         else {

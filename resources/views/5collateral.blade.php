@@ -67,8 +67,18 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format($agunan->SAVE_MARGIN, 0, ',', '.') }}</p>
                                     </td>  
                             @endforeach
-                           
+                                <tr>    
+                                    <td class="px-4 py-4 whitespace-nowrap" colspan="3">
+                                        <p class="text-sm font-bold text-center text-gray-600">Total</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format($agunan_nasabah->sum('NILAI'), 0, ',', '.') }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format($agunan_nasabah->sum('SAVE_MARGIN'), 0, ',', '.') }}</p>
+                                    </td>
                         </tbody>
+
                     </table>
     
                 </div>
@@ -97,16 +107,6 @@
                 </select>
             </div>
 
-            <div class= "min-w-xl">
-                <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Dokumen dan Pengikatan</label>
-                <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                </select>
-            </div>
 
             {{-- <div class= "min-w-xl">
                 <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sertifikasi Klasifikasi</label>
@@ -140,11 +140,11 @@
             </div>
 
             <div class= "min-w-xl">
-                <label for="marketability" class="block mb-2 text-xs font-medium text-gray-900">Marketability</label>
+                <label for="marketability" class="block mb-2 text-xs font-medium text-gray-900">Kemudahan Dijual</label>
                 <select name="marketability" id="marketability" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1"> Cukup Marketable</option>
-                    <option value="2">Marketable</option>
-                    <option value="3">Sangat Marketable</option>
+                    <option value="1"> Cukup mudah dijual</option>
+                    <option value="2">Mudah dijual</option>
+                    <option value="3">Sangat mudah dijual</option>
                 </select>
             </div>
 
@@ -199,16 +199,7 @@
                 </select>
             </div>
 
-            <div class= "min-w-xl">
-                <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Dokumen dan Pengikatan</label>
-                <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 1) selected @endif value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 2) selected @endif value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 3) selected @endif value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 4) selected @endif value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 5) selected @endif value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                </select>
-            </div>
+        
 
         
             <div class= "min-w-xl">
@@ -222,11 +213,11 @@
             </div>
 
             <div class= "min-w-xl">
-                <label for="marketability" class="block mb-2 text-xs font-medium text-gray-900">Marketability</label>
+                <label for="marketability" class="block mb-2 text-xs font-medium text-gray-900">Kemudahan Dijual</label>
                 <select name="marketability" id="marketability" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1" @if($collateral_nasabah->MARKETABILITY == 1) selected @endif> Cukup Marketable</option>
-                    <option value="2" @if($collateral_nasabah->MARKETABILITY == 2) selected @endif>Marketable</option>
-                    <option value="3" @if($collateral_nasabah->MARKETABILITY == 3) selected @endif>Sangat Marketable</option>
+                    <option value="1" @if($collateral_nasabah->MARKETABILITY == 1) selected @endif> Cukup mudah dijual</option>
+                    <option value="2" @if($collateral_nasabah->MARKETABILITY == 2) selected @endif>Mudah dijual</option>
+                    <option value="3" @if($collateral_nasabah->MARKETABILITY == 3) selected @endif>Sangat mudah dijual</option>
                 </select>
             </div>
 

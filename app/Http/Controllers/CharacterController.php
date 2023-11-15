@@ -50,7 +50,7 @@ class CharacterController extends Controller
             'cw_displin' => intval($request->cw_disiplin),
             'cw_janji' => intval($request->cw_janji),
             'pu_integritas' => intval($request->pu_integritas),
-            'pu_account_behaviour' => intval($request->pu_account_behaviour),
+            'pu_account_behavior' => intval($request->pu_account_behavior),
         ]);
 
         $output = $response->json()['data']['percentage'];
