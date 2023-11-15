@@ -394,34 +394,32 @@
                                         return "D";
                                     }
                                     elseif($scoring >= 28 && $scoring < 36){
-                                        return "C-"
+                                        return "C-";
                                     }
                                     elseif($scoring >= 36 && $scoring < 44){
-                                        return "C"
+                                        return "C";
                                     }
                                     elseif($scoring >= 44 && $scoring < 52){
-                                        return "C+"
+                                        return "C+";
                                     }
                                     elseif($scoring >= 52 && $scoring < 60){
-                                        return "B-"
+                                        return "B-";
                                     }
                                     elseif($scoring >= 60 && $scoring < 68){
-                                        return "B"
+                                        return "B";
                                     }
                                     elseif($scoring >= 68 && $scoring < 76){
-                                        return "B+"
+                                        return "B+";
                                     }
                                     elseif($scoring >= 76 && $scoring < 84){
-                                        return "A-"
+                                        return "A-";
                                     }
                                     elseif($scoring >= 84 && $scoring < 92){
-                                        return "A"
+                                        return "A";
                                     }
                                     else{
                                         return "A+";
                                     }
-
-                                    
                                 }
                             @endphp
                             <tr>
@@ -432,7 +430,7 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SCORING ?? 0) *100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ scoring($scoring->SCORING*100 ?? 0) }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600" id="hasil">{{ scoring($scoring->SCORING*100 ?? 0) }}</p>
                                 </td>
                             </tr>
                         </tbody>
