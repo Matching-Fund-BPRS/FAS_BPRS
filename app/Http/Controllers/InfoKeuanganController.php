@@ -13,6 +13,8 @@ use App\Models\TRugilaba;
 class InfoKeuanganController extends Controller
 {
     public function addInfoKeuangan(Request $request){
+        dd($request->all());
+
         $omset = str_replace('.', '', $request->omset);
         $biaya_gaji = str_replace('.', '', $request->biaya_gaji);
         $biaya_bahan_baku = str_replace('.', '', $request->biaya_bahan_baku);

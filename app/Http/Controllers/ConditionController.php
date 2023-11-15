@@ -126,7 +126,7 @@ class ConditionController extends Controller
                 'SCORING' => $scoring
             ]);
         }
-        $result = "-";
+        $result = "Berhasil menambahkan data!";
         $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
         $condition_nasabah = TCondition::where('ID_NASABAH', $request->id)->first();
 

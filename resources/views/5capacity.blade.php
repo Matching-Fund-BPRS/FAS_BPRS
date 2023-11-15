@@ -26,7 +26,7 @@
                 <select name="cb_pengelolaan" id="cb_pengelolaan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     <option value="1">Pengelolaan perusahaan masih sangat tergantung pada pemilik secara individu dan banyak melibatkan keluarga</option>
                     <option value="2">Pengeloalan perusahaan tergantung dengan pengelolaan individu dan tidak melibatkan banyak keluarga</option>
-                    <option value="3">Pengelolan perusahan tidak tergantung dengan individu </option>
+                    <option value="3"> Pengelolan perusahan tidak tergantung dengan individu </option>
                     <option value="4">Pengelolaan perusahaan menggunakan manajemen yang profesional</option>
                     <option value="5">perusahaan dikelola dengan menggunakan tenaga manajemen profesional dan modern</option>
                 </select>
@@ -54,8 +54,8 @@
             <div class= "min-w-xl">
                 <label for="teh_lama_usaha" class="block mb-2 text-xs font-medium text-gray-900">Lama Usaha</label>
                 <select name="teh_lama_usaha" id="teh_lama_usaha" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">2 Tahun</option>
-                    <option value="2">4 Tahun</option>
+                    <option value="1"> < 2 Tahun</option>
+                    <option value="2">2 - 4 Tahun</option>
                     <option value="3"> > 4 Tahun</option>
                 </select>
             </div>
@@ -92,7 +92,7 @@
                 <select name="cb_pengelolaan" id="cb_pengelolaan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     <option @if($capacity_nasabah->CB_PENGELOLAAN == 1) selected @endif value="1"> Pengelolaan perusahaan masih sangat tergantung pada pemilik secara individu dan banyak melibatkan keluarga </option>
                     <option @if($capacity_nasabah->CB_PENGELOLAAN == 2) selected @endif  value="2"> Pengelolaan perusahaan tergantung dengan pengelolaan individu dan tidak melibatkan banyak keluarga </option>
-                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 3) selected @endif  value="3"> Pengelolaan perusahaaan tergantung dengan pengelolaan individu dan melibatkan banyak keluarga </option>
+                    <option @if($capacity_nasabah->CB_PENGELOLAAN == 3) selected @endif  value="3">  Pengelolan perusahan tidak tergantung dengan individu </option>
                     <option @if($capacity_nasabah->CB_PENGELOLAAN == 4) selected @endif  value="4"> Pengelolaan perusahaan menggunakan manajemen yang profesional</option>
                     <option @if($capacity_nasabah->CB_PENGELOLAAN == 5) selected @endif  value="5"> Pengelolaan perusahaaan menggunakan manajemen yang profesional dan modern</option>
                 </select>
@@ -120,8 +120,8 @@
             <div class= "min-w-xl">
                 <label for="teh_lama_usaha" class="block mb-2 text-xs font-medium text-gray-900">Lama Usaha</label>
                 <select name="teh_lama_usaha" id="teh_lama_usaha" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option @if($capacity_nasabah->TEH_LAMA_USAHA == 1) selected @endif value="1">2 Tahun</option>
-                    <option @if($capacity_nasabah->TEH_LAMA_USAHA == 2) selected @endif value="2">4 Tahun</option>
+                    <option @if($capacity_nasabah->TEH_LAMA_USAHA == 1) selected @endif value="1">< 2 Tahun</option>
+                    <option @if($capacity_nasabah->TEH_LAMA_USAHA == 2) selected @endif value="2">2 - 4 Tahun</option>
                     <option @if($capacity_nasabah->TEH_LAMA_USAHA == 3) selected @endif value="3"> > 4 Tahun</option>
                 </select>
             </div>

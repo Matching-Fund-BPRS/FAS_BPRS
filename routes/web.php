@@ -20,6 +20,7 @@ use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\SyariahController;
 use App\Http\Controllers\NeracaController;
+use OpenSpout\Common\Entity\Row;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Route::group(['middleware'=>'auth'], function(){
     })->name('home');
 
     Route::get('/dashboard/danolisa', [NasabahController::class, 'index'])->name('danolisa');
-
+    Route::get('/dashboard/danolisa/json', [NasabahController::class, 'data'])->name('danolisa-json');
 
     //////////////////////////////////////////////////////////////////////////////
     // DATA ENTRY PAGE

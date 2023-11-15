@@ -387,7 +387,7 @@
                             <p class="text-sm font-normal text-center text-gray-600">Modal / Saham</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
-                            <input  name="modal" value="{{ $neraca_nasabah->MODAL ?? 0 }}"  class="text-sm font-normal text-center text-gray-600">
+                            <input readonly name="modal" value="{{ $neraca_nasabah->MODAL ?? 0 }}"  class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">

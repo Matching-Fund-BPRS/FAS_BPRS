@@ -127,7 +127,7 @@ class CapitalController extends Controller
                 'SCORING' => $scoring
             ]);
         }
-        $result = "-";
+        $result = "Berhasil memperbarui data!";
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $capital_nasabah = TCapital::where('ID_NASABAH', $id)->first();
 

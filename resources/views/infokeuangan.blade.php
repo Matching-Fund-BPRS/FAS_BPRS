@@ -36,7 +36,7 @@
             <div>
                 <label for="biaya_transportasi" class="block mb-2 text-xs font-medium text-gray-900">Biaya Transportasi Usaha</label>
                 <input name="biaya_transportasi" type="text" id="biaya_transportasi" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" 
-                value="{{ $info_keuangan_nasabah->BIAYA_TRANSPORTAS ?? 0 }}" required>
+                value="{{ $info_keuangan_nasabah->BIAYA_TRANSPORT ?? 0 }}" required>
             </div>
             <div>
                 <label for="biaya_usaha_lain" class="block mb-2 text-xs font-medium text-gray-900">Biaya Usaha Lain-Lain</label>
@@ -65,7 +65,7 @@
             <div>
                 <label for="biaya_rt_transportasi" class="block mb-2 text-xs font-medium text-gray-900">Biaya Transportasi</label>
                 <input name="biaya_rt_transportasi" type="text" id="biaya_rt_transportasi" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" 
-                value="{{ $info_keuangan_nasabah->BIAYA_RT_TRANSPORTASI ?? 0 }}" required>
+                value="{{ $info_keuangan_nasabah->BIAYA_RT_TRANSPORT ?? 0 }}" required>
             </div>
             <div>
                 <label for="biaya_rt_sekolah" class="block mb-2 text-xs font-medium text-gray-900">Biaya Sekolah</label>

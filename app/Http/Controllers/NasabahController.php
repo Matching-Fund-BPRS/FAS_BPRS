@@ -10,12 +10,15 @@ use App\Models\TPenguru;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-
+use Yajra\DataTables\Facades\DataTables;
 
 class NasabahController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-
+    public function data()
+    {
+        return DataTables::of(TNasabah::query())->toJson();
+    }
     public function searchNasabah(Request $request){
         if($request->has('id')){
             $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();

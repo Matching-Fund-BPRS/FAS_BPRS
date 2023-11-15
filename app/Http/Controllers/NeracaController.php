@@ -93,8 +93,8 @@ class NeracaController extends Controller
         $totalHutang = $hutang_jangka_panjang + $hutang_jangka_pendek;
 
         $dar = -1 * ($totalHutang / $totalAset);
-        $der = -1 * ($totalHutang / $modal);
-        $lder = -1 * ($hutang_jangka_pendek / $modal);
+        $der = -1 * ($totalHutang / ($modal+$totalHutang));
+        $lder = -1 * ($hutang_jangka_panjang / $modal);
 
 
         if($capital != null){
