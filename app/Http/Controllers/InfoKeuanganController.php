@@ -13,7 +13,7 @@ use App\Models\TRugilaba;
 class InfoKeuanganController extends Controller
 {
     public function addInfoKeuangan(Request $request){
-        dd($request->all());
+        
 
         $omset = str_replace('.', '', $request->omset);
         $biaya_gaji = str_replace('.', '', $request->biaya_gaji);
@@ -84,6 +84,7 @@ class InfoKeuanganController extends Controller
                 'BIAYA_LAIN' => $biaya_angsuran_lain
             ]);
         }
+
 
         $hpp = str_replace('.', '', $request->total_biaya);
         $biaya_hidup = str_replace('.', '', $request->total_biaya_rt);
