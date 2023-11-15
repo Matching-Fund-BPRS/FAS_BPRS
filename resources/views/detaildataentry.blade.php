@@ -672,11 +672,10 @@
 
                 <div class="grid grid-cols-1 items-center w-full">
                     <div>
-                        <label for="userid" name="user_id"class="block mb-2 text-xs font-medium text-gray-900">User
-                            ID</label>
-                        <input value={{ $nasabah->ID_NASABAH }} name="id_user" type="text" id="userid"
+                        <label for="userid" name="user_id"class="block mb-2 text-xs font-medium text-gray-900">User ID</label>
+                        <input value={{ auth()->user()->username }} name="id_user" type="text" id="userid"
                             class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light"
-                            disabled placeholder="" required>
+                            readonly placeholder="" required>
                     </div>
                 </div>
 
