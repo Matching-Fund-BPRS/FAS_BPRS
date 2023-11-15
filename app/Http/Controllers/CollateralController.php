@@ -50,7 +50,7 @@ class CollateralController extends Controller
         
         TCollateral::insert([
             'CA_NILAI_AGUNAN' => $request->ca_nilai_agunan,
-            'PA_DOKUMEN' =>$request->pa_dokumen,
+            'PA_DOKUMEN' =>$dokumen,
             'LEG_USAHA' => $request->leg_usaha,
             'PENGIKATAN' => $request->pengikatan,
             'MARKETABILITY' => $request->marketability,
@@ -60,7 +60,7 @@ class CollateralController extends Controller
         ]);
         $response = Http::post('model:8000/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
-            'pa_dokumen' => intval($request->pa_dokumen),
+            'pa_dokumen' => intval($dokumen),
             'leg_usaha' => intval($leg_usaha),
             'pengikatan' => intval($request->pengikatan),
             'marketability' => intval($request->marketability),
