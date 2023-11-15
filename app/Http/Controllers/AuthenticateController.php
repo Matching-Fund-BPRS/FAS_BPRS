@@ -34,15 +34,10 @@ class AuthenticateController extends Controller
     public function register(Request $request){
         $validator = Validator::make($request->all(), [
             'username' => 'required|unique:users',
-            'password' => 'required|min:6', // Minimal 6 karakter
-            'confirm_password' => 'required|same:password', // Harus sama dengan password
+            'password' => 'required',
+            'confirm-password' => 'required|same:password'
         ]);
     
-        if ($validator->fails()) {
-            return redirect('register')
-                        ->withErrors($validator)
-                        ->withInput();
-        }
         User::create([
             'name' => $request->name,
             'username' => $request->username,
