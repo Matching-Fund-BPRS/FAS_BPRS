@@ -103,17 +103,6 @@ class CollateralController extends Controller
     public function update(Request $request, $id){
         $leg_usaha = $request->leg_usaha != 1 ? 1 : 0;
 
-        # def map_dokumen(row):
-#     if row['NILAI'] > row['LIMIT_KREDIT'] and row['PENGIKATAN'] == 3 :
-#         return 5
-#     elif row['NILAI'] == row['LIMIT_KREDIT'] and row['PENGIKATAN'] == 3 :
-#         return 4
-#     elif row['NILAI'] > row['LIMIT_KREDIT'] and row['PENGIKATAN'] == 2 :
-#         return 3
-#     elif row['NILAI'] == row['LIMIT_KREDIT'] and row['PENGIKATAN'] == 2 :
-#         return 2
-#     else:
-#       return 1
         if($request->ca_nilai_agunan == '3' && $request->pengikatan == '3'){
             $dokumen = 5;
         } else if($request->ca_nilai_agunan == '2' && $request->pengikatan == '3'){
