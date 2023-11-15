@@ -388,6 +388,42 @@
                                         <p class="text-sm font-normal text-center text-gray-600">5 %</p>
                                 </td>
                             </tr>
+                            @php
+                                function scoring($scoring){
+                                    if($scoring < 28){
+                                        return "D";
+                                    }
+                                    elseif($scoring >= 28 && $scoring < 36){
+                                        return "C-"
+                                    }
+                                    elseif($scoring >= 36 && $scoring < 44){
+                                        return "C"
+                                    }
+                                    elseif($scoring >= 44 && $scoring < 52){
+                                        return "C+"
+                                    }
+                                    elseif($scoring >= 52 && $scoring < 60){
+                                        return "B-"
+                                    }
+                                    elseif($scoring >= 60 && $scoring < 68){
+                                        return "B"
+                                    }
+                                    elseif($scoring >= 68 && $scoring < 76){
+                                        return "B+"
+                                    }
+                                    elseif($scoring >= 76 && $scoring < 84){
+                                        return "A-"
+                                    }
+                                    elseif($scoring >= 84 && $scoring < 92){
+                                        return "A"
+                                    }
+                                    else{
+                                        return "A+";
+                                    }
+
+                                    
+                                }
+                            @endphp
                             <tr>
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Hasil Akhir</p>
@@ -396,7 +432,7 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SCORING ?? 0) *100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">A+</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">{{ scoring($scoring->SCORING*100 ?? 0) }}</p>
                                 </td>
                             </tr>
                         </tbody>
