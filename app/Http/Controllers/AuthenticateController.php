@@ -35,6 +35,7 @@ class AuthenticateController extends Controller
         $validator = Validator::make($request->all(), [
             'username' => 'required|unique:users',
             'password' => 'required',
+            'confirm-password' => 'required|same:password'
         ]);
     
         User::create([

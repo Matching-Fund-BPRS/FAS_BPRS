@@ -40,6 +40,11 @@
                         <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Password</label>
                         <input name="password" type="password" placeholder="Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
+                    <div>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Confirm Password</label>
+                        <input name="confirm-password" type="password" placeholder="Confirm Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    </div>
+        
         
                     <div class=" items-center flex justify-center">
                         <button type="submit" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Register</button>
