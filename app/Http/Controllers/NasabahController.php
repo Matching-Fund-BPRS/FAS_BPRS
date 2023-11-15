@@ -296,7 +296,7 @@ class NasabahController extends BaseController
             'STATUS_TEMPAT_USAHA'=> $request->status_tempat_usaha,
             'NO_TELP_USAHA' =>$request->no_kantor,
             'JUMLAH_KARY' => $request->jumlah_karyawan,
-            'JADI_NASABAH_SEJAK'=> $request->menjadi_nasabah_sejak,
+            'JADI_NASABAH_SEJAK'=> Carbon::createFromFormat('m/d/Y', $request->menjadi_nasabah_sejak)->format('Y-m-d'),
 
             'NAMA' => $request->nama_debitur,
             'STATUS_PERKAWINAN' => $request->status_perkawinan,
