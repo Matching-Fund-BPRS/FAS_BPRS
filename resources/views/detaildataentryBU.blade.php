@@ -90,7 +90,7 @@
                     <div class="">
                         <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
                         <div class="flex flex-row">
-                            <input name="margin" value="{{ $nasabah->BUNGA ?? 0 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <input name="margin" value="{{ $nasabah->BUNGA ?? 1.5 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                             <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                                 % per Bulan
                             </p>
@@ -254,7 +254,7 @@
 
                 <div>
                     <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Nomor Telepon Kantor</label>
-                    <input name="no_kantor" type="text" value="{{ $nasabah->NO_KANTOR ?? 0}}" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>    
+                    <input name="no_kantor" type="text" value="{{ $nasabah->NO_KANTOR ?? 0}}" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">    
                 </div>
             
                 <div class="flex justify-between max-w-md">
@@ -392,7 +392,7 @@
             </div>
             <div>
                 <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon Kantor</label>
-                <input value="{{ $nasabah->NO_KANTOR ?? 0 }}" name="nomor_telepon_kantor" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <input value="{{ $nasabah->NO_KANTOR ?? 0 }}" name="nomor_telepon_kantor" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
             </div>
         </div>
 
