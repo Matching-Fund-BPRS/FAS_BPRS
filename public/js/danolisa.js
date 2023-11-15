@@ -1,9 +1,5 @@
 let table = new DataTable('#tabel_nasabah');
-new DataTable('#tabel_nasabah', {
-    ajax: '../server_side/scripts/server_processing.php',
-    processing: true,
-    serverSide: true
-});
+
 let tabel = document.getElementById('tabel_nasabah');
 tabel.style.display = '';
 
