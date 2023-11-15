@@ -107,16 +107,6 @@
                 </select>
             </div>
 
-            <div class= "min-w-xl">
-                <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Dokumen dan Pengikatan</label>
-                <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                </select>
-            </div>
 
             {{-- <div class= "min-w-xl">
                 <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sertifikasi Klasifikasi</label>
@@ -209,16 +199,7 @@
                 </select>
             </div>
 
-            <div class= "min-w-xl">
-                <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Dokumen dan Pengikatan</label>
-                <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 1) selected @endif value="1">Dok Lengkap, Nilai Agunan lebih kecil dari limit, diikat dibawah tangan </option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 2) selected @endif value="2">Dok Lengkap, Nilai Agunan sama dengan limit, diikat dibawah tangan</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 3) selected @endif value="3">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat dibawah tangan</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 4) selected @endif value="4">Dok Lengkap, Nilai Agunan sama dengan limit, diikat notarial</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 5) selected @endif value="5">Dok Lengkap, Nilai Agunan lebih besar dari limit, diikat notarial</option>
-                </select>
-            </div>
+        
 
         
             <div class= "min-w-xl">

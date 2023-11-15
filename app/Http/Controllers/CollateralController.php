@@ -36,6 +36,18 @@ class CollateralController extends Controller
         // ambil data dari request terus jadiin JSON terus post ke API
         // ambil response dari API terus masukin di variabel
         $leg_usaha = $request->leg_usaha != 1 ? 1 : 0;
+        if($request->ca_nilai_agunan == '3' && $request->pengikatan == '3'){
+            $dokumen = 5;
+        } else if($request->ca_nilai_agunan == '2' && $request->pengikatan == '3'){
+            $dokumen = 4;
+        } else if($request->ca_nilai_agunan == '3' && $request->pengikatan == '2'){
+            $dokumen = 3;
+        } else if($request->ca_nilai_agunan == '2' && $request->pengikatan == '2'){
+            $dokumen = 2;
+        } else {
+            $dokumen = 1;
+        }
+        
         TCollateral::insert([
             'CA_NILAI_AGUNAN' => $request->ca_nilai_agunan,
             'PA_DOKUMEN' =>$request->pa_dokumen,
@@ -113,7 +125,7 @@ class CollateralController extends Controller
         } else {
             $dokumen = 1;
         }
-
+        
         TCollateral::where('ID_NASABAH', $id)->update([
             'CA_NILAI_AGUNAN' => $request->ca_nilai_agunan,
             'PA_DOKUMEN' =>$dokumen,
