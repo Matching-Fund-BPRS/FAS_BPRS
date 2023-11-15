@@ -17,9 +17,10 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'username'; // jika username digunakan sebagai primary key
     protected $fillable = [
         'name',
-        'email',
+        'username',
         'password',
         'level',
         'isActive'
@@ -41,6 +42,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
+        'username' => 'string',
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];

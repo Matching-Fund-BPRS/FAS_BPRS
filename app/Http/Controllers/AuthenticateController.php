@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class AuthenticateController extends Controller
 {
     public function authenticate(Request $request){
         $credentials = $request->validate([
-            'email' => 'required',
+            'username' => 'required',
             'password'=> 'required'
         ]);
 
@@ -18,7 +20,7 @@ class AuthenticateController extends Controller
             $request->session()->regenerate();
             return redirect()->route('home')->with('message', 'Selamat datang di web BPRS Batimakmur Indah!');
         }else{
-            return redirect()->back()->with('message', 'Login gagal!');
+            return redirect()->back()->with('message-error', 'Login gagal!');
         }
     }
 
@@ -30,11 +32,23 @@ class AuthenticateController extends Controller
     }
 
     public function register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|unique:users',
+            'password' => 'required|min:6', // Minimal 6 karakter
+            'confirm_password' => 'required|same:password', // Harus sama dengan password
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect('register')
+                        ->withErrors($validator)
+                        ->withInput();
+        }
         User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'username' => $request->username,
             'password' => bcrypt($request->password),
             'level' => 0,
+            'isActive' => true
         ]);
 
         return redirect()->route('login')->with('message', 'Daftar berhasil, silakan login!');
