@@ -18,8 +18,9 @@ class LimitKreditController extends Controller
             $angsuran = $nasabah->LIMIT_KREDIT * $nasabah->MARGIN;
         }
         $limit_kredit_nasabah = TLimitKredit::where('ID_NASABAH', $id)->first();
-;
+        $rugi_laba_nasabah = TRugiLaba::where('ID_NASABAH', $id)->first();
         return view('limitkredit', [
+            'rugi_laba_nasabah' => $rugi_laba_nasabah,
             'nasabah' => $nasabah,
             'limit_kredit_nasabah' => $limit_kredit_nasabah,
             'keputusan' => '-'
@@ -44,15 +45,12 @@ class LimitKreditController extends Controller
         $margin = $request->margin;
         $rpc = $request->rpc;
 
-
-
         $dscr = ($omset - $hpp - $total_biaya_ops_nonops - $angsuran_bank_lain + $pendapatan_lain - $biaya_lain) / (($limit_kredit / $jangka_waktu) + ($limit_kredit * ($margin / 100)));
         $income_Sales = ($omset - $hpp) / $omset;
         $ebit_per_interest = ($omset - $hpp - $total_biaya_ops_nonops - $angsuran_bank_lain + $pendapatan_lain - $biaya_lain) / ($limit_kredit * ($margin / 100));
         $biaya_bunga = $limit_kredit * ($margin / 100);
         if($capital != null){
             $capital->update([
-
                 'PK_INCOME_SALES' => $income_Sales,
                 'RPC' => -1* $rpc,
                 'PK_EBIT' => $ebit_per_interest
@@ -94,7 +92,8 @@ class LimitKreditController extends Controller
                'PENDAPATAN_LAIN' => $pendapatan_lain,
                'BIAYA_LAIN' => $biaya_lain,
                'PENYUSUTAN' => $angsuran_bank_lain,
-               'BIAYA_BUNGA' => $biaya_bunga
+               'BIAYA_BUNGA' => $biaya_bunga,
+               'BIAYA_PAJAK' => $request->biaya_pajak,
            ]); 
         }
         else {
@@ -110,7 +109,7 @@ class LimitKreditController extends Controller
                 'BIAYA_TELPON' => 0,
                 'BIAYA_PAM' => 0,
                 'BIAYA_BUNGA' => $biaya_bunga,
-                'BIAYA_PAJAK' => 0,
+                'BIAYA_PAJAK' => $request->biaya_pajak,
                 'SET_ASSET' => 0.05,
                 'SET_BIAYA' => 0.05,
                 'SET_HPP' => 0.75,
@@ -156,9 +155,6 @@ class LimitKreditController extends Controller
         ]);
         return redirect()->back()->with('success-edit', 'message');
         }
-
-
-
         
     }
 
@@ -168,7 +164,7 @@ class LimitKreditController extends Controller
             'JANGKA_WAKTU' => $request->jangka_waktu,
             'OMSET' => $request->omset, 
             'HPP' => $request->hpp,
-            'BIAYA_HIDUP' => null, //gatau drmn
+            'BIAYA_HIDUP' => null, 
             'ANGS_BANK_LAIN' => $request->angsuran_bank_lain,
             'BUNGA_KREDIT' => null, //gatau darimana
             'ANGSURAN' => $request->angsuran,
