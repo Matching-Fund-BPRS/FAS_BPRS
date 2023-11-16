@@ -36,6 +36,9 @@ class CollateralController extends Controller
         // ambil data dari request terus jadiin JSON terus post ke API
         // ambil response dari API terus masukin di variabel
         $leg_usaha = $request->leg_usaha != 1 ? 1 : 0;
+
+        $pa_dokumen = $request->pa_dokumen;
+
         if($request->ca_nilai_agunan == '3' && $request->pengikatan == '3'){
             $dokumen = 5;
         } else if($request->ca_nilai_agunan == '2' && $request->pengikatan == '3'){
