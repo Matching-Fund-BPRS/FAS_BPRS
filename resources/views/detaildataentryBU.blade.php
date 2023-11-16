@@ -365,7 +365,7 @@
         <div class=" max-w-md flex justify-between">
             <div>
                 <label for="tujuanpeng" class="block mb-2 text-xs font-medium text-gray-900">Tempat Lahir</label>
-                <input value="{{ $nasabah->TEMPAT_LAHIR ?? 0 }}"name="tempat_lahir" type="text" id="tujuanpeng" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                <input value="{{ $nasabah->TEMPAT_LAHIR ?? '' }}"name="tempat_lahir" type="text" id="tujuanpeng" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
             </div>
             <div>
                 <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Lahir</label>

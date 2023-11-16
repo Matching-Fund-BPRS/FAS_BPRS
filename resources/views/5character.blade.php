@@ -61,9 +61,9 @@
             <select name="pu_integritas" id="pu_integritas" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                 <option value="1">Tidak jujur dan koperatif</option>
                 <option value="2">Track record cukup baik, relasi sedikit, cukup koperatif </option>
-                <option value="3">Track record baik, Hubungan dengan bowheer baik, kurang koperatif</option>
-                <option value="4">Track record baik, Hubungan dengan bowheer baik, cukup koperatif</option>
-                <option value="5">Track record baik, Hubungan dengan bowheer baik, koperatif</option>
+                <option value="3">Track record baik dan kurang koperatif</option>
+                <option value="4">Track record baik dan cukup koperatif</option>
+                <option value="5">Track record baik dan koperatif</option>
                
             </select>
         </div>
@@ -173,9 +173,9 @@
             <select name="pu_integritas" id="pu_integritas" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                 <option value="1" @if($character_nasabah->PU_INTEGRITAS == 1) selected @endif>Tidak jujur dan koperatif</option>
                 <option value="2" @if($character_nasabah->PU_INTEGRITAS == 2) selected @endif>Track record cukup baik, relasi sedikit, cukup koperatif </option>
-                <option value="3" @if($character_nasabah->PU_INTEGRITAS == 3) selected @endif>Track record baik, Hubungan dengan bowheer baik, kurang koperatif</option>
-                <option value="4" @if($character_nasabah->PU_INTEGRITAS == 4) selected @endif>Track record baik, Hubungan dengan bowheer baik, cukup koperatif</option>
-                <option value="5" @if($character_nasabah->PU_INTEGRITAS == 5) selected @endif>Track record baik, Hubungan dengan bowheer baik, koperatif</option>
+                <option value="3" @if($character_nasabah->PU_INTEGRITAS == 3) selected @endif>Track record baik dan kurang koperatif</option>
+                <option value="4" @if($character_nasabah->PU_INTEGRITAS == 4) selected @endif>Track record baik dan cukup koperatif</option>
+                <option value="5" @if($character_nasabah->PU_INTEGRITAS == 5) selected @endif>Track record baik dan koperatif</option>
                
             </select>
         </div>

@@ -67,7 +67,7 @@
                             @foreach($all_nasabah as $nasabah)
                             <tr onclick="window.location='/dashboard/detailnota?id={{ $nasabah->ID_NASABAH }}';" class="hover:bg-gray-100 cursor-pointer">
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">{{ $nasabah->NO_SURVEY }}</p>
+                                        <p class="text-sm font-bold text-center text-gray-600">{{ $nasabah->ID_NASABAH }}</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
                                     @if($nasabah->CIF != null)
@@ -112,7 +112,7 @@
                                 </td>
                                 
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600">{{ $nasabah->ID_NASABAH }}</p>
+                                    <p class="text-sm font-normal text-center text-gray-600">{{ $nasabah->USER_ID }}</p>
                                 </td>  
                             </tr>
                             @endforeach
