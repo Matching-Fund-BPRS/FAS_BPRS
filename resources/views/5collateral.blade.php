@@ -106,29 +106,14 @@
                     <option value="3">Nilai Jual Agunan melebihi nilai Pembiayaan</option>
                 </select>
             </div>
-
-
-            {{-- <div class= "min-w-xl">
-                <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sertifikasi Klasifikasi</label>
-                <select name="sertifikasi_klasifikasi" id="countries" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="US">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</option>
-                    <option value="CA">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</option>
-                    <option value="FR">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</option>
-                    <option value="US">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</option>
-                </select>
-            </div> --}}
-
-
         
-            {{-- <div class= "min-w-xl">
-                <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Asuransi</label>
-                <select name="asuransi" id="countries" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">Tidak diasuransikan</option>
-                    <option value="2"> Asuransi Jiwa</option>
-                    <option value="3">Asuransi Pembiayaan</option>
-                    <option value="4">Asuransi Jiwa dan Kerugian</option>
+            <div class= "min-w-xl">
+                <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Penilaian Dokumen Agunan</label>
+                <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <option value="1">Dokumen Lengkap</option>
+                    <option value="2">Dokumen Tidak Lengkap</option>
                 </select>
-            </div> --}}
+            </div>
 
             <div class= "min-w-xl">
                 <label for="pengikatan" class="block mb-2 text-xs font-medium text-gray-900">Pengikatan</label>
@@ -200,6 +185,13 @@
             </div>
 
         
+            <div class= "min-w-xl">
+                <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Penilaian Dokumen Agunan</label>
+                <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 1) selected @endif value="1">Dokumen Lengkap</option>
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 2) selected @endif value="2">Dokumen Tidak Lengkap</option>
+                </select>
+            </div>
 
         
             <div class= "min-w-xl">

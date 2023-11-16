@@ -76,11 +76,6 @@
                         <input readonly name="rpc" type="text" id="rpc" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
                 
-
-    
-                    {{-- <p id="keputusan" class="block py-4 text-base font-semibold text-gray-900">
-                        Keputusan : <span class=" text-blue-700">APPROVED</span>
-                    </p> --}}
                 </div>
             
             </section>
@@ -158,8 +153,7 @@
                     
                         <div>
                             <label for="biaya_pajak" class="block mb-2 text-xs font-medium text-gray-900">Biaya Pajak</label>
-                            <input value="0" name="biaya_pajak" type="text" id="biaya_pajak" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5"
-                            value="0" required>
+                            <input value="{{ $rugi_laba_nasabah->BIAYA_PAJAK ?? 0 }}" name="biaya_pajak" type="text" id="biaya_pajak" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                         </div>
                     
                         <div>
