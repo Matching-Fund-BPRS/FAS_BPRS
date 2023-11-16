@@ -53,7 +53,7 @@ class CollateralController extends Controller
         
         TCollateral::insert([
             'CA_NILAI_AGUNAN' => $request->ca_nilai_agunan,
-            'PA_DOKUMEN' =>$dokumen,
+            'PA_DOKUMEN' =>$request->pa_dokumen,
             'LEG_USAHA' => $request->leg_usaha,
             'PENGIKATAN' => $request->pengikatan,
             'MARKETABILITY' => $request->marketability,
