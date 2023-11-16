@@ -75,21 +75,24 @@ function displayInput(){
   let input_bagi_hasil_bank = document.getElementById('input_bagi_hasil_bank')
   let input_bagi_hasil_mudharib = document.getElementById('input_bagi_hasil_mudharib')
   let input_bayar_pokok = document.getElementById('input_bayar_pokok')
-  console.log(jenis_permohonan, input_bagi_hasil_bank, input_bagi_hasil_mudharib, input_bayar_pokok)
+  input_bagi_hasil_bank.style.display = 'none';
+  input_bagi_hasil_mudharib.style.display = 'none';
+  input_bayar_pokok.style.display = 'none';
+
   if (jenis_permohonan == 2 || jenis_permohonan == 3){
+    input_bagi_hasil_bank.style.display = 'block';
+    input_bagi_hasil_mudharib.style.display = 'block';
+    input_bayar_pokok.style.display = 'block';
+  }else{
     input_bagi_hasil_bank.style.display = 'none';
     input_bagi_hasil_mudharib.style.display = 'none';
     input_bayar_pokok.style.display = 'none';
 
-
-
-  }else{
-    input_bagi_hasil_bank.style.display = 'block';
-    input_bagi_hasil_mudharib.style.display = 'block';
-    input_bayar_pokok.style.display = 'block';
   }
 }
-
+document.getElementById('input_bagi_hasil_bank').addEventListener('keyup', () => {
+  document.getElementsByName('bagi_hasil_mudharib')[0].value = 100 - parseInt(document.getElementsByName('bagi_hasil_bank')[0].value);
+})
 document.getElementsByName('sifat')[0].addEventListener('change', () => {
   displayInput();
 })

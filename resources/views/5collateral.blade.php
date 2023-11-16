@@ -442,7 +442,7 @@
 
                         <div>
                             <label for="safety_margin" class="block mb-2 text-xs font-medium text-gray-900">Safety Margin</label>
-                            <input name="safety_margin" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <input name="safety_margin" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly>
                         </div>
                     </div>
 
@@ -651,7 +651,7 @@
 
                         <div>
                             <label for="safety_margin" class="block mb-2 text-xs font-medium text-gray-900">Safety Margin</label>
-                            <input value="{{ $agunan->SAVE_MARGIN }}" name="safety_margin" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <input value="{{ $agunan->SAVE_MARGIN }}" name="safety_margin" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" readonly>
                         </div>
                     </div>
 

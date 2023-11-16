@@ -26,7 +26,7 @@ const noDepInput = document.querySelectorAll('[name="no_dep"]');
 const depBankInput = document.querySelectorAll('[name="dep_bank"]');
 
 
-
+let bobot = 0.8;
 
 function hideAll() {
   const inputElements = [
@@ -111,7 +111,7 @@ function showForm (index) {
     showElement(buktiMilikInput, ketInput, nilaiInput, safetyMarginInput, jenisPengikatanInput, asuransiInput);
 
   }
-
+  countsafety_margin(index);
   console.log(jenisInput[index].value);
 
 }
@@ -149,7 +149,7 @@ function fixedFormatNumber(amount) {
 
 let input = [
   'nilai',
-  'safety_margin'
+  'safety_margin',
 ]
 
 function formatInput(name) {
@@ -167,12 +167,32 @@ function formatInput(name) {
   // Save the current caret position
   })
 }
-input.forEach(element => {
-  console.log(element)
+
+
+input.forEach((element,index) => {
   formatInput(element);
+  countsafety_margin(index);
   document.getElementsByName(element)[0].addEventListener('input', function() {
     formatInput(element);
+    countsafety_margin(index);
   })
 });
 
+function countsafety_margin (index) {
+  jenis = document.getElementsByName('jenis')[index].value
+    bobot = 0;
+    if (jenis == 1 || jenis == 2) {
+      bobot = 0.8
+    }
+    else if (jenis == 12) {
+      bobot = 1
+    }
+    else if (jenis == 13) {
+      bobot = 0.9
+    }
+    else {
+      bobot=0.6
+    }
+    document.getElementsByName('safety_margin')[index].value =  fixedFormatNumber(formatNumber(document.getElementsByName('nilai')[index].value) * bobot);
+}
 console.log(jenisInput);
