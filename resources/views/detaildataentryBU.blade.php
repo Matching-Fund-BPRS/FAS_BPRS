@@ -168,7 +168,7 @@
             <div class=" w-full my-4 space-y-4">
                 <div>
                     <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nama Badan Usaha</label>
-                    <input name="nama_badan_usaha" value="{{ $nasabah->NAMA_BADAN_USAHA ?? 0}}" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input name="nama_badan_usaha" value="{{ $nasabah->NAMA_BADAN_USAHA ?? ""}}" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                 </div>
             
                 <div class="flex justify-between max-w-md space-x-2 relative">
@@ -303,7 +303,7 @@
 
         <div>
             <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nama Direksi/Keyperson</label>
-            <input value="{{ $nasabah->NAMA ?? 0 }}"name="nama_debitur" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+            <input value="{{ $nasabah->NAMA ?? "" }}"name="nama_debitur" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
         </div>
 
         <div class="flex justify-between space-x-2 max-w-md">
