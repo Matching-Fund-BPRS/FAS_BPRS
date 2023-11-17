@@ -54,9 +54,10 @@ function formatInput(id) {
   
   // Update the input value
   inputElement.value = val;
-
+  
   // Restore the caret position
   inputElement.setSelectionRange(caretPosition, caretPosition);
+
 }
 input.forEach(element => {
   console.log(element)

@@ -12,8 +12,8 @@
                 <label for="cu_pasokan" class="block mb-2 text-xs font-medium text-gray-900">Sertifikasi</label>
                 <select name="sertifikasi" id="cu_pasokan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     @if($syariah_nasabah != null)
-                        <option {{ $syariah_nasabah->SY_SERTIFIKASI_HALAL == 1 ? 'selected' : ''}} value="1"> Tidak menentu </option>
-                        <option {{ $syariah_nasabah->SY_SERTIFIKASI_HALAL == 2 ? 'selected' : ''}} value="2"> Supplier terbatas </option>
+                        <option {{ $syariah_nasabah->SY_SERTIFIKASI_HALAL == 1 ? 'selected' : ''}} value="1"> Memiliki sertifikat halal </option>
+                        <option {{ $syariah_nasabah->SY_SERTIFIKASI_HALAL == 2 ? 'selected' : ''}} value="2"> Tidak memiliki sertifikat halal  </option>
                     @else
                         <option value="1"> Memiliki sertifikat halal </option>
                         <option value="2"> Tidak memiliki sertifikat halal </option>
