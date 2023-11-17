@@ -153,7 +153,7 @@
             
                 <div>
                     <label for="ketpeng" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Keterangan Penggunaan</label>
-                    <textarea name="keterangan_tujuan" value="{{ $nasabah->KET_TUJUAN ?? 0}}" id="ketpeng" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."></textarea>        
+                    <textarea name="keterangan_tujuan" id="ketpeng" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."> {{ $nasabah->KET_TUJUAN ?? "-"}}</textarea>        
                 </div>
             </div>
         </div>
