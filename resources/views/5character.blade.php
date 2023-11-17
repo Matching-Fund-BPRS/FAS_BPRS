@@ -13,7 +13,7 @@
             <label for="cw_tanggung" class="block mb-2 text-xs font-medium text-gray-900">Tanggung Jawab</label>
             <select name="cw_tanggung" id="cw_tanggung" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
 
-                <option value="1">Kurang bertanggun Jawab dan Memiliki Reputasi yang Kurang Baik</option>
+                <option value="1">Kurang bertanggung Jawab dan Memiliki Reputasi yang Kurang Baik</option>
                 <option value="2">Kurang Bertanggung Jawab</option>
                 <option value="3"> Cukup Bertanggung Jawab</option>
                 <option value="4">Bertanggung Jawab</option>

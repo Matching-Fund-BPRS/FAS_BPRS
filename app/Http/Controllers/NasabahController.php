@@ -20,6 +20,7 @@ class NasabahController extends BaseController
         return DataTables::of(TNasabah::query())->toJson();
     }
     public function searchNasabah(Request $request){
+        // dd($request);
         if($request->has('id')){
             $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
             if($nasabah == null){
@@ -177,7 +178,7 @@ class NasabahController extends BaseController
                 'ID_CABANG'  => 001, 
                 'NO_SURVEY' => null, 
                 'CIF' => $request->cif,
-                'USER_ID'=> null,
+                'USER_ID'=> $request->user_id,
                 'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
                 'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
                 
