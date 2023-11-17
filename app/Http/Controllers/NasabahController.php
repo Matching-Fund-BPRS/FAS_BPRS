@@ -20,6 +20,7 @@ class NasabahController extends BaseController
         return DataTables::of(TNasabah::query())->toJson();
     }
     public function searchNasabah(Request $request){
+        // dd($request);
         if($request->has('id')){
             $nasabah = TNasabah::where('ID_NASABAH', $request->id)->first();
             if($nasabah == null){

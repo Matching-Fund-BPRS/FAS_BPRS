@@ -38,8 +38,9 @@ Route::group(['middleware'=>'auth'], function(){
     Route::post('/dashboard/detaildata/{id}/edit', [NasabahController::class, 'edit_data_nasabah'])->name("edit_data_nasabah");
 
     Route::get('/dashboard/detaildata', function () {
-        return view('detaildataentry',[
-            'nasabah' => null
+        return view('detaildataentryBU',[
+            'nasabah' => null,
+            'id' => null,
         ]);
     });
     Route::get('/dashboard/detaildata/{id}', [NasabahController::class, 'data_nasabah']);

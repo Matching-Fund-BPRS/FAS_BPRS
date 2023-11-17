@@ -121,16 +121,18 @@
                         <span class="mx-2 text-sm font-medium">Keluar</span>
                     </a>
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-red-600 hover:text-white" href="#">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                            <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
-                            <path d="M9 12h12l-3 -3"></path>
-                            <path d="M18 15l3 -3"></path>
-                        </svg>
-    
-                        <span class="mx-2 text-sm font-medium">Log Off</span>
-                    </a>
+                    <form action="{{ Route('logout')}}" method="post">
+                        @csrf
+                            <button class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-red-600 hover:text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                                    <path d="M9 12h12l-3 -3"></path>
+                                    <path d="M18 15l3 -3"></path>
+                                </svg>
+                                    <span class="mx-2 text-sm font-medium">Log Off</span>
+                            </button>
+                        </form>
                 </div>
     
             </nav>

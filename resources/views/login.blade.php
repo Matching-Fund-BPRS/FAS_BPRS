@@ -11,11 +11,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.js"></script>
 </head>
 <body>
-
     <form method="post" action="{{ Route('authenticate') }}" class="m-0">
         @csrf
         <div class="h-full w-full flex">
-            <div class="w-96 m-auto">
+            <div class="p-6 w-96 m-auto">
                 <div class="flex justify-center py-4">
                     <img src="{{ asset('img/logo.png') }}" alt="" class="w-auto h-28"> 
                 </div>
