@@ -60,3 +60,62 @@ input.forEach(element => {
     formatInput(element);
   })
 });
+
+let selects = [
+  'sektor_ekonomi_bi',
+  'penggunaan_bi',
+  'golongan_debitur_bi',
+  'sifat_bi',
+  'golongan_penjamin_bi',
+  'tujuan_penggunaan_bi',
+  'golongan_piutang_bi',
+  'sifat_plafond_bi',
+  'sektor_ekonomi_sid',
+  'penggunaan_sid',
+  'pembiayaan_sid',
+]
+
+selects.forEach(element => {
+  setupInputValidation(element, element);
+})
+
+function setupInputValidation(id, name) {
+  let inputElement = document.getElementsByName(name)[0];
+  let dropdownElement = document.getElementById(id);
+  let previousValue = inputElement.value;
+
+  inputElement.addEventListener('focus', function(e) {
+    // Clear the input value when it gains focus
+    inputElement.value = '';
+    // Remove the border-red-500 class when it gains focus
+    inputElement.classList.remove('border-red-500', 'focus:border-red-500');
+  });
+
+  inputElement.addEventListener('blur', function(e) {
+    if (e.target.value === '') {
+      e.target.value = previousValue;
+    }
+  });
+
+  inputElement.addEventListener('input', function(e) {
+    // Check if the value has changed
+    if (e.target.value !== previousValue) {
+      // Do something when the value changes
+      console.log('Value changed:', e.target.value);
+      // Update the previousValue for the next comparison
+      previousValue = e.target.value;
+
+      // Check if the value exists in the options
+      let result = Array.from(dropdownElement.options).find(option => option.value === e.target.value);
+
+      // Toggle classes based on the result
+      if (!result) {
+        inputElement.classList.add('border-red-500', 'focus:border-red-500');
+      } else {
+        inputElement.classList.remove('border-red-500', 'focus:border-red-500');
+      }
+    }
+  });
+}
+
+// Usage example

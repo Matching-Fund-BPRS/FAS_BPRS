@@ -12,7 +12,10 @@ use App\Models\TNasabah;
 
 class FasExistController extends Controller
 {
-
+    function extractTextBeforeHyphen($inputString) {
+        $parts = explode(' - ', $inputString, 2);
+        return isset($parts[0]) ? $parts[0] : '';
+    }
     // TODO
         // ini filter berdasarkan nota(?)
     public function fasIndex($id){ 
@@ -20,8 +23,10 @@ class FasExistController extends Controller
         $ref_bi = ReffSandiBi::all();
         $ref_sid = ReffSandiSid::all();
         $ref_bank = ReffBank::all();
+        $data_bisid_nasabah = TBisid::where('ID_NASABAH', $id)->first();
+        // dd(TBisid::where('ID_NASABAH', $id)->first(),$ref_bank,$ref_sid,$ref_bi,$ref_bi->where('JENIS', '02')->where('SANDI', $data_bisid_nasabah->PENGGUNAAN_BI)->first()->KETERANGAN);
         return view('fasilitasexisting',[
-            'data_bisid_nasabah' => TBisid::where('ID_NASABAH', $id)->first(),
+            'data_bisid_nasabah' => $data_bisid_nasabah,
             'nasabah' => $nasabah,
             'data_fasilitas_existing' => TFa::where('ID_NASABAH', $id)->paginate(5),
             'ref_bi' => $ref_bi,
@@ -33,17 +38,17 @@ class FasExistController extends Controller
     public function tambah_bisid(Request $request){
         TBisid::insert([
             'ID_NASABAH' => $request->id,
-            'SEKTOR_EKONOMI_BI' =>$request->sektor_ekonomi_bi ,
-            'PENGGUNAAN_BI' => $request->penggunaan_bi,
-            'GOL_DEB_BI' => $request->golongan_debitur_bi,
-            'SIFAT_BI' => $request->sifat_bi,
-            'GOL_PENJAMIN_BI' => $request->golongan_penjamin_bi,
-            'TUJUAN_BI' => $request->tujuan_penggunaan_bi,
-            'GOL_PIUTANG_BI' => $request->golongan_piutang_bi,
-            'SIFAT_PLAFOND' => $request->sifat_plafond_bi,
-            'SEK_EKO_SID' => $request->sektor_ekonomi_sid,
-            'PENGGUNAAN_SID' => $request->penggunaan_sid,
-            'PEMBIAYAAN_SID' => $request->pembiayaan_sid, 
+            'SEKTOR_EKONOMI_BI' =>$this->extractTextBeforeHyphen($request->sektor_ekonomi_bi) ,
+            'PENGGUNAAN_BI' => $this->extractTextBeforeHyphen($request->penggunaan_bi) ,
+            'GOL_DEB_BI' => $this->extractTextBeforeHyphen($request->golongan_debitur_bi) ,
+            'SIFAT_BI' => $this->extractTextBeforeHyphen($request->sifat_bi) ,
+            'GOL_PENJAMIN_BI' => $this->extractTextBeforeHyphen($request->golongan_penjamin_bi) ,
+            'TUJUAN_BI' => $this->extractTextBeforeHyphen($request->tujuan_penggunaan_bi) ,
+            'GOL_PIUTANG_BI' => $this->extractTextBeforeHyphen($request->golongan_piutang_bi) ,
+            'SIFAT_PLAFOND' => $this->extractTextBeforeHyphen($request->sifat_plafond_bi) ,
+            'SEK_EKO_SID' => $this->extractTextBeforeHyphen($request->sektor_ekonomi_sid) ,
+            'PENGGUNAAN_SID' => $this->extractTextBeforeHyphen($request->penggunaan_sid) ,
+            'PEMBIAYAAN_SID' => $this->extractTextBeforeHyphen($request->pembiayaan_sid) , 
         ]);
         return redirect()
                 ->back()
@@ -53,17 +58,17 @@ class FasExistController extends Controller
     public function edit_bisid(Request $request, $id){  
         TBisid::where('ID_NASABAH' , $id)->update([
             'ID_NASABAH' => $id,
-            'SEKTOR_EKONOMI_BI' =>$request->sektor_ekonomi_bi ,
-            'PENGGUNAAN_BI' => $request->penggunaan_bi,
-            'GOL_DEB_BI' => $request->golongan_debitur_bi,
-            'SIFAT_BI' => $request->sifat_bi,
-            'GOL_PENJAMIN_BI' => $request->golongan_penjamin_bi,
-            'TUJUAN_BI' => $request->tujuan_penggunaan_bi,
-            'GOL_PIUTANG_BI' => $request->golongan_piutang_bi,
-            'SIFAT_PLAFOND' => $request->sifat_plafond_bi,
-            'SEK_EKO_SID' => $request->sektor_ekonomi_sid,
-            'PENGGUNAAN_SID' => $request->penggunaan_sid,
-            'PEMBIAYAAN_SID' => $request->pembiayaan_sid, 
+            'SEKTOR_EKONOMI_BI' => $this->extractTextBeforeHyphen($request->sektor_ekonomi_bi ) ,
+            'PENGGUNAAN_BI' => $this->extractTextBeforeHyphen( $request->penggunaan_bi) ,
+            'GOL_DEB_BI' => $this->extractTextBeforeHyphen( $request->golongan_debitur_bi) ,
+            'SIFAT_BI' => $this->extractTextBeforeHyphen( $request->sifat_bi) ,
+            'GOL_PENJAMIN_BI' => $this->extractTextBeforeHyphen( $request->golongan_penjamin_bi) ,
+            'TUJUAN_BI' => $this->extractTextBeforeHyphen( $request->tujuan_penggunaan_bi) ,
+            'GOL_PIUTANG_BI' => $this->extractTextBeforeHyphen( $request->golongan_piutang_bi) ,
+            'SIFAT_PLAFOND' => $this->extractTextBeforeHyphen( $request->sifat_plafond_bi) ,
+            'SEK_EKO_SID' => $this->extractTextBeforeHyphen( $request->sektor_ekonomi_sid) ,
+            'PENGGUNAAN_SID' => $this->extractTextBeforeHyphen( $request->penggunaan_sid) ,
+            'PEMBIAYAAN_SID' => $this->extractTextBeforeHyphen( $request->pembiayaan_sid) , 
         ]);
         return redirect()->back()->with('success-edit', 'message');
     }
