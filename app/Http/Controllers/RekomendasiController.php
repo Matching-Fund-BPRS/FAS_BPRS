@@ -10,6 +10,12 @@ use App\Models\TScoring;
 
 class RekomendasiController extends Controller
 {
+    function PMT($interest,$num_of_payments,$PV,$FV = 0.00, $Type = 0){
+        $xp=pow((1+$interest),$num_of_payments);
+        return
+            ($PV* $interest*$xp/($xp-1)+$interest/($xp-1)*$FV)*
+            ($Type==0 ? 1 : 1/($interest+1));
+    }
     //TODO
     //Tangkap data dari view
     public function addRekomendasi(Request $request){
@@ -44,22 +50,37 @@ class RekomendasiController extends Controller
             'BASIL_DEB' => $request->bagi_hasil_mudharib,
         ]);
 
-        $TAngsuran = TAngsuran::where('ID_NASABAH', $request->id)->get();
-        foreach ($TAngsuran as $angsuran) {
-            $angsuran->delete();
+        if($request->tipe_angsuran == 1){
+            $TAngsuran = TAngsuran::where('ID_NASABAH', $request->id)->get();
+            foreach ($TAngsuran as $angsuran) {
+                $angsuran->delete();
+            }
+            $angsuran = round($plafond / $request->jangka_waktu);
+
+            for ($i=0; $i < $request->jangka_waktu ; $i++) { 
+                TAngsuran::insert([
+                    'ID_NASABAH' => $request->id,
+                    'NO_ANGSURAN' => $i+1,
+                    'POKOK_PINJAMAN' => $plafond - ($angsuran * $i),
+                    'ANGS_POKOK' => $angsuran,
+                    'ANGS_BUNGA' => $plafond * $request->margin / 100
+                ]);
+            }
+        }
+        else{
+            $pmt_angsuran = $this->PMT($request->margin / 100, $request->jangka_waktu, $plafond);
+            dd($pmt_angsuran);
+            $TAngsuran = TAngsuran::where('ID_NASABAH', $request->id)->get();
+            foreach ($TAngsuran as $angsuran) {
+                $angsuran->delete();
+            }
+
+
         }
 
-        $angsuran = round($plafond / $request->jangka_waktu);
+        
 
-        for ($i=0; $i < $request->jangka_waktu ; $i++) { 
-            TAngsuran::insert([
-                'ID_NASABAH' => $request->id,
-                'NO_ANGSURAN' => $i+1,
-                'POKOK_PINJAMAN' => $plafond - ($angsuran * $i),
-                'ANGS_POKOK' => $angsuran,
-                'ANGS_BUNGA' => $plafond * $request->margin / 100
-            ]);
-        }
+        
         return redirect()->back()->with('success-add', 'message');;
     }
 
@@ -93,24 +114,45 @@ class RekomendasiController extends Controller
             'BASIL_BANK' => $request->bagi_hasil_bank,
             'BASIL_DEB' => $request->bagi_hasil_mudharib,
         ]);
+        if($request->tipe_angsuran == 1){
+            $TAngsuran = TAngsuran::where('ID_NASABAH', $request->id)->get();
+            foreach ($TAngsuran as $angsuran) {
+                $angsuran->delete();
+            }
+            $angsuran = round($plafond / $request->jangka_waktu);
 
-        $TAngsuran = TAngsuran::where('ID_NASABAH', $request->id)->get();
-        foreach ($TAngsuran as $angsuran) {
-            $angsuran->delete();
+            for ($i=0; $i < $request->jangka_waktu ; $i++) { 
+                TAngsuran::insert([
+                    'ID_NASABAH' => $request->id,
+                    'NO_ANGSURAN' => $i+1,
+                    'POKOK_PINJAMAN' => $plafond - ($angsuran * $i),
+                    'ANGS_POKOK' => $angsuran,
+                    'ANGS_BUNGA' => $plafond * $request->margin / 100
+                ]);
+            }
         }
+        else{
+            $TAngsuran = TAngsuran::where('ID_NASABAH', $request->id)->get();
+            foreach ($TAngsuran as $angsuran) {
+                $angsuran->delete();
+            }
+            $pmt_angsuran = $this->PMT($request->margin / 100, $request->jangka_waktu, $plafond);
+            $pokok = $plafond;
+            for ($i=0; $i < $request->jangka_waktu ; $i++) {
+                $bunga = $pokok * $request->margin / 100;
+                $angs_pokok = $pmt_angsuran - $bunga;
+                TAngsuran::insert([
+                    'ID_NASABAH' => $request->id,
+                    'NO_ANGSURAN' => $i+1,
+                    'POKOK_PINJAMAN' => $pokok,
+                    'ANGS_POKOK' => $angs_pokok,
+                    'ANGS_BUNGA' => $bunga
+                ]);
+                $pokok = $pokok - $angs_pokok;
+            }
 
-        $angsuran = round($plafond / $request->jangka_waktu);
 
-        for ($i=0; $i < $request->jangka_waktu ; $i++) { 
-            TAngsuran::insert([
-                'ID_NASABAH' => $request->id,
-                'NO_ANGSURAN' => $i+1,
-                'POKOK_PINJAMAN' => $plafond - ($angsuran * $i),
-                'ANGS_POKOK' => $angsuran,
-                'ANGS_BUNGA' => $plafond * $request->margin / 100
-            ]);
-        }
-        return redirect()->back()->with('success-edit', 'message');;
+        }return redirect()->back()->with('success-edit', 'message');;
     }
     
     public function index($id){

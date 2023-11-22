@@ -43,7 +43,14 @@
                 <option value="3" {{ $nasabah->TUJUAN == 3 ? 'selected' : '' }}>Konsumsi</option>
             </select>
         </div>
-
+        <div>
+            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Tipe Angsuran</label>
+           
+            <select name="tipe_angsuran" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="1" >Flat</option>
+                <option value="2" >Menurun</option>
+            </select>
+        </div>
         <div class="grid grid-cols-2 max-w-md space-x-4">
             <div class="">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
@@ -92,7 +99,7 @@
             <div class="">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Total / Bulan</label>
                 <div class="flex flex-row">
-                    <input name="angsuran_bulan" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input name="angsuran_bulan" readonly type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         
                     </p>
@@ -109,7 +116,16 @@
                 </div>
             </div>
         </div>
-
+        <div class="flex space-x-4">
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Pokok</label>
+                <input name="angsuran_pokok" readonly type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Bunga</label>
+                <input name="angsuran_bunga" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+        </div>
         <div class="flex space-x-4">
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Provisi</label>
@@ -188,6 +204,14 @@
                 <option value="3" {{ $rekomendasi_nasabah->TUJUAN == 3 ? 'selected' : '' }}>Konsumsi</option>
             </select>
         </div>
+        <div>
+            <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Tipe Angsuran</label>
+           
+            <select name="tipe_angsuran" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <option value="1" >Flat</option>
+                <option value="2" >Menurun</option>
+            </select>
+        </div>
 
         <div class="grid grid-cols-2 max-w-md space-x-4">
             <div class="">
@@ -237,7 +261,7 @@
             <div class="">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Total / Bulan</label>
                 <div class="flex flex-row">
-                    <input value="{{ $rekomendasi_nasabah->ANGSURAN }}" name="angsuran_bulan" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input value="{{ $rekomendasi_nasabah->ANGSURAN }}" name="angsuran_bulan" readonly type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         
                     </p>
@@ -254,7 +278,16 @@
                 </div>
             </div>
         </div>
-
+        <div class="flex space-x-4">
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Pokok</label>
+                <input name="angsuran_pokok" readonly value="{{ intval($rekomendasi_nasabah->LIMIT_KREDIT / $rekomendasi_nasabah->JANGKA_WAKTU) }}" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+            <div>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Bunga</label>
+                <input name="angsuran_bunga" value="{{ intval($rekomendasi_nasabah->LIMIT_KREDIT * $rekomendasi_nasabah->BUNGA / 100) }}" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+            </div>
+        </div>
         <div class="flex space-x-4">
             <div>
                 <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Provisi</label>
@@ -388,40 +421,6 @@
                                         <p class="text-sm font-normal text-center text-gray-600">5 %</p>
                                 </td>
                             </tr>
-                            @php
-                                function scoring($scoring){
-                                    if($scoring < 28){
-                                        return "D";
-                                    }
-                                    elseif($scoring >= 28 && $scoring < 36){
-                                        return "C-";
-                                    }
-                                    elseif($scoring >= 36 && $scoring < 44){
-                                        return "C";
-                                    }
-                                    elseif($scoring >= 44 && $scoring < 52){
-                                        return "C+";
-                                    }
-                                    elseif($scoring >= 52 && $scoring < 60){
-                                        return "B-";
-                                    }
-                                    elseif($scoring >= 60 && $scoring < 68){
-                                        return "B";
-                                    }
-                                    elseif($scoring >= 68 && $scoring < 76){
-                                        return "B+";
-                                    }
-                                    elseif($scoring >= 76 && $scoring < 84){
-                                        return "A-";
-                                    }
-                                    elseif($scoring >= 84 && $scoring < 92){
-                                        return "A";
-                                    }
-                                    else{
-                                        return "A+";
-                                    }
-                                }
-                            @endphp
                             <tr>
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Hasil Akhir</p>
@@ -430,9 +429,41 @@
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SCORING ?? 0) *100 , 2). ' %' }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600" id="hasil">{{ scoring($scoring->SCORING*100 ?? 0) }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600" id="hasil"></p>
                                 </td>
                             </tr>
+                            <script>
+                                let hasil = document.getElementById('hasil');
+                                let scoringValue = {{ number_format(($scoring->SCORING ?? 0) * 100, 2) ?? 0 }};
+                                hasil.innerHTML = get_score(scoringValue);
+                            
+                                function get_score(scoring) {
+                                    console.log(scoring);
+                            
+                                    if (scoring < 28) {
+                                        return "D";
+                                    } else if (scoring >= 28 && scoring < 36) {
+                                        return "C-";
+                                    } else if (scoring >= 36 && scoring < 44) {
+                                        return "C";
+                                    } else if (scoring >= 44 && scoring < 52) {
+                                        return "C+";
+                                    } else if (scoring >= 52 && scoring < 60) {
+                                        return "B-";
+                                    } else if (scoring >= 60 && scoring < 68) {
+                                        return "B";
+                                    } else if (scoring >= 68 && scoring < 76) {
+                                        return "B+";
+                                    } else if (scoring >= 76 && scoring < 84) {
+                                        return "A-";
+                                    } else if (scoring >= 84 && scoring < 92) {
+                                        return "A";
+                                    } else {
+                                        return "A+";
+                                    }
+                                }
+                            </script>
+                            
                         </tbody>
                     </table>
                 </div>

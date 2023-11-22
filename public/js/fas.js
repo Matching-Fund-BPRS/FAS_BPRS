@@ -28,18 +28,29 @@ let input = [
 ]
 
 function formatInput(name) {
-  let inputElement = document.querySelectorAll(`[name="${name}"]`);
+  let inputElements = document.querySelectorAll(`[name="${name}"]`);
   
-  inputElement.forEach((element) => {
-    let caretPosition = element.selectionStart;
-    val = fixedFormatNumber(formatNumber(element.value));
-  
-    // Update the input value
-    element.value = val;
-  
-    // Restore the caret position
-    element.setSelectionRange(caretPosition, caretPosition);
-  // Save the current caret position
+  inputElements.forEach((inputElement) => {
+    // Save the current caret position
+  let caretPosition = inputElement.selectionStart;
+
+  // Get the original value before formatting
+  let originalValue = inputElement.value;
+
+  // Format the number
+  let formattedValue = fixedFormatNumber(formatNumber(originalValue));
+
+  // Calculate the difference in length between the original and formatted values
+  let lengthDiff = formattedValue.length - originalValue.length;
+
+  // Adjust the caret position
+  let newCaretPosition = caretPosition + lengthDiff;
+
+  // Update the input value
+  inputElement.value = formattedValue;
+
+  // Restore the caret position
+  inputElement.setSelectionRange(newCaretPosition, newCaretPosition);
   })
 }
 input.forEach(element => {

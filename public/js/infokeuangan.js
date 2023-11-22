@@ -47,22 +47,32 @@ let input = [
 function formatInput(id) {
   let inputElement = document.getElementById(id);
   
-  // Save the current caret position
-  let caretPosition = inputElement.selectionStart;
+ // Save the current caret position
+ let caretPosition = inputElement.selectionStart;
 
-  let val = fixedFormatNumber(formatNumber(inputElement.value));
-  
-  // Update the input value
-  inputElement.value = val;
-  
-  // Restore the caret position
-  inputElement.setSelectionRange(caretPosition, caretPosition);
+ // Get the original value before formatting
+ let originalValue = inputElement.value;
+
+ // Format the number
+ let formattedValue = fixedFormatNumber(formatNumber(originalValue));
+
+ // Calculate the difference in length between the original and formatted values
+ let lengthDiff = formattedValue.length - originalValue.length;
+
+ // Adjust the caret position
+ let newCaretPosition = caretPosition + lengthDiff;
+
+ // Update the input value
+ inputElement.value = formattedValue;
+
+ // Restore the caret position
+ inputElement.setSelectionRange(newCaretPosition, newCaretPosition);
 
 }
 input.forEach(element => {
   console.log(element)
   formatInput(element);
-  document.getElementById(element).addEventListener('keyup', function(){
+  document.getElementById(element).addEventListener('keydown', function(){
     formatInput(element);
   })
 });

@@ -30,20 +30,32 @@ let input = [
   'biaya_asuransi',
   'biaya_materai',
   'biaya_lainnya',
+  'angsuran_pokok',
+  'angsuran_bunga',
  ]
  function formatInput(id) {
   let inputElement = document.getElementsByName(id)[0];
-  
+
   // Save the current caret position
   let caretPosition = inputElement.selectionStart;
 
-  let val = fixedFormatNumber(formatNumber(inputElement.value));
-  
+  // Get the original value before formatting
+  let originalValue = inputElement.value;
+
+  // Format the number
+  let formattedValue = fixedFormatNumber(formatNumber(originalValue));
+
+  // Calculate the difference in length between the original and formatted values
+  let lengthDiff = formattedValue.length - originalValue.length;
+
+  // Adjust the caret position
+  let newCaretPosition = caretPosition + lengthDiff;
+
   // Update the input value
-  inputElement.value = val;
+  inputElement.value = formattedValue;
 
   // Restore the caret position
-  inputElement.setSelectionRange(caretPosition, caretPosition);
+  inputElement.setSelectionRange(newCaretPosition, newCaretPosition);
 }
  input.forEach(element => {
    formatInput(element);
@@ -56,10 +68,20 @@ let input = [
   let plafondValue = formatNumber(document.getElementsByName('plafond')[0].value)||0;
   let marginValue = parseFloat(document.getElementsByName('margin')[0].value)||0;
   let jangkaWaktuValue = parseFloat(document.getElementsByName('jangka_waktu')[0].value)||0;
-
-  let angsuran = Math.round(plafondValue / jangkaWaktuValue) + (plafondValue * marginValue / 100);
+  if (document.getElementsByName('tipe_angsuran')[0].value == 1){
+    let angsuran = parseInt(Math.round(plafondValue / jangkaWaktuValue) + (plafondValue * marginValue / 100));
 
   document.getElementsByName('angsuran_bulan')[0].value = fixedFormatNumber(angsuran);
+  }
+  else{
+    let angsuran_pmt = pmt(
+      marginValue/100,
+      jangkaWaktuValue,
+      plafondValue,
+    )
+    document.getElementsByName('angsuran_bulan')[0].value = fixedFormatNumber(parseInt(angsuran_pmt));
+  }
+  
 }
 rekomendasiCount()
 let rekomendasiForm = document.getElementById('rekomendasi_form');
@@ -96,3 +118,31 @@ document.getElementById('input_bagi_hasil_bank').addEventListener('keyup', () =>
 document.getElementsByName('sifat')[0].addEventListener('change', () => {
   displayInput();
 })
+document.getElementsByName('angsuran_bunga')[0].addEventListener('keyup', () => {
+  let limit_kredit = document.getElementsByName('plafond')[0];
+  let margin =formatNumber(document.getElementsByName('angsuran_bunga')[0].value)/formatNumber(limit_kredit.value) * 100
+  console.log(margin);
+  document.getElementsByName('margin')[0].value = margin;
+})
+
+document.getElementsByName('tipe_angsuran')[0].addEventListener('change', () => {
+  
+});
+
+
+function pmt(rate_per_period, number_of_payments, present_value, future_value, type){
+  future_value = typeof future_value !== 'undefined' ? future_value : 0;
+  type = typeof type !== 'undefined' ? type : 0;
+
+if(rate_per_period != 0.0){
+  // Interest rate exists
+  var q = Math.pow(1 + rate_per_period, number_of_payments);
+  return (rate_per_period * (future_value + (q * present_value))) / ((-1 + q) * (1 + rate_per_period * (type)));
+
+} else if(number_of_payments != 0.0){
+  // No interest rate, but number of payments exists
+  return (future_value + present_value) / number_of_payments;
+}
+
+return 0;
+}
