@@ -443,7 +443,7 @@
                                         Akta Pendirian    
                                     </td>
                                     <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <input value="{{ $nasabah->NO_PENDIRIAN ?? 0 }}" name="no_pendirian" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input value="{{ $nasabah->NO_PENDIRIAN ?? 0 }}" name="no_pendirian" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
                                     </td>
                                     <td class="px-4 py-4 whitespace-nowrap">
                                         <div>
@@ -479,7 +479,7 @@
                                         Akta Perubahan Anggaran Dasar 
                                     </td>
                                     <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <input value="{{ $nasabah->ANGGARAN ?? 0 }}"name="no_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input value="{{ $nasabah->ANGGARAN ?? 0 }}"name="no_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
                                     </td>
                                     <td class="px-4 py-4 whitespace-nowrap">
                                         <div>
@@ -495,7 +495,7 @@
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input  value="{{ $nasabah->ISI_ANGGARAN ?? 0 }}"name="isi_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input  value="{{ $nasabah->ISI_ANGGARAN ?? 0 }}"name="isi_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">

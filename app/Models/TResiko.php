@@ -14,6 +14,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $ID_NASABAH
  * @property string|null $RESIKO
  * @property string|null $MITIGASI_RESIKO
+ * @property string|null $BADAN_USAHA
+ * @property string|null $USULAN
  * 
  * @property TNasabah $t_nasabah
  *
@@ -28,7 +30,9 @@ class TResiko extends Model
 
 	protected $fillable = [
 		'RESIKO',
-		'MITIGASI_RESIKO'
+		'MITIGASI_RESIKO',
+		'BADAN_USAHA',
+		'USULAN'
 	];
 
 	public function t_nasabah()

@@ -15,9 +15,13 @@ use Yajra\DataTables\Facades\DataTables;
 class NasabahController extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-    public function data()
+    public function data(Request $request)
     {
-        return DataTables::of(TNasabah::query())->toJson();
+        if ($request->ajax()) {
+            $nasabah = TNasabah::all();
+
+            return DataTables::of($nasabah)->addIndexColumn()->make(true);
+        }
     }
     public function searchNasabah(Request $request){
         // dd($request);

@@ -30,7 +30,7 @@ Route::group(['middleware'=>'auth'], function(){
     })->name('home');
 
     Route::get('/dashboard/danolisa', [NasabahController::class, 'index'])->name('danolisa');
-    Route::get('/dashboard/danolisa/json', [NasabahController::class, 'data'])->name('danolisa-json');
+    Route::get('/dashboard/danolisa/data', [NasabahController::class, 'data'])->name('danolisa-data');
 
     //////////////////////////////////////////////////////////////////////////////
     // DATA ENTRY PAGE

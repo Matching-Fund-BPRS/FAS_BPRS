@@ -172,7 +172,9 @@ class CollateralController extends Controller
         TResiko::insert([
             'ID_NASABAH' => $request->id,
             'RESIKO' => $request->resiko,
-            'MITIGASI_RESIKO' => $request->mitigasi_resiko
+            'MITIGASI_RESIKO' => $request->mitigasi_resiko,
+            'BADAN_USAHA' => $request->badan_usaha,
+            'USULAN' => $request->usulan
         ]);
         $output = null;
         $result = "Berhasil menambahkan data resiko!";
@@ -186,7 +188,9 @@ class CollateralController extends Controller
     public function editResiko(Request $request, $id){
         TResiko::where('ID_NASABAH', $id)->update([
             'RESIKO' => $request->resiko,
-            'MITIGASI_RESIKO' => $request->mitigasi_resiko
+            'MITIGASI_RESIKO' => $request->mitigasi_resiko,
+            'BADAN_USAHA' => $request->badan_usaha,
+            'USULAN' => $request->usulan
         ]);
         $output = null;
         $result = "Berhasil memperbarui data resiko!";

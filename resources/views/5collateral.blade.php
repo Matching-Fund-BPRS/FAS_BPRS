@@ -266,6 +266,14 @@
             <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">2. Mitigasi Resiko</label>
             <textarea name="mitigasi_resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Mitigasi Resiko..."></textarea>        
         </div>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">3. Catatan Badan Usaha</label>
+            <textarea name="badan_usaha" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Catatan Badan Usaha"></textarea>        
+        </div>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">4. Catatan Usulan</label>
+            <textarea name="usulan" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Catatan Usulan"></textarea>        
+        </div>
         <div class=" pt-6">
             <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
         </div>  
@@ -285,6 +293,14 @@
         <div>
             <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">2. Mitigasi Resiko</label>
             <textarea name="mitigasi_resiko" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Mitigasi Resiko...">{{ $resiko_nasabah->MITIGASI_RESIKO }}</textarea>        
+        </div>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">3. Catatan Badan Usaha</label>
+            <textarea name="badan_usaha" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Catatan Badan Usaha ...">{{ $resiko_nasabah->BADAN_USAHA }}</textarea>        
+        </div>
+        <div>
+            <label for="ketpeng" class="block mb-2 text-xs font-semibold text-gray-900 dark:text-white">4. Catatan Usulan</label>
+            <textarea name="usulan" id="ketpeng" rows="4" class=" block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Catatan Usulan ...">{{ $resiko_nasabah->USULAN }}</textarea>        
         </div>
         <div class=" pt-6">
             <button type="submit" style="float:right"class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Simpan</button>
