@@ -22,6 +22,17 @@ use App\Http\Controllers\SyariahController;
 use App\Http\Controllers\NeracaController;
 use OpenSpout\Common\Entity\Row;
 
+///KEBUTUHAN FE
+Route::get('/dashboard/pengaturanBI', function(){
+    return view('pengaturanBI');
+})->name('pengaturanBI');
+Route::get('/dashboard/pengaturanSID', function(){
+    return view('pengaturanSID');
+})->name('pengaturanSID');
+Route::get('/dashboard/pengaturanBank', function(){
+    return view('pengaturanBank');
+})->name('pengaturanBank');
+
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', function () {
         return view('dashboard', [
