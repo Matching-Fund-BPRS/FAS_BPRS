@@ -9,8 +9,8 @@
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
                 <div class="overflow-hidden border border-gray-200 md:rounded-lg">
-                    <div class="grid grid-cols-5 border border-gray-200">
-                        <div class="w-32 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
+                        <div class="border w-32 flex border-gray-200">
                             <p class="text-sm font-semibold text-center text-gray-600">No.</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
@@ -20,14 +20,20 @@
                             <p class="text-sm font-semibold text-center text-gray-600">I</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <p class="text-sm font-semibold text-center text-gray-600">Kenaikan %</p>
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <p class="text-sm font-semibold text-center text-gray-600">II</p>
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <p class="text-sm font-semibold text-center text-gray-600">Kenaikan %</p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <p class="text-sm font-semibold text-center text-gray-600">III</p>
                         </div>
                     </div>   
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="col-span-2 border border-gray-200">
                             <p class="text-sm font-semibold text-center text-gray-600">Tanggal</p>
                         </div>
@@ -35,15 +41,22 @@
                             <input type="date" name="tgl_periode" class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto"
                             value="{{ $neraca_nasabah ? $neraca_nasabah->TANGGAL_PERIODE->format('Y-m-d') : date('Y-m-d') }}" required>
                         </td>
+                        <div class="border border-gray-200 flex justify-center">
+                            <p class="text-sm font-semibold text-center text-gray-600"></p>
+                        </div>
+
                         <div class="border border-gray-200 flex justify-center"> 
                             <p class="text-sm font-semibold text-center text-gray-600">06/08/2015</p>
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <p class="text-sm font-semibold text-center text-gray-600">06/08/2015</p>
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="col-span-2 border border-gray-200">
                             <p class="text-sm font-semibold text-center text-gray-600">AKTIVA</p>
                         </div>
@@ -56,9 +69,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600">1.</p>
                         </div >
@@ -74,9 +93,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -87,14 +112,20 @@
                             <input  name="kas" value="{{ $neraca_nasabah->KAS ?? 0 }} " class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_kas_1" class="text-sm font-normal text-center text-gray-600" value="10" >
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_kas_2" class="text-sm font-normal text-center text-gray-600" value="10">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -105,14 +136,20 @@
                             <input  name="piutang_dagang" value="{{ $neraca_nasabah->PIUTANG_DAGANG ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_piutang_dagang_1" class="text-sm font-normal text-center text-gray-600" value="5">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_piutang_dagang_2" class="text-sm font-normal text-center text-gray-600" value="5">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>  
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -122,15 +159,25 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input  name="persediaan" value="{{ $neraca_nasabah->PERSEDIAAN ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
+
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_persediaan_1" class="text-sm font-normal text-center text-gray-600" value="5">
+                        </div>
+                        
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
+
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_persediaan_2" class="text-sm font-normal text-center text-gray-600" value="5">
+                        </div>
+
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>  
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -146,9 +193,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-semibold text-center text-gray-600">2.</p>
                         </div>
@@ -164,9 +217,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -177,14 +236,20 @@
                             <input  name="tanah" value="{{ $neraca_nasabah->TANAH ?? 0 }}"class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_tanah_1" class="text-sm font-normal text-center text-gray-600" value="5">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_tanah_2" class="text-sm font-normal text-center text-gray-600" value="5">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -195,14 +260,20 @@
                             <input  name="gedung" value="{{ $neraca_nasabah->GEDUNG ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_gedung_1" class="text-sm font-normal text-center text-gray-600" value="0">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_gedung_2" class="text-sm font-normal text-center text-gray-600" value="0">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>  
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -213,14 +284,20 @@
                             <input  name="penyusutan_gedung" value="{{ $neraca_nasabah->PENYUSUTAN_GED ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_penyusutan_gedung_1" class="text-sm font-normal text-center text-gray-600" value="5">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_penyusutan_gedung_2" class="text-sm font-normal text-center text-gray-600" value="5">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>  
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-normal text-center text-gray-600"></p>
                         </div>
@@ -231,14 +308,20 @@
                             <input  name="peralatan" value="{{ $neraca_nasabah->PERALATAN ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_peralatan_1" class="text-sm font-normal text-center text-gray-600" value="0">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_peralatan_2" class="text-sm font-normal text-center text-gray-600" value="0">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-normal text-center text-gray-600"></p>
                         </div>
@@ -249,14 +332,20 @@
                             <input  name="penyusutan_peralatan" value="{{ $neraca_nasabah->PENYUSUTAN_PERALATAN ?? 0 }}"class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_penyusutan_peralatan_1" class="text-sm font-normal text-center text-gray-600" value="5">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_penyusutan_peralatan_2" class="text-sm font-normal text-center text-gray-600" value="5">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
                     
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32 ">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -272,9 +361,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class=" col-span-2">
                             <p class="text-sm font-semibold text-center text-gray-600">PASIVA</p>
                         </div>
@@ -287,9 +382,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600">1.</p>
                         </div >
@@ -305,9 +406,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -318,14 +425,20 @@
                             <input  name="hutang_jangka_pendek" value="{{ $neraca_nasabah->HUTANG_JANGKA_PENDEK ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_hutang_jangka_pendek_1" class="text-sm font-normal text-center text-gray-600" value="-25">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_hutang_jangka_pendek_2" class="text-sm font-normal text-center text-gray-600" value="-25">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -336,14 +449,20 @@
                             <input  name="hutang_jangka_panjang" value="{{ $neraca_nasabah->HUTANG_JANGKA_PANJANG ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_hutang_jangka_panjang_1" class="text-sm font-normal text-center text-gray-600" value="-25">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_hutang_jangka_panjang_2" class="text-sm font-normal text-center text-gray-600" value="-25">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -359,9 +478,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled  class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600">1.</p>
                         </div >
@@ -377,9 +502,15 @@
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled  class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -390,14 +521,20 @@
                             <input readonly name="modal" value="{{ $neraca_nasabah->MODAL ?? 0 }}"  class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_modal_1" class="text-sm font-normal text-center text-gray-600" disabled>
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_modal_1" class="text-sm font-normal text-center text-gray-600" disabled>
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -408,14 +545,20 @@
                             <input  name="laba_ditahan" value="{{ $neraca_nasabah->LABA_DITAHAN ?? 0 }}"  class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_laba_ditahan_1" class="text-sm font-normal text-center text-gray-600" value="0">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_laba_ditahan_2" class="text-sm font-normal text-center text-gray-600" value="0">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input class="text-sm font-normal text-center text-gray-600">
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -426,7 +569,13 @@
                             <input  name="laba_berjalan" value="{{ $neraca_nasabah->LABA_BERJALAN ?? 0 }}" class="text-sm font-normal text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_laba_berjalan_1" class="text-sm font-normal text-center text-gray-600" value="0">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input name="kenaikan_laba_berjalan_2" class="text-sm font-normal text-center text-gray-600" value="0">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-normal text-center text-gray-600">
@@ -435,7 +584,7 @@
 
                     
 
-                    <div class="grid grid-cols-5 border border-gray-200">
+                    <div class="grid grid-cols-7 border border-gray-200">
                         <div class="w-32">
                             <p class="text-sm font-semibold text-center text-gray-600"></p>
                         </div>
@@ -444,6 +593,12 @@
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600" name="sub_total_modal">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
+                        </div>
+                        <div class="border border-gray-200 flex justify-center">
+                            <input disabled class="text-sm font-semibold text-center text-gray-600">
                         </div>
                         <div class="border border-gray-200 flex justify-center">
                             <input disabled class="text-sm font-semibold text-center text-gray-600">
