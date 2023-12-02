@@ -20,17 +20,23 @@ use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\SyariahController;
 use App\Http\Controllers\NeracaController;
+use App\Models\ReffBank;
+use App\Models\ReffSandiBi;
+use App\Models\ReffSandiSid;
 use OpenSpout\Common\Entity\Row;
 
 ///KEBUTUHAN FE
 Route::get('/dashboard/pengaturanBI', function(){
-    return view('pengaturanBI');
+    $reff_bi = ReffSandiBi::all();
+    return view('pengaturanBI',compact('reff_bi'));
 })->name('pengaturanBI');
 Route::get('/dashboard/pengaturanSID', function(){
-    return view('pengaturanSID');
+    $reff_sid = ReffSandiSid::all();
+    return view('pengaturanSID',compact('reff_sid'));
 })->name('pengaturanSID');
 Route::get('/dashboard/pengaturanBank', function(){
-    return view('pengaturanBank');
+    $reff_bank = ReffBank::all();
+    return view('pengaturanBank',compact('reff_bank'));
 })->name('pengaturanBank');
 
 Route::group(['middleware'=>'auth'], function(){

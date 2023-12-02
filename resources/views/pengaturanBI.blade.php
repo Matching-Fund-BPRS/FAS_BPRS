@@ -56,41 +56,57 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-20">
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">Sektor Ekonomi</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">1001</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">Pertanian, Kehutanan, dan Sarana Pertanian</p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">Sektor Pertanian</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">1002</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">Pertanian, Kehutanan, dan Sarana Pertanian</p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">Sektor Ekonomi</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">1001</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">Pertanian, Kehutanan, dan Sarana Pertanian</p>
-                                        </td>
-                                    </tr>
+                                    @php
+                                        function getJenis($sandi)
+                                        {
+                                            switch ($sandi) {
+                                                case '01':
+                                                    return 'Sektor Ekonomi';
+                                                    break;
+                                                
+                                                case '02':
+                                                    return 'Penggunaan';
+                                                    break;
+                                                case '03':
+                                                    return 'Golongan Debitur';
+                                                    break;
+                                                case '04':
+                                                    return 'Golongan Penjamain';
+                                                    break;
+                                                case '06':
+                                                    return 'Sifat';
+                                                    break;
+                                                case '09':
+                                                    return 'Tujuan Penggunaan';
+                                                    break;
+                                                case '10':
+                                                    return 'Golongan Piutang';
+                                                    break;
+                                                case '11':
+                                                    return 'Sifat Plafond';
+                                                    break;
+                                                default:
+                                                    return 'Lainnya';
+                                            };
+                                        };
+                                    @endphp
+                                    @foreach ($reff_bi as $ref )
+                                        
+                                        <tr onclick="
+                                            document.getElementById('openPopup-{{ $ref->JENIS }}-{{ $ref->SANDI }}').click()
+                                            " class="cursor-pointer" >
+                                            <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                                    <p class="text-sm font-semibold text-center text-gray-600">{{getJenis($ref->JENIS)}}</p>
+                                            </td>
+                                            <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                                    <p class="text-sm font-normal text-center text-gray-600">{{$ref->SANDI}}</p>
+                                            </td>
+                                            <td class="px-4 py-4 whitespace-nowrap">
+                                                    <p class="text-sm font-normal text-center text-gray-600">{{$ref->KETERANGAN}}</p>
+                                            </td>
+                                        </tr>
+                                    
+                                    @endforeach
                                     
                                 </tbody>
                             </table>
@@ -109,7 +125,59 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
   
   <!-- Main modal -->
   <div id="defaultModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <div class="relative p-4 w-96 max-w-2xl max-h-full">
+    <form class="relative p-4 w-96 max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    Tambah Ref
+                </h3>
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-4 md:p-5 space-y-4">
+              <div>
+                  <label for="" class="block mb-2 text-xs font-medium text-gray-900">Jenis</label>
+                  <select name="jenis" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                      <option value="01">Sektor Ekonomi</option>
+                      <option value="02">Penggunaan</option>
+                      <option value="03">Golongan Debitur</option>
+                      <option value="04">Golongan Penjamain</option>
+                      <option value="06">Sifat</option>
+                      <option value="09">Tujuan Penggunaan</option>
+                      <option value="10">Golongan Piutang</option>
+                      <option value="11">Sifat Plafond</option>
+                  </select>
+              </div>
+              <div>
+                  <label for="" class="block mb-2 text-xs font-medium text-gray-900">Sandi</label>
+                  <input name="sandi" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+              </div>
+              <div>
+                  <label for="" class="block mb-2 text-xs font-medium text-gray-900">Keterangan</label>
+                  <input name="keterangan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+              </div>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+                <button data-modal-hide="defaultModal" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+            </div>
+        </div>
+      </form>
+</div>
+
+@foreach ( $reff_bi as $ref)
+  <button type="button" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 hidden" data-modal-target="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}" data-modal-toggle="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}" id="openPopup-{{ $ref->JENIS }}-{{ $ref->SANDI }}"></button>
+
+  <div id="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+      <form class="relative p-4 w-96 max-w-2xl max-h-full">
           <!-- Modal content -->
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
               <!-- Modal header -->
@@ -117,7 +185,7 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                   <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                       Tambah Ref
                   </h3>
-                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}">
                       <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                       </svg>
@@ -128,25 +196,35 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
               <div class="p-4 md:p-5 space-y-4">
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Jenis</label>
-                    <input name="" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <select name="jenis" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        <option value="01" {{ $ref->JENIS == '01' ? 'selected' : '' }}>Sektor Ekonomi</option>
+                        <option value="02" {{ $ref->JENIS == '02' ? 'selected' : '' }}>Penggunaan</option>
+                        <option value="03" {{ $ref->JENIS == '03' ? 'selected' : '' }}>Golongan Debitur</option>
+                        <option value="04" {{ $ref->JENIS == '04' ? 'selected' : '' }}>Golongan Penjamain</option>
+                        <option value="06" {{ $ref->JENIS == '06' ? 'selected' : '' }}>Sifat</option>
+                        <option value="09" {{ $ref->JENIS == '09' ? 'selected' : '' }}>Tujuan Penggunaan</option>
+                        <option value="10" {{ $ref->JENIS == '10' ? 'selected' : '' }}>Golongan Piutang</option>
+                        <option value="11" {{ $ref->JENIS == '11' ? 'selected' : '' }}>Sifat Plafond</option>
+
+                    </select>
                 </div>
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Sandi</label>
-                    <input name="" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="sandi" value="{{ $ref->SANDI }}"  type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Keterangan</label>
-                    <input name="" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="keterangan" value="{{ $ref->KETERANGAN }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
               </div>
               <!-- Modal footer -->
               <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                  <button data-modal-hide="defaultModal" type="button" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
-                  <button data-modal-hide="defaultModal" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                  <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+                  <button data-modal-hide="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
               </div>
           </div>
-      </div>
+      </form>
   </div>
-  
 
+  @endforeach
 @endsection
