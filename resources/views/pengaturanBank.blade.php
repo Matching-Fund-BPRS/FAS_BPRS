@@ -163,6 +163,13 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
 </div>
       
   @endforeach
-  
-
+  @if(session('success-add'))
+  <script>
+    alert('Berhasil menambahkan data!')
+  </script>
+  @elseif(session('success-edit'))
+  <script>
+    alert('Berhasil memperbarui data!')
+  </script>
+  @endif
 @endsection

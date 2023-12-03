@@ -36,6 +36,7 @@ class SettingController extends Controller
                 'SANDI' => $request->sandi,
                 'KETERANGAN' => $request->keterangan
             ]);
+            return redirect()->back()->with('success-add', 'message');
         }else{
             ReffSandiBi::where('JENIS', $request->old_jenis)
                         ->where('SANDI', $request->old_sandi)
@@ -45,7 +46,8 @@ class SettingController extends Controller
                             'SANDI' => $request->sandi,
                             'KETERANGAN' => $request->keterangan
                         ]);
-                    }
+            return redirect()->back()->with('success-edit', 'message');
+        }
         return redirect()->back();
     }
 
@@ -75,6 +77,7 @@ class SettingController extends Controller
                 'SANDI' => $request->sandi,
                 'KETERANGAN' => $request->keterangan
             ]);
+            return redirect()->back()->with('success-add', 'message');
         }else{
             ReffSandiSid::where('JENIS', $request->old_jenis)
                         ->where('SANDI', $request->old_sandi)
@@ -84,7 +87,8 @@ class SettingController extends Controller
                             'SANDI' => $request->sandi,
                             'KETERANGAN' => $request->keterangan
                         ]);
-                    }
+            return redirect()->back()->with('success-edit', 'message');
+        }
         return redirect()->back();
     }
     
@@ -110,13 +114,15 @@ class SettingController extends Controller
                 'KODE' => $request->kode,
                 'BANK' => $request->bank,
             ]);
+            return redirect()->back()->with('success-add', 'message');
         }else{
             ReffBank::where('KODE', $request->kode)
                         ->update([
                             'KODE' => $request->kode,
                             'BANK' => $request->bank,
                         ]);
-                    }
+            return redirect()->back()->with('success-edit', 'message');
+        }
         return redirect()->back();
     }
 }
