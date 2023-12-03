@@ -92,12 +92,6 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                                         </td>
                                     </tr>
                                     @endforeach
-
-
-                                    
-
-                                    
-                                
                                 </tbody>
                             </table>
                         </div>
@@ -115,8 +109,9 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
   
   <!-- Main modal -->
   <div id="defaultModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <form class="relative p-4 w-96 max-w-2xl max-h-full">
-          <!-- Modal content -->
+      <form class="relative p-4 w-96 max-w-2xl max-h-full" method="post" action="{{ route('post_SID') }}">
+        @csrf  
+        <!-- Modal content -->
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
               <!-- Modal header -->
               <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
@@ -160,15 +155,19 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
   
   @foreach ( $reff_sid as $ref)
     <button type="button" class="text-white bg-gradient-to-b from-green-400 to-green-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 hidden" data-modal-target="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}" data-modal-toggle="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}" id="openPopup-{{ $ref->JENIS }}-{{ $ref->SANDI }}"></button>
-
+    
     <div id="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-        <form class="relative p-4 w-96 max-w-2xl max-h-full">
+        <form class="relative p-4 w-96 max-w-2xl max-h-full" method="post" action="{{ route('post_SID') }}">
+            @csrf
+            <input name="old_jenis" value="{{ $ref->JENIS }}" type="hidden">
+            <input name="old_sandi" value="{{ $ref->SANDI }}" type="hidden">  
+            <input name="old_keterangan" value="{{ $ref->KETERANGAN }}" type="hidden"> 
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                     <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Tambah Ref
+                        Edit Ref
                     </h3>
                     <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal-{{ $ref->JENIS }}-{{ $ref->SANDI }}">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

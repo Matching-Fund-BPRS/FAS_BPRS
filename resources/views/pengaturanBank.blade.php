@@ -86,7 +86,8 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
   
   <!-- Main modal -->
   <div id="defaultModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-      <form class="relative p-4 w-96 max-w-2xl max-h-full">
+      <form class="relative p-4 w-96 max-w-2xl max-h-full" method="post" action="{{ route('post_bank') }}">
+        @csrf
           <!-- Modal content -->
           <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
               <!-- Modal header -->
@@ -105,11 +106,11 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
               <div class="p-4 md:p-5 space-y-4">
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Kode</label>
-                    <input name="" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="kode" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Keterangan</label>
-                    <input name="" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input name="bank" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
               </div>
               <!-- Modal footer -->
@@ -124,13 +125,15 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
   @foreach ($reff_bank as $ref)
   <button data-modal-target="defaultModal{{ $ref->KODE }}" data-modal-toggle="defaultModal{{ $ref->KODE }}" class="hidden" type="button" id="openPopup{{ $ref->KODE }}">Open defaultModal</button>
   <div id="defaultModal{{ $ref->KODE }}" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-    <form class="relative p-4 w-96 max-w-2xl max-h-full">
+    <form action="{{ route('post_bank') }}" method="post" class="relative p-4 w-96 max-w-2xl max-h-full">
+        @csrf
+        <input name="kode" value="{{ $ref->KODE }}" type="hidden">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Tambah Ref
+                    Edit Ref
                 </h3>
                 <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

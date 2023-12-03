@@ -6,8 +6,6 @@ use App\Http\Controllers\AuthenticateController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\NasabahController;
 use App\Http\Controllers\FasExistController;
-use App\Http\Controllers\AnKuanController;
-use App\Http\Controllers\AnKualController;
 use App\Http\Controllers\AngsuranController;
 use App\Http\Controllers\InfoKeuanganController;
 use App\Http\Controllers\LimitKreditController;
@@ -20,24 +18,11 @@ use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\SyariahController;
 use App\Http\Controllers\NeracaController;
+use App\Http\Controllers\SettingController;
 use App\Models\ReffBank;
 use App\Models\ReffSandiBi;
 use App\Models\ReffSandiSid;
 use OpenSpout\Common\Entity\Row;
-
-///KEBUTUHAN FE
-Route::get('/dashboard/pengaturanBI', function(){
-    $reff_bi = ReffSandiBi::all();
-    return view('pengaturanBI',compact('reff_bi'));
-})->name('pengaturanBI');
-Route::get('/dashboard/pengaturanSID', function(){
-    $reff_sid = ReffSandiSid::all();
-    return view('pengaturanSID',compact('reff_sid'));
-})->name('pengaturanSID');
-Route::get('/dashboard/pengaturanBank', function(){
-    $reff_bank = ReffBank::all();
-    return view('pengaturanBank',compact('reff_bank'));
-})->name('pengaturanBank');
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', function () {
@@ -163,6 +148,17 @@ Route::group(['middleware'=>'auth'], function(){
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //DAFTAR ANGSURAN PAGE
     Route::get('/dashboard/daftarangsuran/{id}', [AngsuranController::class, 'index']); 
+    
+    ///SETTING PAGE
+    Route::get('/dashboard/pengaturanBI', [SettingController::class, 'indexBI'])->name('pengaturanBI');
+    Route::post('/dashboard/pengaturanBI/tambah', [SettingController::class, 'postBI'])->name('post_BI');
+    
+    Route::get('/dashboard/pengaturanSID', [SettingController::class, 'indexSID'])->name('pengaturanSID');
+    Route::post('/dashboard/pengaturanSID/tambah', [SettingController::class, 'postSID'])->name('post_SID');
+
+    Route::get('/dashboard/pengaturanBank', [SettingController::class, 'indexBank'])->name('pengaturanBank');
+    Route::post('/dashboard/pengaturanBank/tambah', [SettingController::class, 'postBank'])->name('post_bank');
+
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //USER MANAGEMENT PAGE

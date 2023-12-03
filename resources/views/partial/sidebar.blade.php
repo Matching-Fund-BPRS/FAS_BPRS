@@ -24,8 +24,10 @@
             @auth
             @if(auth()->user()->level == 1)
             <span class="font-normal">Supervisor</span>
-            @else
+            @elseif(auth()->user()->level == 0)
             <span class="font-normal">Operator</span>
+            @else
+            <span class="font-normal">Admin</span>
             @endif
             @endauth
         </p>
@@ -90,7 +92,7 @@
                 <label class="px-3 text-xs text-gray-500 uppercase">pengaturan</label>
 
 
-                @if(auth()->user()->level ==  1)
+                @if(auth()->user()->level ==  1 || auth()->user()->level == 2)
                 <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/user">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -105,7 +107,7 @@
                     <span class="mx-2 text-sm font-medium">User Management</span>
                 </a>
                 @endif
-
+                @if(auth()->user()->level == 2)
                 <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/pengaturanBI">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
@@ -115,6 +117,7 @@
 
                     <span class="mx-2 text-sm font-medium">Pengaturan</span>
                 </a>
+                @endif
                 @auth
                 <form action="{{ Route('logout')}}" method="post">
                     @csrf
