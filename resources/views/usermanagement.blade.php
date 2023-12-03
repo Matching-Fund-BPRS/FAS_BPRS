@@ -47,6 +47,8 @@
                                 <p class="text-sm font-normal text-center text-gray-600">Operator</p>
                             @elseif($user->level == 1)
                                 <p class="text-sm font-normal text-center text-gray-600">Supervisor</p>
+                            @elseif($user->level == 2)
+                            <p class="text-sm font-normal text-center text-gray-600">Admin</p>
                             @endif
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">

@@ -82,8 +82,6 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
     
 </section>
 
-
-  
   <!-- Main modal -->
   <div id="defaultModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
       <form class="relative p-4 w-96 max-w-2xl max-h-full" method="post" action="{{ route('post_bank') }}">
@@ -161,8 +159,11 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
         </div>
     </form>
 </div>
-      
-  @endforeach
+@endforeach
+<div style="margin-top:25px;" class="flex justify-center">
+  {{ $reff_bank->links() }}
+</div>
+<br>
   @if(session('success-add'))
   <script>
     alert('Berhasil menambahkan data!')

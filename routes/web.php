@@ -167,6 +167,11 @@ Route::group(['middleware'=>['auth', 'isSupervisor:1']], function(){
     Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
     Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
 });
+Route::group(['middleware'=>['auth', 'isSupervisor:2']], function(){
+    Route::get('/dashboard/user', [UserController::class, 'index'])->name('user_management');
+    Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
+    Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
+});
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AUTHENTICATE PAGE

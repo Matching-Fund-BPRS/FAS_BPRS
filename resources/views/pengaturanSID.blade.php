@@ -203,8 +203,13 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
             </div>
         </form>
     </div>
-
     @endforeach
+<br>
+  <div class="flex justify-center">
+    {{ $reff_sid->links() }}
+</div>
+<br>
+
     @if(session('success-add'))
     <script>
       alert('Berhasil menambahkan data!')

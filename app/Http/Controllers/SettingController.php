@@ -14,7 +14,7 @@ class SettingController extends Controller
             return redirect()->back();
         }
 
-        $reff_bi = ReffSandiBi::get();
+        $reff_bi = ReffSandiBi::paginate(50);
         return view('pengaturanBI',compact('reff_bi'));
     }
 
@@ -55,7 +55,7 @@ class SettingController extends Controller
         if(auth()->user()->level != 2){
             return redirect()->back();
         }
-        $reff_sid = ReffSandiSid::all();
+        $reff_sid = ReffSandiSid::paginate(50);
         return view('pengaturanSID',compact('reff_sid'));
     }
 
@@ -96,7 +96,7 @@ class SettingController extends Controller
         if(auth()->user()->level != 2){
             return redirect()->back();
         }
-        $reff_bank = ReffBank::all();
+        $reff_bank = ReffBank::paginate(50);
         return view('pengaturanBank',compact('reff_bank'));
     }
 
