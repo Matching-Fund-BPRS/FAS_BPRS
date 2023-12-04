@@ -1,7 +1,9 @@
 @extends ('partial.main')
 
 @section('container')
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script> 
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 <ul
 class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
 <li class="mr-2">
@@ -40,7 +42,7 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                     <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
                         <div class="overflow-hidden border border-gray-200 md:rounded-lg">
         
-                            <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal">
+                            <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal hidden" id="reff_bank">
                                 <thead class="bg-gray-50">
                                     <tr>
                                         <th scope="col" class="w-56 px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
@@ -50,7 +52,9 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                                         <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
                                             Keterangan
                                         </th>
-
+                                        <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                            Status
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody class="bg-white divide-y divide-gray-20">
@@ -64,6 +68,10 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                                         </td>
                                         <td class="px-4 py-4 whitespace-nowrap">
                                                 <p class="text-sm font-normal text-center text-gray-600">{{$ref->BANK}}</p>
+                                        </td>
+                                        
+                                        <td class="px-4 py-4 whitespace-nowrap">
+                                            <p class="text-sm font-normal text-center text-gray-600">{{$ref->DELETED == 0 ? 'Aktif' : 'Nonaktif'}}</p>
                                         </td>
                                     </tr>
                                 
@@ -112,9 +120,12 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                 </div>
               </div>
               <!-- Modal footer -->
-              <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                  <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
-                  <button data-modal-hide="defaultModal" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+              <div class="flex justify-between items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+<div class="flex">
+    <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+    <button data-modal-hide="defaultModal" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+</div>
+
               </div>
           </div>
         </form>
@@ -133,7 +144,7 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                     Edit Ref
                 </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal{{ $ref->KODE }}">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -152,17 +163,29 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
               </div>
             </div>
             <!-- Modal footer -->
-            <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
-                <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
-                <button data-modal-hide="defaultModal{{ $ref->KODE }}" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+            <div class="flex justify-between items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                <div class="flex gap-2">
+                    <button type="submit" class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
+                    <button data-modal-hide="defaultModal{{ $ref->KODE }}" type="button" class="ms-3 text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-green-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                </div>
+                <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800" onclick="document.getElementById('delete_bank_{{ $ref->KODE }}').submit()">Ubah Status</button>
             </div>
         </div>
     </form>
+    <form action="{{ route('delete_bank') }}" method="post" class="relative p-4 w-96 max-w-2xl max-h-full hidden" id="delete_bank_{{ $ref->KODE }}">
+        @method('DELETE')
+        @csrf
+        <input name="kode" value="{{ $ref->KODE }}" type="hidden">
+    </form>
 </div>
 @endforeach
-<div style="margin-top:25px;" class="flex justify-center">
-  {{ $reff_bank->links() }}
-</div>
+<script>
+  $(document).ready( function () {
+    $('#reff_bank').DataTable();
+    $('#reff_bank').removeClass('hidden')
+    document.getElementsByName('reff_bank_length')[0].classList.add('w-24')
+    })
+</script>
 <br>
   @if(session('success-add'))
   <script>

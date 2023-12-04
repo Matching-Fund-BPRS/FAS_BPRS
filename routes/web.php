@@ -152,12 +152,15 @@ Route::group(['middleware'=>'auth'], function(){
     ///SETTING PAGE
     Route::get('/dashboard/pengaturanBI', [SettingController::class, 'indexBI'])->name('pengaturanBI');
     Route::post('/dashboard/pengaturanBI/tambah', [SettingController::class, 'postBI'])->name('post_BI');
+    Route::delete('/dashboard/pengaturanBI/deleteBI', [SettingController::class, 'deleteBI'])->name('delete_BI');
     
     Route::get('/dashboard/pengaturanSID', [SettingController::class, 'indexSID'])->name('pengaturanSID');
     Route::post('/dashboard/pengaturanSID/tambah', [SettingController::class, 'postSID'])->name('post_SID');
+    Route::delete('/dashboard/pengaturanSID/deleteSID', [SettingController::class, 'deleteSID'])->name('delete_SID');
 
     Route::get('/dashboard/pengaturanBank', [SettingController::class, 'indexBank'])->name('pengaturanBank');
     Route::post('/dashboard/pengaturanBank/tambah', [SettingController::class, 'postBank'])->name('post_bank');
+    Route::delete('/dashboard/pengaturanBank/deleteBank', [SettingController::class, 'deleteBank'])->name('delete_bank');
 
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////

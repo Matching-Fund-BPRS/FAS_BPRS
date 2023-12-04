@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property string $KODE
  * @property string|null $BANK
+ * @property bool|null $DELETED
  *
  * @package App\Models
  */
@@ -23,7 +24,12 @@ class ReffBank extends Model
 	public $incrementing = false;
 	public $timestamps = false;
 
+	protected $casts = [
+		'DELETED' => 'bool'
+	];
+
 	protected $fillable = [
-		'BANK'
+		'BANK',
+		'DELETED'
 	];
 }
