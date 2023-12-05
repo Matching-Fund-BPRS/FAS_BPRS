@@ -202,7 +202,7 @@
             
                 <div>
                     <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Usaha</label>
-                    <textarea name="alamat_usaha" value="{{ $nasabah->ALAMAT_USAHA ?? 0 }}" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."></textarea>        
+                    <textarea name="alamat_usaha" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT_USAHA ?? "-" }}</textarea>        
                 </div>
             
                         
@@ -387,7 +387,7 @@
         </div>
         <div>
             <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Sesuai KTP</label>
-            <textarea name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."></textarea>        
+            <textarea name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT ?? "-" }}</textarea>        
         </div> 
 
         <div class="flex justify-between max-w-md space-x-2">

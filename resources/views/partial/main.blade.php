@@ -15,8 +15,8 @@
             background-color: #cbd5e0; /* Sesuaikan warna abu-abu yang diinginkan */
             border: 1px solid #a0aec0; /* Sesuaikan warna border yang diinginkan */
             color: #4a5568; /* Sesuaikan warna teks yang diinginkan */
-            padding: 0.5rem 1rem; /* Sesuaikan padding yang diinginkan */
-            border-radius: 0.375rem; /* Sesuaikan radius border yang diinginkan */
+            padding: 0.001rem 1rem; /* Sesuaikan padding yang diinginkan */
+            border-radius: 0.275rem; /* Sesuaikan radius border yang diinginkan */
             transition: background-color 0.3s ease; /* Efek transisi ketika dihover */
             margin-left:0.1rem   
         }
