@@ -155,11 +155,10 @@
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
                         <div class="overflow-hidden border border-gray-200 md:rounded-lg">
-        
                             <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
                                 <thead class="bg-gray-50">
                                     <tr>
-                                        <th scope="col" class="w-72 px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                        <th scope="col" class="w-48 px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
                                             Keterangan
                                         </th>
         
@@ -178,11 +177,12 @@
                                         <td class="px-4 py-4 font-medium whitespace-nowrap">
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Inti</p>
                                         </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                                <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+
                                         </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                        <td class="px-4  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
                                     </tr>
 
@@ -190,11 +190,11 @@
                                         <td class="px-4 py-4 font-medium whitespace-nowrap">
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Pelengkap</p>
                                         </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">1.000.000</p>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">1.000.000</p>
+                                        <td class="px-4  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
                                     </tr>
                         
@@ -202,11 +202,11 @@
                                         <td class="px-4 py-4 font-medium whitespace-nowrap">
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Perorangan</p>
                                         </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">500.000</p>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">500.000</p>
+                                        <td class="px-4 whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -214,11 +214,11 @@
                                         <td class="px-4 py-4 font-medium whitespace-nowrap">
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Kelompok</p>
                                         </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">300.000</p>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">300.000</p>
+                                        <td class="px-4  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -226,11 +226,11 @@
                                         <td class="px-4 py-4 font-medium whitespace-nowrap">
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Terkait</p>
                                         </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
+                                        <td class="px-4  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -238,11 +238,11 @@
                                         <td class="px-4 py-4 font-medium whitespace-nowrap">
                                                 <p class="text-sm font-semibold text-center text-gray-600">Prosentasi Plafon Diajukan</p>
                                         </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">20</p>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">20</p>
+                                        <td class="px-4 whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
                                         </td>
                                     </tr>
                                 </tbody>

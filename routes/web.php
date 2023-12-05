@@ -24,6 +24,10 @@ use App\Models\ReffSandiBi;
 use App\Models\ReffSandiSid;
 use OpenSpout\Common\Entity\Row;
 
+Route::get('/dokumen1', function () {
+    return view('dokumen/halaman1');
+});
+
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', function () {
         return view('dashboard', [

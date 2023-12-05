@@ -23,21 +23,7 @@ function fixedFormatNumber(amount) {
 
   return result;
 }
-let input =[
-  'kas',
-  'piutang_dagang',
-  'persediaan',
-  'tanah',
-  'gedung',
-  'penyusutan_gedung',
-  'peralatan',
-  'penyusutan_peralatan',
-  'hutang_jangka_panjang',
- 'hutang_jangka_pendek',
- 'laba_ditahan',
- 'laba_berjalan',
 
-]
 function formatInput(id) {
   let inputElement = document.getElementsByName(id)[0];
   
@@ -62,6 +48,22 @@ function formatInput(id) {
   // Restore the caret position
   inputElement.setSelectionRange(newCaretPosition, newCaretPosition);
 }
+let input =[
+  'kas',
+  'piutang_dagang',
+  'persediaan',
+  'tanah',
+  'gedung',
+  'penyusutan_gedung',
+  'peralatan',
+  'penyusutan_peralatan',
+  'hutang_jangka_panjang',
+ 'hutang_jangka_pendek',
+ 'laba_ditahan',
+ 'laba_berjalan',
+
+]
+
 input.forEach(element => {
   formatInput(element);
   document.getElementsByName(element)[0].addEventListener('keyup', function(){

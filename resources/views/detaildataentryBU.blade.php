@@ -860,16 +860,27 @@ let input = [
 function formatInput(id) {
   let inputElement = document.getElementById(id);
   
-  // Save the current caret position
-  let caretPosition = inputElement.selectionStart;
+ // Save the current caret position
+ let caretPosition = inputElement.selectionStart;
 
-  let val = fixedFormatNumber(formatNumber(inputElement.value));
-  
-  // Update the input value
-  inputElement.value = val;
+ // Get the original value before formatting
+ let originalValue = inputElement.value;
 
-  // Restore the caret position
-  inputElement.setSelectionRange(caretPosition, caretPosition);
+ // Format the number
+ let formattedValue = fixedFormatNumber(formatNumber(originalValue));
+
+ // Calculate the difference in length between the original and formatted values
+ let lengthDiff = formattedValue.length - originalValue.length;
+
+ // Adjust the caret position
+ let newCaretPosition = caretPosition + lengthDiff;
+
+ // Update the input value
+ inputElement.value = formattedValue;
+
+ // Restore the caret position
+ inputElement.setSelectionRange(newCaretPosition, newCaretPosition);
+
 }
 input.forEach(element => {
   formatInput(element);

@@ -89,24 +89,27 @@ class NasabahController extends BaseController
             $tgl_lahir_pasangan =Carbon::createFromFormat('m/d/Y', $request->tanggal_lahir_pasangan)->format('Y-m-d');
         }
 
-        if($request->tgl_pendirian == null && $request->tgl_anggaran == null && $request->tgl_pengurus == null){
-            $tgl_pendirian = null;
-            $tgl_anggaran = null;
-            $tgl_pengurus = null;
-        }else{
-            $tgl_pendirian = Carbon::createFromFormat('m/d/Y', $request->tgl_pendirian)->format('Y-m-d');
-            $tgl_anggaran = Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d');
-            $tgl_pengurus = Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d');
+        if ($request->tgl_pendirian == null && $request->tgl_anggaran == null && $request->tgl_pengurus == null) {
+            $tgl_pendirian = $tgl_anggaran = $tgl_pengurus = null;
+        } else {
+            $tgl_pendirian = $request->tgl_pendirian ? Carbon::createFromFormat('m/d/Y', $request->tgl_pendirian)->format('Y-m-d') : null;
+            $tgl_anggaran = $request->tgl_anggaran ? Carbon::createFromFormat('m/d/Y', $request->tgl_anggaran)->format('Y-m-d') : null;
+            $tgl_pengurus = $request->tgl_pengurus ? Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d') : null;
         }
         
-        $nextNasabah = TNasabah::max('ID_NASABAH') + 1;
-        $newId = (strlen($nextNasabah) == 8) ? '00' .$nextNasabah : '0' . $nextNasabah;
+        
+        $nextNasabah = TNasabah::where('USER_ID', $request->user_id);
+
+        $new3digit = str_pad(Auth::user()->id, 3, '0', STR_PAD_LEFT);
+        $new7digit = str_pad($nextNasabah->count() + 1, 7, '0', STR_PAD_LEFT);
+
+        $newId = $new3digit.$new7digit;
         if($request->id == 0){
             TNasabah::insert([
                 'ID_NASABAH' => $newId,
                 'ID_CABANG'  => 001, 
                 'NO_SURVEY' => null, 
-                'CIF' => $request->cif,
+                'CIF' => $request->cif == 0 ? $newId : $request->cif,
                 'USER_ID'=> $request->user_id,
                 'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
                 'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
