@@ -18,7 +18,7 @@
     </li>
 </ul>
 
-<form method="post" action="{{ route('tambah_nasabah') }}">
+<form method="post" action="{{ route('tambah_nasabah') }}" enctype="multipart/form-data">
     @csrf
     <input name="id" value="{{ $nasabah->ID_NASABAH ?? 0 }}" type="hidden">
     <section id="start" class="md:flex md:flex-row mb-4 md:justify-between">
@@ -424,7 +424,7 @@
                                         Nomor
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
                                         Tanggal
                                     </th>
 
@@ -432,7 +432,7 @@
                                         Isi Dokumen
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
                                         Kondisi
                                     </th>
                                 </tr>
@@ -459,7 +459,7 @@
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input value="{{ $nasabah->ISI_PENDIRIAN ?? 0 }}"name="isi_pendirian"type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input name="isi_pendirian" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" required>
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
@@ -495,7 +495,7 @@
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input  value="{{ $nasabah->ISI_ANGGARAN ?? 0 }}"name="isi_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
+                                        <input name="isi_anggaran" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*">
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
@@ -531,7 +531,7 @@
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input value="{{ $nasabah->ISI_PENGURUS ?? 0 }}" name="isi_pengurus"type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input name="isi_pengurus" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" >
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
