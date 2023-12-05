@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class NasabahController extends BaseController
 {
@@ -76,6 +78,7 @@ class NasabahController extends BaseController
     }
 
     public function tambah_nasabah(Request $request){
+        // dd($request);
         
         if($request->tgl_berlaku_ktp == "on" || $request->tgl_berlaku_ktp == null){
             $tgl_berlaku_ktp = null;
@@ -104,6 +107,17 @@ class NasabahController extends BaseController
         $new7digit = str_pad($nextNasabah->count() + 1, 7, '0', STR_PAD_LEFT);
 
         $newId = $new3digit.$new7digit;
+
+        $dokumen_pendirian_img = 'Dokumen_Pendirian_'.$newId.'.'.$request->isi_pendirian->extension();
+        $i=1;
+        while(Storage::exists('public/upload/'.$dokumen_pendirian_img)){
+            $dokumen_pendirian_img = 'Dokumen_Pendirian_'.$newId.'('.$i.')'.'.'.$request->isi_pendirian->extension();
+            $i++;
+        }
+        Storage::disk('public')->put($dokumen_pendirian_img,  
+            File::get($request->file('isi_pendirian')));
+            Storage::move('public/'.$dokumen_pendirian_img,'public/upload/'.$dokumen_pendirian_img);
+
         if($request->id == 0){
             TNasabah::insert([
                 'ID_NASABAH' => $newId,
@@ -162,7 +176,7 @@ class NasabahController extends BaseController
                 
                 'NO_PENDIRIAN' => $request->no_pendirian,
                 'TGL_PENDIRIAN' => $tgl_pendirian,
-                'ISI_PENDIRIAN' => $request->isi_pendirian,
+                'ISI_PENDIRIAN' => $dokumen_pendirian_img,
                 'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
     
                 'ANGGARAN' => $request->no_anggaran,
@@ -237,7 +251,7 @@ class NasabahController extends BaseController
                 
                 'NO_PENDIRIAN' => $request->no_pendirian,
                 'TGL_PENDIRIAN' => $tgl_pendirian,
-                'ISI_PENDIRIAN' => $request->isi_pendirian,
+                'ISI_PENDIRIAN' => $dokumen_pendirian_img,
                 'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
     
                 'ANGGARAN' => $request->no_anggaran,
@@ -280,6 +294,15 @@ class NasabahController extends BaseController
             $tgl_pengurus = Carbon::createFromFormat('m/d/Y', $request->tgl_pengurus)->format('Y-m-d');
         }
 
+        $dokumen_pendirian_img = 'Dokumen_Pendirian_'.$id.'.'.$request->isi_pendirian->extension();
+        $i=1;
+        while(Storage::exists('public/upload/'.$dokumen_pendirian_img)){
+            $dokumen_pendirian_img = 'Dokumen_Pendirian_'.$id.'('.$i.')'.'.'.$request->isi_pendirian->extension();
+            $i++;
+        }
+        Storage::disk('public')->put($dokumen_pendirian_img,  
+            File::get($request->file('isi_pendirian')));
+            Storage::move('public/'.$dokumen_pendirian_img,'public/upload/'.$dokumen_pendirian_img);
 
         TNasabah::where('ID_NASABAH' , $id)->update([
             'ID_CABANG'  => 001, 

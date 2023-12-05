@@ -18,7 +18,7 @@
     </li>
 </ul>
 
-<form method="post" action="{{ route('tambah_nasabah') }}">
+<form method="post" action="{{ route('tambah_nasabah') }}" enctype="multipart/form-data">
     @csrf
     <input name="id" value="{{ $nasabah->ID_NASABAH ?? 0 }}" type="hidden">
     <section id="start" class="md:flex md:flex-row mb-4 md:justify-between">
@@ -202,7 +202,7 @@
             
                 <div>
                     <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Usaha</label>
-                    <textarea name="alamat_usaha" value="{{ $nasabah->ALAMAT_USAHA ?? 0 }}" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."></textarea>        
+                    <textarea name="alamat_usaha" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT_USAHA ?? "-" }}</textarea>        
                 </div>
             
                         
@@ -387,7 +387,7 @@
         </div>
         <div>
             <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Sesuai KTP</label>
-            <textarea name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."></textarea>        
+            <textarea name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT ?? "-" }}</textarea>        
         </div> 
 
         <div class="flex justify-between max-w-md space-x-2">
@@ -424,7 +424,7 @@
                                         Nomor
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
                                         Tanggal
                                     </th>
 
@@ -432,7 +432,7 @@
                                         Isi Dokumen
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
                                         Kondisi
                                     </th>
                                 </tr>
@@ -459,7 +459,7 @@
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input value="{{ $nasabah->ISI_PENDIRIAN ?? 0 }}"name="isi_pendirian"type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input name="isi_pendirian" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" required>
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
@@ -495,7 +495,7 @@
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input  value="{{ $nasabah->ISI_ANGGARAN ?? 0 }}"name="isi_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
+                                        <input name="isi_anggaran" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*">
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
@@ -531,7 +531,7 @@
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input value="{{ $nasabah->ISI_PENGURUS ?? 0 }}" name="isi_pengurus"type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input name="isi_pengurus" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" >
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
