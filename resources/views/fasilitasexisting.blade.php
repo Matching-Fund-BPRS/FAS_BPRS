@@ -35,10 +35,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Inti</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                                <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"   name="modal_inti_cab" type="text">
+                                                <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="modal_inti_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="modal_inti_pusat" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="modal_inti_pusat" type="text">
                                         </td>
                                     </tr>
 
@@ -47,10 +47,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Pelengkap</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="modal_pelengkap_cab" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="modal_pelengkap_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="modal_pelengkap_pusat" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="modal_pelengkap_pusat" type="text">
                                         </td>
                                     </tr>
                         
@@ -59,10 +59,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Perorangan</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_perorg_cab" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_perorg_cab" type="text">
                                         </td>
                                         <td class="px-12 whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_perorg_pusat" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_perorg_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -71,10 +71,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Kelompok</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_kel_cab" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_kel_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_kel_pusat" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_kel_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -83,10 +83,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Terkait</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_terkait_cab" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_terkait_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_terkait_cab" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_terkait_cab" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -95,10 +95,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Prosentasi Plafon Diajukan</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="plafond_cab" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="plafond_cab" type="text">
                                         </td>
                                         <td class="px-12 whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="plafond_pusat" type="text">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="plafond_pusat" type="text">
                                         </td>
                                     </tr>
                                 </tbody>
