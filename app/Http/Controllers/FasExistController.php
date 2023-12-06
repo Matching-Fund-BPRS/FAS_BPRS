@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\TFa;
 use App\Models\TBisid;
 use App\Models\TNasabah;
+use App\Models\TBmpd;
 
 class FasExistController extends Controller
 {
@@ -16,22 +17,22 @@ class FasExistController extends Controller
         $parts = explode(' - ', $inputString, 2);
         return isset($parts[0]) ? $parts[0] : '';
     }
-    // TODO
-        // ini filter berdasarkan nota(?)
+
     public function fasIndex($id){ 
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $ref_bi = ReffSandiBi::all();
         $ref_sid = ReffSandiSid::all();
         $ref_bank = ReffBank::all();
+        $bmpd = TBmpd::where('ID_NASABAH', $id)->first();
         $data_bisid_nasabah = TBisid::where('ID_NASABAH', $id)->first();
-        // dd(TBisid::where('ID_NASABAH', $id)->first(),$ref_bank,$ref_sid,$ref_bi,$ref_bi->where('JENIS', '02')->where('SANDI', $data_bisid_nasabah->PENGGUNAAN_BI)->first()->KETERANGAN);
         return view('fasilitasexisting',[
             'data_bisid_nasabah' => $data_bisid_nasabah,
             'nasabah' => $nasabah,
             'data_fasilitas_existing' => TFa::where('ID_NASABAH', $id)->paginate(5),
             'ref_bi' => $ref_bi,
             'ref_sid' => $ref_sid,
-            'ref_bank' => $ref_bank
+            'ref_bank' => $ref_bank,
+            'bmpd' => $bmpd
         ]);
     }
 
@@ -50,6 +51,23 @@ class FasExistController extends Controller
             'PENGGUNAAN_SID' => $this->extractTextBeforeHyphen($request->penggunaan_sid) ,
             'PEMBIAYAAN_SID' => $this->extractTextBeforeHyphen($request->pembiayaan_sid) , 
         ]);
+
+        TBmpd::insert([
+            'ID_NASABAH' => $request->id,
+            'MODAL_INTI_CAB' => $request->modal_inti_cab,
+            'MODAL_INTI_PUSAT' => $request->modal_inti_pusat,
+            'MODAL_PELENGKAP_CAB' => $request->modal_pelengkap_cab,
+            'MODAL_PELENGKAP_PUSAT' => $request->modal_pelengkap_pusat,
+            'BMPD_PERORG_CAB' => $request->bmpd_perorg_cab,
+            'BMPD_PERORG_PUSAT' => $request->bmpd_perorg_pusat,
+            'BMPD_KEL_CAB' => $request->bmpd_kel_cab,
+            'BMPD_KEL_PUSAT' => $request->bmpd_kel_pusat,
+            'BMPD_TERKAIT_CAB' => $request->bmpd_terkait_cab,
+            'BMPD_TERKAIT_PUSAT' => $request->bmpd_terkait_pusat,
+            'PLAFOND_CAB' => $request->plafond_cab,
+            'PLAFOND_PUSAT' => $request->plafond_pusat,
+        ]);
+
         return redirect()
                 ->back()
                 ->with('success-add', 'message');
@@ -69,6 +87,21 @@ class FasExistController extends Controller
             'SEK_EKO_SID' => $this->extractTextBeforeHyphen( $request->sektor_ekonomi_sid) ,
             'PENGGUNAAN_SID' => $this->extractTextBeforeHyphen( $request->penggunaan_sid) ,
             'PEMBIAYAAN_SID' => $this->extractTextBeforeHyphen( $request->pembiayaan_sid) , 
+        ]);
+
+        TBmpd::where('ID_NASABAH', $id)->update([
+            'MODAL_INTI_CAB' => $request->modal_inti_cab,
+            'MODAL_INTI_PUSAT' => $request->modal_inti_pusat,
+            'MODAL_PELENGKAP_CAB' => $request->modal_pelengkap_cab,
+            'MODAL_PELENGKAP_PUSAT' => $request->modal_pelengkap_pusat,
+            'BMPD_PERORG_CAB' => $request->bmpd_perorg_cab,
+            'BMPD_PERORG_PUSAT' => $request->bmpd_perorg_pusat,
+            'BMPD_KEL_CAB' => $request->bmpd_kel_cab,
+            'BMPD_KEL_PUSAT' => $request->bmpd_kel_pusat,
+            'BMPD_TERKAIT_CAB' => $request->bmpd_terkait_cab,
+            'BMPD_TERKAIT_PUSAT' => $request->bmpd_terkait_pusat,
+            'PLAFOND_CAB' => $request->plafond_cab,
+            'PLAFOND_PUSAT' => $request->plafond_pusat,
         ]);
         return redirect()->back()->with('success-edit', 'message');
     }
