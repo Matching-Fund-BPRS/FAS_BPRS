@@ -28,6 +28,13 @@ Route::get('/dokumen1', function () {
     return view('dokumen/halaman1');
 });
 
+Route::get('/addlegal', function () {
+    return view('addlegalitas',[
+        'nasabah' => null,
+        'id' => null,
+    ]);
+});
+
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', function () {
         return view('dashboard', [
