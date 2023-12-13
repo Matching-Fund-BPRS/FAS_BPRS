@@ -23,10 +23,20 @@ use App\Models\ReffBank;
 use App\Models\ReffSandiBi;
 use App\Models\ReffSandiSid;
 use OpenSpout\Common\Entity\Row;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\TemplateProcessor;
 
 Route::get('/dokumen1', function () {
-    return view('dokumen/halaman1');
+    $phpWord = new TemplateProcessor(public_path('template.docx'));
+
+    $phpWord->setValues([
+        'cif' => '1234567890',
+        'tgl_permohonan' => '2022-01-01'
+    ]);
+
+    $phpWord->saveAs('dokumen1.docx');
 });
+
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', function () {

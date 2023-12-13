@@ -18,17 +18,17 @@
   <img src="{{ asset('img/bismillah.png') }}" alt="" class="h-32 mx-auto">
 
   {{-- create grid 2x3 --}}
-  <div class="grid grid-cols-4 gap-4 mt-2 mx-16">
+  <div class="grid grid-cols-4 gap-4 mt-4 mx-16">
     <p>CIF Bank</p>
     <p>: 00000002 </p>
   </div>
-  <div class="grid grid-cols-4 gap-4 mt-2 mx-16">
+  <div class="grid grid-cols-4 gap-4 mt-4 mx-16">
     <p>TGL Permohonan</p>
     <p>: 00000002 </p>
     <p class="text-right">User ID </p>
     <p>: Mandiri </p>
   </div>
-  <div class="grid grid-cols-4 gap-4 mt-2 mx-16">
+  <div class="grid grid-cols-4 gap-4 mt-4 mx-16">
     <p>TGL Analisa</p>
     <p>: 00000002 </p>
     <p class="text-right">Nama </p>
