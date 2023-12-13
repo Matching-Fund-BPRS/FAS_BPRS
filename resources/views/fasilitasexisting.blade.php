@@ -7,6 +7,107 @@
     @csrf
     <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <section class="md:grid md:grid-cols-4 space-x-8 ">
+        <div class="col-span-2">
+            <div class="flex flex-col mt-6">
+                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                    <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
+                        <div class="overflow-hidden border border-gray-200 md:rounded-lg">
+                            <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="w-48 px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                            Keterangan
+                                        </th>
+        
+                                        <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                            Cabang
+                                        </th>
+        
+                                        <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                            Pusat
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white divide-y divide-gray-20">
+                                    <tr>
+                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                                <p class="text-sm font-semibold text-center text-gray-600">Modal Inti</p>
+                                        </td>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                                <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="modal_inti_cab" type="text">
+                                        </td>
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="modal_inti_pusat" type="text">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                                <p class="text-sm font-semibold text-center text-gray-600">Modal Pelengkap</p>
+                                        </td>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="modal_pelengkap_cab" type="text">
+                                        </td>
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="modal_pelengkap_pusat" type="text">
+                                        </td>
+                                    </tr>
+                        
+                                    <tr>
+                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                                <p class="text-sm font-semibold text-center text-gray-600">BMPD Perorangan</p>
+                                        </td>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_perorg_cab" type="text">
+                                        </td>
+                                        <td class="px-12 whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_perorg_pusat" type="text">
+                                        </td>
+                                    </tr>
+                                                        
+                                    <tr>
+                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                                <p class="text-sm font-semibold text-center text-gray-600">BMPD Kelompok</p>
+                                        </td>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_kel_cab" type="text">
+                                        </td>
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_kel_pusat" type="text">
+                                        </td>
+                                    </tr>
+                                                        
+                                    <tr>
+                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                                <p class="text-sm font-semibold text-center text-gray-600">BMPD Terkait</p>
+                                        </td>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="bmpd_terkait_cab" type="text">
+                                        </td>
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md"  name="bmpd_terkait_cab" type="text">
+                                        </td>
+                                    </tr>
+                                                        
+                                    <tr>
+                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
+                                                <p class="text-sm font-semibold text-center text-gray-600">Prosentasi Plafon Diajukan</p>
+                                        </td>
+                                        <td class="px-12  font-medium whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="plafond_cab" type="text">
+                                        </td>
+                                        <td class="px-12 whitespace-nowrap">
+                                            <input required class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" name="plafond_pusat" type="text">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="space-y-4 col-span-1">
             <p class=" block py-4 text-base font-semibold text-gray-900">
                 Sandi BI
@@ -149,8 +250,14 @@
 
         </div>
         
+       
+    </section>
+</form>
+@else
+<form method="post" action="/dashboard/fasilitasexisting/{{ $nasabah->ID_NASABAH }}/edit">
+    @csrf
+    <section class="md:grid md:grid-cols-4 space-x-8 ">
         <div class="col-span-2">
-
             <div class="flex flex-col mt-6">
                 <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
@@ -178,11 +285,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Inti</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                                <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
-
+                                                <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_CAB }}" name="modal_inti_cab" type="text">
                                         </td>
-                                        <td class="px-4  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_PUSAT }}" name="modal_inti_pusat" type="text">
                                         </td>
                                     </tr>
 
@@ -191,10 +297,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Pelengkap</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_PELENGKAP_CAB}}" name="modal_pelengkap_cab" type="text">
                                         </td>
-                                        <td class="px-4  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_PUSAT }}" name="modal_pelengkap_pusat" type="text">
                                         </td>
                                     </tr>
                         
@@ -203,10 +309,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Perorangan</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_PERORG_CAB }}" name="bmpd_perorg_cab" type="text">
                                         </td>
-                                        <td class="px-4 whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                        <td class="px-12 whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_PERORG_PUSAT }}" name="bmpd_perorg_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -215,10 +321,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Kelompok</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_KEL_CAB }}" name="bmpd_kel_cab" type="text">
                                         </td>
-                                        <td class="px-4  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_KEL_PUSAT }}" name="bmpd_kel_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -227,10 +333,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Terkait</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_TERKAIT_CAB }}" name="bmpd_terkait_cab" type="text">
                                         </td>
-                                        <td class="px-4  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                        <td class="px-12  whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_TERKAIT_PUSAT }}" name="bmpd_terkait_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -239,10 +345,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Prosentasi Plafon Diajukan</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->PLAFOND_CAB }}" name="plafond_cab" type="text">
                                         </td>
-                                        <td class="px-4 whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border-none focus:rounded-md" placeholder="0" name="modal_inti" type="text">
+                                        <td class="px-12 whitespace-nowrap">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->PLAFOND_PUSAT }}" name="plafond_pusat" type="text">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -251,14 +357,7 @@
                     </div>
                 </div>
             </div>
-            
         </div>
-    </section>
-</form>
-@else
-<form method="post" action="/dashboard/fasilitasexisting/{{ $nasabah->ID_NASABAH }}/edit">
-    @csrf
-    <section class="md:grid md:grid-cols-4 space-x-8 ">
         <div class="space-y-4 col-span-1">
             <p class=" block py-4 text-base font-semibold text-gray-900">
                 Sandi BI
@@ -397,111 +496,6 @@
                 </div>
             </div>
 
-        </div>
-        
-        <div class="col-span-2">
-
-            <div class="flex flex-col mt-6">
-                <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                    <div class="inline-block min-w-full max-w-screen-xl py-2 align-middle md:px-6 lg:px-8">
-                        <div class="overflow-hidden border border-gray-200 md:rounded-lg">
-        
-                            <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
-                                <thead class="bg-gray-50">
-                                    <tr>
-                                        <th scope="col" class="w-72 px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                            Keterangan
-                                        </th>
-        
-                                        <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                            Cabang
-                                        </th>
-        
-                                        <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
-                                            Pusat
-                                        </th>
-
-                                    </tr>
-                                </thead>
-                                <tbody class="bg-white divide-y divide-gray-20">
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">Modal Inti</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">Modal Pelengkap</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">1.000.000</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">1.000.000</p>
-                                        </td>
-                                    </tr>
-                        
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">BMPD Perorangan</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">500.000</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">500.000</p>
-                                        </td>
-                                    </tr>
-                                                        
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">BMPD Kelompok</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">300.000</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">300.000</p>
-                                        </td>
-                                    </tr>
-                                                        
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">BMPD Terkait</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">200.000</p>
-                                        </td>
-                                    </tr>
-                                                        
-                                    <tr>
-                                        <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-semibold text-center text-gray-600">Prosentasi Plafon Diajukan</p>
-                                        </td>
-                                        <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">20</p>
-                                        </td>
-                                        <td class="px-4 py-4 whitespace-nowrap">
-                                                <p class="text-sm font-normal text-center text-gray-600">20</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </section>
 </form>
@@ -828,6 +822,7 @@
 </div>    
 @endforeach
 @endif
+
 <script src="{{ asset('js/fas.js') }}"></script>
 @if(session('success-add'))
 <script>

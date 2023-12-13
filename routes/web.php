@@ -37,6 +37,12 @@ Route::get('/dokumen1', function () {
     $phpWord->saveAs('dokumen1.docx');
 });
 
+Route::get('/addlegal', function () {
+    return view('addlegalitas',[
+        'nasabah' => null,
+        'id' => null,
+    ]);
+});
 
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/', function () {
