@@ -22,19 +22,100 @@ use App\Http\Controllers\SettingController;
 use App\Models\ReffBank;
 use App\Models\ReffSandiBi;
 use App\Models\ReffSandiSid;
+use App\Models\TFa;
+use App\Models\TNasabah;
+use Carbon\Carbon;
 use OpenSpout\Common\Entity\Row;
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\TemplateProcessor;
 
 Route::get('/dokumen1', function () {
     $phpWord = new TemplateProcessor(public_path('template.docx'));
+    $laporan = TNasabah::where('ID_NASABAH', '0010000001')->first();
+
+   dd($laporan);
 
     $phpWord->setValues([
-        'cif' => '1234567890',
-        'tgl_permohonan' => '2022-01-01'
+        'cif' => $laporan->CIF,
+        'tgl_permohonan' => Carbon::parse($laporan->TGL_PERMOHONAN)->format('d/m/Y'),
+        'tgl_analisa' => Carbon::parse($laporan->TGL_ANALISA)->format('d/m/Y'),
+        'limit_kredit' => $laporan->LIMIT_KREDIT,
+        'bunga' => $laporan->BUNGA,
+        'jangka_waktu' => $laporan->JANGKA_WAKTU,
+        'sifat' => $laporan->SIFAT,
+        'tujuan' => $laporan->TUJUAN,
+        'ket_tujuan' => $laporan->KET_TUJUAN,
+        'bidang_usaha' => $laporan->BIDANG_USAHA,
+        'sub_usaha' => $laporan->BIDANG_USAHA,
+        'tgl_mulai_usaha' => Carbon::parse($laporan->TGL_MULAI_USAHA)->format('d/m/Y'),
+        'jumlah_kary' => $laporan->JUMLAH_KARY,
+        'nama' => $laporan->NAMA,
+        'nama_1' => $laporan->NAMA,
+        'nama_badan_usaha' => $laporan->NAMA_BADAN_USAHA,
+        'alamat_usaha' => $laporan->ALAMAT_USAHA,
+        'status_perkawinan' => $laporan->STATUS_PERKAWINAN,
+        'tempat_lahir' => $laporan->TEMPAT_LAHIR,
+        'gender' => $laporan->GENDER,
+        'no_ktp' => $laporan->NO_KTP,
+        'tgl_berlaku_ktp' => $laporan->TGL_BERLAKU_KTP,
+        'alamat' => $laporan->ALAMAT,
+        'no_telp' => $laporan->NO_TELP,
+        'no_kantor' => $laporan->NO_KANTOR,
+        'status_tempat_tinggal' => $laporan->STATUS_TEMPAT_TINGGAL,
+        'lama_tinggal' => $laporan->LAMA_TINGGAL,
+        'tingkat_pendidikan' => $laporan->TINGKAT_PENDIDIKAN,
+        'jumlah_tanggungan' => $laporan->JUMLAH_TANGGUNGAN,
+        'nama_pasangan' => $laporan->NAMA_PASANGAN,
+        'tempat_lahir_pasangan' => $laporan->TEMPAT_LAHIR_PASANGAN,
+        'tgl_lahir_pasangan' => $laporan->TGL_LAHIR_PASANGAN,
+        'alamat_pasangan' => $laporan->ALAMAT_PASANGAN,
+        'profesi_pasangan' => $laporan->PROFESI_PASANGAN,
+        'no_telp_pasangan' => $laporan->NO_TELP_PASANGAN,
+        'nama_ec' => $laporan->NAMA_EC,
+        'hub_ec' => $laporan->HUB_EC,
+        'no_telp_ec' => $laporan->NO_TELP_EC,
+        'alamat_ec' => $laporan->ALAMAT_EC,
+        'jadi_nasabah_sejak' => $laporan->JADI_NASABAH_SEJAK,
+        'no_telp_usaha' => $laporan->NO_TELP_USAHA,
+        'status_tempat_usaha' => $laporan->STATUS_TEMPAT_USAHA,
+        'user_id' => $laporan->USER_ID
+
+    ]);
+    $fas = TFa::where('ID_NASABAH', $laporan->ID_NASABAH)->get();
+    //dd($fas);
+    // Add a table to the document
+    $sum_limit_kredit = 0;
+    $sum_baki_debet = 0;
+    // Add data rows
+    foreach ($fas as $no_fas => $fasilitas) {
+        $tableData[] = [
+            'no_fas'=> $no_fas+1,
+            'nama_fas'=>$laporan->NAMA,
+            'bank_fas'=>$fasilitas->BANK,
+            'jenis_fas'=>$fasilitas->JENIS_KREDIT,
+            'limit_fas'=>$fasilitas->PLAFOND,
+            'debet_fas'=>$fasilitas->BAKI_DEBET,
+            'tgl_fas'=>$fasilitas->TGL_JATUH_TEMPO,
+            'kol_fas'=>$fasilitas->KOL,
+            'tgk_fas'=>$fasilitas->TUNGGAKAN,
+            'lgk_fas'=>$fasilitas->LAMA_TUNGGAKAN,
+        ];
+
+        $sum_limit_kredit += $fasilitas->PLAFOND;
+        $sum_baki_debet += $fasilitas->BAKI_DEBET;
+    }
+
+    $phpWord->setValues([
+        'sum_lk_fas' => $sum_limit_kredit,
+        'sum_bd_fas' => $sum_baki_debet
     ]);
 
-    $phpWord->saveAs('dokumen1.docx');
+    $phpWord->cloneRowAndSetValues('no_fas', $tableData);
+
+
+
+
+    $phpWord->saveAs('dokumen2.docx');
 });
 
 Route::get('/addlegal', function () {
