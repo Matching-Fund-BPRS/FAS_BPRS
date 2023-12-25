@@ -37,7 +37,7 @@
                 </b> 
             </td>
             <td>
-                : {{ $margin }}  % Per Bulan
+                : {{ $margin  }}  % Per Bulan
             </td>
         </tr>
     </table>
@@ -65,7 +65,7 @@
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">
-                                Angsuran Bunga
+                                Angsuran Margin
                             </th>
 
                             <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-black-500">

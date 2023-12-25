@@ -665,29 +665,30 @@
 
                     <div class="min-w-full">
                         <label for="jenis_pengikatan" class="block mb-2 text-xs font-medium text-gray-900">Jenis Pengikatan</label>
-                        <select value="{{ $agunan->JENIS_PENGIKATAN }}" name="jenis_pengikatan" id="jenis_pengikatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                            <option value="1">Surat Kuasa Jual</option>
-                            <option value="2">Gadai</option>
-                            <option value="3">SKMHT</option>
-                            <option value="4">HT</option>
-                            <option value="5">Fiducia</option>
-                            <option value="6">Hipotik</option>
-                            <option value="7">Surat Blokir</option>
+                        <select name="jenis_pengikatan" id="jenis_pengikatan" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1" {{ $agunan->JENIS_PENGIKATAN == 1 ? 'selected' : '' }}>Surat Kuasa Jual</option>
+                            <option value="2" {{ $agunan->JENIS_PENGIKATAN == 2 ? 'selected' : '' }}>Gadai</option>
+                            <option value="3" {{ $agunan->JENIS_PENGIKATAN == 3 ? 'selected' : '' }}>SKMHT</option>
+                            <option value="4" {{ $agunan->JENIS_PENGIKATAN == 4 ? 'selected' : '' }}>HT</option>
+                            <option value="5" {{ $agunan->JENIS_PENGIKATAN == 5 ? 'selected' : '' }}>Fiducia</option>
+                            <option value="6" {{ $agunan->JENIS_PENGIKATAN == 6 ? 'selected' : '' }}>Hipotik</option>
+                            <option value="7" {{ $agunan->JENIS_PENGIKATAN == 7 ? 'selected' : '' }}>Surat Blokir</option>
                         </select>
                     </div>
-
+                    
                     <div class="min-w-full">
                         <label for="asuransi" class="block mb-2 text-xs font-medium text-gray-900">Asuransi</label>
-                        <select value="{{ $agunan->ASURANSI }}" name="asuransi" id="asuransi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                            <option value="1">Asuransi Jiwa</option>
-                            <option value="2">Asuransi Kebakaran</option>
-                            <option value="3">TLO</option>
-                            <option value="4">All Risk</option>
-                            <option value="5">Asuransi Kredit</option>
-                            <option value="6">Asuransi Jiwa dan PHK</option>
-                            <option value="7">Tanpa Asuransi</option>
+                        <select name="asuransi" id="asuransi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1" {{ $agunan->ASURANSI == 1 ? 'selected' : '' }}>Asuransi Jiwa</option>
+                            <option value="2" {{ $agunan->ASURANSI == 2 ? 'selected' : '' }}>Asuransi Kebakaran</option>
+                            <option value="3" {{ $agunan->ASURANSI == 3 ? 'selected' : '' }}>TLO</option>
+                            <option value="4" {{ $agunan->ASURANSI == 4 ? 'selected' : '' }}>All Risk</option>
+                            <option value="5" {{ $agunan->ASURANSI == 5 ? 'selected' : '' }}>Asuransi Kredit</option>
+                            <option value="6" {{ $agunan->ASURANSI == 6 ? 'selected' : '' }}>Asuransi Jiwa dan PHK</option>
+                            <option value="7" {{ $agunan->ASURANSI == 7 ? 'selected' : '' }}>Tanpa Asuransi</option>
                         </select>
                     </div>
+                    
                     <div class="min-w-full">
                         <label for="ket" class="block mb-2 text-xs font-medium text-gray-900">Keterangan</label>
                         <textarea name="ket" id="ket" rows="4" class="w-full block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark-bg-gray-700 dark-border-gray-600 dark-placeholder-gray-400 dark-text-white dark-focus-ring-green-500 dark-focus-border-green-500" placeholder="Keterangan..."> {{ $agunan->KET }}</textarea>

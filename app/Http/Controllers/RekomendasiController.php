@@ -6,6 +6,7 @@ use App\Models\TAngsuran;
 use Illuminate\Http\Request;
 use App\Models\TRekomendasi;
 use App\Models\TNasabah;
+use App\Models\TRugilaba;
 use App\Models\TScoring;
 
 class RekomendasiController extends Controller
@@ -95,9 +96,9 @@ class RekomendasiController extends Controller
         $biaya_asuransi = str_replace('.', '', $request->biaya_asuransi);
         TRekomendasi::where('ID_NASABAH', $request->id)->update([
             'LIMIT_KREDIT' => $plafond,
-            'SIFAT_KREDIT' => 1, //konvert dari string
-            'JENIS_PERMOHONAN'  => 1, //konvert dari string
-            'TUJUAN' => 1, // konvert dari string
+            'SIFAT_KREDIT' => $request->sifat,
+            'JENIS_PERMOHONAN'  => $request->jenis_permohonan,
+            'TUJUAN' => $request->tujuan_penggunaan,
             'JANGKA_WAKTU'  => $request->jangka_waktu,
             'BUNGA' => $request->margin,
             'ANGSURAN' => $angsuran_bulan,
@@ -159,8 +160,18 @@ class RekomendasiController extends Controller
         $nasabah = TNasabah::where('ID_NASABAH', $id)->first();
         $rekomendasi_nasabah =  TRekomendasi::where('ID_NASABAH', $id)->first();
         $scoring = TScoring::where('ID_NASABAH', $id)->first();
+
+        $rugilaba = TRugilaba::where('ID_NASABAH', $id)->first();
+        
+        if ($rugilaba->count() > 0) {
+            $ebit = $rugilaba->PENJUALAN_BERSIH - $rugilaba->HPP - $rugilaba->BIAYA_HIDUP - $rugilaba->PENYUSUTAN + $rugilaba->PENDAPATAN_LAIN - $rugilaba->BIAYA_LAIN;
+        } else {
+            $ebit = 0;
+        }
+        
         return view('rekomendasi',[
             'nasabah' => $nasabah,
+            'ebit' => $ebit,
             'rekomendasi_nasabah' => $rekomendasi_nasabah,
             'scoring' => $scoring
         ]);

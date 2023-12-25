@@ -32,6 +32,7 @@ let input = [
   'biaya_lainnya',
   'angsuran_pokok',
   'angsuran_bunga',
+  'ebit'
  ]
  function formatInput(id) {
   let inputElement = document.getElementsByName(id)[0];
@@ -66,12 +67,23 @@ let input = [
 
  function rekomendasiCount(){
   let plafondValue = formatNumber(document.getElementsByName('plafond')[0].value)||0;
+  let ebitValue = formatNumber(document.getElementsByName('ebit')[0].value)||0;
   let marginValue = parseFloat(document.getElementsByName('margin')[0].value)||0;
   let jangkaWaktuValue = parseFloat(document.getElementsByName('jangka_waktu')[0].value)||0;
+  let limit_kredit = formatNumber(document.getElementsByName('plafond')[0].value)||0;
+  let jenis_permohonan = document.getElementsByName('sifat')[0].value;
+  console.log(limit_kredit,jenis_permohonan);
+  let margin =parseInt(document.getElementsByName('margin')[0].value*formatNumber(limit_kredit) / 100)
+  console.log(margin,limit_kredit,marginValue,plafondValue,jangkaWaktuValue)
+
   if (document.getElementsByName('tipe_angsuran')[0].value == 1){
     let angsuran = parseInt(Math.round(plafondValue / jangkaWaktuValue) + (plafondValue * marginValue / 100));
 
   document.getElementsByName('angsuran_bulan')[0].value = fixedFormatNumber(angsuran);
+  document.getElementsByName('angsuran_pokok')[0].value = fixedFormatNumber(parseInt(formatNumber(limit_kredit) / document.getElementsByName('jangka_waktu')[0].value));
+  
+
+  document.getElementsByName('angsuran_bunga')[0].value = fixedFormatNumber(margin);
   }
   else{
     let angsuran_pmt = pmt(
@@ -80,6 +92,9 @@ let input = [
       plafondValue,
     )
     document.getElementsByName('angsuran_bulan')[0].value = fixedFormatNumber(parseInt(angsuran_pmt));
+    document.getElementsByName('angsuran_pokok')[0].value = fixedFormatNumber(parseInt(formatNumber(limit_kredit) / document.getElementsByName('jangka_waktu')[0].value));
+    document.getElementsByName('angsuran_bunga')[0].value = fixedFormatNumber(margin);
+
   }
   
 }
@@ -97,6 +112,7 @@ function displayInput(){
   let input_bagi_hasil_bank = document.getElementById('input_bagi_hasil_bank')
   let input_bagi_hasil_mudharib = document.getElementById('input_bagi_hasil_mudharib')
   let input_bayar_pokok = document.getElementById('input_bayar_pokok')
+  let input_ebit = document.getElementById('input_ebit')
   input_bagi_hasil_bank.style.display = 'none';
   input_bagi_hasil_mudharib.style.display = 'none';
   input_bayar_pokok.style.display = 'none';
@@ -105,24 +121,79 @@ function displayInput(){
     input_bagi_hasil_bank.style.display = 'block';
     input_bagi_hasil_mudharib.style.display = 'block';
     input_bayar_pokok.style.display = 'block';
+    input_ebit.style.display = 'block';
+
+
   }else{
     input_bagi_hasil_bank.style.display = 'none';
     input_bagi_hasil_mudharib.style.display = 'none';
     input_bayar_pokok.style.display = 'none';
-
+    input_ebit.style.display = 'none';
   }
+  
 }
-document.getElementById('input_bagi_hasil_bank').addEventListener('keyup', () => {
+document.getElementById('input_bagi_hasil_bank').addEventListener('change', () => {
   document.getElementsByName('bagi_hasil_mudharib')[0].value = 100 - parseInt(document.getElementsByName('bagi_hasil_bank')[0].value);
+
+  let basil = document.getElementsByName('bagi_hasil_bank')[0].value
+  let ebit = formatNumber(document.getElementsByName('ebit')[0].value)
+
+  let angsuran_bunga = ebit * basil / 100
+
+  document.getElementsByName('angsuran_bunga')[0].value = fixedFormatNumber( angsuran_bunga == undefined ? 0 : angsuran_bunga)
+
+  let margin = formatNumber(document.getElementsByName('angsuran_bunga')[0].value) / formatNumber(document.getElementsByName('plafond')[0].value) * 100
+
+  document.getElementsByName('margin')[0].value = margin 
+  
 })
 document.getElementsByName('sifat')[0].addEventListener('change', () => {
   displayInput();
+  rekomendasiCount();
+  let jenis_permohonan = document.getElementsByName('sifat')[0].value;
+  if (jenis_permohonan == 2 || jenis_permohonan == 3){
+   let plafondValue = formatNumber(document.getElementsByName('plafond')[0].value)||0;
+   let ebitValue = formatNumber(document.getElementsByName('ebit')[0].value)||0;
+   let marginValue = parseFloat(document.getElementsByName('margin')[0].value)||0;
+   let jangkaWaktuValue = parseFloat(document.getElementsByName('jangka_waktu')[0].value)||0;
+   let limit_kredit = formatNumber(document.getElementsByName('plafond')[0].value)||0;
+   let jenis_permohonan = document.getElementsByName('sifat')[0].value;
+   let basil = document.getElementsByName('bagi_hasil_bank')[0].value
+   let ebit = formatNumber(document.getElementsByName('ebit')[0].value)
+   let angsuran_bunga = ebit * basil / 100
+ 
+   document.getElementsByName('angsuran_bunga')[0].value = fixedFormatNumber(parseInt(angsuran_bunga));
+   document.getElementsByName('angsuran_pokok')[0].value = fixedFormatNumber(parseInt(formatNumber(limit_kredit) / document.getElementsByName('jangka_waktu')[0].value));
+   document.getElementsByName('angsuran_bulan')[0].value = fixedFormatNumber(parseInt(angsuran_bunga)+parseInt(formatNumber(limit_kredit) / document.getElementsByName('jangka_waktu')[0].value));
+   let margin = formatNumber(document.getElementsByName('angsuran_bunga')[0].value) / formatNumber(document.getElementsByName('plafond')[0].value) * 100
+ 
+   document.getElementsByName('margin')[0].value = margin
+ 
+ }
 })
 document.getElementsByName('angsuran_bunga')[0].addEventListener('keyup', () => {
   let limit_kredit = document.getElementsByName('plafond')[0];
   let margin =formatNumber(document.getElementsByName('angsuran_bunga')[0].value)/formatNumber(limit_kredit.value) * 100
   console.log(margin);
   document.getElementsByName('margin')[0].value = margin;
+
+  document.getElementsByName('angsuran_pokok')[0].value = fixedFormatNumber(parseInt(formatNumber(limit_kredit.value) / document.getElementsByName('jangka_waktu')[0].value));
+  let jenis_permohonan = document.getElementsByName('sifat')[0].value;
+  if (jenis_permohonan == 2 || jenis_permohonan == 3){
+    document.getElementsByName('bagi_hasil_bank')[0].value =formatNumber(document.getElementsByName('angsuran_bunga')[0].value) / formatNumber(document.getElementsByName('ebit')[0].value) * 100
+    document.getElementsByName('bagi_hasil_mudharib')[0].value = 100 - document.getElementsByName('bagi_hasil_bank')[0].value
+  }
+
+})
+
+document.getElementsByName('margin')[0].addEventListener('keyup', () => {
+  let limit_kredit = document.getElementsByName('plafond')[0];
+  let margin =document.getElementsByName('margin')[0].value*formatNumber(limit_kredit.value) / 100
+  console.log(margin);
+  document.getElementsByName('angsuran_bunga')[0].value = fixedFormatNumber(margin);
+
+  document.getElementsByName('angsuran_pokok')[0].value = fixedFormatNumber(parseInt(formatNumber(limit_kredit.value) / document.getElementsByName('jangka_waktu')[0].value));
+  
 })
 
 document.getElementsByName('tipe_angsuran')[0].addEventListener('change', () => {

@@ -5,6 +5,7 @@
 @if($rekomendasi_nasabah == null)
 <form id="rekomendasi_form" method="post" action="{{ Route('tambah_rekomendasi') }}" class="col-span-2">
     @csrf
+
     <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
     <div class=" my-4 space-y-4">
         <div>
@@ -23,7 +24,10 @@
                 <option value="6" {{ $nasabah->SIFAT == 6 ? 'selected' : '' }}>Qord</option>
             </select>
         </div>
-
+        <div class= "min-w-xl" id="input_ebit">
+            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Ebit</label>
+            <input class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" name="ebit" value="{{ $ebit }}" readonly>
+        </div>
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
            
@@ -87,7 +91,7 @@
             <div class="" id="input_bagi_hasil_bank">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bagi Hasil Bank</label>
                 <div class="flex flex-row">
-                    <input value="0" name="bagi_hasil_bank" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <input value="{{ $nasabah->BASIL_BANK ?? 0 }}" name="bagi_hasil_bank" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         %
                     </p>
@@ -109,7 +113,7 @@
             <div class="" id="input_bagi_hasil_mudharib">
                 <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Bagi Hasil Mudharib</label>
                 <div class="flex flex-row">
-                    <input value="0" name="bagi_hasil_mudharib" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " readonly required>
+                    <input value="{{ $nasabah->BASIL_DEB ?? 0 }}" name="bagi_hasil_mudharib" type="text" id="margin" class=" z-10 max-w-[100px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " readonly required>
                     <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
                         %
                     </p>
@@ -122,7 +126,7 @@
                 <input name="angsuran_pokok" readonly type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Bunga</label>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Margin</label>
                 <input name="angsuran_bunga" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
         </div>
@@ -166,6 +170,7 @@
 @else
 <form id="rekomendasi_form" method="post" action="/dashboard/rekomendasi/{{ $nasabah->ID_NASABAH }}/edit" class="col-span-2">
     @csrf
+    
     <div class=" my-4 space-y-4">
 
         <div>
@@ -184,7 +189,10 @@
                 <option @if($rekomendasi_nasabah->SIFAT_KREDIT == 6) selected @endif value="6">Qord</option>
             </select>
         </div>
-
+        <div class= "min-w-xl" id="input_ebit">
+            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Ebit</label>
+            <input class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" name="ebit" value="{{ $ebit }}" readonly>
+        </div>
         <div>
             <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
            
@@ -284,7 +292,7 @@
                 <input name="angsuran_pokok" readonly value="{{ intval($rekomendasi_nasabah->LIMIT_KREDIT / $rekomendasi_nasabah->JANGKA_WAKTU) }}" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
             <div>
-                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Bunga</label>
+                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Angsuran Margin</label>
                 <input name="angsuran_bunga" value="{{ intval($rekomendasi_nasabah->LIMIT_KREDIT * $rekomendasi_nasabah->BUNGA / 100) }}" type="text" id="sifat_plafond" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
             </div>
         </div>

@@ -187,7 +187,10 @@ class NasabahController extends BaseController
                 'PENGURUS' => $request->no_pengurus,
                 'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
                 'ISI_PENGURUS' => $request->isi_pengurus,
-                'TGL_PENGURUS'=> $tgl_pengurus,         
+                'TGL_PENGURUS'=> $tgl_pengurus,       
+
+                'BASIL_BANK' => $request->basil_bank,
+                'BASIL_DEBITUR' => $request->basil_deb,
             ]);
     
             return redirect()
@@ -263,7 +266,11 @@ class NasabahController extends BaseController
                 'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
                 'ISI_PENGURUS' => $request->isi_pengurus,
                 'TGL_PENGURUS'=> $tgl_pengurus,  
+
+                'BASIL_BANK' => $request->basil_bank,
+                'BASIL_DEBITUR' => $request->basil_deb,
             ]);
+
     
             return redirect()
                 ->back()
@@ -372,6 +379,9 @@ class NasabahController extends BaseController
             'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
             'ISI_PENGURUS' => $request->isi_pengurus,
             'TGL_PENGURUS'=> $tgl_pengurus,
+
+            'BASIL_BANK' => $request->basil_bank,
+            'BASIL_DEBITUR' => $request->basil_deb,
         ]);
 
         return redirect()

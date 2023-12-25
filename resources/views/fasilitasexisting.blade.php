@@ -285,10 +285,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Inti</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                                <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_CAB }}" name="modal_inti_cab" type="text">
+                                                <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_CAB ?? 0 }}" name="modal_inti_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_PUSAT }}" name="modal_inti_pusat" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_PUSAT ?? 0 }}" name="modal_inti_pusat" type="text">
                                         </td>
                                     </tr>
 
@@ -297,10 +297,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Modal Pelengkap</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_PELENGKAP_CAB}}" name="modal_pelengkap_cab" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_PELENGKAP_CAB ?? 0}}" name="modal_pelengkap_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_PUSAT }}" name="modal_pelengkap_pusat" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->MODAL_INTI_PUSAT ?? 0 }}" name="modal_pelengkap_pusat" type="text">
                                         </td>
                                     </tr>
                         
@@ -309,10 +309,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Perorangan</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_PERORG_CAB }}" name="bmpd_perorg_cab" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_PERORG_CAB ?? 0 }}" name="bmpd_perorg_cab" type="text">
                                         </td>
                                         <td class="px-12 whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_PERORG_PUSAT }}" name="bmpd_perorg_pusat" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_PERORG_PUSAT ?? 0 }}" name="bmpd_perorg_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -321,10 +321,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Kelompok</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_KEL_CAB }}" name="bmpd_kel_cab" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_KEL_CAB ?? 0 }}" name="bmpd_kel_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_KEL_PUSAT }}" name="bmpd_kel_pusat" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_KEL_PUSAT ?? 0 }}" name="bmpd_kel_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -333,10 +333,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">BMPD Terkait</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_TERKAIT_CAB }}" name="bmpd_terkait_cab" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_TERKAIT_CAB ?? 0 }}" name="bmpd_terkait_cab" type="text">
                                         </td>
                                         <td class="px-12  whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_TERKAIT_PUSAT }}" name="bmpd_terkait_pusat" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->BMPD_TERKAIT_PUSAT ?? 0 }}" name="bmpd_terkait_pusat" type="text">
                                         </td>
                                     </tr>
                                                         
@@ -345,10 +345,10 @@
                                                 <p class="text-sm font-semibold text-center text-gray-600">Prosentasi Plafon Diajukan</p>
                                         </td>
                                         <td class="px-12  font-medium whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->PLAFOND_CAB }}" name="plafond_cab" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->PLAFOND_CAB ?? 0 }}" name="plafond_cab" type="text">
                                         </td>
                                         <td class="px-12 whitespace-nowrap">
-                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->PLAFOND_PUSAT }}" name="plafond_pusat" type="text">
+                                            <input class="text-sm font-normal text-center text-gray-600 block w-full border border-gray-200 rounded-lg focus:rounded-md" value="{{ $bmpd->PLAFOND_PUSAT ?? 0 }}" name="plafond_pusat" type="text">
                                         </td>
                                     </tr>
                                 </tbody>
