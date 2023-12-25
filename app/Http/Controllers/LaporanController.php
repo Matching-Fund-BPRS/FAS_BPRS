@@ -32,6 +32,8 @@ use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 
+use function PHPSTORM_META\map;
+
 class LaporanController extends Controller
 {
     public function index(){
@@ -39,6 +41,7 @@ class LaporanController extends Controller
     }
 
     public function downloadLaporan(Request $request){
+        //dd($request->all());
         $phpWord = new TemplateProcessor(public_path('template_2.docx'));
         $laporan = TNasabah::where('ID_NASABAH', $request->ID_NASABAH)->first();
 
@@ -933,41 +936,60 @@ class LaporanController extends Controller
     
         $keuangan = TKeuangan::where('ID_NASABAH', $laporan->ID_NASABAH)->first();
         $labarugi = TRugilaba::where('ID_NASABAH', $laporan->ID_NASABAH)->first();
-    
+//      
+        
+
+        $kenaikanLabaRugi = $request->json_kenaikan_labarugi;
+        $kenaikanNeraca = $request->json_kenaikan_neraca;
+
+        //change to object
+        $naikLaba = json_decode($kenaikanLabaRugi);
+        $naikNeraca = json_decode($kenaikanNeraca);
+//all value on naik laba get add 100 and divide by 100
+        foreach ($naikLaba as $key => $value) {
+            $naikLaba->$key = ($value + 100) / 100;
+        }
+
+
+
+        
         $phpWord->setValues([
-            'lr1_omset' => number_format($labarugi->PENJUALAN_BERSIH, 0, ',', '.'),
-            'lr1_hpp' => number_format($labarugi->HPP, 0, ',', '.'),
-            'lr1_laba_kotor' => number_format($labarugi->PENJUALAN_BERSIH - $labarugi->HPP, 0, ',', '.'),
-            'lr1_biaya_total' => number_format($labarugi->BIAYA_HIDUP, 0, ',', '.'),
-            'lr1_laba_ops' => number_format($labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP, 0, ',', '.'),
-            'lr1_angs' => number_format($labarugi->PENYUSUTAN, 0, ',', '.'),
-            'lr1_laba_bersih' => number_format($labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP - $labarugi->PENYUSUTAN, 0, ',', '.'),
-            'lr1_pen_lain' => number_format($labarugi->PENDAPATAN_LAIN, 0, ',', '.'),
-            'lr1_biaya_lain' => number_format($labarugi->BIAYA_LAIN, 0, ',', '.'),
-            'lr1_ebit' => number_format($labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP - $labarugi->PENYUSUTAN + $labarugi->PENDAPATAN_LAIN - $labarugi->BIAYA_LAIN, 0, ',', '.'),
+            'lr_periode' => $labarugi->PERIODE,
+            'lr1_periode' => $labarugi->PERIODE + 1,
+            'lr2_periode' => $labarugi->PERIODE + 2,
+            'lr1_omset' => number_format($labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1, 0, ',', '.'),
+            'lr1_hpp' => number_format($labarugi->HPP * $naikLaba->kenaikan_hpp_1, 0, ',', '.'),
+            'lr1_laba_kotor' => number_format($labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1, 0, ',', '.'),
+            'lr1_biaya_total' => number_format($labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1, 0, ',', '.'),
+            'lr1_laba_ops' => number_format($labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1, 0, ',', '.'),
+            'lr1_angs' => number_format($labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1, 0, ',', '.'),
+            'lr1_laba_bersih' => number_format($labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 - $labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1, 0, ',', '.'),
+            'lr1_pen_lain' => number_format($labarugi->PENDAPATAN_LAIN * $naikLaba->kenaikan_pendapatan_lain_1, 0, ',', '.'),
+            'lr1_biaya_lain' => number_format($labarugi->BIAYA_LAIN * $naikLaba->kenaikan_biaya_lain_1, 0, ',', '.'),
+            'lr1_ebit' => number_format($labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 - $labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1 + $labarugi->PENDAPATAN_LAIN * $naikLaba->kenaikan_pendapatan_lain_1 - $labarugi->BIAYA_LAIN * $naikLaba->kenaikan_biaya_lain_1, 0, ',', '.'),
             'lr1_margin' => number_format($labarugi->BIAYA_BUNGA, 0, ',', '.'),
             'lr1_pajak' => number_format($labarugi->BIAYA_PAJAK, 0, ',', '.'),
-            'lr1_eait' => number_format($labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP - $labarugi->PENYUSUTAN + $labarugi->PENDAPATAN_LAIN - $labarugi->BIAYA_LAIN - $labarugi->BIAYA_BUNGA - $labarugi->BIAYA_PAJAK, 0, ',', '.'),
+            'lr1_eait' => number_format($labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 - $labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1 + $labarugi->PENDAPATAN_LAIN * $naikLaba->kenaikan_pendapatan_lain_1 - $labarugi->BIAYA_LAIN * $naikLaba->kenaikan_biaya_lain_1 - $labarugi->BIAYA_BUNGA - $labarugi->BIAYA_PAJAK, 0, ',', '.'),
         ]);
         $phpWord->setValues([
-            'lr2_omset' =>number_format( $labarugi->PENJUALAN_BERSIH, 0, ',', '.'),
-            'lr2_hpp' =>number_format( $labarugi->HPP, 0, ',', '.'),
-            'lr2_laba_kotor' =>number_format( $labarugi->PENJUALAN_BERSIH - $labarugi->HPP, 0, ',', '.'),
-            'lr2_biaya_total' =>number_format( $labarugi->BIAYA_HIDUP, 0, ',', '.'),
-            'lr2_laba_ops' =>number_format( $labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP, 0, ',', '.'),
-            'lr2_angs' =>number_format( $labarugi->PENYUSUTAN, 0, ',', '.'),
-            'lr2_laba_bersih' =>number_format( $labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP - $labarugi->PENYUSUTAN, 0, ',', '.'),
-            'lr2_pen_lain' =>number_format( $labarugi->PENDAPATAN_LAIN, 0, ',', '.'),
-            'lr2_biaya_lain' =>number_format( $labarugi->BIAYA_LAIN, 0, ',', '.'),
-            'lr2_ebit' =>number_format( $labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP - $labarugi->PENYUSUTAN + $labarugi->PENDAPATAN_LAIN - $labarugi->BIAYA_LAIN, 0, ',', '.'),
-            'lr2_margin' =>number_format( $labarugi->BIAYA_BUNGA, 0, ',', '.'),
-            'lr2_pajak' =>number_format( $labarugi->BIAYA_PAJAK, 0, ',', '.'),
-            'lr2_eait' =>number_format( $labarugi->PENJUALAN_BERSIH - $labarugi->HPP - $labarugi->BIAYA_HIDUP - $labarugi->PENYUSUTAN + $labarugi->PENDAPATAN_LAIN - $labarugi->BIAYA_LAIN - $labarugi->BIAYA_BUNGA - $labarugi->BIAYA_PAJAK, 0, ',', '.'),
+            'lr2_omset' =>number_format( $labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 * $naikLaba->kenaikan_penjualan_bersih_2, 0, ',', '.'),
+            'lr2_hpp' =>number_format( $labarugi->HPP * $naikLaba->kenaikan_hpp_1 * $naikLaba->kenaikan_hpp_2, 0, ',', '.'),
+            'lr2_laba_kotor' =>number_format( $labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 * $naikLaba->kenaikan_penjualan_bersih_2 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 * $naikLaba->kenaikan_hpp_2, 0, ',', '.'),
+            'lr2_biaya_total' =>number_format( $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 * $naikLaba->kenaikan_biaya_ops_nonops_2, 0, ',', '.'),
+            'lr2_laba_ops' =>number_format( $labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 * $naikLaba->kenaikan_penjualan_bersih_2 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 * $naikLaba->kenaikan_hpp_2 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 * $naikLaba->kenaikan_biaya_ops_nonops_2, 0, ',', '.'),
+            'lr2_angs' =>number_format( $labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1 * $naikLaba->kenaikan_angsuran_bank_lain_2, 0, ',', '.'),
+            'lr2_laba_bersih' =>number_format( $labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 * $naikLaba->kenaikan_penjualan_bersih_2 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 * $naikLaba->kenaikan_hpp_2 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 * $naikLaba->kenaikan_biaya_ops_nonops_2 - $labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1 * $naikLaba->kenaikan_angsuran_bank_lain_2, 0, ',', '.'),
+            'lr2_pen_lain' =>number_format( $labarugi->PENDAPATAN_LAIN * $naikLaba->kenaikan_pendapatan_lain_1 * $naikLaba->kenaikan_pendapatan_lain_2, 0, ',', '.'),
+            'lr2_biaya_lain' =>number_format( $labarugi->BIAYA_LAIN * $naikLaba->kenaikan_biaya_lain_1 * $naikLaba->kenaikan_biaya_lain_2, 0, ',', '.'),
+            'lr2_ebit' =>number_format( $labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 * $naikLaba->kenaikan_penjualan_bersih_2 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 * $naikLaba->kenaikan_hpp_2 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 * $naikLaba->kenaikan_biaya_ops_nonops_2 - $labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1 * $naikLaba->kenaikan_angsuran_bank_lain_2 + $labarugi->PENDAPATAN_LAIN * $naikLaba->kenaikan_pendapatan_lain_1 * $naikLaba->kenaikan_pendapatan_lain_2 + $labarugi->BIAYA_LAIN * $naikLaba->kenaikan_biaya_lain_1 * $naikLaba->kenaikan_biaya_lain_2, 0, ',', '.'),
+            'lr2_margin' =>number_format( $labarugi->BIAYA_BUNGA , 0, ',', '.'),
+            'lr2_pajak' =>number_format( $labarugi->BIAYA_PAJAK , 0, ',', '.'),
+            'lr2_eait' =>number_format( $labarugi->PENJUALAN_BERSIH * $naikLaba->kenaikan_penjualan_bersih_1 * $naikLaba->kenaikan_penjualan_bersih_2 - $labarugi->HPP * $naikLaba->kenaikan_hpp_1 * $naikLaba->kenaikan_hpp_2 - $labarugi->BIAYA_HIDUP * $naikLaba->kenaikan_biaya_ops_nonops_1 * $naikLaba->kenaikan_biaya_ops_nonops_2 - $labarugi->PENYUSUTAN * $naikLaba->kenaikan_angsuran_bank_lain_1 * $naikLaba->kenaikan_angsuran_bank_lain_2 + $labarugi->PENDAPATAN_LAIN * $naikLaba->kenaikan_pendapatan_lain_1 * $naikLaba->kenaikan_pendapatan_lain_2 - $labarugi->BIAYA_LAIN * $naikLaba->kenaikan_biaya_lain_1 * $naikLaba->kenaikan_biaya_lain_2 - $labarugi->BIAYA_BUNGA  - $labarugi->BIAYA_PAJAK, 0, ',', '.'),
         ]);
     
         $neraca = TNeraca::where('ID_NASABAH', $laporan->ID_NASABAH)->first();
     
-    
+        
         $phpWord->setValues([
             'nrc_periode' => $neraca->PERIODE,
             'nrc_kas' =>number_format( $neraca->KAS, 0, ',', '.'),
@@ -991,50 +1013,87 @@ class LaporanController extends Controller
             'nrc_pasiva' =>number_format( $neraca->HUTANG_JANGKA_PENDEK + $neraca->HUTANG_JANGKA_PANJANG + $neraca->MODAL + $neraca->LABA_DITAHAN + $neraca->LABA_BERJALAN, 0, ',', '.'),
         ]);
     
+        foreach ($naikNeraca as $key => $value) {
+            $naikNeraca->$key = ($value + 100) / 100;
+        }
+        // {
+        //     "kenaikan_kas_1": "9",
+        //     "kenaikan_kas_2": "10",
+        //     "kenaikan_piutang_dagang_1": "5",
+        //     "kenaikan_piutang_dagang_2": "5",
+        //     "kenaikan_persediaan_1": "5",
+        //     "kenaikan_persediaan_2": "5",
+        //     "kenaikan_tanah_1": "5",
+        //     "kenaikan_tanah_2": "5",
+        //     "kenaikan_gedung_1": "0",
+        //     "kenaikan_gedung_2": "0",
+        //     "kenaikan_penyusutan_gedung_1": "5",
+        //     "kenaikan_penyusutan_gedung_2": "5",
+        //     "kenaikan_peralatan_1": "0",
+        //     "kenaikan_peralatan_2": "0",
+        //     "kenaikan_penyusutan_peralatan_1": "5",
+        //     "kenaikan_penyusutan_peralatan_2": "5",
+        //     "kenaikan_hutang_jangka_pendek_1": "-25",
+        //     "kenaikan_hutang_jangka_pendek_2": "-25",
+        //     "kenaikan_hutang_jangka_panjang_1": "-25",
+        //     "kenaikan_hutang_jangka_panjang_2": "-25",
+        //     "kenaikan_laba_ditahan_1": "10",
+        //     "kenaikan_laba_ditahan_2": "0",
+        //     "kenaikan_laba_berjalan_1": "0",
+        //     "kenaikan_laba_berjalan_2": "0"
+        // }
+        // let nextsub_total_aktiva_lancarValue = nextkasValue + nextpiutang_dagangValue + nextpersediaanValue;
+        // let nextsub_total_aktiva_tetapValue = nextgedungValue - nextpenyusutan_gedungValue + nextperalatanValue - nextpenyusutan_peralatanValue + nexttanahValue;
+        // let nextaktivaValue = nextsub_total_aktiva_lancarValue + nextsub_total_aktiva_tetapValue;
+        // let nextsub_total_kewajibanValue = nexthutang_jangka_pendekValue + nexthutang_jangka_panjangValue;
+        // let nextmodalValue = nextaktivaValue - nextsub_total_kewajibanValue - nextlaba_ditahanValue - nextlaba_berjalanValue;
+
+        $modal1 = $neraca->TANAH * $naikNeraca->kenaikan_tanah_1 + $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1 - $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1 + $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1 - $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1 + $neraca->KAS * $naikNeraca->kenaikan_kas_1 + $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1 + $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1 - $neraca->HUTANG_JANGKA_PENDEK * $naikNeraca->kenaikan_hutang_jangka_pendek_1 - $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1 - $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 - $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1;
+        $modal12 =$neraca->TANAH * $naikNeraca->kenaikan_tanah_1 * $naikNeraca->kenaikan_tanah_2 + $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1 * $naikNeraca->kenaikan_gedung_2 - $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1 * $naikNeraca->kenaikan_penyusutan_gedung_2 + $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1 * $naikNeraca->kenaikan_peralatan_2 - $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1 * $naikNeraca->kenaikan_penyusutan_peralatan_2 + $neraca->KAS * $naikNeraca->kenaikan_kas_1 * $naikNeraca->kenaikan_kas_2 + $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1 * $naikNeraca->kenaikan_piutang_dagang_2 + $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1 * $naikNeraca->kenaikan_persediaan_2 - $neraca->HUTANG_JANGKA_PENDEK * $naikNeraca->kenaikan_hutang_jangka_pendek_1 * $naikNeraca->kenaikan_hutang_jangka_pendek_2 - $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1 * $naikNeraca->kenaikan_hutang_jangka_panjang_2 - $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 * $naikNeraca->kenaikan_laba_ditahan_2 - $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1 * $naikNeraca->kenaikan_laba_berjalan_2;
         $phpWord->setValues([
             'nrc1_periode' =>$neraca->PERIODE,
-            'nrc1_kas' =>number_format(  $neraca->KAS, 0, ',', '.'),
-            'nrc1_piutang' =>number_format(  $neraca->PIUTANG_DAGANG, 0, ',', '.'),
-            'nrc1_persediaan' =>number_format(  $neraca->PERSEDIAAN, 0, ',', '.'),
-            'nrc1_tanah' =>number_format(  $neraca->TANAH, 0, ',', '.'),
-            'nrc1_gedung' =>number_format(  $neraca->GEDUNG, 0, ',', '.'),
-            'nrc1_peny_gedung' =>number_format(  $neraca->PENYUSUTAN_GED, 0, ',', '.'),
-            'nrc1_peralatan' =>number_format(  $neraca->PERALATAN, 0, ',', '.'),
-            'nrc1_peny_peralatan' =>number_format(  $neraca->PENYUSUTAN_PERALATAN, 0, ',', '.'),
-            'nrc1_hut_pendek' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK, 0, ',', '.'),
-            'nrc1_hut_panjang' =>number_format(  $neraca->HUTANG_JANGKA_PANJANG, 0, ',', '.'),
-            'nrc1_modal' =>number_format(  $neraca->MODAL, 0, ',', '.'),
-            'nrc1_laba_tahan' =>number_format(  $neraca->LABA_DITAHAN, 0, ',', '.'),
-            'nrc1_laba_jalan' =>number_format(  $neraca->LABA_BERJALAN, 0, ',', '.'),
-            'nrc1_sub_aktt' =>number_format(  $neraca->TANAH + $neraca->GEDUNG - $neraca->PENYUSUTAN_GED + $neraca->PERALATAN - $neraca->PENYUSUTAN_PERALATAN, 0, ',', '.'),
-            'nrc1_sub_aktl' =>number_format(  $neraca->KAS + $neraca->PIUTANG_DAGANG + $neraca->PERSEDIAAN, 0, ',', '.'),
-            'nrc1_aktiva' =>number_format(  $neraca->TANAH + $neraca->GEDUNG - $neraca->PENYUSUTAN_GED + $neraca->PERALATAN - $neraca->PENYUSUTAN_PERALATAN + $neraca->KAS + $neraca->PIUTANG_DAGANG + $neraca->PERSEDIAAN, 0, ',', '.'),
-            'nrc1_sub_kjb' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK + $neraca->HUTANG_JANGKA_PANJANG, 0, ',', '.'),
-            'nrc1_sub_modal' =>number_format(  $neraca->MODAL + $neraca->LABA_DITAHAN + $neraca->LABA_BERJALAN, 0, ',', '.'),
-            'nrc1_pasiva' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK + $neraca->HUTANG_JANGKA_PANJANG + $neraca->MODAL + $neraca->LABA_DITAHAN + $neraca->LABA_BERJALAN, 0, ',', '.'),
+            'nrc1_kas' =>number_format(  $neraca->KAS * $naikNeraca->kenaikan_kas_1 , 0, ',', '.'),
+            'nrc1_piutang' =>number_format(  $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1, 0, ',', '.'),
+            'nrc1_persediaan' =>number_format(  $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1, 0, ',', '.'),
+            'nrc1_tanah' =>number_format(  $neraca->TANAH * $naikNeraca->kenaikan_tanah_1, 0, ',', '.'),
+            'nrc1_gedung' =>number_format(  $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1, 0, ',', '.'),
+            'nrc1_peny_gedung' =>number_format(  $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1, 0, ',', '.'),
+            'nrc1_peralatan' =>number_format(  $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1, 0, ',', '.'),
+            'nrc1_peny_peralatan' =>number_format(  $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1, 0, ',', '.'),
+            'nrc1_hut_pendek' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK * $naikNeraca->kenaikan_hutang_jangka_pendek_1, 0, ',', '.'),
+            'nrc1_hut_panjang' =>number_format(  $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1, 0, ',', '.'),
+            'nrc1_laba_tahan' =>number_format(  $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 , 0, ',', '.'),
+            'nrc1_laba_jalan' =>number_format(  $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1, 0, ',', '.'),
+            'nrc1_sub_aktt' =>number_format(  $neraca->TANAH * $naikNeraca->kenaikan_tanah_1 + $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1 - $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1 + $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1 - $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1, 0, ',', '.'),
+            'nrc1_sub_aktl' =>number_format(  $neraca->KAS * $naikNeraca->kenaikan_kas_1 + $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1 + $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1, 0, ',', '.'),
+            'nrc1_aktiva' =>number_format(  $neraca->TANAH * $naikNeraca->kenaikan_tanah_1 + $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1 - $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1 + $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1 - $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1 + $neraca->KAS * $naikNeraca->kenaikan_kas_1 + $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1 + $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1, 0, ',', '.'),
+            'nrc1_sub_kjb' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK * $naikNeraca->kenaikan_hutang_jangka_pendek_1 + $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1, 0, ',', '.'),
+            'nrc1_sub_modal' =>number_format(  $modal1 + $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 + $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1, 0, ',', '.'),
+            'nrc1_pasiva' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK  * $naikNeraca->kenaikan_hutang_jangka_pendek_1 + $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1 + $modal1 + $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 + $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1, 0, ',', '.'),
+            'nrc1_modal' =>number_format( $modal1  , 0, ',', '.'),
         ]);
     
         $phpWord->setValues([
             'nrc2_periode' => $neraca->PERIODE,
-            'nrc2_kas' =>number_format(  $neraca->KAS,0, ',', '.'),
-            'nrc2_piutang' =>number_format(  $neraca->PIUTANG_DAGANG,0, ',', '.'),
-            'nrc2_persediaan' =>number_format(  $neraca->PERSEDIAAN,0, ',', '.'),
-            'nrc2_tanah' =>number_format(  $neraca->TANAH,0, ',', '.'),
-            'nrc2_gedung' =>number_format(  $neraca->GEDUNG,0, ',', '.'),
-            'nrc2_peny_gedung' =>number_format(  $neraca->PENYUSUTAN_GED,0, ',', '.'),
-            'nrc2_peralatan' =>number_format(  $neraca->PERALATAN,0, ',', '.'),
-            'nrc2_peny_peralatan' =>number_format(  $neraca->PENYUSUTAN_PERALATAN,0, ',', '.'),
-            'nrc2_hut_pendek' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK,0, ',', '.'),
-            'nrc2_hut_panjang' =>number_format(  $neraca->HUTANG_JANGKA_PANJANG,0, ',', '.'),
-            'nrc2_modal' =>number_format(  $neraca->MODAL,0, ',', '.'),
-            'nrc2_laba_tahan' =>number_format(  $neraca->LABA_DITAHAN,0, ',', '.'),
-            'nrc2_laba_jalan' =>number_format(  $neraca->LABA_BERJALAN,0, ',', '.'),
-            'nrc2_sub_aktt' =>number_format(  $neraca->TANAH + $neraca->GEDUNG - $neraca->PENYUSUTAN_GED + $neraca->PERALATAN - $neraca->PENYUSUTAN_PERALATAN,0, ',', '.'),
-            'nrc2_sub_aktl' =>number_format(  $neraca->KAS + $neraca->PIUTANG_DAGANG + $neraca->PERSEDIAAN,0, ',', '.'),
-            'nrc2_aktiva' =>number_format(  $neraca->TANAH + $neraca->GEDUNG - $neraca->PENYUSUTAN_GED + $neraca->PERALATAN - $neraca->PENYUSUTAN_PERALATAN + $neraca->KAS + $neraca->PIUTANG_DAGANG + $neraca->PERSEDIAAN,0, ',', '.'),
-            'nrc2_sub_kjb' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK + $neraca->HUTANG_JANGKA_PANJANG,0, ',', '.'),
-            'nrc2_sub_modal' =>number_format(  $neraca->MODAL + $neraca->LABA_DITAHAN + $neraca->LABA_BERJALAN,0, ',', '.'),
-            'nrc2_pasiva' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK + $neraca->HUTANG_JANGKA_PANJANG + $neraca->MODAL + $neraca->LABA_DITAHAN + $neraca->LABA_BERJALAN,0, ',', '.'),
+            'nrc2_kas' =>number_format(  $neraca->KAS * $naikNeraca->kenaikan_kas_1 * $naikNeraca->kenaikan_kas_2,0, ',', '.'),
+            'nrc2_piutang' =>number_format(  $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1 * $naikNeraca->kenaikan_piutang_dagang_2,0, ',', '.'),
+            'nrc2_persediaan' =>number_format(  $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1 * $naikNeraca->kenaikan_persediaan_2,0, ',', '.'),
+            'nrc2_tanah' =>number_format(  $neraca->TANAH * $naikNeraca->kenaikan_tanah_1 * $naikNeraca->kenaikan_tanah_2,0, ',', '.'),
+            'nrc2_gedung' =>number_format(  $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1 * $naikNeraca->kenaikan_gedung_2,0, ',', '.'),
+            'nrc2_peny_gedung' =>number_format(  $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1 * $naikNeraca->kenaikan_penyusutan_gedung_2,0, ',', '.'),
+            'nrc2_peralatan' =>number_format(  $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1 * $naikNeraca->kenaikan_peralatan_2,0, ',', '.'),
+            'nrc2_peny_peralatan' =>number_format(  $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1 * $naikNeraca->kenaikan_penyusutan_peralatan_2,0, ',', '.'),
+            'nrc2_hut_pendek' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK * $naikNeraca->kenaikan_hutang_jangka_pendek_1 * $naikNeraca->kenaikan_hutang_jangka_pendek_2,0, ',', '.'),
+            'nrc2_hut_panjang' =>number_format(  $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1 * $naikNeraca->kenaikan_hutang_jangka_panjang_2,0, ',', '.'),
+            'nrc2_modal' =>number_format(  $modal12,0, ',', '.'),
+            'nrc2_laba_tahan' =>number_format(  $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 * $naikNeraca->kenaikan_laba_ditahan_2,0, ',', '.'),
+            'nrc2_laba_jalan' =>number_format(  $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1 * $naikNeraca->kenaikan_laba_berjalan_2,0, ',', '.'),
+            'nrc2_sub_aktt' =>number_format(  $neraca->TANAH * $naikNeraca->kenaikan_tanah_1 * $naikNeraca->kenaikan_tanah_2 + $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1 * $naikNeraca->kenaikan_gedung_2 - $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1 * $naikNeraca->kenaikan_penyusutan_gedung_2 + $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1 * $naikNeraca->kenaikan_peralatan_2 - $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1 * $naikNeraca->kenaikan_penyusutan_peralatan_2,0, ',', '.'),
+            'nrc2_sub_aktl' =>number_format(  $neraca->KAS * $naikNeraca->kenaikan_kas_1 * $naikNeraca->kenaikan_kas_2 + $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1 * $naikNeraca->kenaikan_piutang_dagang_2 + $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1 * $naikNeraca->kenaikan_persediaan_2,0, ',', '.'),
+            'nrc2_aktiva' =>number_format(  $neraca->TANAH * $naikNeraca->kenaikan_tanah_1 * $naikNeraca->kenaikan_tanah_2 + $neraca->GEDUNG * $naikNeraca->kenaikan_gedung_1 * $naikNeraca->kenaikan_gedung_2 - $neraca->PENYUSUTAN_GED * $naikNeraca->kenaikan_penyusutan_gedung_1 * $naikNeraca->kenaikan_penyusutan_gedung_2 + $neraca->PERALATAN * $naikNeraca->kenaikan_peralatan_1 * $naikNeraca->kenaikan_peralatan_2 - $neraca->PENYUSUTAN_PERALATAN * $naikNeraca->kenaikan_penyusutan_peralatan_1 * $naikNeraca->kenaikan_penyusutan_peralatan_2 + $neraca->KAS * $naikNeraca->kenaikan_kas_1 * $naikNeraca->kenaikan_kas_2 + $neraca->PIUTANG_DAGANG * $naikNeraca->kenaikan_piutang_dagang_1 * $naikNeraca->kenaikan_piutang_dagang_2 + $neraca->PERSEDIAAN * $naikNeraca->kenaikan_persediaan_1 * $naikNeraca->kenaikan_persediaan_2,0, ',', '.'),
+            'nrc2_sub_kjb' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK * $naikNeraca->kenaikan_hutang_jangka_pendek_1 * $naikNeraca->kenaikan_hutang_jangka_pendek_2 + $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1 * $naikNeraca->kenaikan_hutang_jangka_panjang_2,0, ',', '.'),
+            'nrc2_sub_modal' =>number_format(  $modal12 + $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 * $naikNeraca->kenaikan_laba_ditahan_2 + $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1 * $naikNeraca->kenaikan_laba_berjalan_2,0, ',', '.'),
+            'nrc2_pasiva' =>number_format(  $neraca->HUTANG_JANGKA_PENDEK * $naikNeraca->kenaikan_hutang_jangka_pendek_1 * $naikNeraca->kenaikan_hutang_jangka_pendek_2 + $neraca->HUTANG_JANGKA_PANJANG * $naikNeraca->kenaikan_hutang_jangka_panjang_1 * $naikNeraca->kenaikan_hutang_jangka_panjang_2 + $modal12 + $neraca->LABA_DITAHAN * $naikNeraca->kenaikan_laba_ditahan_1 * $naikNeraca->kenaikan_laba_ditahan_2 + $neraca->LABA_BERJALAN * $naikNeraca->kenaikan_laba_berjalan_1 * $naikNeraca->kenaikan_laba_berjalan_2,0, ',', '.'),
         ]);
     
         $angsuran = TAngsuran::where('ID_NASABAH', $laporan->ID_NASABAH)->get();
