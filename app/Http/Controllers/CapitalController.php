@@ -42,7 +42,7 @@ class CapitalController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('model:8000/capital', [
+        $response = Http::post('127.0.0.1:9000/capital', [
             'cm_dar' => -1 * floatval($request->cm_dar),
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),
@@ -96,7 +96,7 @@ class CapitalController extends Controller
             'RPC' => -1 * $request->rpc,
             'PK_EBIT' => $request->pk_ebit,
         ]);
-        $response = Http::post('model:8000/capital', [
+        $response = Http::post('127.0.0.1:9000/capital', [
             'cm_dar' => -1 * floatval($request->cm_dar),
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),

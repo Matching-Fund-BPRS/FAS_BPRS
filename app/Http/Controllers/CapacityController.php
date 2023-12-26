@@ -39,7 +39,7 @@ class CapacityController extends Controller
             'ID_NASABAH' => $request->id,
         ]);
 
-        $response = Http::post('model:8000/capacity', [
+        $response = Http::post('127.0.0.1:9000/capacity', [
             'teh_utilisasi' => intval($request->teh_utilisasi),
             'teh_lama_usaha' => intval($request->teh_lama_usaha),
             'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),
@@ -92,7 +92,7 @@ class CapacityController extends Controller
             'CB_DSCR' => $request->cb_dscr,
         ]);
 
-        $response = Http::post('model:8000/capacity', [
+        $response = Http::post('127.0.0.1:9000/capacity', [
             'teh_utilisasi' => intval($request->teh_utilisasi),
             'teh_lama_usaha' => intval($request->teh_lama_usaha),
             'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),
