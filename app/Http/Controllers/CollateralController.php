@@ -61,7 +61,7 @@ class CollateralController extends Controller
             'PENGUASAAN' => $request->penguasaan,
             'ID_NASABAH' => $request->id,
         ]);
-        $response = Http::post('127.0.0.1:9000/collateral', [
+        $response = Http::post('http://127.0.0.1:9000/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
             'pa_dokumen' => intval($dokumen),
             'leg_usaha' => intval($leg_usaha),
@@ -127,7 +127,7 @@ class CollateralController extends Controller
             'KEPEMILIKAN' => $request->kepemilikan,
             'PENGUASAAN' => $request->penguasaan,
         ]);
-        $response = Http::post('127.0.0.1:9000/collateral', [
+        $response = Http::post('http://127.0.0.1:9000/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
             'pa_dokumen' => intval($dokumen),
             'leg_usaha' => intval($leg_usaha),
