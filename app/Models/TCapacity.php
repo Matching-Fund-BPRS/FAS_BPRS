@@ -17,8 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $CB_PENGELOLAAN
  * @property float|null $CB_DSCR
  * @property string $ID_NASABAH
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -44,9 +42,4 @@ class TCapacity extends Model
 		'CB_PENGELOLAAN',
 		'CB_DSCR'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

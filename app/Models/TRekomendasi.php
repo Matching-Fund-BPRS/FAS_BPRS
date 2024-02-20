@@ -31,8 +31,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $MODAL
  * @property float|null $BASIL_BANK
  * @property float|null $BASIL_DEB
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -81,9 +79,4 @@ class TRekomendasi extends Model
 		'BASIL_BANK',
 		'BASIL_DEB'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

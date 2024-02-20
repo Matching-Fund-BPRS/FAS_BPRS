@@ -24,8 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $LAMA_TUNGGAKAN
  * @property string|null $KET
  * @property int $ID
- * 
- * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -55,9 +53,4 @@ class TFa extends Model
 		'LAMA_TUNGGAKAN',
 		'KET'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

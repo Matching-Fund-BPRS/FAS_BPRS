@@ -20,8 +20,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $NO_KTP
  * @property float|null $SAHAM
  * @property int $ID
- * 
- * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -45,9 +43,4 @@ class TPenguru extends Model
 		'NO_KTP',
 		'SAHAM'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

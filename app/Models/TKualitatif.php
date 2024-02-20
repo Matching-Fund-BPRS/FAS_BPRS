@@ -53,8 +53,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $SITU_TGL
  * @property string|null $IJIN_HO
  * @property Carbon|null $HO_TGL
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -140,9 +138,4 @@ class TKualitatif extends Model
 		'IJIN_HO',
 		'HO_TGL'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

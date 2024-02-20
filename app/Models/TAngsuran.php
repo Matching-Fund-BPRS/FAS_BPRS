@@ -17,8 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $POKOK_PINJAMAN
  * @property float|null $ANGS_POKOK
  * @property float|null $ANGS_BUNGA
- * 
- * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -42,9 +40,4 @@ class TAngsuran extends Model
 		'ANGS_POKOK',
 		'ANGS_BUNGA'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

@@ -28,8 +28,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $NAMA_BENDAHARA
  * @property string|null $NO_TELP_BENDAHARA
  * @property string|null $PENYALURAN_GAJI
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -58,9 +56,4 @@ class TPegawai extends Model
 		'NO_TELP_BENDAHARA',
 		'PENYALURAN_GAJI'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

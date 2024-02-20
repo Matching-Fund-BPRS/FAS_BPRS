@@ -17,8 +17,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $SY_JENIS_BARANG
  * @property float|null $SY_PRESENTASE_NON_SYARIAH
  * @property string|null $ID_NASABAH
- * 
- * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -44,9 +42,4 @@ class TSyariah extends Model
 		'SY_PRESENTASE_NON_SYARIAH',
 		'ID_NASABAH'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

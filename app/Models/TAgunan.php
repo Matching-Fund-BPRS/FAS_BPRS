@@ -39,8 +39,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $DEP_BANK
  * @property float|null $SAVE_MARGIN
  * @property string|null $JENIS_BANGUNAN
- * 
- * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -85,9 +83,4 @@ class TAgunan extends Model
 		'SAVE_MARGIN',
 		'JENIS_BANGUNAN'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

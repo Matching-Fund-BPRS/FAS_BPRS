@@ -13,8 +13,6 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property string $ID_NASABAH
  * @property string|null $CATATAN
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -28,9 +26,4 @@ class TCatatan extends Model
 	protected $fillable = [
 		'CATATAN'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

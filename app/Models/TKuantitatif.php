@@ -18,8 +18,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $MARKETABILITY
  * @property int|null $PENGUASAAN
  * @property int|null $ASURANSI
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -47,9 +45,4 @@ class TKuantitatif extends Model
 		'PENGUASAAN',
 		'ASURANSI'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

@@ -15,8 +15,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $TAMBAHAN
  * @property string|null $RESIKO
  * @property string|null $MITIGASI
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -32,9 +30,4 @@ class TTambahan extends Model
 		'RESIKO',
 		'MITIGASI'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

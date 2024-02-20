@@ -18,8 +18,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $CU_KECAKAPAN
  * @property int|null $CU_EKSTERNAL
  * @property string $ID_NASABAH
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -47,9 +45,4 @@ class TCondition extends Model
 		'CU_KECAKAPAN',
 		'CU_EKSTERNAL'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

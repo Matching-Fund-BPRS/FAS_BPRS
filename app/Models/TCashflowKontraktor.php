@@ -27,8 +27,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $BUNGA_PINJ_BANK
  * @property float|null $ANGS_POKOK_BANK
  * @property float|null $NILAI_PROYEK
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -74,9 +72,4 @@ class TCashflowKontraktor extends Model
 		'ANGS_POKOK_BANK',
 		'NILAI_PROYEK'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

@@ -24,8 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $RPC
  * @property string|null $JENIS
  * @property float|null $BIAYA_LAIN
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -64,9 +62,4 @@ class TLimitkredit extends Model
 		'JENIS',
 		'BIAYA_LAIN'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

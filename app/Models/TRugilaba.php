@@ -31,8 +31,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $SET_ASSET
  * @property float|null $SET_BIAYA
  * @property float|null $SET_HPP
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -84,9 +82,4 @@ class TRugilaba extends Model
 		'SET_BIAYA',
 		'SET_HPP'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

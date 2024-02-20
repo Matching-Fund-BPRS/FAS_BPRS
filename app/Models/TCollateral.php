@@ -19,8 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $CA_NILAI_AGUNAN
  * @property int|null $PA_DOKUMEN
  * @property string $ID_NASABAH
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -50,9 +48,4 @@ class TCollateral extends Model
 		'CA_NILAI_AGUNAN',
 		'PA_DOKUMEN'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

@@ -23,8 +23,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $SEK_EKO_SID
  * @property string|null $PENGGUNAAN_SID
  * @property string|null $PEMBIAYAAN_SID
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -48,9 +46,4 @@ class TBisid extends Model
 		'PENGGUNAAN_SID',
 		'PEMBIAYAAN_SID'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

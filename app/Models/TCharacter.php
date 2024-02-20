@@ -21,8 +21,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property int|null $PU_INTEGRITAS
  * @property int|null $PU_ACCOUNT_BEHAVIOR
  * @property string $ID_NASABAH
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -56,9 +54,4 @@ class TCharacter extends Model
 		'PU_INTEGRITAS',
 		'PU_ACCOUNT_BEHAVIOR'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

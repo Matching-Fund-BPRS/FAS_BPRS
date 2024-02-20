@@ -85,8 +85,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $UMUR_EFEKTIF
  * @property int|null $PENYUSUTAN_PERTAHUN
  * @property string|null $INFORMAN_3
- * 
- * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -192,9 +190,4 @@ class TAgunanDetail extends Model
 		'PENYUSUTAN_PERTAHUN',
 		'INFORMAN_3'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

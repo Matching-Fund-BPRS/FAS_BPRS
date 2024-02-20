@@ -24,8 +24,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $BMPD_TERKAIT_PUSAT
  * @property float|null $PLAFOND_CAB
  * @property float|null $PLAFOND_PUSAT
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -65,9 +63,4 @@ class TBmpd extends Model
 		'PLAFOND_CAB',
 		'PLAFOND_PUSAT'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

@@ -18,15 +18,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $CAPITAL
  * @property float|null $SYARIAH
  * @property float|null $SCORING
- * @property string|null $ID_NASABAH
- * 
- * @property TNasabah|null $t_nasabah
+ * @property string $ID_NASABAH
  *
  * @package App\Models
  */
 class TScoring extends Model
 {
 	protected $table = 't_scoring';
+	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
 	public $timestamps = false;
 
@@ -47,12 +46,6 @@ class TScoring extends Model
 		'CONDITION',
 		'CAPITAL',
 		'SYARIAH',
-		'SCORING',
-		'ID_NASABAH'
+		'SCORING'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

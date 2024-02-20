@@ -33,8 +33,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $SET_ASSET
  * @property float|null $EBIT
  * @property float|null $OIS
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -90,9 +88,4 @@ class TNeraca extends Model
 		'EBIT',
 		'OIS'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

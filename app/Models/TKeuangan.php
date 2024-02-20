@@ -33,8 +33,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $ANGS_LAIN
  * @property float|null $PENDAPATAN_LAIN
  * @property float|null $BIAYA_LAIN
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -92,9 +90,4 @@ class TKeuangan extends Model
 		'PENDAPATAN_LAIN',
 		'BIAYA_LAIN'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

@@ -19,8 +19,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property float|null $PK_INCOME_SALES
  * @property float|null $RPC
  * @property float|null $PK_EBIT
- * 
- * @property TNasabah $t_nasabah
  *
  * @package App\Models
  */
@@ -50,9 +48,4 @@ class TCapital extends Model
 		'RPC',
 		'PK_EBIT'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

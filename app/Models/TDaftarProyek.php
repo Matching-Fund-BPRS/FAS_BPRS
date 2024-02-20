@@ -20,8 +20,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property Carbon|null $TGL_MULAI
  * @property Carbon|null $TGL_AKHIR
  * @property float|null $NILAI
- * 
- * @property TNasabah|null $t_nasabah
  *
  * @package App\Models
  */
@@ -46,9 +44,4 @@ class TDaftarProyek extends Model
 		'TGL_AKHIR',
 		'NILAI'
 	];
-
-	public function t_nasabah()
-	{
-		return $this->belongsTo(TNasabah::class, 'ID_NASABAH');
-	}
 }

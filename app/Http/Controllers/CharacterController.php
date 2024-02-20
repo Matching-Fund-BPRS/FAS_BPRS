@@ -52,7 +52,7 @@ class CharacterController extends Controller
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behavior' => intval($request->pu_account_behavior),
         ]);
-
+        dd($response->json());
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
@@ -106,6 +106,7 @@ class CharacterController extends Controller
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behavior' => intval($request->pu_account_behavior),
         ]);
+        dd($response);
         // dd($response->json()['data'], intval($request->man_kemauan), intval($request->man_kejujuran),intval($request->man_reputasi),intval($request->cw_tanggung),intval($request->cw_terbuka),intval($request->cw_displin),intval($request->cw_janji),intval($request->pu_integritas),intval($request->pu_account_behavior));
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
