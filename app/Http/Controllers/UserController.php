@@ -42,7 +42,7 @@ class UserController extends Controller
     }
 
     public function deleteUser(Request $request){
-        User::where('username' , $request->username)->delete();
+       User::where('username', $request->username)->update(['isActive' => false]);
         
         return redirect()->back();
     }

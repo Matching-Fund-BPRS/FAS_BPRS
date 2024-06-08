@@ -211,7 +211,7 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
               <div class="p-4 md:p-5 space-y-4">
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Jenis</label>
-                    <select name="jenis" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <select id="jenis_edit" name="jenis" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         <option value="01" {{ $ref->JENIS == '01' ? 'selected' : '' }}>Sektor Ekonomi</option>
                         <option value="02" {{ $ref->JENIS == '02' ? 'selected' : '' }}>Penggunaan</option>
                         <option value="03" {{ $ref->JENIS == '03' ? 'selected' : '' }}>Golongan Debitur</option>
@@ -225,11 +225,11 @@ class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b bor
                 </div>
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Sandi</label>
-                    <input name="sandi" value="{{ $ref->SANDI }}"  type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input id="sandi_edit" name="sandi" value="{{ $ref->SANDI }}"  type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
                 <div>
                     <label for="" class="block mb-2 text-xs font-medium text-gray-900">Keterangan</label>
-                    <input name="keterangan" value="{{ $ref->KETERANGAN }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <input id="keterangan_edit" name="keterangan" value="{{ $ref->KETERANGAN }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                 </div>
               </div>
               <!-- Modal footer -->

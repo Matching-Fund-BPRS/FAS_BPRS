@@ -190,7 +190,7 @@ class NasabahController extends BaseController
                 'TGL_PENGURUS'=> $tgl_pengurus,       
 
                 'BASIL_BANK' => $request->basil_bank,
-                'BASIL_DEBITUR' => $request->basil_deb,
+                'BASIL_DEB' => $request->basil_deb,
             ]);
     
             return redirect()
@@ -268,7 +268,7 @@ class NasabahController extends BaseController
                 'TGL_PENGURUS'=> $tgl_pengurus,  
 
                 'BASIL_BANK' => $request->basil_bank,
-                'BASIL_DEBITUR' => $request->basil_deb,
+                'BASIL_DEB' => $request->basil_deb,
             ]);
 
     
@@ -381,7 +381,7 @@ class NasabahController extends BaseController
             'TGL_PENGURUS'=> $tgl_pengurus,
 
             'BASIL_BANK' => $request->basil_bank,
-            'BASIL_DEBITUR' => $request->basil_deb,
+            'BASIL_DEB' => $request->basil_deb,
         ]);
 
         return redirect()
