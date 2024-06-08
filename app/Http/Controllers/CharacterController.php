@@ -41,7 +41,7 @@ class CharacterController extends Controller
         ]);
         
         // ambil response dari API terus masukin di variabel
-        $response = Http::post('http://127.0.0.1:9000/character', [
+        $response = Http::post('https://test2.bmiscoring.online/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),
@@ -95,7 +95,7 @@ class CharacterController extends Controller
             'PU_INTEGRITAS' => $request->pu_integritas,
             'PU_ACCOUNT_BEHAVIOR' => $request->pu_account_behavior,
         ]);
-        $response = Http::post('http://127.0.0.1:9000/character', [
+        $response = Http::post('https://test2.bmiscoring.online/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),

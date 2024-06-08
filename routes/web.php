@@ -198,19 +198,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/pengaturanBank', [SettingController::class, 'indexBank'])->name('pengaturanBank');
     Route::post('/dashboard/pengaturanBank/tambah', [SettingController::class, 'postBank'])->name('post_bank');
     Route::delete('/dashboard/pengaturanBank/deleteBank', [SettingController::class, 'deleteBank'])->name('delete_bank');
+    
+    Route::get('/dashboard/user', [UserController::class, 'index'])->name('user_management');
+    Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
+    Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
 });
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //USER MANAGEMENT PAGE
-Route::group(['middleware' => ['auth', 'isSupervisor:1']], function () {
-    Route::get('/dashboard/user', [UserController::class, 'index'])->name('user_management');
-    Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
-    Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
-});
-Route::group(['middleware' => ['auth', 'isSupervisor:2']], function () {
-    Route::get('/dashboard/user', [UserController::class, 'index'])->name('user_management');
-    Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
-    Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
-});
+// Route::group(['middleware' => ['auth', 'isSupervisor:1']], function () {
+    
+// });
+// Route::group(['middleware' => ['auth', 'isSupervisor:2']], function () {
+//     Route::get('/dashboard/user', [UserController::class, 'index'])->name('user_management');
+//     Route::post('/dashboard/user/tambah-user', [UserController::class, 'addUser'])->name('tambah_user');
+//     Route::delete('/dashboard/user/delete-user', [UserController::class, 'deleteUser'])->name('delete-user');
+// });
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 // AUTHENTICATE PAGE
