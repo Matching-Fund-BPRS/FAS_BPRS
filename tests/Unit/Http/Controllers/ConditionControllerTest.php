@@ -43,7 +43,7 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'model/condition' => Http::response(['data' => ['percentage' => 75]], 200)
+            'http://34.50.77.175:8000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post(route('updateCondition', ['id' => $nasabah->ID_NASABAH]), $request->all());
@@ -65,7 +65,7 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'model/condition' => Http::response(['data' => ['percentage' => 80]], 200)
+            'http://34.50.77.175:8000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post(route('postCondition'), $request->all());

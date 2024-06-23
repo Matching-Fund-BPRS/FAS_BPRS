@@ -38,7 +38,7 @@ class CapacityControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'model/capacity' => Http::response(['data' => ['percentage' => 80]], 200)
+            'http://34.50.77.175:8000/capacity' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post(route('postCapacity'), $request->all());
@@ -62,7 +62,7 @@ class CapacityControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'model/capacity' => Http::response(['data' => ['percentage' => 85]], 200)
+            'http://34.50.77.175:8000/capacity' => Http::response(['data' => ['percentage' => 85]], 200)
         ]);
 
         $response = $this->post(route('updateCapacity', ['id' => $nasabah->ID_NASABAH]), $request->all());
