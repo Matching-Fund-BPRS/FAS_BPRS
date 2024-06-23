@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TCondition
  * 
@@ -23,6 +23,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TCondition extends Model
 {
+	use HasFactory;
 	protected $table = 't_condition';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

@@ -11,6 +11,7 @@
             <div class= "min-w-xl">
                 <label for="cu_pasokan" class="block mb-2 text-xs font-medium text-gray-900">Sertifikasi</label>
                 <select name="sertifikasi" id="cu_pasokan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <option value="">Tentukan analisa Sertifikasi</option>
                     @if($syariah_nasabah != null)
                         <option {{ $syariah_nasabah->SY_SERTIFIKASI_HALAL == 1 ? 'selected' : ''}} value="1"> Memiliki sertifikat halal </option>
                         <option {{ $syariah_nasabah->SY_SERTIFIKASI_HALAL == 2 ? 'selected' : ''}} value="2"> Tidak memiliki sertifikat halal  </option>
@@ -45,6 +46,7 @@
             <div class= "min-w-xl">
                 <label for="pem_kebutuhan" class="block mb-2 text-xs font-medium text-gray-900">Akad usaha</label>
                 <select name="akad_usaha" id="pem_kebutuhan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <option value="">Tentukan analisa Akad usaha</option>
                     @if($syariah_nasabah == null)
                         <option value="1">Transaksi Menggunakan Akad Yang Bertentangan Dengan Syariah </option>
                         <option value="2">Transaksi Menggunakan Akad Yang Tidak Bertentangan Dengan Syariah </option>
@@ -58,6 +60,7 @@
             <div class= "min-w-xl">
                 <label for="cu_kecakapan" class="block mb-2 text-xs font-medium text-gray-900">Jenis Barang Usaha</label>
                 <select name="jenis_barang_usaha" id="cu_kecakapan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <option value="">Tentukan analisa Jenis Barang Usaha</option>
                     @if($syariah_nasabah == null)
                         <option value="1">Barang atau jasa yang di produksi mengandung hal hal yang bertentang dengan prinsip syariah</option>
                         <option value="2">Barang atau jasa yang di produksi tidak mengandung hal hal yang bertentang dengan prinsip syariah</option>

@@ -9,11 +9,41 @@ use App\Models\TKeuangan;
 use App\Models\TLimitkredit;
 use App\Models\TNasabah;
 use App\Models\TRugilaba;
+use Illuminate\Support\Facades\Validator;
 
 class InfoKeuanganController extends Controller
 {
     public function addInfoKeuangan(Request $request){
-        
+        $validator = Validator::make($request->all(), [
+            'omset' => 'required',
+            'biaya_gaji' => 'required',
+            'biaya_bahan_baku' => 'required',
+            'biaya_produksi' => 'required',
+            'biaya_transportasi' => 'required',
+            'biaya_usaha_lain' => 'required',
+            'biaya_rt_listrik' => 'required',
+            'biaya_rt_transportasi' => 'required',
+            'biaya_rt_sekolah' => 'required',
+            'biaya_rt_makan' => 'required',
+            'biaya_rt_pemeliharaan' => 'required',
+            'biaya_rt_lain' => 'required',
+            'angs_bank_umum' => 'required',
+            'angs_bpr' => 'required',
+            'angs_leasing' => 'required',
+            'angs_koperasi' => 'required',
+            'angs_lain' => 'required',
+            'pendapatan_lain' => 'required',
+            'biaya_angsuran_lain' => 'required',
+            'total_biaya' => 'required',
+            'total_biaya_rt' => 'required',
+            'total_angsuran' => 'required',
+            'pendapatan_lain' => 'required',
+            'biaya_angsuran_lain' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
 
         $omset = str_replace('.', '', $request->omset);
         $biaya_gaji = str_replace('.', '', $request->biaya_gaji);
@@ -84,7 +114,6 @@ class InfoKeuanganController extends Controller
                 'BIAYA_LAIN' => $biaya_angsuran_lain
             ]);
         }
-
 
         $hpp = str_replace('.', '', $request->total_biaya);
         $biaya_hidup = str_replace('.', '', $request->total_biaya_rt);

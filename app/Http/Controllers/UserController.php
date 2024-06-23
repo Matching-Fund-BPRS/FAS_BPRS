@@ -28,7 +28,7 @@ class UserController extends Controller
             return redirect()
                         ->back()
                         ->withErrors($validator)
-                        ->withInput();
+                        ->with('result_message', 'Username sudah ada!');
         }
         User::create([
             'name' => $request->name,
@@ -42,7 +42,9 @@ class UserController extends Controller
     }
 
     public function deleteUser(Request $request){
-       User::where('username', $request->username)->update(['isActive' => false]);
+        $user = User::find($request->username);
+
+        $user->update(['isActive' => !$user->isActive]);
         
         return redirect()->back();
     }

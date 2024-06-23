@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class ReffBank
  * 
@@ -18,6 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ReffBank extends Model
 {
+		use HasFactory;
 	protected $table = 'reff_bank';
 	public $incrementing = false;
 	public $timestamps = false;

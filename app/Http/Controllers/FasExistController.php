@@ -10,6 +10,8 @@ use App\Models\TFa;
 use App\Models\TBisid;
 use App\Models\TNasabah;
 use App\Models\TBmpd;
+use Illuminate\Support\Facades\Validator;
+
 
 class FasExistController extends Controller
 {
@@ -37,6 +39,25 @@ class FasExistController extends Controller
     }
 
     public function tambah_bisid(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'sektor_ekonomi_bi' => 'required',
+            'penggunaan_bi' => 'required',
+            'golongan_debitur_bi' => 'required',
+            'sifat_bi' => 'required',
+            'golongan_penjamin_bi' => 'required',
+            'tujuan_penggunaan_bi' => 'required',
+            'golongan_piutang_bi' => 'required',
+            'sifat_plafond_bi' => 'required',
+            'sektor_ekonomi_sid' => 'required',
+            'penggunaan_sid' => 'required',
+            'pembiayaan_sid' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TBisid::insert([
             'ID_NASABAH' => $request->id,
             'SEKTOR_EKONOMI_BI' =>$this->extractTextBeforeHyphen($request->sektor_ekonomi_bi) ,
@@ -74,6 +95,24 @@ class FasExistController extends Controller
     }
 
     public function edit_bisid(Request $request, $id){  
+        $validator = Validator::make($request->all(), [
+            'sektor_ekonomi_bi' => 'required',
+            'penggunaan_bi' => 'required',
+            'golongan_debitur_bi' => 'required',
+            'sifat_bi' => 'required',
+            'golongan_penjamin_bi' => 'required',
+            'tujuan_penggunaan_bi' => 'required',
+            'golongan_piutang_bi' => 'required',
+            'sifat_plafond_bi' => 'required',
+            'sektor_ekonomi_sid' => 'required',
+            'penggunaan_sid' => 'required',
+            'pembiayaan_sid' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TBisid::where('ID_NASABAH' , $id)->update([
             'ID_NASABAH' => $id,
             'SEKTOR_EKONOMI_BI' => $this->extractTextBeforeHyphen($request->sektor_ekonomi_bi ) ,
@@ -107,6 +146,22 @@ class FasExistController extends Controller
     }
 
     public function store(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'bank' => 'required',
+            'jenis_kredit' => 'required',
+            'plafond' => 'required',
+            'baki_debet' => 'required',
+            'tgl_jatuh_tempo' => 'required',
+            'kol' => 'required',
+            'tunggakan' => 'required',
+            'lama_tunggakan' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TFa::insert([
             'ID_NASABAH' => $request->id,
             'KODE' => $request->bank,
@@ -124,6 +179,21 @@ class FasExistController extends Controller
     }
 
     public function edit_existing(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'bank' => 'required',
+            'jenis_kredit' => 'required',
+            'plafond' => 'required',
+            'baki_debet' => 'required',
+            'tgl_jatuh_tempo' => 'required',
+            'kol' => 'required',
+            'tunggakan' => 'required',
+            'lama_tunggakan' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TFa::where('ID', $id)->update([
             'KODE' => $request->bank,
             'BANK' => ReffBank::where('KODE', $request->bank)->first()->BANK,

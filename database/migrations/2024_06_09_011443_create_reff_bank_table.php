@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reff_sandi_bi', function (Blueprint $table) {
-            $table->string('JENIS', 2)->nullable();
-            $table->string('SANDI', 4)->nullable();
-            $table->string('KETERANGAN', 100)->nullable();
+        Schema::create('reff_bank', function (Blueprint $table) {
+            $table->string('KODE', 10)->nullable();
+            $table->string('BANK', 100)->nullable();
+            $table->boolean('DELETED')->default(false);
         });
     }
 
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reff_sandi_bi');
+        Schema::dropIfExists('reff_bank');
     }
 };

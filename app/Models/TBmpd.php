@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TBmpd
  * 
@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TBmpd extends Model
 {
+	use HasFactory;
 	protected $table = 't_bmpd';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

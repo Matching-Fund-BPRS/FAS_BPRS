@@ -27,9 +27,10 @@ class CapitalController extends Controller
     }
 
     public function submitCapital(Request $request){
-        // ambil data dari request terus jadiin JSON terus post ke API
-        // ambil response dari API terus masukin di variabel
-
+        // Validasi untuk memastikan semua inputan tidak memiliki value 0
+        if($request->cm_dar == 0 || $request->cm_der == 0 || $request->cm_lder == 0 || $request->pk_asset == 0 || $request->pk_income_sales == 0 || $request->rpc == 0 || $request->pk_ebit == 0 || $request->id <= 0){
+            return redirect()->back()->with('result_message', 'Mohon lengkapi form');
+        }
 
         TCapital::insert([
             'CM_DAR' => -1 * $request->cm_dar,
@@ -42,7 +43,7 @@ class CapitalController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('https://test2.bmiscoring.online/capital', [
+        $response = Http::post('model/capital', [
             'cm_dar' => -1 * floatval($request->cm_dar),
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),
@@ -87,6 +88,11 @@ class CapitalController extends Controller
     }
 
     public function update(Request $request, $id){
+        // Validasi untuk memastikan semua inputan tidak memiliki value 0
+        if($request->cm_dar == 0 || $request->cm_der == 0 || $request->cm_lder == 0 || $request->pk_asset == 0 || $request->pk_income_sales == 0 || $request->rpc == 0 || $request->pk_ebit == 0){
+            return redirect()->back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TCapital::where('ID_NASABAH', $id)->update([
             'CM_DAR' => -1 * $request->cm_dar,
             'CM_DER' => -1 * $request->cm_der,
@@ -96,7 +102,7 @@ class CapitalController extends Controller
             'RPC' => -1 * $request->rpc,
             'PK_EBIT' => $request->pk_ebit,
         ]);
-        $response = Http::post('https://test2.bmiscoring.online/capital', [
+        $response = Http::post('model/capital', [
             'cm_dar' => -1 * floatval($request->cm_dar),
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),
@@ -139,3 +145,4 @@ class CapitalController extends Controller
         ])->with('message', "Berhasil memperbarui data!");
     }
 }
+

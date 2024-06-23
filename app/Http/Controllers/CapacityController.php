@@ -7,6 +7,7 @@ use App\Models\TCapacity;
 use App\Models\TNasabah;
 use App\Models\TScoring;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class CapacityController extends Controller
 {
@@ -27,8 +28,24 @@ class CapacityController extends Controller
     }
 
     public function submitCapacity(Request $request){
-        // ambil data dari request terus jadiin JSON terus post ke API
-        // ambil response dari API terus masukin di variabel
+        // Validasi untuk memastikan semua inputan tidak memiliki value 0
+        $rules = [
+            'teh_utilisasi' => 'required|integer|min:1',
+            'teh_lama_usaha' => 'required|integer|min:1',
+            'cb_manajemen_sdm' => 'required|integer|min:1',
+            'cb_pengelolaan' => 'required|integer|min:1',
+            'cb_dscr' => 'required|integer|min:1',
+            'id' => 'required|integer|min:1',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('result_message', 'Mohon lengkapi form');
+        }
 
         TCapacity::insert([
             'TEH_UTILISASI' => $request->teh_utilisasi,
@@ -39,7 +56,7 @@ class CapacityController extends Controller
             'ID_NASABAH' => $request->id,
         ]);
 
-        $response = Http::post('https://test2.bmiscoring.online/capacity', [
+        $response = Http::post('model/capacity', [
             'teh_utilisasi' => intval($request->teh_utilisasi),
             'teh_lama_usaha' => intval($request->teh_lama_usaha),
             'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),
@@ -84,6 +101,21 @@ class CapacityController extends Controller
     }
 
     public function update(Request $request, $id){
+        // Validasi untuk memastikan semua inputan tidak memiliki value 0
+        $rules = [
+            'teh_utilisasi' => 'required|integer|min:1',
+            'teh_lama_usaha' => 'required|integer|min:1',
+            'cb_manajemen_sdm' => 'required|integer|min:1',
+            'cb_pengelolaan' => 'required|integer|min:1',
+            'cb_dscr' => 'required|integer|min:1',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TCapacity::where('ID_NASABAH', $id)->update([
             'TEH_UTILISASI' => $request->teh_utilisasi,
             'TEH_LAMA_USAHA' => $request->teh_lama_usaha,
@@ -92,7 +124,7 @@ class CapacityController extends Controller
             'CB_DSCR' => $request->cb_dscr,
         ]);
 
-        $response = Http::post('https://test2.bmiscoring.online/capacity', [
+        $response = Http::post('model/capacity', [
             'teh_utilisasi' => intval($request->teh_utilisasi),
             'teh_lama_usaha' => intval($request->teh_lama_usaha),
             'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),

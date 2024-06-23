@@ -76,6 +76,8 @@ return new class extends Migration
             $table->string('ISI_PENDIRIAN', 50)->nullable();
             $table->string('ISI_ANGGARAN', 50)->nullable();
             $table->string('ISI_PENGURUS', 50)->nullable();
+            $table->integer('BASIL_BANK');
+            $table->integer('BASIL_DEB');
 
             $table->index(['ID_NASABAH'], 'idx_t_nasabah_ID_NASABAH');
         });

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TNasabah;
 use App\Models\TSyariah;
 use App\Models\TScoring;
+use Illuminate\Support\Facades\Validator;
 
 class SyariahController extends Controller
 {
@@ -22,6 +23,18 @@ class SyariahController extends Controller
     }
 
     public function submitSyariah(Request $request){
+        $validator = Validator::make($request->all(), [
+            'sertifikasi' => 'required',
+            'jumlah_hutang' => 'required',
+            'akad_usaha' => 'required',
+            'jenis_barang_usaha' => 'required',
+            'presentase' => 'required',
+            'id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
 
         if(TSyariah::where('ID_NASABAH', $request->id)->first() == null){
             TSyariah::insert([

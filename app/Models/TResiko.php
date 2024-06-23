@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TResiko
  * 
@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TResiko extends Model
 {
+		use HasFactory;
 	protected $table = 't_resiko';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

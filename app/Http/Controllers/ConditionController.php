@@ -7,6 +7,7 @@ use App\Models\TCondition;
 use App\Models\TNasabah;
 use App\Models\TScoring;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class ConditionController extends Controller
 {
@@ -28,6 +29,21 @@ class ConditionController extends Controller
     }
 
     public function update(Request $request, $id){
+        $rules = [
+            'cu_pasokan' => 'required|integer|min:1',
+            'cu_konsumen' => 'required|integer|min:1',
+            'pem_ketergantungan' => 'required|integer|min:1',
+            'pem_kebutuhan' => 'required|integer|min:1',
+            'cu_kecakapan' => 'required|integer|min:1',
+            'cu_eksternal' => 'required|integer|min:1',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TCondition::where('ID_NASABAH', $id)->update([
             'CU_PASOKAN' => $request->cu_pasokan,
             'CU_KONSUMEN' => $request->cu_konsumen,
@@ -38,7 +54,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('https://test2.bmiscoring.online/condition', [
+        $response = Http::post('model/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),
@@ -82,8 +98,20 @@ class ConditionController extends Controller
     }
 
     public function submitCondition(Request $request){
-        // ambil data dari request terus jadiin JSON terus post ke API
-        // ambil response dari API terus masukin di variabel
+        $rules = [
+            'cu_pasokan' => 'required|integer|min:1',
+            'cu_konsumen' => 'required|integer|min:1',
+            'pem_ketergantungan' => 'required|integer|min:1',
+            'pem_kebutuhan' => 'required|integer|min:1',
+            'cu_kecakapan' => 'required|integer|min:1',
+            'cu_eksternal' => 'required|integer|min:1',
+        ];
+
+        $validator = Validator::make($request->all(), $rules);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
 
         TCondition::insert([
             'CU_PASOKAN' => $request->cu_pasokan,
@@ -95,7 +123,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('https://test2.bmiscoring.online/condition', [
+        $response = Http::post('model/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),
@@ -138,3 +166,4 @@ class ConditionController extends Controller
         ])->with('message-add', $result);
     }
 }
+

@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TBisid
  * 
@@ -28,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TBisid extends Model
 {
+	use HasFactory;
 	protected $table = 't_bisid';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

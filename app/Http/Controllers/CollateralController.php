@@ -9,6 +9,7 @@ use App\Models\TScoring;
 use Illuminate\Support\Facades\Http;
 use App\Models\TAgunan;
 use App\Models\TResiko;
+use Illuminate\Support\Facades\Validator;
 
 class CollateralController extends Controller
 {
@@ -35,6 +36,19 @@ class CollateralController extends Controller
     public function submitCollateral(Request $request){
         // ambil data dari request terus jadiin JSON terus post ke API
         // ambil response dari API terus masukin di variabel
+        $validator = Validator::make($request->all(), [
+            'ca_nilai_agunan' => 'required',
+            'pengikatan' => 'required',
+            'marketability' => 'required',
+            'kepemilikan' => 'required',
+            'penguasaan' => 'required',
+            'id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $leg_usaha = $request->leg_usaha != 1 ? 1 : 0;
 
         $pa_dokumen = $request->pa_dokumen;
@@ -61,7 +75,7 @@ class CollateralController extends Controller
             'PENGUASAAN' => $request->penguasaan,
             'ID_NASABAH' => $request->id,
         ]);
-        $response = Http::post('https://test2.bmiscoring.online/collateral', [
+        $response = Http::post('model/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
             'pa_dokumen' => intval($dokumen),
             'leg_usaha' => intval($leg_usaha),
@@ -104,6 +118,18 @@ class CollateralController extends Controller
     }
 
     public function update(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'ca_nilai_agunan' => 'required',
+            'pengikatan' => 'required',
+            'marketability' => 'required',
+            'kepemilikan' => 'required',
+            'penguasaan' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $leg_usaha = $request->leg_usaha != 1 ? 1 : 0;
 
         if($request->ca_nilai_agunan == '3' && $request->pengikatan == '3'){
@@ -127,7 +153,7 @@ class CollateralController extends Controller
             'KEPEMILIKAN' => $request->kepemilikan,
             'PENGUASAAN' => $request->penguasaan,
         ]);
-        $response = Http::post('https://test2.bmiscoring.online/collateral', [
+        $response = Http::post('model/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
             'pa_dokumen' => intval($dokumen),
             'leg_usaha' => intval($leg_usaha),
@@ -168,6 +194,18 @@ class CollateralController extends Controller
     }
 
     public function addResiko(Request $request){
+        $validator = Validator::make($request->all(), [
+            'resiko' => 'required',
+            'mitigasi_resiko' => 'required',
+            'badan_usaha' => 'required',
+            'usulan' => 'required',
+            'id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $result = "Berhasil menambahkan data resiko!!";
         TResiko::insert([
             'ID_NASABAH' => $request->id,
@@ -186,6 +224,17 @@ class CollateralController extends Controller
     }
 
     public function editResiko(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'resiko' => 'required',
+            'mitigasi_resiko' => 'required',
+            'badan_usaha' => 'required',
+            'usulan' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         TResiko::where('ID_NASABAH', $id)->update([
             'RESIKO' => $request->resiko,
             'MITIGASI_RESIKO' => $request->mitigasi_resiko,
@@ -201,6 +250,8 @@ class CollateralController extends Controller
     }
 
     public function addAgunan(Request $request){
+        
+
         TAgunan::insert([
             'ID_NASABAH' => $request->id,
             'JENIS' => $request->jenis,
@@ -234,6 +285,8 @@ class CollateralController extends Controller
         return redirect()->back()->with('message', 'success');
     }
     public function editAgunan(Request $request, $id){
+        
+
         TAgunan::where('ID', $id)->update([
             'JENIS' => $request->jenis,
                 'BUKTI_MILIK' => $request->bukti_milik,

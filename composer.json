@@ -24,7 +24,8 @@
         "nunomaduro/collision": "^7.0",
         "phpunit/phpunit": "^10.1",
         "reliese/laravel": "^1.2",
-        "spatie/laravel-ignition": "^2.0"
+        "spatie/laravel-ignition": "^2.0",
+        "thedoctor0/laravel-factory-generator": "^1.4"
     },
     "autoload": {
         "psr-4": {

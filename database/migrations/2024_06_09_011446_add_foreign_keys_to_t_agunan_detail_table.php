@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('t_resiko', function (Blueprint $table) {
-            $table->string('ID_NASABAH', 10)->primary();
-            $table->mediumText('RESIKO')->nullable();
-            $table->mediumText('MITIGASI_RESIKO')->nullable();
+        Schema::table('t_agunan_detail', function (Blueprint $table) {
+            $table->foreign(['ID_NASABAH'], 'fk_t_agunan_detail_ID_NASABAH')->references(['ID_NASABAH'])->on('t_nasabah');
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_resiko');
+        Schema::table('t_agunan_detail', function (Blueprint $table) {
+            $table->dropForeign('fk_t_agunan_detail_ID_NASABAH');
+        });
     }
 };

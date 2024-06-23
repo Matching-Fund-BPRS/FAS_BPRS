@@ -5,7 +5,7 @@
  */
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TRekomendasi extends Model
 {
+	use HasFactory;
 	protected $table = 't_rekomendasi';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

@@ -5,7 +5,7 @@
  */
 
 namespace App\Models;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TCapital extends Model
 {
+		use HasFactory;
 	protected $table = 't_capital';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

@@ -8,7 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TAgunan
  * 
@@ -44,6 +44,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TAgunan extends Model
 {
+	use HasFactory;
 	protected $table = 't_agunan';
 	protected $primaryKey = 'ID';
 	public $timestamps = false;

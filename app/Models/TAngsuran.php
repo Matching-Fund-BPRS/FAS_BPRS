@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TAngsuran
  * 
@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TAngsuran extends Model
 {
+	use HasFactory;
 	protected $table = 't_angsuran';
 	protected $primaryKey = 'ID';
 	public $timestamps = false;

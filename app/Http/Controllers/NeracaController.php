@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\TNeraca;
 use App\Models\TNasabah;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class NeracaController extends Controller
 {
@@ -21,6 +22,28 @@ class NeracaController extends Controller
     }
 
     public function addNeraca(Request $request){
+        // Validasi input
+        $validator = Validator::make($request->all(), [
+            'kas' => 'required',
+            'piutang_dagang' => 'required',
+            'persediaan' => 'required',
+            'tanah' => 'required',
+            'gedung' => 'required',
+            'penyusutan_gedung' => 'required',
+            'peralatan' => 'required',
+            'penyusutan_peralatan' => 'required',
+            'hutang_jangka_pendek' => 'required',
+            'hutang_jangka_panjang' => 'required',
+            'modal' => 'required',
+            'laba_ditahan' => 'required',
+            'laba_berjalan' => 'required',
+            'tgl_periode' => 'required|date_format:Y-m-d'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         //tambahin formula di variabel ebit + ois
         //format 1.000.000 to 1000000
         $kas = str_replace('.', '', $request->kas);

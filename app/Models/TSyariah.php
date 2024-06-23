@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TSyariah
  * 
@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TSyariah extends Model
 {
+		use HasFactory;
 	protected $table = 't_syariah';
 	public $incrementing = false;
 	public $timestamps = false;

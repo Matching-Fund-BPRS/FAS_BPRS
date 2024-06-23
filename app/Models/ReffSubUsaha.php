@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class ReffSubUsaha
  * 
@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ReffSubUsaha extends Model
 {
+		use HasFactory;
 	protected $table = 'reff_sub_usaha';
 	public $incrementing = false;
 	public $timestamps = false;

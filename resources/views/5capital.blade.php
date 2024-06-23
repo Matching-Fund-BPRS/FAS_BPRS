@@ -10,16 +10,17 @@
             Aspek Capital
         </p>
 
-            {{-- <div class= "min-w-xl">
+            <div class= "min-w-xl">
                 <label for="" class="block mb-2 text-xs font-medium text-gray-900">Kualitas Laporan Keuangan</label>
                 <select name="sifat" id="" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <option value="">Tentukan analisa Kualitas Laporan Keuangan</option>
                     <option value="US">Laporan Keuangan Sederhana dan Tidak Tepat Waktu</option>
                     <option value="CA">Laporang Keuangan Sederhana dan Tepat Waktu</option>
                     <option value="FR">Laporan Keuangan Lengkap dan Tidak Tepat Waktu</option>
                     <option value="CA">Laporan Keuangan Lengkap dan Tepat Waktu</option>
                     <option value="FR">Laporan Keuangan Audited, Lengkap, dan Tepat Waktu</option>
                 </select>
-            </div> --}}
+            </div>
 
             <div class="flex space-x-4">
                 <div>

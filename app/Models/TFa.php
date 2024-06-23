@@ -8,7 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TFa
  * 
@@ -29,6 +29,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TFa extends Model
 {
+	use HasFactory;
 	protected $table = 't_fas';
 	protected $primaryKey = 'ID';
 	public $timestamps = false;

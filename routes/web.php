@@ -93,17 +93,17 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard/detaildataBU/{id}', [NasabahController::class, 'data_usaha_nasabah']);
     Route::get('/dashboard/detailnota', [NasabahController::class, 'searchNasabah'])->name("search-id");
     Route::post('/dashboard/detaildataBU/pengurus', [NasabahController::class, 'tambah_pengurus'])->name("tambah_pengurus");
-    Route::post('/dashboard/detaildataBU/pengurus/{id}/edit', [NasabahController::class, 'edit_pengurus']);
-    Route::post('/dashboard/detaildataBU/pengurus/{id}/delete', [NasabahController::class, 'delete_pengurus']);
+    Route::post('/dashboard/detaildataBU/pengurus/{id}/edit', [NasabahController::class, 'edit_pengurus'])->name("edit_pengurus");
+    Route::post('/dashboard/detaildataBU/pengurus/{id}/delete', [NasabahController::class, 'delete_pengurus'])->name("delete_pengurus");
 
     //////////////////////////////////////////////////////////////////////////////
     // FASILITAS EXISTING PAGE
-    Route::get('/dashboard/fasilitasexisting/{id}', [FasExistController::class, 'fasIndex']);
+    Route::get('/dashboard/fasilitasexisting/{id}', [FasExistController::class, 'fasIndex'])->name('fasilitasexisting');
     Route::post('/dashboard/fasilitasexisting/tambah_bisid', [FasExistController::class, 'tambah_bisid'])->name("tambah_bisid");
-    Route::post('/dashboard/fasilitasexisting/{id}/edit', [FasExistController::class, 'edit_bisid']);
+    Route::post('/dashboard/fasilitasexisting/{id}/edit', [FasExistController::class, 'edit_bisid'])->name("edit_bisid");
     Route::post('/dashboard/fasilitasexisting/add', [FasExistController::class, 'store'])->name("tambah_existing");
-    Route::post('/dashboard/fasilitasexisting/{id}/update', [FasExistController::class, 'edit_existing']);
-    Route::post('/dashboard/fasilitasexisting/{id}/delete', [FasExistController::class, 'delete_existing']);
+    Route::post('/dashboard/fasilitasexisting/{id}/update', [FasExistController::class, 'edit_existing'])->name("edit_existing");
+    Route::post('/dashboard/fasilitasexisting/{id}/delete', [FasExistController::class, 'delete_existing'])->name("delete_existing");
 
     // /////////////////////////////////////////////////////////////////////////////////////////////////////////
     // //
@@ -126,14 +126,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     //////////////////////////////////  ANALISIS 5C    //////////////////////////////////////////////////
     //LIMIT KREDIT PAGE
-    Route::get('/dashboard/limitkredit/{id}', [LimitKreditController::class, 'index']);
+    Route::get('/dashboard/limitkredit/{id}', [LimitKreditController::class, 'index'])->name('limitkredit');
     Route::post('/dashboard/limitkredit/tambah', [LimitKreditController::class, 'addLimitKredit'])->name('tambah_limit_kredit');
-    Route::post('/dashboard/limitkredit/{id}/edit', [LimitKreditController::class, 'editLimitKredit']);
+    Route::post('/dashboard/limitkredit/{id}/edit', [LimitKreditController::class, 'editLimitKredit'])->name('edit_limit_kredit');
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //CAPACITY PAGE 
     Route::get('/dashboard/5capacity/{id}', [CapacityController::class, 'index'])->name('5capacity');
-    Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'update']);
+    Route::post('/dashboard/5capacity/{id}/edit', [CapacityController::class, 'update'])->name('updateCapacity');
     Route::post('/dashboard/5capacity/submitCapacity', [CapacityController::class, 'submitCapacity'])->name('postCapacity');
 
     //COLLATERAL PAGE
@@ -179,12 +179,12 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/dashboard/rekomendasi/{id}/edit', [RekomendasiController::class, 'editRekomendasi']);
 
 
-    Route::get('/dashboard/neraca/{id}', [NeracaController::class, 'index']);
-    Route::post('/dashboard/neraca/tambah', [NeracaController::class, 'addNeraca']);
+    Route::get('/dashboard/neraca/{id}', [NeracaController::class, 'index'])->name('neraca');
+    Route::post('/dashboard/neraca/tambah', [NeracaController::class, 'addNeraca'])->name('tambah_neraca');
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //DAFTAR ANGSURAN PAGE
-    Route::get('/dashboard/daftarangsuran/{id}', [AngsuranController::class, 'index']);
+    Route::get('/dashboard/daftarangsuran/{id}', [AngsuranController::class, 'index'])->name('angsuran');
 
     ///SETTING PAGE
     Route::get('/dashboard/pengaturanBI', [SettingController::class, 'indexBI'])->name('pengaturanBI');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TRugilaba;
 use App\Models\TNasabah;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Validator;
 
 class RugiLabaController extends Controller
 {
@@ -23,6 +24,23 @@ class RugiLabaController extends Controller
 
     
     public function addRugiLaba(Request $request){
+        // Validasi input
+        $validator = Validator::make($request->all(), [
+            'penjualan_bersih' => 'required',
+            'hpp' => 'required',
+            'biaya_lain' => 'required',
+            'total_biaya_ops_nonops' => 'required',
+            'angsuran_bank_lain' => 'required',
+            'pendapatan_lain' => 'required',
+            'biaya_pajak' => 'required',
+            'biaya_margin' => 'required',
+            'tgl_periode' => 'required|date',
+            'id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
 
         $penjualan_bersih = str_replace('.', '', $request->penjualan_bersih);
         $hpp = str_replace('.', '', $request->hpp);
@@ -77,6 +95,6 @@ class RugiLabaController extends Controller
                 'SET_HPP' => 0.75,
             ]);
         }
-        return redirect()->back()->with(',message', 'success');
+        return redirect()->back()->with('message', 'success');
     }
 }

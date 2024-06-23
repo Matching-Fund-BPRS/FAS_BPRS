@@ -8,6 +8,7 @@ use App\Models\TRekomendasi;
 use App\Models\TNasabah;
 use App\Models\TRugilaba;
 use App\Models\TScoring;
+use Illuminate\Support\Facades\Validator;
 
 class RekomendasiController extends Controller
 {
@@ -20,6 +21,26 @@ class RekomendasiController extends Controller
     //TODO
     //Tangkap data dari view
     public function addRekomendasi(Request $request){
+        $validator = Validator::make($request->all(), [
+            'plafond' => 'required',
+            'angsuran_bulan' => 'required',
+            'provisi' => 'required',
+            'administrasi' => 'required',
+            'biaya_lainnya' => 'required',
+            'biaya_materai' => 'required',
+            'biaya_notaris' => 'required',
+            'biaya_asuransi' => 'required',
+            'jangka_waktu' => 'required',
+            'margin' => 'required',
+            'bagi_hasil_bank' => 'required',
+            'bagi_hasil_mudharib' => 'required',
+            'id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         $plafond = str_replace('.', '', $request->plafond);
         $angsuran_bulan = str_replace('.', '', $request->angsuran_bulan);
         $provinsi = str_replace('.', '', $request->provisi);
@@ -86,6 +107,29 @@ class RekomendasiController extends Controller
     }
 
     public function editRekomendasi(Request $request, $id){
+        $validator = Validator::make($request->all(), [
+            'plafond' => 'required',
+            'angsuran_bulan' => 'required',
+            'provisi' => 'required',
+            'administrasi' => 'required',
+            'biaya_lainnya' => 'required',
+            'biaya_materai' => 'required',
+            'biaya_notaris' => 'required',
+            'biaya_asuransi' => 'required',
+            'jangka_waktu' => 'required',
+            'margin' => 'required',
+            'sifat' => 'required',
+            'jenis_permohonan' => 'required',
+            'tujuan_penggunaan' => 'required',
+            'bagi_hasil_bank' => 'required',
+            'bagi_hasil_mudharib' => 'required',
+            'id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         $plafond = str_replace('.', '', $request->plafond);
         $angsuran_bulan = str_replace('.', '', $request->angsuran_bulan);
         $provinsi = str_replace('.', '', $request->provisi);

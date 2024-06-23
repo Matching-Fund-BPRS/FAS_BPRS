@@ -8,7 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TRugilaba
  * 
@@ -36,6 +36,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TRugilaba extends Model
 {
+	use HasFactory;
 	protected $table = 't_rugilaba';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

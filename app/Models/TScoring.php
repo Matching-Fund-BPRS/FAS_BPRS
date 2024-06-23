@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TScoring
  * 
@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TScoring extends Model
 {
+	use HasFactory;
 	protected $table = 't_scoring';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

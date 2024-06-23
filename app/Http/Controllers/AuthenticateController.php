@@ -11,10 +11,7 @@ use Illuminate\Validation\Rule;
 class AuthenticateController extends Controller
 {
     public function authenticate(Request $request){
-        $credentials = $request->validate([
-            'username' => 'required',
-            'password'=> 'required'
-        ]);
+        $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)){
             $request->session()->regenerate();

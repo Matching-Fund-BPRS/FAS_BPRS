@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reff_sandi_sid', function (Blueprint $table) {
-            $table->string('JENIS', 2)->nullable();
-            $table->string('SANDI', 4)->nullable();
-            $table->string('KETERANGAN', 100)->nullable();
+        Schema::create('t_resiko', function (Blueprint $table) {
+            $table->string('ID_NASABAH', 10)->primary();
+            $table->mediumText('RESIKO')->nullable();
+            $table->mediumText('MITIGASI_RESIKO')->nullable();
+            $table->text('BADAN_USAHA');
+            $table->text('USULAN');
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reff_sandi_sid');
+        Schema::dropIfExists('t_resiko');
     }
 };

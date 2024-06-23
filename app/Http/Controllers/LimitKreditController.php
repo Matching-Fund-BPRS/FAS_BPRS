@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\TLimitkredit;
 use App\Models\TNasabah;
 use App\Models\TRugilaba;
+use Illuminate\Support\Facades\Validator;
 
 class LimitKreditController extends Controller
 {
@@ -18,7 +19,7 @@ class LimitKreditController extends Controller
             $angsuran = $nasabah->LIMIT_KREDIT * $nasabah->MARGIN;
         }
         $limit_kredit_nasabah = TLimitKredit::where('ID_NASABAH', $id)->first();
-        $rugi_laba_nasabah = TRugiLaba::where('ID_NASABAH', $id)->first();
+        $rugi_laba_nasabah = TRugilaba::where('ID_NASABAH', $id)->first();
         return view('limitkredit', [
             'rugi_laba_nasabah' => $rugi_laba_nasabah,
             'nasabah' => $nasabah,
@@ -28,6 +29,27 @@ class LimitKreditController extends Controller
     }
 
     public function addLimitKredit(Request $request){
+        $validator = Validator::make($request->all(), [
+            'id' => 'required',
+            'omset' => 'required',
+            'hpp' => 'required',
+            'total_biaya_ops_nonops' => 'required',
+            'angsuran_bank_lain' => 'required',
+            'pendapatan_lain' => 'required',
+            'biaya_lain' => 'required',
+            'limit_kredit' => 'required',
+            'angsuran' => 'required',
+            'jangka_waktu' => 'required',
+            'margin' => 'required',
+            'rpc' => 'required',
+            'sifat' => 'required',
+            'biaya_pajak' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         $TLimitKredit = TLimitKredit::where('ID_NASABAH', $request->id)->first();
         $TLabaRugi = TRugilaba::where('ID_NASABAH', $request->id)->first();
         $capital = TCapital::where('ID_NASABAH', $request->id)->first();

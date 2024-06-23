@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TCharacter
  * 
@@ -26,6 +26,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TCharacter extends Model
 {
+	use HasFactory;
 	protected $table = 't_character';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

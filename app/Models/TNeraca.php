@@ -8,7 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TNeraca
  * 
@@ -38,6 +38,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TNeraca extends Model
 {
+	use HasFactory;
 	protected $table = 't_neraca';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;

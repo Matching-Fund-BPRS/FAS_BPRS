@@ -7,7 +7,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class ReffSandiSid
  * 
@@ -19,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class ReffSandiSid extends Model
 {
+	use HasFactory;
 	protected $table = 'reff_sandi_sid';
 	public $incrementing = false;
 	public $timestamps = false;

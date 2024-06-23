@@ -26,6 +26,10 @@
         </div>
 
     </div>
-
+    @if (session()->has('result_message'))
+    <script>
+        alert("{{ session()->get('result_message') }}")
+    </script>
+    @endif
 </body>
 </html>

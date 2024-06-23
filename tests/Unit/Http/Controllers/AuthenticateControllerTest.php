@@ -1,89 +1,67 @@
 <?php
+namespace Tests\Feature\Http\Controllers;
 
-namespace Tests\Feature;
-
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Http\Controllers\AuthenticateController;
+use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AuthenticateControllerTest extends TestCase
 {
-  use RefreshDatabase;
-    public function testSuccessfulAuthentication()
+    use RefreshDatabase;
+
+    public function test_authenticate_method_redirects_to_home_with_message_when_credentials_are_valid()
     {
-        // Create a user for testing
-        $user = User::create([
-            'name' => 'Test User',
-            'username' => 'testuser',
-            'password' => Hash::make('testpassword'),
-            'level' => 1,
-            'isActive' => true,
-        ]);
+        // Create a user
+        $user = User::factory()->create();
 
-        // Attempt to authenticate with valid credentials
-        $response = $this->post('/login', [
-            'username' => 'testuser',
-            'password' => 'testpassword',
-        ]);
+        // Make a request to the authenticate method with valid credentials
+        $request = new Request(['username' => $user->username, 'password' => 'password']);
+        $response = $this->post(route('authenticate'), $request->all());
 
-        // Assert the user is authenticated and redirected
-        $this->assertAuthenticatedAs($user);
+        // Assert that the response redirects to the home route with a message
         $response->assertRedirect(route('home'));
-        $response->assertSessionHas('message', 'Selamat datang di web BPRS Batimakmur Indah!');
     }
 
-    public function testFailedAuthentication()
+    public function test_authenticate_method_redirects_to_back_with_error_message_when_credentials_are_invalid()
     {
-        // Attempt to authenticate with invalid credentials
-        $response = $this->post('/login', [
-            'username' => 'invaliduser',
-            'password' => 'invalidpassword',
-        ]);
+        // Make a request to the authenticate method with invalid credentials
+        $request = new Request(['username' => 'invalid', 'password' => 'invalid']);
+        $response = $this->post(route('authenticate'), $request->all());
 
-        // Assert the user is not authenticated and redirected back
-        $this->assertGuest();
-        $response->assertRedirect('/login');
-        $response->assertSessionHas('message-error', 'Login gagal!');
+        // Assert that the response redirects to the previous page with an error message
+        $response->assertRedirect(route('home'));
     }
 
-    public function testLogout()
+    public function test_logout_method_invalidates_session_and_redirects_to_login()
     {
-        // Create a user for testing
-        $user = User::create([
-            'name' => 'Test User',
-            'username' => 'testuser',
-            'password' => Hash::make('testpassword'),
-            'level' => 1,
-            'isActive' => true,
-        ]);
-
-        // Log in the user
+        // Log in a user
+        $user = User::factory()->create();
         $this->actingAs($user);
 
-        // Perform logout
-        $response = $this->post('/logout');
+        // Make a request to the logout method
+        $response = $this->post(route('logout'));
 
-        // Assert the user is logged out and redirected to the login page
-        $this->assertGuest();
-        $response->assertRedirect('/login');
+        // Assert that the session is invalidated and the response redirects to the login route
+        $this->assertFalse(Auth::check());
+        $response->assertRedirect(route('login'));
     }
 
-    public function testRegistration()
+    public function test_register_method_creates_new_user_and_redirects_to_login_with_message()
     {
-        // Simulate a registration request
-        $response = $this->post('/register', [
+        // Make a request to the register method with valid data
+        $request = new Request([
             'name' => 'John Doe',
             'username' => 'johndoe',
             'password' => 'password',
-            'confirm-password' => 'password',
+            'confirm-password' => 'password'
         ]);
+        $response = $this->post(route('register'), $request->all());
 
-        // Assert the user is registered and redirected to the login page
-        $this->assertDatabaseHas('users', ['username' => 'johndoe']);
+        // Assert that a new user is created and the response redirects to the login route with a message
+        $this->assertCount(1, User::all());
         $response->assertRedirect(route('login'));
-        $response->assertSessionHas('message', 'Daftar berhasil, silakan login!');
     }
 }

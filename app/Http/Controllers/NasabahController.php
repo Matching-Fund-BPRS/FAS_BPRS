@@ -118,164 +118,83 @@ class NasabahController extends BaseController
             File::get($request->file('isi_pendirian')));
             Storage::move('public/'.$dokumen_pendirian_img,'public/upload/'.$dokumen_pendirian_img);
 
-        if($request->id == 0){
-            TNasabah::insert([
-                'ID_NASABAH' => $newId,
-                'ID_CABANG'  => 001, 
-                'NO_SURVEY' => null, 
-                'CIF' => $request->cif == 0 ? $newId : $request->cif,
-                'USER_ID'=> $request->user_id,
-                'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
-                'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
-                
-                'LIMIT_KREDIT' => str_replace('.','',$request->limit_kredit),
-                'BUNGA' => $request->margin, 
-                'JANGKA_WAKTU' => $request->jangka_waktu,
-                'SIFAT' => $request->sifat,
-                'JENIS_PERMOHONAN' => $request->jenis_permohonan,
-                'TUJUAN' => $request->tujuan,
-                'KET_TUJUAN' => $request->keterangan_tujuan,
-                
-                'BIDANG_USAHA' => $request->bidang_usaha,
-                'SUB_USAHA' => $request->sektor_usaha,
-                'TGL_MULAI_USAHA' => Carbon::createFromFormat('m/d/Y', $request->tgl_mulai_usaha)->format('Y-m-d') ,
-                'JUMLAH_KARY' => $request->jumlah_karyawan,
-                'ALAMAT_USAHA' => $request->alamat_usaha,
-                'NAMA_BADAN_USAHA' => $request->nama_badan_usaha,
-                'BENTUK_BADAN_USAHA' => $request->bentuk_badan_usaha,
-                'STATUS_TEMPAT_USAHA'=> $request->status_tempat_usaha,
-                'NO_TELP_USAHA' =>$request->no_kantor,
-                'JUMLAH_KARY' => $request->jumlah_karyawan,
-                'JADI_NASABAH_SEJAK'=> Carbon::createFromFormat('m/d/Y', $request->menjadi_nasabah_sejak)->format('Y-m-d'),
-    
-                'NAMA' => $request->nama_debitur,
-                'STATUS_PERKAWINAN' => $request->status_perkawinan,
-                'TEMPAT_LAHIR' => $request->tempat_lahir,
-                'TGL_LAHIR' => Carbon::createFromFormat('m/d/Y', $request->tgl_lahir)->format('Y-m-d'),
-                'GENDER' => $request->gender,
-                'NO_KTP'=>$request->no_ktp,
-                'TGL_BERLAKU_KTP' => $tgl_berlaku_ktp,
-                'ALAMAT' => $request->alamat_ktp,
-                'NO_TELP' => $request->nomor_telepon,
-                'NO_KANTOR' => $request->nomor_telepon_kantor,
-                'STATUS_TEMPAT_TINGGAL' => $request->status_tempat_tinggal,
-                'LAMA_TINGGAL' => $request->lama_tinggal,
-                'TINGKAT_PENDIDIKAN' => $request->tingkat_pendidikan,
-                'JUMLAH_TANGGUNGAN' => $request->jumlah_tanggungan,
-                
-                'NAMA_PASANGAN' => $request->nama_pasangan,
-                'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
-                'TGL_LAHIR_PASANGAN' => $tgl_lahir_pasangan ,
-                'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
-                'PROFESI_PASANGAN' =>$request->profesi_pasangan,
-                'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
-                'NAMA_EC' => $request->nama_kontak_darurat,
-                'HUB_EC' =>$request->hubungan_keluarga,
-                'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
-                'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
-                
-                'NO_PENDIRIAN' => $request->no_pendirian,
-                'TGL_PENDIRIAN' => $tgl_pendirian,
-                'ISI_PENDIRIAN' => $dokumen_pendirian_img,
-                'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
-    
-                'ANGGARAN' => $request->no_anggaran,
-                'ISI_ANGGARAN' => $request->isi_anggaran,
-                'TGL_ANGGARAN' => $tgl_anggaran,
-                'KONDISI_ANGGARAN' => $request->kondisi_anggaran,
-    
-                'PENGURUS' => $request->no_pengurus,
-                'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
-                'ISI_PENGURUS' => $request->isi_pengurus,
-                'TGL_PENGURUS'=> $tgl_pengurus,       
+        TNasabah::insert([
+            'ID_NASABAH' => $newId,
+            'ID_CABANG'  => 001, 
+            'NO_SURVEY' => null, 
+            'CIF' => $request->cif == 0 ? $newId : $request->cif,
+            'USER_ID'=> $request->user_id,
+            'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
+            'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
+            
+            'LIMIT_KREDIT' => str_replace('.','',$request->limit_kredit),
+            'BUNGA' => $request->margin, 
+            'JANGKA_WAKTU' => $request->jangka_waktu,
+            'SIFAT' => $request->sifat,
+            'JENIS_PERMOHONAN' => $request->jenis_permohonan,
+            'TUJUAN' => $request->tujuan,
+            'KET_TUJUAN' => $request->keterangan_tujuan,
+            
+            'BIDANG_USAHA' => $request->bidang_usaha,
+            'SUB_USAHA' => $request->sektor_usaha,
+            'TGL_MULAI_USAHA' => Carbon::createFromFormat('m/d/Y', $request->tgl_mulai_usaha)->format('Y-m-d') ,
+            'JUMLAH_KARY' => $request->jumlah_karyawan,
+            'ALAMAT_USAHA' => $request->alamat_usaha,
+            'NAMA_BADAN_USAHA' => $request->nama_badan_usaha,
+            'BENTUK_BADAN_USAHA' => $request->bentuk_badan_usaha,
+            'STATUS_TEMPAT_USAHA'=> $request->status_tempat_usaha,
+            'NO_TELP_USAHA' =>$request->no_kantor,
+            'JUMLAH_KARY' => $request->jumlah_karyawan,
+            'JADI_NASABAH_SEJAK'=> Carbon::createFromFormat('m/d/Y', $request->menjadi_nasabah_sejak)->format('Y-m-d'),
 
-                'BASIL_BANK' => $request->basil_bank,
-                'BASIL_DEB' => $request->basil_deb,
-            ]);
-    
-            return redirect()
-            ->to('/dashboard/detaildataBU/' . $newId)
-            ->with('success', 'Data Nasabah Berhasil');
-        
-        }else{
-            TNasabah::where('ID_NASABAH' , $request->id)->update([
-                'ID_CABANG'  => 001, 
-                'NO_SURVEY' => null, 
-                'CIF' => $request->cif,
-                'USER_ID'=> $request->user_id,
-                'TGL_PERMOHONAN' => Carbon::createFromFormat('m/d/Y', $request->tgl_permohonan)->format('Y-m-d'),
-                'TGL_ANALISA' => Carbon::createFromFormat('m/d/Y', $request->tgl_analisa)->format('Y-m-d'),
-                
-                'LIMIT_KREDIT' => str_replace('.','',$request->limit_kredit),
-                'BUNGA' => $request->margin, 
-                'JANGKA_WAKTU' => $request->jangka_waktu,
-                'SIFAT' => $request->sifat,
-                'JENIS_PERMOHONAN' => $request->jenis_permohonan,
-                'TUJUAN' => $request->tujuan,
-                'KET_TUJUAN' => $request->keterangan_tujuan,
-                
-                'BIDANG_USAHA' => $request->bidang_usaha,
-                'SUB_USAHA' => $request->sektor_usaha,
-                'TGL_MULAI_USAHA' => Carbon::createFromFormat('m/d/Y', $request->tgl_mulai_usaha)->format('Y-m-d') ,
-                'JUMLAH_KARY' => $request->jumlah_karyawan,
-                'ALAMAT_USAHA' => $request->alamat_usaha,
-                'NAMA_BADAN_USAHA' => $request->nama_badan_usaha,
-                'BENTUK_BADAN_USAHA' => $request->bentuk_badan_usaha,
-                'STATUS_TEMPAT_USAHA'=> $request->status_tempat_usaha,
-                'NO_TELP_USAHA' =>$request->no_kantor,
-                'JUMLAH_KARY' => $request->jumlah_karyawan,
-                'JADI_NASABAH_SEJAK'=> Carbon::createFromFormat('m/d/Y', $request->menjadi_nasabah_sejak)->format('Y-m-d'),
-    
-                'NAMA' => $request->nama_debitur,
-                'STATUS_PERKAWINAN' => $request->status_perkawinan,
-                'TEMPAT_LAHIR' => $request->tempat_lahir,
-                'TGL_LAHIR' => Carbon::createFromFormat('m/d/Y', $request->tgl_lahir)->format('Y-m-d'),
-                'GENDER' => $request->gender,
-                'NO_KTP'=>$request->no_ktp,
-                'TGL_BERLAKU_KTP' => $tgl_berlaku_ktp,
-                'ALAMAT' => $request->alamat_ktp,
-                'NO_TELP' => $request->nomor_telepon,
-                'NO_KANTOR' => $request->nomor_telepon_kantor,
-                'STATUS_TEMPAT_TINGGAL' => $request->status_tempat_tinggal,
-                'LAMA_TINGGAL' => $request->lama_tinggal,
-                'TINGKAT_PENDIDIKAN' => $request->tingkat_pendidikan,
-                'JUMLAH_TANGGUNGAN' => $request->jumlah_tanggungan,
-                
-                'NAMA_PASANGAN' => $request->nama_pasangan,
-                'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
-                'TGL_LAHIR_PASANGAN' => $tgl_lahir_pasangan ,
-                'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
-                'PROFESI_PASANGAN' =>$request->profesi_pasangan,
-                'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
-                'NAMA_EC' => $request->nama_kontak_darurat,
-                'HUB_EC' =>$request->hubungan_keluarga,
-                'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
-                'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
-                
-                'NO_PENDIRIAN' => $request->no_pendirian,
-                'TGL_PENDIRIAN' => $tgl_pendirian,
-                'ISI_PENDIRIAN' => $dokumen_pendirian_img,
-                'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
-    
-                'ANGGARAN' => $request->no_anggaran,
-                'ISI_ANGGARAN' => $request->isi_anggaran,
-                'TGL_ANGGARAN' => $tgl_anggaran,
-                'KONDISI_ANGGARAN' => $request->kondisi_anggaran,
-    
-                'PENGURUS' => $request->no_pengurus,
-                'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
-                'ISI_PENGURUS' => $request->isi_pengurus,
-                'TGL_PENGURUS'=> $tgl_pengurus,  
+            'NAMA' => $request->nama_debitur,
+            'STATUS_PERKAWINAN' => $request->status_perkawinan,
+            'TEMPAT_LAHIR' => $request->tempat_lahir,
+            'TGL_LAHIR' => Carbon::createFromFormat('m/d/Y', $request->tgl_lahir)->format('Y-m-d'),
+            'GENDER' => $request->gender,
+            'NO_KTP'=>$request->no_ktp,
+            'TGL_BERLAKU_KTP' => $tgl_berlaku_ktp,
+            'ALAMAT' => $request->alamat_ktp,
+            'NO_TELP' => $request->nomor_telepon,
+            'NO_KANTOR' => $request->nomor_telepon_kantor,
+            'STATUS_TEMPAT_TINGGAL' => $request->status_tempat_tinggal,
+            'LAMA_TINGGAL' => $request->lama_tinggal,
+            'TINGKAT_PENDIDIKAN' => $request->tingkat_pendidikan,
+            'JUMLAH_TANGGUNGAN' => $request->jumlah_tanggungan,
+            
+            'NAMA_PASANGAN' => $request->nama_pasangan,
+            'TEMPAT_LAHIR_PASANGAN' =>$request->tempat_lahir_pasangan,
+            'TGL_LAHIR_PASANGAN' => $tgl_lahir_pasangan ,
+            'ALAMAT_PASANGAN' => $request->alamat_ktp_pasangan,
+            'PROFESI_PASANGAN' =>$request->profesi_pasangan,
+            'NO_TELP_PASANGAN' =>$request->nomor_telepon_pasangan,
+            'NAMA_EC' => $request->nama_kontak_darurat,
+            'HUB_EC' =>$request->hubungan_keluarga,
+            'ALAMAT_EC' => $request->alamat_ktp_kontak_darurat,
+            'NO_TELP_EC' => $request->nomor_telepon_kontak_darurat,
+            
+            'NO_PENDIRIAN' => $request->no_pendirian,
+            'TGL_PENDIRIAN' => $tgl_pendirian,
+            'ISI_PENDIRIAN' => $dokumen_pendirian_img,
+            'KONDISI_PENDIRIAN' => $request->kondisi_pendirian,
 
-                'BASIL_BANK' => $request->basil_bank,
-                'BASIL_DEB' => $request->basil_deb,
-            ]);
+            'ANGGARAN' => $request->no_anggaran,
+            'ISI_ANGGARAN' => $request->isi_anggaran,
+            'TGL_ANGGARAN' => $tgl_anggaran,
+            'KONDISI_ANGGARAN' => $request->kondisi_anggaran,
 
-    
-            return redirect()
-                ->back()
-                ->with('success-edit', 'Data nasabah berhasil diedit!');
-        }
+            'PENGURUS' => $request->no_pengurus,
+            'KONDISI_PENGURUS' => $request->kondisi_pengurus, 
+            'ISI_PENGURUS' => $request->isi_pengurus,
+            'TGL_PENGURUS'=> $tgl_pengurus,       
+
+            'BASIL_BANK' => $request->basil_bank,
+            'BASIL_DEB' => $request->basil_deb,
+        ]);
+
+        return redirect()
+        ->to('/dashboard/detaildataBU/' . $newId)
+        ->with('success', 'Data Nasabah Berhasil');
     }
         
     public function edit_data_nasabah(Request $request, $id){

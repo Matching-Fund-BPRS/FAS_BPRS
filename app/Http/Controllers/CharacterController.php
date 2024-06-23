@@ -7,6 +7,8 @@ use App\Models\TCharacter;
 use App\Models\TNasabah;
 use App\Models\TScoring;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class CharacterController extends Controller
 {
@@ -26,7 +28,24 @@ class CharacterController extends Controller
     }
 
     public function submitCharacter(Request $request){
-        // ambil data dari request terus jadiin JSON terus post ke API
+        // Validasi untuk memastikan semua inputan tidak memiliki value 0
+        $validated = $request->validate([
+            'man_kemauan' => 'required|integer|min:1',
+            'man_kejujuran' => 'required|integer|min:1',
+            'man_reputasi' => 'required|integer|min:1',
+            'cw_tanggung' => 'required|integer|min:1',
+            'cw_terbuka' => 'required|integer|min:1',
+            'cw_disiplin' => 'required|integer|min:1',
+            'cw_janji' => 'required|integer|min:1',
+            'pu_integritas' => 'required|integer|min:1',
+            'pu_account_behavior' => 'required|integer|min:1',
+            'id' => 'required|integer|min:1',
+        ]);
+
+        if (!$validated) {
+            return redirect()->back()->with('result_message', 'Mohon lengkapi form');
+        }
+
         TCharacter::insert([
             'MAN_KEMAUAN' => $request->man_kemauan,
             'MAN_KEJUJURAN' => $request->man_kejujuran,
@@ -40,8 +59,7 @@ class CharacterController extends Controller
             'ID_NASABAH' => $request->id
         ]);
         
-        // ambil response dari API terus masukin di variabel
-        $response = Http::post('https://test2.bmiscoring.online/character', [
+        $response = Http::post('model/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),
@@ -52,7 +70,6 @@ class CharacterController extends Controller
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behavior' => intval($request->pu_account_behavior),
         ]);
-        dd($response->json());
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){
@@ -84,6 +101,31 @@ class CharacterController extends Controller
 
     public function update(Request $request, $id){
 
+        // Validasi untuk memastikan semua inputan tidak memiliki value 0
+        $rules = [
+            'man_kemauan' => 'required|integer|min:1',
+            'man_kejujuran' => 'required|integer|min:1',
+            'man_reputasi' => 'required|integer|min:1',
+            'cw_tanggung' => 'required|integer|min:1',
+            'cw_terbuka' => 'required|integer|min:1',
+            'cw_disiplin' => 'required|integer|min:1',
+            'cw_janji' => 'required|integer|min:1',
+            'pu_integritas' => 'required|integer|min:1',
+            'pu_account_behavior' => 'required|integer|min:1',
+        ];
+    
+        $validator = Validator::make($request->all(), $rules);
+    
+        if ($validator->fails()) {
+            // If validation fails, redirect back with input and errors
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput()
+                ->with('result_message', 'Mohon lengkapi form');
+        }
+    
+        
+
         TCharacter::where('ID_NASABAH', $id)->update([
             'MAN_KEMAUAN' => $request->man_kemauan,
             'MAN_KEJUJURAN' => $request->man_kejujuran,
@@ -95,7 +137,7 @@ class CharacterController extends Controller
             'PU_INTEGRITAS' => $request->pu_integritas,
             'PU_ACCOUNT_BEHAVIOR' => $request->pu_account_behavior,
         ]);
-        $response = Http::post('https://test2.bmiscoring.online/character', [
+        $response = Http::post('model/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),
@@ -106,8 +148,7 @@ class CharacterController extends Controller
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behavior' => intval($request->pu_account_behavior),
         ]);
-        dd($response);
-        // dd($response->json()['data'], intval($request->man_kemauan), intval($request->man_kejujuran),intval($request->man_reputasi),intval($request->cw_tanggung),intval($request->cw_terbuka),intval($request->cw_displin),intval($request->cw_janji),intval($request->pu_integritas),intval($request->pu_account_behavior));
+
         $output = $response->json()['data']['percentage'];
         $Tscoring = TScoring::where('ID_NASABAH', $request->id)->first();
         if($Tscoring == null){

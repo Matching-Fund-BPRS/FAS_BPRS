@@ -171,3 +171,4 @@ class SettingController extends Controller
         return redirect()->back();
     }
 }
+

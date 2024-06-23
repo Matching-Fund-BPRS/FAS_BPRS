@@ -8,7 +8,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * Class TNasabah
  * 
@@ -79,6 +79,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TNasabah extends Model
 {
+	use HasFactory;
 	protected $table = 't_nasabah';
 	protected $primaryKey = 'ID_NASABAH';
 	public $incrementing = false;
@@ -163,6 +164,8 @@ class TNasabah extends Model
 		'KONDISI_PENGURUS',
 		'ISI_PENDIRIAN',
 		'ISI_ANGGARAN',
-		'ISI_PENGURUS'
+		'ISI_PENGURUS',
+		'BASIL_BANK',
+		'BASIL_DEB'
 	];
 }
