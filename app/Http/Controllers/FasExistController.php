@@ -54,7 +54,7 @@ class FasExistController extends Controller
             'pembiayaan_sid' => 'required',
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -109,7 +109,7 @@ class FasExistController extends Controller
             'pembiayaan_sid' => 'required',
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -158,7 +158,7 @@ class FasExistController extends Controller
             'lama_tunggakan' => 'required',
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -190,7 +190,7 @@ class FasExistController extends Controller
             'lama_tunggakan' => 'required',
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 

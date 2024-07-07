@@ -72,7 +72,7 @@ function formatInput(id) {
 input.forEach(element => {
   console.log(element)
   formatInput(element);
-  document.getElementById(element).addEventListener('keydown', function(){
+  document.getElementById(element).addEventListener('input', function(){
     formatInput(element);
   })
 });
@@ -108,4 +108,5 @@ function calculate() {
   document.getElementById('laba_rugi').value = fixedFormatNumber(labaRugiValue);
 }
 calculate();
-infoKeuanganForm.addEventListener('change', calculate);
+infoKeuanganForm.addEventListener('input', calculate);
+

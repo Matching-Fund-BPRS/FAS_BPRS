@@ -217,8 +217,9 @@ function proyeksiNeraca() {
   nextModal.value = fixedFormatNumber(nextmodalValue);
   nextSubTotalModal.value = fixedFormatNumber(nextsub_total_modalValue);
   nextPasiva.value = fixedFormatNumber(nextpasivaValue);
-
+  console.log(document.getElementsByName('tgl_periode'));
   let tgl_periode = document.getElementsByName('tgl_periode')[0];
+
   let nexttgl_peridoer_value = tgl_periode.value;
   nexttgl_peridoer_value = nexttgl_peridoer_value.split('-');
   nexttgl_peridoer_value = nexttgl_peridoer_value[2] + '/' + nexttgl_peridoer_value[1] + '/' + (parseInt(nexttgl_peridoer_value[0])+1);

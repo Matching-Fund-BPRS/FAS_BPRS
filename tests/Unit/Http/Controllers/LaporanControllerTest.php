@@ -4,6 +4,8 @@ namespace Tests\Unit\Http\Controllers;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Request;
 use App\Models\TNasabah;
@@ -33,8 +35,25 @@ class LaporanControllerTest extends TestCase
     public function testDownloadLaporan()
     {
         $nasabah = TNasabah::factory()->create();
+        $tableData = [];
         $request = Request::create(route('downloadLaporan'), 'POST', [
-            'ID_NASABAH' => $nasabah->ID_NASABAH
+            'ID_NASABAH' => $nasabah->ID_NASABAH,
+            'tableData' => $tableData
+        ]);
+
+        $response = $this->post(route('downloadLaporan'), $request->all());
+
+        $response->assertStatus(302);
+    }
+    public function testDownloadLaporanFailed()
+    {
+        $nasabah = TNasabah::factory()->create();
+        $tableData = [];
+        $fas = TFa::factory()->create();
+        $request = Request::create(route('downloadLaporan'), 'POST', [
+            'ID_NASABAH' => $nasabah->ID_NASABAH,
+            'tableData' => $tableData,
+            'fas' => $fas
         ]);
 
         $response = $this->post(route('downloadLaporan'), $request->all());

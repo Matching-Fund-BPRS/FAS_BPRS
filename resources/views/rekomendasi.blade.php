@@ -347,13 +347,11 @@
                                     Aspek
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-gray-1000">
-                                    Persentase
+                                <th scope="col" colspan="2" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-gray-1000">
+                                    Nilai
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-bold text-center rtl:text-right text-gray-1000">
-                                    Bobot
-                                </th>
+                                
 
                             </tr>
                         </thead>
@@ -362,23 +360,18 @@
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Character</p>
                                 </td>
-                                <td class="px-12 py-4 font-medium whitespace-nowrap"> 
+                                <td class="px-12 py-4 font-medium whitespace-nowrap" colspan="2"> 
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CHARACTER ?? 0)*100, 2). ' %' }}</p>
                                 </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">20 %</p>
-                                </td>
+                               
                             </tr>
 
                             <tr>
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Capacity</p>
                                 </td>
-                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <td class="px-12 py-4 font-medium whitespace-nowrap" colspan="2">
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPACITY ?? 0) *100 , 2). ' %' }}</p>
-                                </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"> 20 %</p>
                                 </td>
                             </tr>
                 
@@ -386,11 +379,8 @@
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Condition</p>
                                 </td>
-                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <td class="px-12 py-4 font-medium whitespace-nowrap" colspan="2">
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CONDITION ?? 0)*100 , 2). ' %' }}</p>
-                                </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"> 15 %</p>
                                 </td>
                             </tr>
                                                 
@@ -398,11 +388,8 @@
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Capital</p>
                                 </td>
-                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <td class="px-12 py-4 font-medium whitespace-nowrap" colspan="2">
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->CAPITAL ?? 0)*100 , 2). ' %' }}</p>
-                                </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"> 20 %</p>
                                 </td>
                             </tr>
                                                 
@@ -410,11 +397,8 @@
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Collateral</p>
                                 </td>
-                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <td class="px-12 py-4 font-medium whitespace-nowrap" colspan="2">
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->COLLATERAL ?? 0)*100 , 2). ' %' }}</p>
-                                </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">20 %</p>
                                 </td>
                             </tr>
                                                 
@@ -422,25 +406,33 @@
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Syariah</p>
                                 </td>
-                                <td class="px-12 py-4 font-medium whitespace-nowrap">
+                                <td class="px-12 py-4 font-medium whitespace-nowrap" colspan="2">
                                         <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SYARIAH ?? 0) *100 , 2). ' %' }}</p>
-                                </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">5 %</p>
                                 </td>
                             </tr>
                             <tr>
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <p class="text-sm font-semibold text-center text-gray-600">Hasil Akhir</p>
                                 </td>
-                                <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ number_format(($scoring->SCORING ?? 0) *100 , 2). ' %' }}</p>
-                                </td>
-                                <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600" id="hasil"></p>
+                                <td class="px-4 py-4 whitespace-nowrap" colspan="2">
+                                        <p class="text-sm font-normal text-center text-gray-600" id="hasil">
+                                            @if($predicted == 1)
+                                                Kolektibilitas 1: Lancar
+                                            @elseif($predicted == 2)
+                                                Kolektibilitas 2: Dalam Perhatian Khusus
+                                            @elseif($predicted == 3)
+                                                Kolektibilitas 3: Kurang Lancar
+                                            @elseif($predicted == 4)
+                                                Kolektibilitas 4: Diragukan
+                                            @elseif($predicted == 5)
+                                                Kolektibilitas 5: Macet
+                                            @else
+                                                Tidak dapat dianalisis
+                                            @endif
+                                        </p>
                                 </td>
                             </tr>
-                            <script>
+                            {{-- <script>
                                 let hasil = document.getElementById('hasil');
                                 let scoringValue = {{ number_format(($scoring->SCORING ?? 0) * 100, 2) ?? 0 }};
                                 hasil.innerHTML = get_score(scoringValue);
@@ -470,7 +462,7 @@
                                         return "A+";
                                     }
                                 }
-                            </script>
+                            </script> --}}
                             
                         </tbody>
                     </table>

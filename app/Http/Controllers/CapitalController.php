@@ -43,11 +43,12 @@ class CapitalController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('http://34.50.77.175:8000/capital', [
+        $response = Http::post('http://127.0.0.1:9000/capital', [
             'cm_dar' => -1 * floatval($request->cm_dar),
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),
             'pk_income_sales' => floatval($request->pk_income_sales),
+            'pk_asset' => floatval(str_replace('.', '', $request->pk_asset)),
             'rpc' => -1 * floatval($request->rpc),
             'pk_ebit' => floatval($request->pk_ebit),
         ]);
@@ -102,11 +103,12 @@ class CapitalController extends Controller
             'RPC' => -1 * $request->rpc,
             'PK_EBIT' => $request->pk_ebit,
         ]);
-        $response = Http::post('http://34.50.77.175:8000/capital', [
+        $response = Http::post('http://127.0.0.1:9000/capital', [
             'cm_dar' => -1 * floatval($request->cm_dar),
             'cm_der' =>  -1 * floatval($request->cm_der),
             'cm_lder' =>  -1 * floatval($request->cm_lder),
             'pk_income_sales' => floatval($request->pk_income_sales),
+            'pk_asset' => floatval(str_replace('.', '', $request->pk_asset)),
             'rpc' => -1 * floatval($request->rpc),
             'pk_ebit' => floatval($request->pk_ebit),
         ]);

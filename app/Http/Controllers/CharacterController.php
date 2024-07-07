@@ -59,13 +59,13 @@ class CharacterController extends Controller
             'ID_NASABAH' => $request->id
         ]);
         
-        $response = Http::post('http://34.50.77.175:8000/character', [
+        $response = Http::post('http://127.0.0.1:9000/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),
             'cw_tanggung' => intval($request->cw_tanggung),
             'cw_terbuka' => intval($request->cw_terbuka),
-            'cw_displin' => intval($request->cw_disiplin),
+            'cw_disiplin' => intval($request->cw_disiplin),
             'cw_janji' => intval($request->cw_janji),
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behavior' => intval($request->pu_account_behavior),
@@ -116,7 +116,7 @@ class CharacterController extends Controller
     
         $validator = Validator::make($request->all(), $rules);
     
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             // If validation fails, redirect back with input and errors
             return redirect()->back()
                 ->withErrors($validator)
@@ -137,13 +137,13 @@ class CharacterController extends Controller
             'PU_INTEGRITAS' => $request->pu_integritas,
             'PU_ACCOUNT_BEHAVIOR' => $request->pu_account_behavior,
         ]);
-        $response = Http::post('http://34.50.77.175:8000/character', [
+        $response = Http::post('http://127.0.0.1:9000/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),
             'cw_tanggung' => intval($request->cw_tanggung),
             'cw_terbuka' => intval($request->cw_terbuka),
-            'cw_displin' => intval($request->cw_disiplin),
+            'cw_disiplin' => intval($request->cw_disiplin),
             'cw_janji' => intval($request->cw_janji),
             'pu_integritas' => intval($request->pu_integritas),
             'pu_account_behavior' => intval($request->pu_account_behavior),

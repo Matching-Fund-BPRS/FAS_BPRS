@@ -45,7 +45,7 @@ class CollateralController extends Controller
             'id' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
@@ -75,7 +75,7 @@ class CollateralController extends Controller
             'PENGUASAAN' => $request->penguasaan,
             'ID_NASABAH' => $request->id,
         ]);
-        $response = Http::post('http://34.50.77.175:8000/collateral', [
+        $response = Http::post('http://127.0.0.1:9000/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
             'pa_dokumen' => intval($dokumen),
             'leg_usaha' => intval($leg_usaha),
@@ -126,7 +126,7 @@ class CollateralController extends Controller
             'penguasaan' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
@@ -153,7 +153,8 @@ class CollateralController extends Controller
             'KEPEMILIKAN' => $request->kepemilikan,
             'PENGUASAAN' => $request->penguasaan,
         ]);
-        $response = Http::post('http://34.50.77.175:8000/collateral', [
+
+        $response = Http::post('http://127.0.0.1:9000/collateral', [
             'ca_nilai_agunan' => intval($request->ca_nilai_agunan),
             'pa_dokumen' => intval($dokumen),
             'leg_usaha' => intval($leg_usaha),
@@ -202,7 +203,7 @@ class CollateralController extends Controller
             'id' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
@@ -231,7 +232,7 @@ class CollateralController extends Controller
             'usulan' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 

@@ -40,7 +40,7 @@ class ConditionController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -54,7 +54,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('http://34.50.77.175:8000/condition', [
+        $response = Http::post('http://127.0.0.1:9000/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),
@@ -109,7 +109,7 @@ class ConditionController extends Controller
 
         $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -123,7 +123,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('http://34.50.77.175:8000/condition', [
+        $response = Http::post('http://127.0.0.1:9000/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),

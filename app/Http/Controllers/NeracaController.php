@@ -40,7 +40,7 @@ class NeracaController extends Controller
             'tgl_periode' => 'required|date_format:Y-m-d'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 

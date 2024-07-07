@@ -35,12 +35,11 @@ class CapacityController extends Controller
             'cb_manajemen_sdm' => 'required|integer|min:1',
             'cb_pengelolaan' => 'required|integer|min:1',
             'cb_dscr' => 'required|integer|min:1',
-            'id' => 'required|integer|min:1',
         ];
 
         $validator = Validator::make($request->all(), $rules);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput()
@@ -56,7 +55,7 @@ class CapacityController extends Controller
             'ID_NASABAH' => $request->id,
         ]);
 
-        $response = Http::post('http://34.50.77.175:8000/capacity', [
+        $response = Http::post('http://127.0.0.1:9000/capacity', [
             'teh_utilisasi' => intval($request->teh_utilisasi),
             'teh_lama_usaha' => intval($request->teh_lama_usaha),
             'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),
@@ -107,12 +106,12 @@ class CapacityController extends Controller
             'teh_lama_usaha' => 'required|integer|min:1',
             'cb_manajemen_sdm' => 'required|integer|min:1',
             'cb_pengelolaan' => 'required|integer|min:1',
-            'cb_dscr' => 'required|integer|min:1',
+            'cb_dscr' => 'required|min:1',
         ];
 
         $validator = Validator::make($request->all(), $rules);
-
-        if ($validator->fails()) {
+        //dd($validator, $request->all());
+        if ($validator->fails() || false == true) {
             return redirect()->back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -124,7 +123,7 @@ class CapacityController extends Controller
             'CB_DSCR' => $request->cb_dscr,
         ]);
 
-        $response = Http::post('http://34.50.77.175:8000/capacity', [
+        $response = Http::post('http://127.0.0.1:9000/capacity', [
             'teh_utilisasi' => intval($request->teh_utilisasi),
             'teh_lama_usaha' => intval($request->teh_lama_usaha),
             'cb_manajemen_sdm' => intval($request->cb_manajemen_sdm),

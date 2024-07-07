@@ -9,6 +9,7 @@ use App\Models\TNasabah;
 use App\Models\TScoring;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class CharacterControllerTest extends TestCase
@@ -43,7 +44,7 @@ class CharacterControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://34.50.77.175:8000/character' => Http::response(['data' => ['percentage' => 75]], 200)
+            'http://127.0.0.1:9000/character' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post('/dashboard/5character/submitCharacter', $data);
@@ -67,7 +68,7 @@ class CharacterControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://34.50.77.175:8000/character' => Http::response(['data' => ['percentage' => 80]], 200)
+            'http://127.0.0.1:9000/character' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post("/dashboard/5character/{$id}/edit", $data);

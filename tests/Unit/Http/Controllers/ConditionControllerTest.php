@@ -9,6 +9,7 @@ use App\Models\TNasabah;
 use App\Models\TScoring;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 class ConditionControllerTest extends TestCase
 {
@@ -43,7 +44,7 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://34.50.77.175:8000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post(route('updateCondition', ['id' => $nasabah->ID_NASABAH]), $request->all());
@@ -65,7 +66,54 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://34.50.77.175:8000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
+        ]);
+
+        $response = $this->post(route('postCondition'), $request->all());
+
+        $response->assertStatus(200);
+    }
+
+    public function testUpdateFailed()
+    {
+        $nasabah = TNasabah::factory()->create();
+        $condition = TCondition::factory()->create(['ID_NASABAH' => $nasabah->ID_NASABAH]);
+        $scoring = TScoring::factory()->create(['ID_NASABAH' => $nasabah->ID_NASABAH]);
+
+        $request = Request::create(route('updateCondition', ['id' => $nasabah->ID_NASABAH]), 'POST', [
+            'cu_pasokan' => 10,
+            'cu_konsumen' => 5,
+            'pem_ketergantungan' => 8,
+            'pem_kebutuhan' => 7,
+            'cu_kecakapan' => 6,
+            'cu_eksternal' => 9,
+            'id' => $nasabah->ID_NASABAH,
+        ]);
+
+        Http::fake([
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
+        ]);
+
+        $response = $this->post(route('updateCondition', ['id' => $nasabah->ID_NASABAH]), $request->all());
+
+        $response->assertStatus(200);
+    }
+
+    public function testSubmitConditionFailed()
+    {
+        $nasabah = TNasabah::factory()->create();
+        $request = Request::create(route('postCondition'), 'POST', [
+            'cu_pasokan' => 10,
+            'cu_konsumen' => 5,
+            'pem_ketergantungan' => 8,
+            'pem_kebutuhan' => 7,
+            'cu_kecakapan' => 6,
+            'cu_eksternal' => 9,
+            'id' => $nasabah->ID_NASABAH,
+        ]);
+
+        Http::fake([
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post(route('postCondition'), $request->all());

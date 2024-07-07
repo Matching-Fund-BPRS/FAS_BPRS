@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class CollateralControllerTest extends TestCase
@@ -47,7 +48,7 @@ class CollateralControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://34.50.77.175:8000/collateral' => Http::response(['data' => ['percentage' => 75]], 200)
+            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post('/dashboard/5collateral/submitCollateral', $data);
@@ -68,7 +69,49 @@ class CollateralControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://34.50.77.175:8000/collateral' => Http::response(['data' => ['percentage' => 50]], 200)
+            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 50]], 200)
+        ]);
+
+        $response = $this->post("/dashboard/5collateral/{$id}/update", $data);
+
+        $response->assertRedirect();
+
+    }
+    public function testSubmitCollateralFailed()
+    {
+        $data = [
+            'ca_nilai_agunan' => '3',
+            'pengikatan' => '3',
+            'leg_usaha' => 1,
+            'marketability' => 1,
+            'kepemilikan' => 1,
+            'penguasaan' => 1,
+            'id' => 1
+        ];
+
+        Http::fake([
+            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 75]], 200)
+        ]);
+
+        $response = $this->post('/dashboard/5collateral/submitCollateral', $data);
+
+        $response->assertRedirect();
+    }
+
+    public function testUpdateFailed()
+    {
+        $id = 1;
+        $data = [
+            'ca_nilai_agunan' => '2',
+            'pengikatan' => '2',
+            'leg_usaha' => 0,
+            'marketability' => 1,
+            'kepemilikan' => 1,
+            'penguasaan' => 1
+        ];
+
+        Http::fake([
+            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 50]], 200)
         ]);
 
         $response = $this->post("/dashboard/5collateral/{$id}/update", $data);

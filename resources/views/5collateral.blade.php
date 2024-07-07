@@ -48,11 +48,40 @@
                                 " class="cursor-pointer" >
                                     <button type="button" class="hidden" data-modal-target="defaultModal{{ $agunan->ID }}" data-modal-toggle="defaultModal{{ $agunan->ID }}" id="openPopup{{ $agunan->ID }}" ></button>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">{{ $agunan->JENIS }}</p>
+                                        <p class="text-sm font-bold text-center text-gray-600">
+                                            @if($agunan->JENIS == 1) Tanah
+                                            @elseif($agunan->JENIS == 2) Tanah dan Bangunan
+                                            @elseif($agunan->JENIS == 3) Bangunan
+                                            @elseif($agunan->JENIS == 4) Mobil
+                                            @elseif($agunan->JENIS == 5) Motor R2
+                                            @elseif($agunan->JENIS == 6) Motor R3
+                                            @elseif($agunan->JENIS == 7) Minibus
+                                            @elseif($agunan->JENIS == 8) Bus
+                                            @elseif($agunan->JENIS == 9) Truck
+                                            @elseif($agunan->JENIS == 10) Dump Truck
+                                            @elseif($agunan->JENIS == 11) Mobil Pickup
+                                            @elseif($agunan->JENIS == 12) Deposito Berjangka
+                                            @elseif($agunan->JENIS == 13) Emas
+                                            @elseif($agunan->JENIS == 14) Lainya
+                                            @endif
+                                        </p>
                                     </td>
                                     
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ $agunan->BUKTI_MILIK }}</p>
+                                        <p class="text-sm font-normal text-center text-gray-600">
+                                            @if($agunan->BUKTI_MILIK == 'A') SHM
+                                            @elseif($agunan->BUKTI_MILIK == 'B') SHGB
+                                            @elseif($agunan->BUKTI_MILIK == 'C') SHP
+                                            @elseif($agunan->BUKTI_MILIK == 'D') Strata Title
+                                            @elseif($agunan->BUKTI_MILIK == 'E') Sertifikat Deposito
+                                            @elseif($agunan->BUKTI_MILIK == 'F') Akta Jual Beli
+                                            @elseif($agunan->BUKTI_MILIK == 'G') BPKB
+                                            @elseif($agunan->BUKTI_MILIK == 'H') Surat Ijo
+                                            @elseif($agunan->BUKTI_MILIK == 'I') Petok
+                                            @elseif($agunan->BUKTI_MILIK == 'J') Girik
+                                            @elseif($agunan->BUKTI_MILIK == 'K') Lainya
+                                            @endif
+                                        </p>
                                     </td>
                                     
                                     <td class="px-4 py-4 whitespace-nowrap">
@@ -112,8 +141,8 @@
                 <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Penilaian Dokumen Agunan</label>
                 <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     <option value="">Tentukan analisa Penilaian Dokumen Agunan</option>
-                    <option value="1">Dokumen Lengkap</option>
-                    <option value="2">Dokumen Tidak Lengkap</option>
+                    <option value="2">Dokumen Lengkap</option>
+                    <option value="1">Dokumen Tidak Lengkap</option>
                 </select>
             </div>
 
@@ -197,8 +226,8 @@
                 <label for="pa_dokumen" class="block mb-2 text-xs font-medium text-gray-900">Penilaian Dokumen Agunan</label>
                 <select name="pa_dokumen" id="pa_dokumen" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     <option value="">Tentukan analisa Penilaian Dokumen Agunan</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 1) selected @endif value="1">Dokumen Lengkap</option>
-                    <option @if($collateral_nasabah->PA_DOKUMEN == 2) selected @endif value="2">Dokumen Tidak Lengkap</option>
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 2) selected @endif value="2">Dokumen Lengkap</option>
+                    <option @if($collateral_nasabah->PA_DOKUMEN == 1) selected @endif value="1">Dokumen Tidak Lengkap</option>
                 </select>
             </div>
 

@@ -66,7 +66,7 @@
                         <option value="2">Barang atau jasa yang di produksi tidak mengandung hal hal yang bertentang dengan prinsip syariah</option>
                     @else
                         <option {{ $syariah_nasabah->SY_JENIS_BARANG == 1 ? 'selected' : ''}} value="1">Barang atau jasa yang di produksi mengandung hal hal yang bertentang dengan prinsip syariah</option>
-                        <option {{ $syariah_nasabah->SY_JENIS_BARANG == 1 ? 'selected' : ''}} value="2">Barang atau jasa yang di produksi tidak mengandung hal hal yang bertentang dengan prinsip syariah</option>
+                        <option {{ $syariah_nasabah->SY_JENIS_BARANG == 2 ? 'selected' : ''}} value="2">Barang atau jasa yang di produksi tidak mengandung hal hal yang bertentang dengan prinsip syariah</option>
                     @endif
                 </select>
             </div>

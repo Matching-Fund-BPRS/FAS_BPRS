@@ -41,7 +41,7 @@ class InfoKeuanganController extends Controller
             'biaya_angsuran_lain' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -190,10 +190,10 @@ class InfoKeuanganController extends Controller
          $capital = TCapital::where('ID_NASABAH', $request->id)->first();
          $capacity = TCapacity::where('ID_NASABAH', $request->id)->first();
 
-         $dscr = ($omset - $hpp - $biaya_hidup - $angs_lain + $pendapatan_lain - $biaya_angsuran_lain) / (($nasabah->LIMIT_KREDIT / $nasabah->JANGKA_WAKTU) + ($nasabah->LIMIT_KREDIT * $nasabah->BUNGA / 100));
-         $income_Sales = ($omset - $hpp) / $omset;
-         $ebit_per_interest = ($omset - $hpp - $biaya_hidup - $angs_lain + $pendapatan_lain - $biaya_angsuran_lain) / ($nasabah->LIMIT_KREDIT * $nasabah->BUNGA / 100);
-         $rpc = ($nasabah->LIMIT_KREDIT / $nasabah->JANGKA_WAKTU) / ($omset - $hpp - $biaya_hidup - $angs_lain + $pendapatan_lain - $biaya_angsuran_lain - ($nasabah->LIMIT_KREDIT / $nasabah->JANGKA_WAKTU));
+         $dscr = ($nasabah->JANGKA_WAKTU != 0) ? ($omset - $hpp - $biaya_hidup - $angs_lain + $pendapatan_lain - $biaya_angsuran_lain) / (($nasabah->LIMIT_KREDIT / $nasabah->JANGKA_WAKTU) + ($nasabah->LIMIT_KREDIT * $nasabah->BUNGA / 100)) : 0;
+         $income_Sales = ($omset != 0) ? ($omset - $hpp) / $omset : 0;
+         $ebit_per_interest = ($nasabah->BUNGA != 0) ? ($omset - $hpp - $biaya_hidup - $angs_lain + $pendapatan_lain - $biaya_angsuran_lain) / ($nasabah->LIMIT_KREDIT * $nasabah->BUNGA / 100) : 0;
+         $rpc = ($omset - $hpp - $biaya_hidup - $angs_lain + $pendapatan_lain - $biaya_angsuran_lain - ($nasabah->JANGKA_WAKTU != 0 ? $nasabah->LIMIT_KREDIT / $nasabah->JANGKA_WAKTU : 0)) != 0 ? ($nasabah->LIMIT_KREDIT / $nasabah->JANGKA_WAKTU) / ($omset - $hpp - $biaya_hidup - $angs_lain + $pendapatan_lain - $biaya_angsuran_lain - ($nasabah->JANGKA_WAKTU != 0 ? $nasabah->LIMIT_KREDIT / $nasabah->JANGKA_WAKTU : 0)) : 0;
 
          if($capital != null){
             $capital->update([

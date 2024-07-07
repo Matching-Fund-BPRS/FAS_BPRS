@@ -38,7 +38,7 @@ class RugiLabaController extends Controller
             'id' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 

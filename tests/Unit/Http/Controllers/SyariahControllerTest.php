@@ -9,6 +9,7 @@ use App\Models\TSyariah;
 use App\Models\TScoring;
 use App\Http\Controllers\SyariahController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class SyariahControllerTest extends TestCase
@@ -28,6 +29,22 @@ class SyariahControllerTest extends TestCase
     }
 
     public function testSubmitSyariah()
+    {
+        $data = [
+            'sertifikasi' => '1',
+            'jumlah_hutang' => '50',
+            'akad_usaha' => '1',
+            'jenis_barang_usaha' => '1',
+            'presentase' => '25',
+            'id' => '123'
+        ];
+
+        $response = $this->post('/syariah/submitSyariah', $data);
+
+        $response->assertRedirect();
+        
+    }
+    public function testSubmitSyariahFailed()
     {
         $data = [
             'sertifikasi' => '1',

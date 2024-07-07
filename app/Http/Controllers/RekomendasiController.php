@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\TAngsuran;
+use App\Models\TCapital;
 use Illuminate\Http\Request;
 use App\Models\TRekomendasi;
 use App\Models\TNasabah;
 use App\Models\TRugilaba;
 use App\Models\TScoring;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Validator;
 
 class RekomendasiController extends Controller
@@ -37,7 +40,7 @@ class RekomendasiController extends Controller
             'id' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
@@ -107,28 +110,28 @@ class RekomendasiController extends Controller
     }
 
     public function editRekomendasi(Request $request, $id){
-        $validator = Validator::make($request->all(), [
-            'plafond' => 'required',
-            'angsuran_bulan' => 'required',
-            'provisi' => 'required',
-            'administrasi' => 'required',
-            'biaya_lainnya' => 'required',
-            'biaya_materai' => 'required',
-            'biaya_notaris' => 'required',
-            'biaya_asuransi' => 'required',
-            'jangka_waktu' => 'required',
-            'margin' => 'required',
-            'sifat' => 'required',
-            'jenis_permohonan' => 'required',
-            'tujuan_penggunaan' => 'required',
-            'bagi_hasil_bank' => 'required',
-            'bagi_hasil_mudharib' => 'required',
-            'id' => 'required'
-        ]);
+        // $validator = Validator::make($request->all(), [
+        //     'plafond' => 'required',
+        //     'angsuran_bulan' => 'required',
+        //     'provisi' => 'required',
+        //     'administrasi' => 'required',
+        //     'biaya_lainnya' => 'required',
+        //     'biaya_materai' => 'required',
+        //     'biaya_notaris' => 'required',
+        //     'biaya_asuransi' => 'required',
+        //     'jangka_waktu' => 'required',
+        //     'margin' => 'required',
+        //     'sifat' => 'required',
+        //     'jenis_permohonan' => 'required',
+        //     'tujuan_penggunaan' => 'required',
+        //     'bagi_hasil_bank' => 'required',
+        //     'bagi_hasil_mudharib' => 'required',
+        //     'id' => 'required'
+        // ]);
 
-        if ($validator->fails()) {
-            return back()->with('result_message', 'Mohon lengkapi form');
-        }
+        // if ($validator->fails() || false == true) {
+        //     return back()->with('result_message', 'Mohon lengkapi form');
+        // }
 
         $plafond = str_replace('.', '', $request->plafond);
         $angsuran_bulan = str_replace('.', '', $request->angsuran_bulan);
@@ -205,6 +208,49 @@ class RekomendasiController extends Controller
         $rekomendasi_nasabah =  TRekomendasi::where('ID_NASABAH', $id)->first();
         $scoring = TScoring::where('ID_NASABAH', $id)->first();
 
+        $analisis = TCapital::where('t_capital.ID_NASABAH', $id)
+            ->leftJoin('t_capacity', 't_capital.ID_NASABAH', '=', 't_capacity.ID_NASABAH')
+            ->leftJoin('t_collateral', 't_capital.ID_NASABAH', '=', 't_collateral.ID_NASABAH')
+            ->leftJoin('t_condition', 't_capital.ID_NASABAH', '=', 't_condition.ID_NASABAH')
+            ->leftJoin('t_character', 't_capital.ID_NASABAH', '=', 't_character.ID_NASABAH')
+            ->leftJoin('t_syariah', 't_capital.ID_NASABAH', '=', 't_syariah.ID_NASABAH')
+            ->leftJoin('t_limitkredit', 't_capital.ID_NASABAH', '=', 't_limitkredit.ID_NASABAH')
+            ->leftJoin('t_rekomendasi', 't_capital.ID_NASABAH', '=', 't_rekomendasi.ID_NASABAH')
+            ->first();
+        //dd($analisis);
+        $response = Http::post('http://127.0.0.1:9000/kolektabilitas', [
+            'PEM_REPUTASI' => $analisis->CU_EKSTERNAL,
+            'PEM_PELANGGAN' => $analisis->CU_KONSUMEN,
+            'PEM_KETERGANTUNGAN' => $analisis->PEM_KETERGANTUNGAN,
+            'TEH_SPESIFIKASI' => $analisis->SY_JENIS_BARANG,
+            'LIMIT_KREDIT' => $analisis->LIMIT_KREDIT,
+            'PENGIKATAN' => $analisis->PENGIKATAN,
+            'MAN_REPUTASI' => $analisis->MAN_REPUTASI,
+            'MARKETABILITY' => $analisis->MARKETABILITY,
+            'PEM_KEBUTUHAN' => $analisis->PEM_KEBUTUHAN,
+            'TES_REPUTASI' => $analisis->MAN_REPUTASI,
+            'JANGKA_WAKTU' => $analisis->JANGKA_WAKTU,
+            'TEH_UTILISASI' => $analisis->TEH_UTILISASI,
+            'TEH_PENGADAAN' => $analisis->CU_PASOKAN,
+            'TEH_KETERGANTUNGAN' => $analisis->PEM_KETERGANTUNGAN,
+            'ASURANSI' => $analisis->PA_DOKUMEN,
+            'ANGS_BANK_LAIN' => $analisis->ANGS_BANK_LAIN,
+            'BIAYA_HIDUP' => $analisis->BIAYA_HIDUP,
+            'MAN_KEJUJURAN' => $analisis->MAN_KEJUJURAN,
+            'OMSET' => $analisis->OMSET,
+            'HPP' => $analisis->HPP,
+            'PENGUASAAN' => $analisis->PENGUASAAN,
+            'PEM_PESAING' => $analisis->CU_EKSTERNAL,
+            'NILAI_AGUNAN' => $analisis->CA_NILAI_AGUNAN,
+            'TEH_LAMA_USAHA' => $analisis->TEH_LAMA_USAHA,
+            'KEPEMILIKAN' => $analisis->KEPEMILIKAN,
+            'MAN_KEMAUAN' => $analisis->MAN_KEMAUAN
+        ]);
+        //dd($response);
+
+        $predicted = $response->json()['data']['predicted_classes'];
+        // $hasilAnalisis = $response->json()['data']['percentage'];
+        //dd($analisis);
         $rugilaba = TRugilaba::where('ID_NASABAH', $id)->first();
         
         if ($rugilaba->count() > 0) {
@@ -217,7 +263,8 @@ class RekomendasiController extends Controller
             'nasabah' => $nasabah,
             'ebit' => $ebit,
             'rekomendasi_nasabah' => $rekomendasi_nasabah,
-            'scoring' => $scoring
+            'scoring' => $scoring,
+            'predicted' => $predicted,
         ]);
     }
 }

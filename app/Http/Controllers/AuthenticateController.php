@@ -14,7 +14,7 @@ class AuthenticateController extends Controller
         $credentials = $request->only('username', 'password');
 
         if (Auth::attempt($credentials)){
-            $request->session()->regenerate();
+            // $request->session()->regenerate();
             return redirect()->route('home')->with('message', 'Selamat datang di web BPRS Batimakmur Indah!');
         }else{
             return redirect()->back()->with('message-error', 'Login gagal!');

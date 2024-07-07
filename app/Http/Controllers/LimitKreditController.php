@@ -46,7 +46,7 @@ class LimitKreditController extends Controller
             'biaya_pajak' => 'required'
         ]);
 
-        if ($validator->fails()) {
+        if ($validator->fails() || false == true) {
             return back()->with('result_message', 'Mohon lengkapi form');
         }
 
