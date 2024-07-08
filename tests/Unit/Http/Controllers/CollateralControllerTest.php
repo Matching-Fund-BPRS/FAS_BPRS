@@ -48,7 +48,7 @@ class CollateralControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 75]], 200)
+            'model/collateral' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post('/dashboard/5collateral/submitCollateral', $data);
@@ -69,7 +69,7 @@ class CollateralControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 50]], 200)
+            'model/collateral' => Http::response(['data' => ['percentage' => 50]], 200)
         ]);
 
         $response = $this->post("/dashboard/5collateral/{$id}/update", $data);
@@ -90,7 +90,7 @@ class CollateralControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 75]], 200)
+            'model/collateral' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post('/dashboard/5collateral/submitCollateral', $data);
@@ -111,7 +111,7 @@ class CollateralControllerTest extends TestCase
         ];
 
         Http::fake([
-            'http://127.0.0.1:9000/collateral' => Http::response(['data' => ['percentage' => 50]], 200)
+            'model/collateral' => Http::response(['data' => ['percentage' => 50]], 200)
         ]);
 
         $response = $this->post("/dashboard/5collateral/{$id}/update", $data);

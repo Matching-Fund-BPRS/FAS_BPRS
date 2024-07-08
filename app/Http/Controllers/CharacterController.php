@@ -59,7 +59,7 @@ class CharacterController extends Controller
             'ID_NASABAH' => $request->id
         ]);
         
-        $response = Http::post('http://127.0.0.1:9000/character', [
+        $response = Http::post('model/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),
@@ -137,7 +137,7 @@ class CharacterController extends Controller
             'PU_INTEGRITAS' => $request->pu_integritas,
             'PU_ACCOUNT_BEHAVIOR' => $request->pu_account_behavior,
         ]);
-        $response = Http::post('http://127.0.0.1:9000/character', [
+        $response = Http::post('model/character', [
             'man_kemauan' => intval($request->man_kemauan),
             'man_kejujuran' => intval($request->man_kejujuran),
             'man_reputasi' => intval($request->man_reputasi),
