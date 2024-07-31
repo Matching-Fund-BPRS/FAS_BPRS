@@ -10,7 +10,7 @@
         {{-- <form method="get" action="" class="flex">   
             <label for="simple-search" class="sr-only">Search</label>
             <div class=" min-w-min">
-                <input type="text" name="id" id="simple-search" class="bg-gray-50 max-w-[160px] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cari Nota" required>
+                <input type="text" name="id" id="simple-search" class="bg-gray-50 max-w-[160px] border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block p-2  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Cari Nota" required>
             </div>
             <button type="submit" class="p-2 ml-2 text-sm font-medium text-white bg-green-700 rounded-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                 <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -30,34 +30,34 @@
                     <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal" id="tabel_nasabah" style="display: none;">
                         <thead class="bg-gray-50">
                             <tr>
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                     Nomor Survey
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                     CIF
                                 </th>
-                                <th scope="col" class="px-4 py-3.5 w-72 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 w-72 text-sm font-normal text-center rtl:text-right text-black">
                                     Nama
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                     Tanggal Permohonan
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                     Tanggal Analisa
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                     Jenis Fasilitas
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                     Plafond
                                 </th>
 
-                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                     User ID
                                 </th>
     
@@ -67,52 +67,52 @@
                             @foreach($all_nasabah as $nasabah)
                             <tr onclick="window.location='/dashboard/detailnota?id={{ $nasabah->ID_NASABAH }}';" class="hover:bg-gray-100 cursor-pointer">
                                 <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">{{ $nasabah->ID_NASABAH }}</p>
+                                        <p class="text-sm font-bold text-center text-black">{{ $nasabah->ID_NASABAH }}</p>
                                 </td>
                                 <td class="px-12 py-4 font-medium whitespace-nowrap">
                                     @if($nasabah->CIF != null)
-                                    <p class="text-sm font-normal text-center text-gray-600">{{ $nasabah->CIF }}</p>
+                                    <p class="text-sm font-normal text-center text-black">{{ $nasabah->CIF }}</p>
                                     @else
-                                    <p class="text-sm font-normal text-center text-gray-600"> - </p>
+                                    <p class="text-sm font-normal text-center text-black"> - </p>
                                     @endif
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">{{ $nasabah->NAMA }}</p>
+                                        <p class="text-sm font-normal text-center text-black">{{ $nasabah->NAMA }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"> {{ date('d-m-Y', strtotime($nasabah->TGL_PERMOHONAN)) }}</p>
+                                        <p class="text-sm font-normal text-center text-black"> {{ date('d-m-Y', strtotime($nasabah->TGL_PERMOHONAN)) }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"> {{ date('d-m-Y', strtotime($nasabah->TGL_ANALISA)) }}</p>
+                                        <p class="text-sm font-normal text-center text-black"> {{ date('d-m-Y', strtotime($nasabah->TGL_ANALISA)) }}</p>
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
                                     @switch($nasabah->SIFAT)
                                     @case(1)
-                                    <p class="text-sm font-normal text-center text-gray-600">Murabahah</p>
+                                    <p class="text-sm font-normal text-center text-black">Murabahah</p>
                                     @break
                                     @case(2)
-                                    <p class="text-sm font-normal text-center text-gray-600">Musyarakah</p>
+                                    <p class="text-sm font-normal text-center text-black">Musyarakah</p>
                                     @break
                                     @case(3)
-                                    <p class="text-sm font-normal text-center text-gray-600">Mudarabah</p>
+                                    <p class="text-sm font-normal text-center text-black">Mudarabah</p>
                                     @break
                                     @case(4)
-                                    <p class="text-sm font-normal text-center text-gray-600">Ijarah</p>
+                                    <p class="text-sm font-normal text-center text-black">Ijarah</p>
                                     @break
                                     @case(5)
-                                    <p class="text-sm font-normal text-center text-gray-600">Rahn</p>
+                                    <p class="text-sm font-normal text-center text-black">Rahn</p>
                                     @break
                                     @case(6)
-                                    <p class="text-sm font-normal text-center text-gray-600">Qord</p>
+                                    <p class="text-sm font-normal text-center text-black">Qord</p>
                                     @break
                                     @endswitch
                                 </td>
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600" type="currency">{{ $nasabah->LIMIT_KREDIT }}</p>
+                                    <p class="text-sm font-normal text-center text-black" type="currency">{{ $nasabah->LIMIT_KREDIT }}</p>
                                 </td>
                                 
                                 <td class="px-4 py-4 whitespace-nowrap">
-                                    <p class="text-sm font-normal text-center text-gray-600">{{ $nasabah->USER_ID }}</p>
+                                    <p class="text-sm font-normal text-center text-black">{{ $nasabah->USER_ID }}</p>
                                 </td>  
                             </tr>
                             @endforeach

@@ -48,383 +48,383 @@
                             <tbody class="bg-white divide-y divide-gray-20">
                                 <tr>
                                     <td class="px-4 py-1 font-medium whitespace-nowrap">
-                                        <i class="text-sm font-bold text-center text-gray-600"></i>
+                                        <i class="text-sm font-bold text-center text-black"></i>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
 
                                     <td class="px-4 py-1 whitespace-nowrap flex">
                                         @if ($rugi_laba_nasabah != null)
                                             <input readonly type="date" name="tgl_periode"
-                                                class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto"
+                                                class="text-sm font-normal text-center text-black border-none p-0 mx-auto"
                                                 value="{{ $rugi_laba_nasabah->TGL_PERIODE->format('Y-m-d') ?? date('Y-m-d') }}"
                                                 required>
                                         @else
                                             <input type="date" name="tgl_periode"
-                                                class="text-sm font-normal text-center text-gray-600 border-none p-0 mx-auto"
+                                                class="text-sm font-normal text-center text-black border-none p-0 mx-auto"
                                                 required>
                                         @endif
                                     </td>
                                     <td class=" py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-semibold text-center text-gray-600">06/08/2016</p>
+                                        <p class="text-sm font-semibold text-center text-black">06/08/2016</p>
                                     </td>
                                     <td class=" py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-semibold text-center text-gray-600">06/08/2017</p>
+                                        <p class="text-sm font-semibold text-center text-black">06/08/2017</p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">1</p>
+                                        <p class="text-sm font-normal text-center text-black">1</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">Penjualan Bersih</p>
+                                        <p class="text-sm font-normal text-center text-black">Penjualan Bersih</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="penjualan_bersih" id="penjualan_bersih"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->PENJUALAN_BERSIH ?? 0 }}">
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_penjualan_bersih_1" id="kenaikan_penjualan_bersih_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_penjualan_bersih_2" id="kenaikan_penjualan_bersih_2"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">2</p>
+                                        <p class="text-sm font-normal text-center text-black">2</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">Harga Pokok Penjualan</p>
+                                        <p class="text-sm font-normal text-center text-black">Harga Pokok Penjualan</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="hpp" id="hpp"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->HPP ?? 0 }}">
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_hpp_1" id="kenaikan_hpp_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_hpp_2" id="kenaikan_hpp_2"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">3</p>
+                                        <p class="text-sm font-normal text-center text-black">3</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">Laba Kotor (1-2)</p>
+                                        <p class="text-sm font-bold text-center text-black">Laba Kotor (1-2)</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="laba_kotor" id="laba_kotor"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8" readonly>
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8" readonly>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">4</p>
+                                        <p class="text-sm font-normal text-center text-black">4</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">Biaya Ops dan Non Ops</p>
+                                        <p class="text-sm font-bold text-center text-black">Biaya Ops dan Non Ops</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="total_biaya_ops_nonops" id="total_biaya_ops_nonops"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->BIAYA_HIDUP ?? 0 }}">
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_ops_nonops_1" id="kenaikan_biaya_ops_nonops_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
 
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_ops_nonops_2" id="kenaikan_biaya_ops_nonops_2"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
 
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">5</p>
+                                        <p class="text-sm font-normal text-center text-black">5</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">Laba Kotor Operasional</p>
+                                        <p class="text-sm font-bold text-center text-black">Laba Kotor Operasional</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="laba_kotor_ops" id="laba_kotor_ops"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8" readonly>
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8" readonly>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">6</p>
+                                        <p class="text-sm font-normal text-center text-black">6</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">Angsuran Bank Lain</p>
+                                        <p class="text-sm font-normal text-center text-black">Angsuran Bank Lain</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="angsuran_bank_lain" id="angsuran_bank_lain"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->PENYUSUTAN ?? 0 }}">
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_angsuran_bank_lain_1" id="kenaikan_angsuran_bank_lain_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_angsuran_bank_lain_2" id="kenaikan_angsuran_bank_lain_2"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">7</p>
+                                        <p class="text-sm font-normal text-center text-black">7</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">Laba Bersih Operasional</p>
+                                        <p class="text-sm font-bold text-center text-black">Laba Bersih Operasional</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="laba_bersih_operasional" id="laba_bersih_operasional"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8" readonly>
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8" readonly>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">8</p>
+                                        <p class="text-sm font-normal text-center text-black">8</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">Pendapatan Lainnya</p>
+                                        <p class="text-sm font-normal text-center text-black">Pendapatan Lainnya</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="pendapatan_lain" id="pendapatan_lain"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->PENDAPATAN_LAIN ?? 0 }}">
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_pendapatan_lain_1" id="kenaikan_pendapatan_lain_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_pendapatan_lain_2" id="kenaikan_pendapatan_lain_2"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">9</p>
+                                        <p class="text-sm font-normal text-center text-black">9</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">Biaya Lainnya</p>
+                                        <p class="text-sm font-normal text-center text-black">Biaya Lainnya</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="biaya_lain" id="biaya_lain"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->BIAYA_LAIN ?? 0 }}">
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_lain_1" id="kenaikan_biaya_lain_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_lain_2" id="kenaikan_biaya_lain_2"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">10</p>
+                                        <p class="text-sm font-normal text-center text-black">10</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">EBIT</p>
+                                        <p class="text-sm font-bold text-center text-black">EBIT</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="ebit" id="ebit"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8" readonly>
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8" readonly>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">11</p>
+                                        <p class="text-sm font-normal text-center text-black">11</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">Biaya Margin</p>
+                                        <p class="text-sm font-normal text-center text-black">Biaya Margin</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="biaya_margin" id="biaya_margin"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->BIAYA_BUNGA ?? 0 }}"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_margin_1" id="kenaikan_biaya_margin_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_margin_2" id="kenaikan_biaya_margin_2" 
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">12</p>
+                                        <p class="text-sm font-normal text-center text-black">12</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">Biaya Pajak</p>
+                                        <p class="text-sm font-normal text-center text-black">Biaya Pajak</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="biaya_pajak" id="biaya_pajak"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8"
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8"
                                             value="{{ $rugi_laba_nasabah->BIAYA_PAJAK ?? 0 }}" readonly>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_pajak_1" id="kenaikan_biaya_pajak_1"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input name="kenaikan_biaya_pajak_2" id="kenaikan_biaya_pajak_2"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0"value=0>
+                                            class="text-sm font-normal text-center text-black border-none p-0"value=0>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600">13</p>
+                                        <p class="text-sm font-normal text-center text-black">13</p>
                                     </td>
                                     <td class="px-4 py-1 whitespace-nowrap">
-                                        <p class="text-sm font-bold text-center text-gray-600">EAIT</p>
+                                        <p class="text-sm font-bold text-center text-black">EAIT</p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
                                         <input readonly name="eait" id="eait"
-                                            class="text-sm font-normal text-center text-gray-600 border-none p-0 ml-8" readonly>
+                                            class="text-sm font-normal text-center text-black border-none p-0 ml-8" readonly>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                     <td class="px-4 py-4 font-medium whitespace-nowrap">
-                                        <p class="text-sm font-normal text-center text-gray-600"></p>
+                                        <p class="text-sm font-normal text-center text-black"></p>
                                     </td>
                                 </tr>
 

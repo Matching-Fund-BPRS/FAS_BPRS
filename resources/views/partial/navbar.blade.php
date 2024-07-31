@@ -5,7 +5,7 @@
           <img src="{{ asset('img/logo.png') }}" class="h-12 mr-3" alt="BPRS Logo" />
           <p class=" font-bold">BPRS Baktimakmur Indah</p>
       </a>
-      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-default" aria-expanded="false">
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-black rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 " aria-controls="navbar-default" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
           <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -28,9 +28,9 @@
         <div class="mt-6">
             <nav class="-mx-3 space-y-6 ">
                 <div class="space-y-2">
-                    <label class="px-3 text-xs text-gray-500 uppercase">pengguna</label>
+                    <label class="px-3 text-xs text-black uppercase">pengguna</label>
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/danolisa">
+                    <a class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/danolisa">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
@@ -42,7 +42,7 @@
                         <span class="mx-2 text-sm font-medium">Daftar Nota Analisa</span>
                     </a>
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata">
+                    <a class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detaildata">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M3 4m0 3a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v10a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3z"></path>
@@ -55,7 +55,7 @@
                         <span class="mx-2 text-sm font-medium">Detail Data Entry</span>
                     </a>
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detailnota">
+                    <a class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="/dashboard/detailnota">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
@@ -67,7 +67,7 @@
                         <span class="mx-2 text-sm font-medium">Input Nota Analisa</span>
                     </a>
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2"></path>
@@ -81,9 +81,9 @@
                 </div>
     
                 <div class="space-y-2">
-                    <label class="px-3 text-xs text-gray-500 uppercase">pengaturan</label>
+                    <label class="px-3 text-xs text-black uppercase">pengaturan</label>
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
@@ -97,7 +97,7 @@
                         <span class="mx-2 text-sm font-medium">User Management</span>
                     </a>
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
+                    <a class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-green-800 hover:text-white" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
@@ -110,7 +110,7 @@
     
                 <div id="exit" class="space-y-2 ">
     
-                    <a class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-orange-600 hover:text-white" href="#">
+                    <a class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-orange-600 hover:text-white" href="#">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                             <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
@@ -123,7 +123,7 @@
     
                     <form action="{{ Route('logout')}}" method="post">
                         @csrf
-                            <button class="flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg hover:bg-red-600 hover:text-white">
+                            <button class="flex items-center px-3 py-2 text-black transition-colors duration-300 transform rounded-lg hover:bg-red-600 hover:text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                     <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>

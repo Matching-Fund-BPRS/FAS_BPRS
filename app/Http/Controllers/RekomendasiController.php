@@ -218,7 +218,7 @@ class RekomendasiController extends Controller
             ->leftJoin('t_rekomendasi', 't_capital.ID_NASABAH', '=', 't_rekomendasi.ID_NASABAH')
             ->first();
         //dd($analisis);
-        $response = Http::post('http://127.0.0.1:8000/kolektabilitas', [
+        $response = Http::post('http://127.0.0.1:9000/kolektabilitas', [
             'PEM_REPUTASI' => $analisis->CU_EKSTERNAL,
             'PEM_PELANGGAN' => $analisis->CU_KONSUMEN,
             'PEM_KETERGANTUNGAN' => $analisis->PEM_KETERGANTUNGAN,
@@ -244,7 +244,8 @@ class RekomendasiController extends Controller
             'NILAI_AGUNAN' => $analisis->CA_NILAI_AGUNAN,
             'TEH_LAMA_USAHA' => $analisis->TEH_LAMA_USAHA,
             'KEPEMILIKAN' => $analisis->KEPEMILIKAN,
-            'MAN_KEMAUAN' => $analisis->MAN_KEMAUAN
+            'MAN_KEMAUAN' => $analisis->MAN_KEMAUAN,
+
         ]);
         //dd($response);
 

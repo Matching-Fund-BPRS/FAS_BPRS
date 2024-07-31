@@ -5,12 +5,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/datepicker.min.js"></script>
 
 
-<ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
+<ul class="flex flex-wrap text-sm font-medium text-center text-black border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
     <li class="mr-2">
         @if($nasabah == null)
-        <a href="/dashboard/detaildata" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Perorangan</a>
+        <a href="/dashboard/detaildata" class="inline-block p-4 rounded-t-lg hover:text-black hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-black">Perorangan</a>
         @else
-        <a href="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}" class="inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-gray-300">Perorangan</a>
+        <a href="/dashboard/detaildata/{{ $nasabah->ID_NASABAH }}" class="inline-block p-4 rounded-t-lg hover:text-black hover:bg-gray-50 dark:hover:bg-gray-800 dark:hover:text-black">Perorangan</a>
         @endif
     </li>
     <li class="mr-2">
@@ -24,32 +24,32 @@
     <section id="start" class="md:flex md:flex-row mb-4 md:justify-between">
         <div class="my-4 space-y-4 relative w-full">
             <div>
-                <label for="cif" class="block mb-2 text-xs font-medium text-gray-900">CIF Bank</label>
-                <input value="{{ $nasabah->CIF ?? 0 }}" type="text" name="cif" id="cif" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required>
+                <label for="cif" class="block mb-2 text-xs font-medium text-black">CIF Bank</label>
+                <input value="{{ $nasabah->CIF ?? 0 }}" type="text" name="cif" id="cif" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required>
             </div>
                 
             <div class="flex space-x-2">
                 <div>
-                    <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Permohonan</label>
+                    <label for="tglperm" class="block mb-2 text-xs font-medium text-black">Tanggal Permohonan</label>
                     <div class="relative max-w-[220px]" id="tglperm">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </div>
-                        <input required name="tgl_permohonan" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                        <input required name="tgl_permohonan" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                     </div>
                 </div>
         
                 <div>
-                    <label for="tglan" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Analisa</label>
+                    <label for="tglan" class="block mb-2 text-xs font-medium text-black">Tanggal Analisa</label>
                     <div class="relative max-w-[220px]" id="tglan">
                         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                             </svg>
                         </div>
-                        <input required name="tgl_analisa" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                        <input required name="tgl_analisa" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                     </div>
                 </div>
             </div>
@@ -57,41 +57,41 @@
 
         <div class="grid grid-cols-1 items-center w-full">
             <div>
-                <label for="userid" class="block mb-2 text-xs font-medium text-gray-900">User ID</label>
-                <input readonly name="user_id" value="{{ auth()->user()->username }}" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required>
+                <label for="userid" class="block mb-2 text-xs font-medium text-black">User ID</label>
+                <input readonly name="user_id" value="{{ auth()->user()->username }}" type="text" id="userid" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500 dark:shadow-sm-light" placeholder="" required>
             </div>
         </div>
 
     </section>
 
     <section id="permohonan" class="my-4 space-y-4">
-        <p class="block py-4 text-base font-semibold text-gray-900">
+        <p class="block py-4 text-base font-semibold text-black">
             I. Data Permohonan
         </p>
 
         <div class="md:flex md:flex-row space-y-4 md:space-y-0 mb-4 md:justify-between">
             <div class="space-y-4 w-full">
                 <div>
-                    <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Plafond yang Dimohon</label>
-                    <input name="limit_kredit" value="{{ $nasabah->LIMIT_KREDIT ?? 0 }}" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <label for="limit" class="block mb-2 text-xs font-medium text-black">Plafond yang Dimohon</label>
+                    <input name="limit_kredit" value="{{ $nasabah->LIMIT_KREDIT ?? 0 }}" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                 </div>
                     
                 <div class="flex justify-between max-w-md">
                     <div class="">
-                        <label for="jawaktu" class="block mb-2 text-xs font-medium text-gray-900">Jangka Waktu yang Dimohon</label>
+                        <label for="jawaktu" class="block mb-2 text-xs font-medium text-black">Jangka Waktu yang Dimohon</label>
                         <div class="flex flex-row">
-                            <input name="jangka_waktu" value="{{ $nasabah->JANGKA_WAKTU ?? 0}}" type="text" id="jawaktu" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                            <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
+                            <input name="jangka_waktu" value="{{ $nasabah->JANGKA_WAKTU ?? 0}}" type="text" id="jawaktu" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <p class=" ml-3 my-auto place-item-center text-xs font-medium text-black">
                                 Bulan
                             </p>
                         </div>
                     </div>
             
                     <div class="">
-                        <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Margin</label>
+                        <label for="margin" class="block mb-2 text-xs font-medium text-black">Margin</label>
                         <div class="flex flex-row">
-                            <input name="margin" value="{{ $nasabah->BUNGA ?? 1.5 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                            <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
+                            <input name="margin" value="{{ $nasabah->BUNGA ?? 1.5 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <p class=" ml-3 my-auto place-item-center text-xs font-medium text-black">
                                 % per Bulan
                             </p>
                         </div>
@@ -99,8 +99,8 @@
                 </div>
                     
                 <div class= "min-w-xl">
-                    <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Akad Pembiayaan</label>
-                    <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <label for="countries" class="block mb-2 text-xs font-medium text-black">Akad Pembiayaan</label>
+                    <select name="sifat" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         @if($nasabah == null)
                         <option value="1">Murabahah</option>
                         <option value="2">Musyarakah</option>
@@ -121,12 +121,12 @@
                 <div class= "min-w-xl">
                     <div class="flex gap-8">
                         <div>
-                            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Basil Bank</label>
-                            <input name="basil_bank" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" value="{{ $nasabah->BASIL_BANK ?? 0}}">
+                            <label for="countries" class="block mb-2 text-xs font-medium text-black">Basil Bank</label>
+                            <input name="basil_bank" class=" max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" value="{{ $nasabah->BASIL_BANK ?? 0}}">
                         </div>
                         <div>
-                            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Basil Mudharib</label>
-                            <input name="basil_deb" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" value="{{ $nasabah->BASIL_DEB ?? 0}}">
+                            <label for="countries" class="block mb-2 text-xs font-medium text-black">Basil Mudharib</label>
+                            <input name="basil_deb" class=" max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" value="{{ $nasabah->BASIL_DEB ?? 0}}">
                         </div>
                     </div>
                 </div>
@@ -134,8 +134,8 @@
             
             <div class="space-y-4 relative w-full">
                 <div class= "">
-                    <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Jenis Permohonan</label>
-                    <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <label for="countries" class="block mb-2 text-xs font-medium text-black">Jenis Permohonan</label>
+                    <select name="jenis_permohonan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         @if($nasabah == null)
                         <option value="1">Baru</option>
                         <option value="2">Tambahan</option>
@@ -149,8 +149,8 @@
                 </div>
             
                 <div class= "">
-                    <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tujuan Penggunaan</label>
-                    <select name="tujuan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                    <label for="countries" class="block mb-2 text-xs font-medium text-black">Tujuan Penggunaan</label>
+                    <select name="tujuan" id="countries" class=" max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                         @if($nasabah == null)
                         <option value="1">Modal Kerja</option>
                         <option value="2">Investasi</option>
@@ -164,8 +164,8 @@
                 </div>
             
                 <div>
-                    <label for="ketpeng" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Keterangan Penggunaan</label>
-                    <textarea name="keterangan_tujuan" id="ketpeng" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."> {{ $nasabah->KET_TUJUAN ?? "-"}}</textarea>        
+                    <label for="ketpeng" class="block mb-2 text-xs font-medium text-black  ">Keterangan Penggunaan</label>
+                    <textarea name="keterangan_tujuan" id="ketpeng" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-black bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan..."> {{ $nasabah->KET_TUJUAN ?? "-"}}</textarea>        
                 </div>
             </div>
         </div>
@@ -173,20 +173,20 @@
     </section>
 
     <section id="databadanusaha" class=" my-4 space-y-4">
-        <p class="block py-4 text-base font-semibold text-gray-900">
+        <p class="block py-4 text-base font-semibold text-black">
             II. Data Badan Usaha
         </p>
         <div class="md:flex md:flex-row mb-4 md:justify-between">
             <div class=" w-full my-4 space-y-4">
                 <div>
-                    <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nama Badan Usaha</label>
-                    <input name="nama_badan_usaha" value="{{ $nasabah->NAMA_BADAN_USAHA ?? ""}}" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    <label for="limit" class="block mb-2 text-xs font-medium text-black">Nama Badan Usaha</label>
+                    <input name="nama_badan_usaha" value="{{ $nasabah->NAMA_BADAN_USAHA ?? ""}}" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                 </div>
             
                 <div class="flex justify-between max-w-md space-x-2 relative">
                     <div class= "">
-                        <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Sektor Usaha</label>
-                        <select name="sektor_usaha" id="countries" class="min-w-[220px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        <label for="countries" class="block mb-2 text-xs font-medium text-black">Sektor Usaha</label>
+                        <select name="sektor_usaha" id="countries" class="min-w-[220px] bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                             @if($nasabah == null)
                             <option value="1">Industri</option>
                             <option value="2">Jasa</option>
@@ -206,15 +206,15 @@
                     </div>
                 
                     <div class= "">
-                        <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Bidang Usaha</label>
-                        <input name="bidang_usaha" value="{{ $nasabah->BIDANG_USAHA ?? "" }}" name="sub_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                        <label for="countries" class="block mb-2 text-xs font-medium text-black">Bidang Usaha</label>
+                        <input name="bidang_usaha" value="{{ $nasabah->BIDANG_USAHA ?? "" }}" name="sub_usaha" type="text" id="nokan" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                         </select>
                     </div>
                 </div>
             
                 <div>
-                    <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Usaha</label>
-                    <textarea name="alamat_usaha" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT_USAHA ?? "-" }}</textarea>        
+                    <label for="alamatktp" class="block mb-2 text-xs font-medium text-black  ">Alamat Usaha</label>
+                    <textarea name="alamat_usaha" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-black bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT_USAHA ?? "-" }}</textarea>        
                 </div>
             
                         
@@ -224,8 +224,8 @@
 
                 <div class="flex justify-between max-w-md space-x-2 relative">
                     <div class= "">
-                        <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Tempat Usaha</label>
-                        <select name="status_tempat_usaha" id="countries" class="min-w-[224px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        <label for="countries" class="block mb-2 text-xs font-medium text-black">Status Tempat Usaha</label>
+                        <select name="status_tempat_usaha" id="countries" class="min-w-[224px] bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                             @if($nasabah == null)
                             <option value="1">Milik Sendiri</option>
                             <option value="2">Milik Keluarga / Ortu</option>
@@ -243,8 +243,8 @@
                     </div>
                 
                     <div class= "">
-                        <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Bentuk Usaha</label>
-                        <select name="bentuk_badan_usaha" id="countries" class=" min-w-[224px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        <label for="countries" class="block mb-2 text-xs font-medium text-black">Bentuk Usaha</label>
+                        <select name="bentuk_badan_usaha" id="countries" class=" min-w-[224px] bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                             @if($nasabah == null)
                             <option value="1">Usaha Dagang (UD)</option>
                             <option value="2">Commanditaire Vennootschap (CV)</option>
@@ -265,39 +265,39 @@
                 </div>
 
                 <div>
-                    <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Nomor Telepon Kantor</label>
-                    <input name="no_kantor" type="text" value="{{ $nasabah->NO_KANTOR ?? 0}}" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">    
+                    <label for="alamatktp" class="block mb-2 text-xs font-medium text-black  ">Nomor Telepon Kantor</label>
+                    <input name="no_kantor" type="text" value="{{ $nasabah->NO_KANTOR ?? 0}}" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">    
                 </div>
             
                 <div class="flex justify-between max-w-md">
                     <div>
-                        <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Mulai Usaha</label>
+                        <label for="tglperm" class="block mb-2 text-xs font-medium text-black">Tanggal Mulai Usaha</label>
                         <div class="relative max-w-[150px]" id="tglperm">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                 </svg>
                             </div>
-                            <input required name="tgl_mulai_usaha" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                            <input required name="tgl_mulai_usaha" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
                         </div>
                     </div>
                     <div>
-                        <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Jadi Nasabah Sejak</label>
+                        <label for="tglperm" class="block mb-2 text-xs font-medium text-black">Jadi Nasabah Sejak</label>
                         <div class="relative max-w-[150px]" id="tglperm">
                             <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                 <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                 </svg>
                             </div>
-                            <input name="menjadi_nasabah_sejak" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                            <input name="menjadi_nasabah_sejak" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
                         </div>
                     </div>
                 
                     <div class="">
-                        <label for="margin" class="block mb-2 text-xs font-medium text-gray-900">Jumlah Karyawan</label>
+                        <label for="margin" class="block mb-2 text-xs font-medium text-black">Jumlah Karyawan</label>
                         <div class="flex flex-row">
-                            <input name="jumlah_karyawan" value="{{ $nasabah->JUMLAH_KARY ?? 0 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-                            <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
+                            <input name="jumlah_karyawan" value="{{ $nasabah->JUMLAH_KARY ?? 0 }}" type="text" id="margin" class=" z-10 max-w-[80px] shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                            <p class=" ml-3 my-auto place-item-center text-xs font-medium text-black">
                                 Orang
                             </p>
                         </div>
@@ -308,115 +308,122 @@
         
     </section>
 
-    <section id="iii" class="my-4 space-y-4">
-        <p class="block py-4 text-base font-semibold text-gray-900">
+    <section id="iii" class="my-4 space-y-4 ">
+        <p class="block py-4 text-base font-semibold text-black">
             III. Data Keyperson Perusahaan
         </p>
+        <div class="flex flex-row justify-between">
+            <div class="w-1/2 space-y-4">
 
-        <div>
-            <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nama Direksi/Keyperson</label>
-            <input value="{{ $nasabah->NAMA ?? "" }}"name="nama_debitur" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-        </div>
 
-       
-
-        <div class="flex justify-between space-x-2 max-w-md">
-            <div class= " max-w-md">
-                <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Jabatan</label>
-                <select name="jabatan_keyperson"id="countries" class="min-w-[220px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    <option value="1">Direktur Utama</option>
-                    <option value="2">Direktur</option>
-                    <option value="3">Komisaris Utama</option>
-                    <option value="4">Komisaris</option>
-                    <option value="5">Permegang Saham</option>
-                    <option value="6">Persero Aktif</option>
-                    <option value="7">Persero Komanditer</option>
-                    <option value="8">Ketua Umum</option>
-                </select>
-            </div>
-        
-            <div>
-                <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Tingkat Pendidikan</label>
-                <select name="tingkat_pendidikan" id="countries" class="min-w-[220px] bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                    @if($nasabah == null)
-                    <option value="1">SD</option>
-                    <option value="2">SMP</option>
-                    <option value="3">SMA</option>
-                    <option value="4">Diploma</option>
-                    <option value="5">S1</option>
-                    <option value="6">S2</option>
-                    <option value="7">S3</option>
-                    @else
-                    <option @if($nasabah->TINGKAT_PENDIDIKAN == 1) selected @endif value="1">Sekolah Dasar</option>
-                    <option @if($nasabah->TINGKAT_PENDIDIKAN == 2) selected @endif value="2">SMP</option>
-                    <option @if($nasabah->TINGKAT_PENDIDIKAN == 3) selected @endif value="3">SMA</option>
-                    <option @if($nasabah->TINGKAT_PENDIDIKAN == 4) selected @endif value="4">Diploma</option>
-                    <option @if($nasabah->TINGKAT_PENDIDIKAN == 5) selected @endif value="5">S1</option>
-                    <option @if($nasabah->TINGKAT_PENDIDIKAN == 6) selected @endif value="6">S2</option>
-                    <option @if($nasabah->TINGKAT_PENDIDIKAN == 7) selected @endif value="7">S3</option>
-                    @endif
-                </select>
-            </div>
-        </div>
-
-        <div>
-            <label for="countries" class="block mb-2 text-xs font-medium text-gray-900">Status Pernikahan</label>
-            <select name="status_perkawinan" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
-                @if($nasabah == null)
-                <option value="1">Belum Menikah</option>
-                <option value="2">Menikah</option>
-                <option value="3">Duda</option>
-                <option value="4">Janda</option>
-                @else
-                <option @if($nasabah->STATUS_PERKAWINAN == 1) selected @endif value="1">Belum Menikah</option>
-                <option @if($nasabah->STATUS_PERKAWINAN == 2) selected @endif value="2">Menikah</option>
-                <option @if($nasabah->STATUS_PERKAWINAN == 3) selected @endif value="3">Duda</option>
-                <option @if($nasabah->STATUS_PERKAWINAN == 4) selected @endif value="4">Janda</option>
-                @endif
-            </select>
-        </div>
-
-        <div class=" max-w-md flex justify-between">
-            <div>
-                <label for="tujuanpeng" class="block mb-2 text-xs font-medium text-gray-900">Tempat Lahir</label>
-                <input value="{{ $nasabah->TEMPAT_LAHIR ?? '' }}"name="tempat_lahir" type="text" id="tujuanpeng" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-            </div>
-            <div>
-                <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900">Tanggal Lahir</label>
-                <div class="relative max-w-[224px]" id="tglperm">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                        </svg>
+                <div>
+                    <label for="limit" class="block mb-2 text-xs font-medium text-black">Nama Direksi/Keyperson</label>
+                    <input value="{{ $nasabah->NAMA ?? "" }}"name="nama_debitur" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                </div>
+    
+                <div class="flex justify-between space-x-2 max-w-md">
+                    <div class= " max-w-md">
+                        <label for="countries" class="block mb-2 text-xs font-medium text-black">Jabatan</label>
+                        <select name="jabatan_keyperson"id="countries" class="min-w-[220px] bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            <option value="1">Direktur Utama</option>
+                            <option value="2">Direktur</option>
+                            <option value="3">Komisaris Utama</option>
+                            <option value="4">Komisaris</option>
+                            <option value="5">Permegang Saham</option>
+                            <option value="6">Persero Aktif</option>
+                            <option value="7">Persero Komanditer</option>
+                            <option value="8">Ketua Umum</option>
+                        </select>
                     </div>
-                    <input name="tgl_lahir" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                
+                    <div>
+                        <label for="countries" class="block mb-2 text-xs font-medium text-black">Tingkat Pendidikan</label>
+                        <select name="tingkat_pendidikan" id="countries" class="min-w-[220px] bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                            @if($nasabah == null)
+                            <option value="1">SD</option>
+                            <option value="2">SMP</option>
+                            <option value="3">SMA</option>
+                            <option value="4">Diploma</option>
+                            <option value="5">S1</option>
+                            <option value="6">S2</option>
+                            <option value="7">S3</option>
+                            @else
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 1) selected @endif value="1">Sekolah Dasar</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 2) selected @endif value="2">SMP</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 3) selected @endif value="3">SMA</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 4) selected @endif value="4">Diploma</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 5) selected @endif value="5">S1</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 6) selected @endif value="6">S2</option>
+                            <option @if($nasabah->TINGKAT_PENDIDIKAN == 7) selected @endif value="7">S3</option>
+                            @endif
+                        </select>
+                    </div>
+                </div>
+    
+                <div>
+                    <label for="countries" class="block mb-2 text-xs font-medium text-black">Status Pernikahan</label>
+                    <select name="status_perkawinan" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                        @if($nasabah == null)
+                        <option value="1">Belum Menikah</option>
+                        <option value="2">Menikah</option>
+                        <option value="3">Duda</option>
+                        <option value="4">Janda</option>
+                        @else
+                        <option @if($nasabah->STATUS_PERKAWINAN == 1) selected @endif value="1">Belum Menikah</option>
+                        <option @if($nasabah->STATUS_PERKAWINAN == 2) selected @endif value="2">Menikah</option>
+                        <option @if($nasabah->STATUS_PERKAWINAN == 3) selected @endif value="3">Duda</option>
+                        <option @if($nasabah->STATUS_PERKAWINAN == 4) selected @endif value="4">Janda</option>
+                        @endif
+                    </select>
+                </div>
+    
+                <div class=" max-w-md flex justify-between">
+                    <div>
+                        <label for="tujuanpeng" class="block mb-2 text-xs font-medium text-black">Tempat Lahir</label>
+                        <input value="{{ $nasabah->TEMPAT_LAHIR ?? '' }}"name="tempat_lahir" type="text" id="tujuanpeng" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    </div>
+                    <div>
+                        <label for="tglperm" class="block mb-2 text-xs font-medium text-black">Tanggal Lahir</label>
+                        <div class="relative max-w-[224px]" id="tglperm">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                                </svg>
+                            </div>
+                            <input name="tgl_lahir" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="w-1/2 space-y-4 ">
+
+    
+                <div>
+                    <label for="limit" class="block mb-2 text-xs font-medium text-black">Nomor KTP</label>
+                    <input value="{{ $nasabah->NO_KTP ?? "" }}"name="no_ktp" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                </div>
+                <div>
+                    <label for="alamatktp" class="block mb-2 text-xs font-medium text-black  ">Alamat Sesuai KTP</label>
+                    <textarea name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-black bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT ?? "-" }}</textarea>        
                 </div> 
+    
+                <div class="flex justify-between max-w-md space-x-2">
+                    <div>
+                        <label for="limit" class="block mb-2 text-xs font-medium text-black">Nomor Telepon / HP</label>
+                        <input value="{{ $nasabah->NO_TELP ?? 0 }}"name="nomor_telepon" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                    </div>
+                    <div>
+                        <label for="limit" class="block mb-2 text-xs font-medium text-black">Nomor Telepon Kantor</label>
+                        <input value="{{ $nasabah->NO_KANTOR ?? 0 }}" name="nomor_telepon_kantor" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
-            <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nomor KTP</label>
-            <input value="{{ $nasabah->NO_KTP ?? "" }}"name="no_ktp" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-        </div>
-        <div>
-            <label for="alamatktp" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Alamat Sesuai KTP</label>
-            <textarea name="alamat_ktp" id="alamatktp" rows="4" class=" max-w-md block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Tulis Keterangan...">{{ $nasabah->ALAMAT ?? "-" }}</textarea>        
-        </div> 
-
-        <div class="flex justify-between max-w-md space-x-2">
-            <div>
-                <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon / HP</label>
-                <input value="{{ $nasabah->NO_TELP ?? 0 }}"name="nomor_telepon" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
-            </div>
-            <div>
-                <label for="limit" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon Kantor</label>
-                <input value="{{ $nasabah->NO_KANTOR ?? 0 }}" name="nomor_telepon_kantor" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 ">
-            </div>
-        </div>
-
+        
     </section>
 
     <section class="max-w-screen-xl h-fit">
-        <p class="block py-4 text-base font-semibold text-gray-900">
+        <p class="block py-4 text-base font-semibold text-black">
             IV. Legalitas Pendirian Badan Usaha
         </p>
 
@@ -428,23 +435,23 @@
                         <table class=" divide-y divide-gray-20 w-full table-fixed overflow-auto whitespace-normal">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                         Dokumen Legalitas Pendirian Badan Usaha
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[25%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[25%] text-sm font-normal text-center rtl:text-right text-black">
                                         Nomor
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-black">
                                         Tanggal
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                         Isi Dokumen
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-black">
                                         Kondisi
                                     </th>
                                 </tr>
@@ -455,27 +462,27 @@
                                         Akta Pendirian    
                                     </td>
                                     <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <input value="{{ $nasabah->NO_PENDIRIAN ?? 0 }}" name="no_pendirian" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
+                                        <input value="{{ $nasabah->NO_PENDIRIAN ?? 0 }}" name="no_pendirian" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
                                     </td>
                                     <td class="px-4 py-4 whitespace-nowrap">
                                         <div>
                                             <div class="relative max-w-[220px]" id="tglperm">
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                                     </svg>
                                                 </div>
-                                                <input name="tgl_pendirian"datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                                <input name="tgl_pendirian"datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                                             </div>
                                         </div>
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input name="isi_pendirian" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" required>
+                                        <input name="isi_pendirian" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" required>
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <select name="kondisi_pendirian" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                                        <select name="kondisi_pendirian" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                                             @if($nasabah == null)
                                             <option value="1">Sempurna</option>
                                             <option value="2">Tidak Sempurna</option>
@@ -491,27 +498,27 @@
                                         Akta Perubahan Anggaran Dasar 
                                     </td>
                                     <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <input value="{{ $nasabah->ANGGARAN ?? 0 }}"name="no_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
+                                        <input value="{{ $nasabah->ANGGARAN ?? 0 }}"name="no_anggaran" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " >
                                     </td>
                                     <td class="px-4 py-4 whitespace-nowrap">
                                         <div>
                                             <div class="relative max-w-[220px]" id="tglperm">
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                                     </svg>
                                                 </div>
-                                                <input name="tgl_anggaran" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                                <input name="tgl_anggaran" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                                             </div>
                                         </div>
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input name="isi_anggaran" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*">
+                                        <input name="isi_anggaran" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*">
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <select name="kondisi_anggaran" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                                        <select name="kondisi_anggaran" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                                             @if($nasabah == null)
                                             <option value="1">Sempurna</option>
                                             <option value="2">Tidak Sempurna</option>
@@ -527,27 +534,27 @@
                                         Akta Susunan Pengurus Terakhir    
                                     </td>
                                     <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                        <input value="{{ $nasabah->PENGURUS ?? 0 }}" name="no_pengurus" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
+                                        <input value="{{ $nasabah->PENGURUS ?? 0 }}" name="no_pengurus" type="text" id="limit" class=" max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 " required>
                                     </td>
                                     <td class="px-4 py-4 whitespace-nowrap">
                                         <div>
                                             <div class="relative max-w-[220px]" id="tglperm">
                                                 <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                                     <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                                     </svg>
                                                 </div>
-                                                <input name="tgl_pengurus" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
+                                                <input name="tgl_pengurus" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal">
                                             </div>
                                         </div>
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <input name="isi_pengurus" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" >
+                                        <input name="isi_pengurus" type="file" id="limit" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" accept="image/*" >
                                     </td>
 
                                     <td class="px-4 py-4 whitespace-nowrap">
-                                        <select name="kondisi_pengurus" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                                        <select name="kondisi_pengurus" id="countries" class="max-w-md bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                                             @if($nasabah == null)
                                             <option value="1">Sempurna</option>
                                             <option value="2">Tidak Sempurna</option>
@@ -571,7 +578,7 @@
     </section>
 </form>
     <section>
-        <p class="block py-4 text-base font-semibold text-gray-900">
+        <p class="block py-4 text-base font-semibold text-black">
             V. Data Pengurus
         </p>
 
@@ -583,31 +590,31 @@
                         <table class=" divide-y divide-gray-20 w-full table-auto overflow-auto whitespace-normal">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th scope="col" class=" w-[8%] px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class=" w-[8%] px-4 py-3.5 text-sm font-normal text-center rtl:text-right text-black">
                                         Nomor
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[20%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[20%] text-sm font-normal text-center rtl:text-right text-black">
                                         Nama
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5  text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5  text-sm font-normal text-center rtl:text-right text-black">
                                         Jabatan
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-black">
                                         Tanggal Lahir
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-black">
                                         Nomor Identitas
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-black">
                                         Nomor Telepon
                                     </th>
 
-                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-gray-500">
+                                    <th scope="col" class="px-4 py-3.5 w-[15%] text-sm font-normal text-center rtl:text-right text-black">
                                         Saham
                                     </th>
                                 </tr>
@@ -684,10 +691,10 @@
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-start justify-between p-4 border-b border-gray-200 rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-bold text-gray-700 dark:text-white">
+                    <h3 class="text-xl font-bold text-black  ">
                         Tambah Riwayat
                     </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-black rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>
@@ -701,42 +708,42 @@
                         <input type="hidden" name="id" value="{{ $nasabah->ID_NASABAH }}">
                         <div class="grid grid-cols-2 space-x-4">
                             <div>
-                                <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Nama</label>
-                                <input name="nama" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="bank" class="block mb-2 text-xs font-medium text-black">Nama</label>
+                                <input name="nama" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
         
                             <div class= "">
-                                <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-gray-900">Jabatan</label>
-                                <input name="jabatan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-black">Jabatan</label>
+                                <input name="jabatan" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
                         </div>
     
                         <div class="grid grid-cols-2 space-x-4">
                             <div>
-                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Identitas</label>
-                                <input name="no_ktp" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Nomor Identitas</label>
+                                <input name="no_ktp" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
         
                             <div>
-                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon</label>
-                                <input name="no_telp" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Nomor Telepon</label>
+                                <input name="no_telp" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 space-x-4">
                             <div>
-                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Saham</label>
-                                <input name="saham" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Saham</label>
+                                <input name="saham" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
         
                             <div class="">
-                                <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900 ">Tanggal Lahir</label>
+                                <label for="tglperm" class="block mb-2 text-xs font-medium text-black ">Tanggal Lahir</label>
                                 <div class="relative  id="tglperm">
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                         </svg>
                                     </div>
-                                    <input name="tgl_lahir" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                                    <input name="tgl_lahir" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
                                 </div>
                             </div>
                         </div>
@@ -747,7 +754,7 @@
                     <!-- Modal footer -->
                     <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                         <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
-                        <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                        <button data-modal-hide="defaultModal" type="button" class="text-black bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-black focus:z-10 dark:bg-gray-700 dark:text-black dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
                     </div>
                 </form>
             </div>
@@ -762,10 +769,10 @@
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-start justify-between p-4 border-b border-gray-200 rounded-t dark:border-gray-600">
-                    <h3 class="text-xl font-bold text-gray-700 dark:text-white">
+                    <h3 class="text-xl font-bold text-black  ">
                         Edit Pengurus
                     </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal{{ $fas->ID }}">
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-black rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal{{ $fas->ID }}">
                         <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                         </svg>
@@ -779,42 +786,42 @@
                         <input type="hidden" name="id" value="{{ $nasabah->ID_NASABAH }}">
                         <div class="grid grid-cols-2 space-x-4">
                             <div>
-                                <label for="bank" class="block mb-2 text-xs font-medium text-gray-900">Nama </label>
-                                <input name="nama" value="{{ $fas->NAMA }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="bank" class="block mb-2 text-xs font-medium text-black">Nama </label>
+                                <input name="nama" value="{{ $fas->NAMA }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
         
                             <div class= "">
-                                <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-gray-900">Jabatan</label>
-                                <input name="jabatan" value="{{ $fas->JABATAN }}" type="text" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                                <label for="jenis_kredit" class="block mb-2 text-xs font-medium text-black">Jabatan</label>
+                                <input name="jabatan" value="{{ $fas->JABATAN }}" type="text" class=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                             </div>
                         </div>
     
                         <div class="grid grid-cols-2 space-x-4">
                             <div>
-                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Identitas</label>
-                                <input name="no_ktp" value="{{ $fas->NO_KTP }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Nomor Identitas</label>
+                                <input name="no_ktp" value="{{ $fas->NO_KTP }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
         
                             <div>
-                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nomor Telepon</label>
-                                <input name="no_telp" value="{{ $fas->NO_TELP }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Nomor Telepon</label>
+                                <input name="no_telp" value="{{ $fas->NO_TELP }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
                         </div>
                         <div class="grid grid-cols-2 space-x-4">
                             <div>
-                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Saham</label>
-                                <input name="saham" value="{{ $fas->SAHAM }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                                <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Saham</label>
+                                <input name="saham" value="{{ $fas->SAHAM }}" type="text" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                             </div>
         
                             <div class="">
-                                <label for="tglperm" class="block mb-2 text-xs font-medium text-gray-900 ">Tanggal Lahir</label>
+                                <label for="tglperm" class="block mb-2 text-xs font-medium text-black ">Tanggal Lahir</label>
                                 <div class="relative  id="tglperm">
                                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <svg class="w-4 h-4 text-black dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                                         </svg>
                                     </div>
-                                    <input name="tgl_lahir" value="{{ $fas->TGL_LAHIR }}" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
+                                    <input name="tgl_lahir" value="{{ $fas->TGL_LAHIR }}" datepicker datepicker-autohide type="text" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full pl-10  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400   dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="Pilih Tanggal" required>
                                 </div>
                             </div>
                         </div>
@@ -823,7 +830,7 @@
                     <div class="flex justify-between  p-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                         <div class="flex items-center space-x-2">
                             <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
-                            <button data-modal-hide="defaultModal{{ $fas->ID }}" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                            <button data-modal-hide="defaultModal{{ $fas->ID }}" type="button" class="text-black bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-black focus:z-10 dark:bg-gray-700 dark:text-black dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
                         </div>
                         <div class="">
                             <button type="button" class="text-white bg-gradient-to-b from-red-400 to-red-600 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" onclick="document.getElementById('delete_riwayat_{{ $fas->ID }}').submit()" id="delete_pengurus_{{ $fas->ID }}">Hapus</button>

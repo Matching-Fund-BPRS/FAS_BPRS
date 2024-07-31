@@ -37,28 +37,28 @@
                         @foreach($user_data as $user)
                         <tr>
                             <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $user->name }}</p>
+                                <p class="text-sm font-normal text-center text-black">{{ $user->name }}</p>
                             </td>
                             <td class="px-4 py-1 whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $user->username }}</p>
+                                <p class="text-sm font-normal text-center text-black">{{ $user->username }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                             @if($user->level == 0)
-                                <p class="text-sm font-normal text-center text-gray-600">Operator</p>
+                                <p class="text-sm font-normal text-center text-black">Operator</p>
                             @elseif($user->level == 1)
-                                <p class="text-sm font-normal text-center text-gray-600">Supervisor</p>
+                                <p class="text-sm font-normal text-center text-black">Supervisor</p>
                             @elseif($user->level == 2)
-                            <p class="text-sm font-normal text-center text-gray-600">Admin</p>
+                            <p class="text-sm font-normal text-center text-black">Admin</p>
                             @endif
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
-                                <p class="text-sm font-normal text-center text-gray-600">{{ $user->created_at }}</p>
+                                <p class="text-sm font-normal text-center text-black">{{ $user->created_at }}</p>
                             </td>
                             <td class="px-12 py-4 font-medium whitespace-nowrap">
                             @if($user->isActive)
-                                <p class="text-sm font-normal text-center text-gray-600">Active</p>
+                                <p class="text-sm font-normal text-center text-black">Active</p>
                             @else()
-                                <p class="text-sm font-normal text-center text-gray-600">Non-Active</p>
+                                <p class="text-sm font-normal text-center text-black">Non-Active</p>
                             @endif
                             </td>
                             <td class="align-center py-2 font-medium whitespace-nowrap">
@@ -92,10 +92,10 @@
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
             <!-- Modal header -->
             <div class="flex items-start justify-between p-4 border-b border-gray-200 rounded-t dark:border-gray-600">
-                <h3 class="text-xl font-bold text-gray-700 dark:text-white">
+                <h3 class="text-xl font-bold text-black  ">
                     Add User
                 </h3>
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-black rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                     </svg>
@@ -107,41 +107,41 @@
                 @csrf
                 <div class="p-4 space-y-4">
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Name</label>
-                        <input name="name" type="text" placeholder="Nama" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Name</label>
+                        <input name="name" type="text" placeholder="Nama" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
         
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Username</label>
-                        <input name="username" type="text" placeholder="Username" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Username</label>
+                        <input name="username" type="text" placeholder="Username" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
         
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Password</label>
-                        <input name="password" type="password" placeholder="Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Password</label>
+                        <input name="password" type="password" placeholder="Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
         
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Confirm Password</label>
-                        <input name="confirm-password" type="password" placeholder="Confirm Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Confirm Password</label>
+                        <input name="confirm-password" type="password" placeholder="Confirm Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
         
-                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Level User</label>
+                    <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Level User</label>
         
                     <div class=" flex space-x-3">
                         <div class="flex my-auto items-center">
                             <input required name="level" value ="1" id="default-radio-2" type="radio" name="default-radio" class=" my-auto w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="default-radio-2" class="ml-2 text-xs font-medium text-gray-500 dark:text-gray-300">Supervisor</label>
+                            <label for="default-radio-2" class="ml-2 text-xs font-medium text-black dark:text-black">Supervisor</label>
                         </div>
                             
                         <div class="flex my-auto items-center">
                                 <input required name="level" value="0" id="default-radio-2" type="radio"  name="default-radio" class=" my-auto w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-2" class="ml-2 text-xs font-medium text-gray-500 dark:text-gray-300">Operator</label>
+                                <label for="default-radio-2" class="ml-2 text-xs font-medium text-black dark:text-black">Operator</label>
                         </div>
                         
                         <div class="flex my-auto items-center">
                             <input required name="level" value="2" id="default-radio-2" type="radio"  name="default-radio" class=" my-auto w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="default-radio-2" class="ml-2 text-xs font-medium text-gray-500 dark:text-gray-300">Admin</label>
+                            <label for="default-radio-2" class="ml-2 text-xs font-medium text-black dark:text-black">Admin</label>
                     </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                 <!-- Modal footer -->
                 <div class="flex items-center p-4 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
                     <button type="submit" class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Simpan</button>
-                    <button data-modal-hide="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
+                    <button data-modal-hide="defaultModal" type="button" class="text-black bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-black focus:z-10 dark:bg-gray-700 dark:text-black dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Keluar</button>
                 </div>
             </form>
         </div>

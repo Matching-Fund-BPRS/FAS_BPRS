@@ -27,22 +27,22 @@
                 <div class="align-middle space-y-4">
                 
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Nama</label>
-                        <input name="name" type="text" placeholder="Nama" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Nama</label>
+                        <input name="name" type="text" placeholder="Nama" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
             
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Username</label>
-                        <input name="username" type="text" placeholder="Username" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Username</label>
+                        <input name="username" type="text" placeholder="Username" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
         
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Password</label>
-                        <input name="password" type="password" placeholder="Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Password</label>
+                        <input name="password" type="password" placeholder="Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
                     <div>
-                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-gray-900">Confirm Password</label>
-                        <input name="confirm-password" type="password" placeholder="Confirm Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                        <label for="sifat_plafond" class="block mb-2 text-xs font-medium text-black">Confirm Password</label>
+                        <input name="confirm-password" type="password" placeholder="Confirm Password" class="max-w-md shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
                     </div>
         
         

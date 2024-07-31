@@ -4,13 +4,13 @@
 <form method="POST" action="/dashboard/5syariah/tambah">
     @csrf
     <section id="syariah" class="my-4 max-w-xl space-y-4">
-        <p class="block py-4 text-base font-semibold text-gray-900">
+        <p class="block py-4 text-base font-semibold text-black">
             Aspek Syariah
         </p>
         <input name="id" value="{{ $nasabah->ID_NASABAH }}" type="hidden">
             <div class= "min-w-xl">
-                <label for="cu_pasokan" class="block mb-2 text-xs font-medium text-gray-900">Sertifikasi</label>
-                <select name="sertifikasi" id="cu_pasokan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <label for="cu_pasokan" class="block mb-2 text-xs font-medium text-black">Sertifikasi</label>
+                <select name="sertifikasi" id="cu_pasokan" class=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     <option value="">Tentukan analisa Sertifikasi</option>
                     @if($syariah_nasabah != null)
                         <option {{ $syariah_nasabah->SY_SERTIFIKASI_HALAL == 1 ? 'selected' : ''}} value="1"> Memiliki sertifikat halal </option>
@@ -23,20 +23,20 @@
             </div>
 
             <div>
-                <label for="cb_dscr" class="block mb-2 text-xs font-medium text-gray-900">Persentase Hutang Berbasis Bunga</label>
+                <label for="cb_dscr" class="block mb-2 text-xs font-medium text-black">Persentase Hutang Berbasis Bunga</label>
                 <div class="flex items-center">
-                <input value="{{ $syariah_nasabah->SY_JUMLAH_HUTANG ?? 0}}" name="jumlah_hutang" type="number" max="100" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
-                <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
+                <input value="{{ $syariah_nasabah->SY_JUMLAH_HUTANG ?? 0}}" name="jumlah_hutang" type="number" max="100" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                <p class=" ml-3 my-auto place-item-center text-xs font-medium text-black">
                     %
                 </p>
                 </div>
             </div>
 
             <div>
-                <label for="cb_dscr" class="block mb-2 text-xs font-medium text-gray-900">Presentase Pendapatan Non Halal</label>
+                <label for="cb_dscr" class="block mb-2 text-xs font-medium text-black">Presentase Pendapatan Non Halal</label>
                 <div class="flex items-center">
-                    <input value="{{ $syariah_nasabah->SY_PRESENTASE_NON_SYARIAH ?? 0}}" name="presentase" type="number" max="100" type="text" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
-                    <p class=" ml-3 my-auto place-item-center text-xs font-medium text-gray-500">
+                    <input value="{{ $syariah_nasabah->SY_PRESENTASE_NON_SYARIAH ?? 0}}" name="presentase" type="number" max="100" type="text" id="cb_dscr" class=" max-w-[200px] shadow-sm bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5" required>
+                    <p class=" ml-3 my-auto place-item-center text-xs font-medium text-black">
                         %
                     </p>
                 </div>
@@ -44,8 +44,8 @@
             </div>
 
             <div class= "min-w-xl">
-                <label for="pem_kebutuhan" class="block mb-2 text-xs font-medium text-gray-900">Akad usaha</label>
-                <select name="akad_usaha" id="pem_kebutuhan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <label for="pem_kebutuhan" class="block mb-2 text-xs font-medium text-black">Akad usaha</label>
+                <select name="akad_usaha" id="pem_kebutuhan" class=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     <option value="">Tentukan analisa Akad usaha</option>
                     @if($syariah_nasabah == null)
                         <option value="1">Transaksi Menggunakan Akad Yang Bertentangan Dengan Syariah </option>
@@ -58,8 +58,8 @@
             </div>
         
             <div class= "min-w-xl">
-                <label for="cu_kecakapan" class="block mb-2 text-xs font-medium text-gray-900">Jenis Barang Usaha</label>
-                <select name="jenis_barang_usaha" id="cu_kecakapan" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
+                <label for="cu_kecakapan" class="block mb-2 text-xs font-medium text-black">Jenis Barang Usaha</label>
+                <select name="jenis_barang_usaha" id="cu_kecakapan" class=" bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5">
                     <option value="">Tentukan analisa Jenis Barang Usaha</option>
                     @if($syariah_nasabah == null)
                         <option value="1">Barang atau jasa yang di produksi mengandung hal hal yang bertentang dengan prinsip syariah</option>

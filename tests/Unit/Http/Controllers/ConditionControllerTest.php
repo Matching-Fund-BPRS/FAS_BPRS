@@ -44,7 +44,7 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:8000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post(route('updateCondition', ['id' => $nasabah->ID_NASABAH]), $request->all());
@@ -66,7 +66,7 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:8000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post(route('postCondition'), $request->all());
@@ -91,7 +91,7 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:8000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post(route('updateCondition', ['id' => $nasabah->ID_NASABAH]), $request->all());
@@ -113,7 +113,7 @@ class ConditionControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:8000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
+            'http://127.0.0.1:9000/condition' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post(route('postCondition'), $request->all());
