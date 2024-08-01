@@ -44,7 +44,7 @@ class CharacterControllerTest extends TestCase
         ];
 
         Http::fake([
-            'model:9000/character' => Http::response(['data' => ['percentage' => 75]], 200)
+            'model:8000/character' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post('/dashboard/5character/submitCharacter', $data);
@@ -68,7 +68,7 @@ class CharacterControllerTest extends TestCase
         ];
 
         Http::fake([
-            'model:9000/character' => Http::response(['data' => ['percentage' => 80]], 200)
+            'model:8000/character' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post("/dashboard/5character/{$id}/edit", $data);
