@@ -54,7 +54,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('http://127.0.0.1:9000/condition', [
+        $response = Http::post('model:9000/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),
@@ -123,7 +123,7 @@ class ConditionController extends Controller
             'ID_NASABAH' => $request->id
         ]);
 
-        $response = Http::post('http://127.0.0.1:9000/condition', [
+        $response = Http::post('model:9000/condition', [
             'cu_pasokan' => intval($request->cu_pasokan),
             'cu_konsumen' => intval($request->cu_konsumen),
             'pem_ketergantungan' => intval($request->pem_ketergantungan),

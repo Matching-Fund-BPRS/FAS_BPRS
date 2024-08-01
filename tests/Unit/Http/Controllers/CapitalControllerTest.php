@@ -44,7 +44,7 @@ class CapitalControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:9000/capital' => Http::response(['data' => ['percentage' => 75]], 200)
+            'model:9000/capital' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post(route('postCapital'), $request->all());
@@ -69,7 +69,7 @@ class CapitalControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:9000/capital' => Http::response(['data' => ['percentage' => 80]], 200)
+            'model:9000/capital' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post(route('updateCapital', ['id' => '123']), $request->all());
@@ -94,7 +94,7 @@ class CapitalControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:9000/capital' => Http::response(['data' => ['percentage' => 75]], 200)
+            'model:9000/capital' => Http::response(['data' => ['percentage' => 75]], 200)
         ]);
 
         $response = $this->post(route('postCapital'), $request->all());
@@ -119,7 +119,7 @@ class CapitalControllerTest extends TestCase
         ]);
 
         Http::fake([
-            'http://127.0.0.1:9000/capital' => Http::response(['data' => ['percentage' => 80]], 200)
+            'model:9000/capital' => Http::response(['data' => ['percentage' => 80]], 200)
         ]);
 
         $response = $this->post(route('updateCapital', ['id' => '123']), $request->all());

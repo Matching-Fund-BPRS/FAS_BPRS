@@ -42,6 +42,7 @@ use App\Models\TRugilaba;
 use App\Models\TScoring;
 use App\Models\TSyariah;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 use OpenSpout\Common\Entity\Row;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpWord\IOFactory as PhpWordIOFactory;
@@ -227,3 +228,14 @@ Route::group(['middleware' => 'guest'], function () {
     Route::post('/register', [AuthenticateController::class, 'register'])->name('register');
 });
 Route::post("/logout", [AuthenticateController::class, 'logout'])->name('logout');
+
+// test api
+Route::get('/test', 
+    function () {
+        $response = Http::post('model:8000/kolektabilitas', [
+
+
+        ]);
+        dd($response);
+    }
+);
